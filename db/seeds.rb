@@ -13,3 +13,7 @@ trip3 =Trip.create(name:"Work Trip", city:"San Diego", state:"CA", start_date: "
 user1 = User.create(first_name: "Peter", last_name: "Stevens", email:"peter.stevens@gmail.com", password: "password")
 user2 = User.create(first_name: "Jeffrey", last_name: "Jefferson", email:"jeffy@gmail.com", password: "password")
 user3 = User.create(first_name: "Billiam", last_name: "Cornwall", email:"Iambill@gmail.com", password: "password")
+
+Tripmember.create(user_id: 1, trip_id: 1)
+Tripmember.create(user_id: 2, trip_id: 1)
+Tripmember.create(user_id: 3, trip_id: 1)
