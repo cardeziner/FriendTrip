@@ -6,4 +6,63 @@ body {
 
 .header {
   font-family: 'Francois One', sans-serif;
+  color: #00C176;
+  font-size: 12;
+  text-align: center;
+}
+
+.button {
+align-self: center;
+  color: #88C100;
+}
+
+.field {
+    font-family: 'Francois One', sans-serif;
+    $label-color: #88C100;
+    font-size: 15;
+    border-radius: 3px;
+}
+
+.accent-red {
+  font-family: 'Francois One', sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  color: #FF003C;
+  font-size: 50;
+}
+
+.page-title {
+  text-align: center;
+  font-family: 'Francois One', sans-serif;
+  font-size: 30;
+  color:#00C176;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.cell {
+  margin: 20px 20px 20px 50px;
+}
+
+.callout {
+  margin: 15px 15px 15px 15px;
+  padding: 5px 10px 5px 5x;
+  border-radius: 25px;
+  border-color: #FABE28;
+  background-color: #FABE28;
+}
+.center {
+  text-align: center;
+}
+.title {
+  text-align: center;
+}
+
+.frame {
+
+  background: #FABE28;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #BAC9A9;
 }

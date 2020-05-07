@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+import TripShowContainer from './TripShowContainer'
 import TripTile from './TripTile'
 
 const TripsIndexComponent = (props) =>{
