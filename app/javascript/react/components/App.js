@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import TripsIndexComponent from './TripsIndexComponent'
 import TripShowContainer from './TripShowContainer'
+import EventShowContainer from './EventShowContainer'
 
 export const App = (props) => {
   return (
@@ -11,7 +12,7 @@ export const App = (props) => {
         <Route exact path='/' component={TripsIndexComponent}></Route>
         <Route exact path='/trips' component={TripsIndexComponent}></Route>
         <Route exact path='/trips/:id' component={TripShowContainer}></Route>
-
+        <Route exact path='/trips/:id/events' component={EventShowContainer}></Route>
       </Switch>
     </BrowserRouter>
   )

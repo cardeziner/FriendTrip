@@ -7,7 +7,10 @@ const TripTile = (props) =>{
     <div>
       <p className="header">
         <h3 className="header">
-        {props.trip.name}
+        <Link to={`/trips/${props.trip.id}`}>{props.trip.name}</Link>
+        <p>Click to access events vote page for this</p>
+
+
         </h3>
         {props.trip.start_date} - {props.trip.end_date}
       </p>

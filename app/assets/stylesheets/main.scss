@@ -4,25 +4,66 @@ body {
   margin: 15px 25px 15px 25px;
 }
 
-.header {
+.top-bar-color {
+  color: #FF003C;
+}
+.text {
   font-family: 'Francois One', sans-serif;
-  color: #00C176;
-  font-size: 12;
-  text-align: center;
+  font-size: 25;
 }
 
-.button {
-align-self: center;
-  color: #88C100;
+.font{
+    font-family: 'Francois One', sans-serif;
+}
+.white {
+    background-color: #ffffff;
+}
+.link {
+    font-family: 'Francois One', sans-serif;
+}
+
+.header {
+  font-family: 'Francois One', sans-serif;
+  margin-top: 10px;
+  color: #00C176;
+  font-size: 25;
+}
+.myNavbar   {
+    border-bottom-style: solid;
+    border-bottom-width: 75px;
+    border-bottom-color: #FF003C;
+}
+
+.top-margin {
+  margin-top: 50px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 65vh;
+  border-style:inherit;
+  float: left;
+  width: 50%;
 }
 
 .field {
     font-family: 'Francois One', sans-serif;
     $label-color: #88C100;
     font-size: 15;
-    border-radius: 3px;
 }
 
+.submit-button{
+  $button-color: #88C100;
+
+}
+
+.center {
+  text-align: center;
+}
 .accent-red {
   font-family: 'Francois One', sans-serif;
   font-weight: bold;
@@ -31,9 +72,12 @@ align-self: center;
   color: #FF003C;
   font-size: 50;
 }
+.green{
+}
+
 
 .page-title {
-  text-align: center;
+
   font-family: 'Francois One', sans-serif;
   font-size: 30;
   color:#00C176;
@@ -45,6 +89,12 @@ align-self: center;
   margin: 20px 20px 20px 50px;
 }
 
+.border {
+  margin: 15px 15px 15px 15px;
+  padding: 5px 10px 5px 5x;
+  border-radius: 25px;
+}
+
 .callout {
   margin: 15px 15px 15px 15px;
   padding: 5px 10px 5px 5x;
@@ -53,16 +103,18 @@ align-self: center;
   background-color: #FABE28;
 }
 .center {
-  text-align: center;
 }
 .title {
-  text-align: center;
+}
+
+.frame-yellow{
+  border-style: solid;
+  border-radius: 40px;
+  border-color: #FABE28;
 }
 
 .frame {
-
   background: #FABE28;
-  border-style: solid;
-  border-radius: 10px;
-  border-color: #BAC9A9;
+  border-style:none ;
+  border-radius: 40px;
 }
