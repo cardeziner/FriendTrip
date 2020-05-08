@@ -17,3 +17,7 @@ user3 = User.create(first_name: "Billiam", last_name: "Cornwall", email:"Iambill
 Tripmember.create(user_id: 1, trip_id: 1)
 Tripmember.create(user_id: 2, trip_id: 1)
 Tripmember.create(user_id: 3, trip_id: 1)
+
+Event.create(name:"Waterboarding",location:"Bahamas",cost: 1200 ,date:"09/01/2020", trip_id: 1)
+Event.create(name:"Surfing",location:"Jacksonville",cost: 1200 ,date:"09/01/2020", trip_id: 1)
+Event.create(name:"Paragliding",location:"Aruba",cost: 1200 ,date:"09/01/2020", trip_id: 2)

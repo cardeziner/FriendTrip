@@ -26,8 +26,6 @@ const TripsIndexComponent = (props) =>{
     .catch(error => console.error(`Error in fetch: ${errorMessage}`))
   }, [])
 
-
-
   const tripList = trips.map(trip =>{
     return (
       <TripTile
@@ -36,9 +34,9 @@ const TripsIndexComponent = (props) =>{
       />
     )
   })
-
   return(
     <div>
+      <h1 className="text">Welcome Back!</h1>
       {tripList}
     </div>
   )
