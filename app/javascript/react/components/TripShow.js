@@ -15,7 +15,8 @@ const TripShow = props =>{
   })
 
   return(
-    <div>
+    <div className="column">
+        <h2> TRIP INFO </h2>
         <h4>
           {props.trip.city},{props.trip.state}
         </h4>

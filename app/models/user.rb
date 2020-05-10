@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :tripmembers
   has_many :trips, through: :tripmembers
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # # Include default devise modules. Others available are:
+  # # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

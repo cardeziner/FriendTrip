@@ -29,7 +29,6 @@ const EventShowContainer = (props) =>{
         .catch(error => console.error(`Error in fetch: ${error.message}`))
       }, [])
 
-
     return(
       <div>
         <h1 class="font">{trip.name} Itinerary:</h1>
