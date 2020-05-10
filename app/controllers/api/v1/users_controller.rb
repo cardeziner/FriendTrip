@@ -4,5 +4,4 @@ class Api::V1::EventsController < ApplicationController
     render json: User.all
   end
 
-
 end

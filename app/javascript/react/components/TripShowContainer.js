@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
+
+
 import TripShow from './TripShow'
+
 
 const TripShowContainer = (props) =>{
   const [trip, setTrip] = useState({})
@@ -28,11 +31,9 @@ const TripShowContainer = (props) =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
-
   return(
     <div>
-      <h1 className="font">Events voted in for so far this trip:</h1>
-      <h3>Location of trip:</h3>
+      <h1 className="font">GET EXITED FOR: {trip.name}</h1>
         <TripShow
         trip={trip}
         events={tripEvents}
