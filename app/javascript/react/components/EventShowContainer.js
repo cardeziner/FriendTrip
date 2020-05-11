@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 import EventShow from './EventShow'
 
+
 const EventShowContainer = (props) =>{
     const [trip, setTrip] = useState({})
     const [tripEvents, setTripEvents] = useState([])
+    const [users, setUsers] = useState([])
 
     const tripId = props.match.params.id
 
@@ -25,16 +27,22 @@ const EventShowContainer = (props) =>{
         .then(parsedTrip => {
           setTrip(parsedTrip.trip)
           setTripEvents(parsedTrip.events)
+          setUsers(parsedTrip.users)
         })
         .catch(error => console.error(`Error in fetch: ${error.message}`))
       }, [])
 
+
+
     return(
       <div>
-        <h1 class="font">{trip.name} Itinerary:</h1>
+
+        <h1 className="font center">Events scheduled for {trip.name}</h1>
           <EventShow
+          key={trip.id}
           trip={trip}
           events={tripEvents}
+          users={users}
           />
       </div>
     )

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 
 import TripShow from './TripShow'
-
+import GoogleMap from './GoogleMap'
 
 const TripShowContainer = (props) =>{
   const [trip, setTrip] = useState({})
@@ -31,9 +31,10 @@ const TripShowContainer = (props) =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
+
   return(
-    <div>
-      <h1 className="font">GET EXITED FOR: {trip.name}</h1>
+    <div className="row">
+      <h1 className="font center">{trip.name}</h1>
         <TripShow
         trip={trip}
         events={tripEvents}
