@@ -9,7 +9,6 @@ body {
 }
 .text {
   font-family: 'Francois One', sans-serif;
-  font-size: 25;
 }
 
 .font{
@@ -116,5 +115,7 @@ body {
 .frame {
   background: #FABE28;
   border-style:none ;
+  box-shadow: 5px 10px;
+  color: #FF003C;
   border-radius: 40px;
 }

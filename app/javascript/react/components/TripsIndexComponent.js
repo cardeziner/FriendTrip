@@ -38,12 +38,15 @@ const TripsIndexComponent = (props) =>{
     )
   })
 
-
   return(
-    <div className="column">
-      <h1 className="text">Welcome Back!{user.name}</h1>
+    <div>
+      <h1 className="text center frame">Welcome Back!</h1>
+      <div className="column frame center">
+      <h2 className="text">Upcoming FriendTrips</h2>
       {tripList}
+
       <Link to="/trips/new" className="text">Add a new FriendTrip</Link>
+      </div>
     </div>
   )
 }

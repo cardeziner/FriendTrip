@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import EventShow from './EventShow'
+import EventsList from './EventsList'
 
 const EventShowContainer = (props) =>{
     const [trip, setTrip] = useState({})
@@ -31,7 +32,10 @@ const EventShowContainer = (props) =>{
 
     return(
       <div>
-        <h1 class="font">{trip.name} Itinerary:</h1>
+        <EventsList
+        events={trip.events}
+        />
+        <h1 className="font">Events added to {trip.name}</h1>
           <EventShow
           trip={trip}
           events={tripEvents}

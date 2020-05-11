@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 const TripTile = (props) =>{
 
   return(
-    <div>
+    <div className="medium-3 center">
       <h3 className="text">
         <Link to={`/trips/${props.trip.id}`}>{props.trip.name}</Link>
         </h3>
-        <p>Click to access events vote page for this</p>
+        <p className="text">{props.trip.start_date} - {props.trip.end_date}</p><br/>
     </div>
   )
 }
