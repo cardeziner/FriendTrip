@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
-import EventShow from './EventShow'
-
+import EventsTile from './EventsTile'
+import NewEventForm from './NewEventForm'
 
 const EventShowContainer = (props) =>{
     const [trip, setTrip] = useState({})
     const [tripEvents, setTripEvents] = useState([])
     const [users, setUsers] = useState([])
+    const [redirect, setRedirect] = useState(false)
 
     const tripId = props.match.params.id
 
@@ -32,18 +33,95 @@ const EventShowContainer = (props) =>{
         .catch(error => console.error(`Error in fetch: ${error.message}`))
       }, [])
 
+      const deleteTrip = (trip) =>  {
+    if (window.confirm('Are you sure you would like to delete this restaurant?')) {
+      fetch(`/api/v1/trips/${tripId}`, {
+        credentials: "same-origin",
+        method: 'DELETE',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        if (body.notification) {
+          setRedirect(true)
+        } else {
+          setErrors(body.error)
+        }
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }
+  }
+
+      const addNewEvent = (formPayload) => {
+    fetch(`/api/v1/trips/${tripId}/events`, {
+      credentials: "same-origin",
+      method: 'POST',
+      body: JSON.stringify(formPayload),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedNewEvent => {
+      setTripEvents([
+        ...tripEvents,
+        parsedNewEvent.event
+      ])
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
+  const eventsList = tripEvents.map(singleEvent => {
+    return (
+      <div>
+      <EventsTile
+      id={singleEvent.id}
+      users={users}
+      event={singleEvent}
+      />
+      </div>
+    )
+  })
+
 
 
     return(
-      <div>
-
-        <h1 className="font center">Events scheduled for {trip.name}</h1>
-          <EventShow
-          key={trip.id}
-          trip={trip}
-          events={tripEvents}
-          users={users}
-          />
+      <div class="row">
+      <div className="column">
+        <h4 className="text-green text ">VOTE ON EVENTS FOR</h4>
+        <h1 className="accent-red">{trip.name}</h1>
+        <h5 className="text">CLICK ON AN EVENT BELOW TO VOTE</h5>
+        <p className="line"></p>
+        {eventsList}
+        </div>
+        <div className="column">
+        <NewEventForm
+        id={tripId}
+        addNewEvent={addNewEvent}
+        />
+        </div>
       </div>
     )
 

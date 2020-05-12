@@ -1,4 +1,5 @@
 import React from 'react'
+import EventsList from './EventsList'
 
 const EventShow = (props) =>{
 

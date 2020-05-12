@@ -32,7 +32,7 @@ const TripsIndexComponent = (props) =>{
   const tripList = trips.map(trip =>{
     return (
       <TripTile
-      key={trip.id}
+      id={trip.id}
       trip={trip}
       />
     )
