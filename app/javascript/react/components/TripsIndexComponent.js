@@ -8,7 +8,6 @@ const TripsIndexComponent = (props) =>{
   const [trips, setTrips] = useState([])
   const [user, setUser] = useState({})
 
-
   useEffect(() =>{
     fetch('/api/v1/trips', {
       credentials: "same-origin"
@@ -29,6 +28,7 @@ const TripsIndexComponent = (props) =>{
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+
   const tripList = trips.map(trip =>{
     return (
       <TripTile
@@ -39,12 +39,23 @@ const TripsIndexComponent = (props) =>{
   })
 
 
+
   return(
+    <div className="row">
     <div className="column">
-      <h1 className="text">Welcome Back!{user.name}</h1>
+      <div>
+      <h1 className="font green center">Welcome Back!{user.first_name}</h1>
+      <p className="line"></p>
+      <h5 className="font green center">Click on any trip below to begin</h5>
       {tripList}
-      <Link to="/trips/new" className="text">Add a new FriendTrip</Link>
+      </div>
+      <p className="line"></p>
+    <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
     </div>
+      <div className="column">
+        <p>Hello {user.first_name}</p>
+      </div>
+  </div>
   )
 }
 

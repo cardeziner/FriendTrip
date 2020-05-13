@@ -50,8 +50,10 @@ const NewEventForm = props =>{
   }
 
   return(
-    <div>
-      <h1 className="font text-blue">ADD A NEW TRIP EVENT</h1>
+    <div><br/>
+      <h1 className="text-blue center">ADD A NEW TRIP EVENT</h1>
+      <p className="line"></p>
+        <p className="font green center">Enter information on the event you would like to post on the form below</p>
         <div className="text">
           <form onSubmit={handleSubmit}>
             <label className="name">

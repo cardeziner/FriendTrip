@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Geocode from "react-geocode"
 
-const GoogleMap = (props) => {
+const GoogleMapTile = (props) => {
 
 const location = props.city
 
@@ -16,7 +16,6 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
   useEffect(() =>{
 
-debugger
     Geocode.setApiKey("AIzaSyB6-s7yJ6sFvKg1iFz2RMBzkHC2rWm8ncY");
     Geocode.setLanguage("en");
     Geocode.setRegion("es");
@@ -50,8 +49,8 @@ debugger
   };
 
     return (
-      <div className="frame text-right"><p>{props.location}</p>
-      <div style={{ height: '60%', width: '100%' }}>
+      <div className="align-items"><p>{props.location}</p>
+      <div style={{ height: '15%', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyB6-s7yJ6sFvKg1iFz2RMBzkHC2rWm8ncY' }}
           center={[latitude,longitude]}
@@ -69,4 +68,4 @@ debugger
   }
 
 
-export default GoogleMap
+export default GoogleMapTile

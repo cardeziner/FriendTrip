@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { Link } from 'react-router-dom'
 import EventsTile from './EventsTile'
 import NewEventForm from './NewEventForm'
 
@@ -33,36 +33,7 @@ const EventShowContainer = (props) =>{
         .catch(error => console.error(`Error in fetch: ${error.message}`))
       }, [])
 
-      const deleteTrip = (trip) =>  {
-    if (window.confirm('Are you sure you would like to delete this restaurant?')) {
-      fetch(`/api/v1/trips/${tripId}`, {
-        credentials: "same-origin",
-        method: 'DELETE',
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        }
-      })
-      .then(response => {
-        if(response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-          throw(error)
-        }
-      })
-      .then(response => response.json())
-      .then(body => {
-        if (body.notification) {
-          setRedirect(true)
-        } else {
-          setErrors(body.error)
-        }
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
-    }
-  }
+
 
       const addNewEvent = (formPayload) => {
     fetch(`/api/v1/trips/${tripId}/events`, {
@@ -100,6 +71,7 @@ const EventShowContainer = (props) =>{
       id={singleEvent.id}
       users={users}
       event={singleEvent}
+      tripId={tripId}
       />
       </div>
     )
@@ -110,9 +82,9 @@ const EventShowContainer = (props) =>{
     return(
       <div class="row">
       <div className="column">
-        <h4 className="text-green text ">VOTE ON EVENTS FOR</h4>
-        <h1 className="accent-red">{trip.name}</h1>
-        <h5 className="text">CLICK ON AN EVENT BELOW TO VOTE</h5>
+        <h4 className="text-green text center">VOTE ON EVENTS FOR</h4>
+        <h1 className="accent-red center">{trip.name}</h1>
+        <h5 className="text-blue center">CLICK ON AN EVENT BELOW TO VOTE</h5>
         <p className="line"></p>
         {eventsList}
         </div>
