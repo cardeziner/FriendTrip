@@ -38,7 +38,7 @@ const TripShow = props =>{
         </h4>
       </div>
       <div className="column text center">
-        <h1 className="accent-red text-right">Trip Itinerary</h1>
+        <h1 className="accent-red text-right">TRIP ITINERARY</h1>
         <h4></h4>
         <h1>
         {eventList}
