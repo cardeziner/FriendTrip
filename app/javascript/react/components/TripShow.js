@@ -17,14 +17,6 @@ const TripShow = props =>{
       )}
     })
 
-
-  const userList = props.users.map(user =>{
-    return(
-      <div key={user.id}>
-      <h3 className="text-blue center">{user.first_name}</h3>
-      </div>
-    )
-  })
   const userList = props.users.map(member =>{
     return(
       <div>
