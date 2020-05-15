@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   get "/trips/:id/events", to: 'static_pages#index'
 
 
+
   namespace :api do
     namespace :v1 do
-      resources :trips, only: [:index, :show, :create] do
-        resources :events, only: [:index]
+      resources :trips, only: [:index, :show, :create, :update] do
+        resources :events, only: [:index,:show, :create]
       end
     end
   end

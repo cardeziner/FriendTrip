@@ -9,6 +9,17 @@ body {
 }
 .text {
   font-family: 'Francois One', sans-serif;
+  font-size: 35;
+}
+
+.text-white{
+  font-family: 'Francois One', sans-serif;
+  color: #ffffff;
+}
+
+.list {
+
+
 }
 
 .font{
@@ -37,16 +48,117 @@ body {
   margin-top: 50px;
 }
 
+.short-column {
+    float: left;
+    display: inline;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 55vh;
+    border-style:inherit;
+    width: 45%;
+    border-radius: 15px;
+    border: 5px solid #FABE28;
+    margin: 0 0 0 35px;
+    padding: 15px 15px 15px 15px;
+}
+
+.form {
+    font-family: 'Francois One', sans-serif;
+}
+
+.border-blue {
+  border-radius: 15px;
+  border: 5px solid #1BB0CE
+}
+
+.border-red {
+  border-radius: 15px;
+  border: 5px solid #FF003C;
+  align-items: center;
+  margin-top: auto;
+}
+
+.submit-blue{
+  background-color: #1BB0CE;
+  border-radius: 15px;
+  border: 5px solid #FABE28;
+  color: white;
+  padding: 16px 32px;
+  font-family: 'Francois One', sans-serif;
+  margin: 1px 3px;
+  cursor: pointer;
+}
+
+.submit{
+  background-color: #FABE28;
+  border-radius: 15px;
+  border: 5px solid #FABE28;
+  color: white;
+  padding: 16px 32px;
+  font-family: 'Francois One', sans-serif;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.submit:hover{
+  border-radius: 15px;
+  border: 5px solid #FF003C;
+  color: #FF003C;
+}
+
+
+.middle {
+  vertical-align: middle;
+}
+
+.text-right {
+  text-align: right;
+  font-family: 'Francois One', sans-serif;
+}
+
 .column {
+  float: left;
+  display: inline;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  border-style:inherit;
+  width: 45%;
+  border-radius: 15px;
+  border: 5px solid #FABE28;
+  margin: 0 0 0 35px;
+  padding: 15px 15px 15px 15px;
+
+}
+
+.column-2 {
+  float: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  min-height: 65vh;
+  min-height: 80vh;
   border-style:inherit;
-  float: left;
-  width: 50%;
+  width: 45%;
+  border-radius: 15px;
+  border: 5px solid #FABE28;
+  margin: 15px 15px 15px 15px;
+  padding: 5px 10px 5px 5px;
+
+}
+
+#map1,#map2,#map3,#map4 {
+  height: 300px;
+  max-width: 400px;
+  margin: auto;
+}
+
+#map {
+  height: 300px;
+  max-width: 800px;
+  margin: auto;
 }
 
 .field {
@@ -57,31 +169,96 @@ body {
 
 .submit-button{
   $button-color: #88C100;
+}
 
+.align-items {
+  align-self: auto;
+  width: auto;
+}
+
+.perimeter {
+  border: 5px solid #FABE28;
+  justify-content: center;
+}
+
+.line{
+    width: auto;
+    height: 0px;
+    border-bottom: 3px solid #00C176;
+    align-content: center;
+}
+
+.green {
+  color: #00C176;
+}
+
+.background-yellow {
+  color: #FABE28;
+}
+
+.text-yellow {
+  color: #FABE28;
+  font-family: 'Francois One', sans-serif;
 }
 
 .center {
   text-align: center;
 }
+
+.text-blue {
+  color: #1BB0CE;
+  font-family: 'Francois One', sans-serif;
+  text-decoration-style: solid;
+}
 .accent-red {
   font-family: 'Francois One', sans-serif;
   font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  color: #FF003C;
-  font-size: 50;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: #FF003C;;
 }
-.green{
-}
-
 
 .page-title {
-
   font-family: 'Francois One', sans-serif;
   font-size: 30;
   color:#00C176;
   margin-top: 15px;
   margin-bottom: 30px;
+}
+
+.text-green {
+  color: #00C176;
+}
+
+.items-body-content {
+  padding: 30px;
+  padding-right: 0px;
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  // background-color: lightblue;
+  font-size: 30px;
+  grid-gap: 10px;
+  border: 5px solid transparent;
+  cursor: pointer;
+}
+
+.items-body-content:hover {
+  border-radius: 15px;
+  border: 5px solid #FABE28;
+  color: #FF003C;
+}
+
+.square {
+border-radius: 15px;
+border: 5px solid #FABE28;
+margin: 15px 15px 15px 15px;
+padding: 5px 10px 5px 5x;
+
+}
+
+.cube {
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .cell {
@@ -101,10 +278,7 @@ body {
   border-color: #FABE28;
   background-color: #FABE28;
 }
-.center {
-}
-.title {
-}
+
 
 .frame-yellow{
   border-style: solid;

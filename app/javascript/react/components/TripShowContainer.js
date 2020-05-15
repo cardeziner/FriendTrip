@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import GoogleMap from './GoogleMap'
 
 import TripShow from './TripShow'
-
+import GoogleMap from './GoogleMap'
 
 const TripShowContainer = (props) =>{
   const [trip, setTrip] = useState({})
   const [tripEvents, setTripEvents] = useState([])
   const [users, setUsers] = useState([])
-
+  const [tripInfo, setTripInfo] = useState({})
   const tripId = props.match.params.id
 
   useEffect(() =>{
@@ -29,15 +28,15 @@ const TripShowContainer = (props) =>{
         setTrip(parsedTrip.trip)
         setTripEvents(parsedTrip.events)
         setUsers(parsedTrip.users)
-
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
   return(
-    <div>
-      <h5 className="text green frame center">GET EXITED FOR:</h5><h1 className="text center">{trip.name}</h1>
+    <div className="row">
+      <h1 className="font center accent-red">{trip.name}</h1>
         <TripShow
+        id={tripId}
         trip={trip}
         events={tripEvents}
         users={users}
@@ -45,6 +44,6 @@ const TripShowContainer = (props) =>{
 
     </div>
   )
-
 }
+
 export default TripShowContainer

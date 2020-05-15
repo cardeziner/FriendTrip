@@ -8,6 +8,7 @@ const NewTripContainer = props =>{
   const [trip, setTrip] = useState({})
 
   const addNewTrip = (formPayload) => {
+
     fetch('/api/v1/trips', {
         credentials: "same-origin",
         method: 'POST',
@@ -28,6 +29,7 @@ const NewTripContainer = props =>{
       })
       .then(response => response.json())
       .then(parsedNewTrip => {
+        debugger
         let trip = parsedNewTrip.trip
         setTrip(trip)
         setRedirect(true)
