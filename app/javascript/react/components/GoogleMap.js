@@ -26,7 +26,6 @@ const GoogleMap = (props) => {
   return (
     <div id='map'></div>
   )
-  debugger
 }
 
 export default GoogleMap

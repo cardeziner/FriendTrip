@@ -1,6 +1,8 @@
 import React from 'react'
 import EventsList from './EventsList'
 
+import EventsList from './EventsList'
+
 const EventShow = (props) =>{
 
   const eventList = props.events.map(singleEvent =>{
@@ -15,7 +17,6 @@ const EventShow = (props) =>{
       </div>
     )}
   })
-
   return(
     <div>
       {eventList}

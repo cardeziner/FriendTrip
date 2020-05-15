@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 import GoogleMap from './GoogleMapTile'
 
-
 const TripShow = props =>{
 
   const eventList = props.events.map(singleEvent =>{
@@ -26,7 +25,15 @@ const TripShow = props =>{
       </div>
     )
   })
-
+  const userList = props.users.map(member =>{
+    return(
+      <div>
+        <h3 className="text">
+        {member.first_name}
+        </h3>
+      </div>
+    )
+  })
   return(
     <div className="row">
       <div  key={props.trip.id} className="column font">

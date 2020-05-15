@@ -15,7 +15,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -52,4 +51,5 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'lodash-rails'
 gem 'foundation-rails', '~> 6.5'
+gem 'active_model_serializers'
 gem 'webpacker', '~> 3.3'
