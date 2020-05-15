@@ -102,7 +102,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 120vh;
+  min-height: 80vh;
   border-style:inherit;
   width: 45%;
   border-radius: 15px;
@@ -187,6 +187,7 @@ body {
 .text-blue {
   color: #1BB0CE;
   font-family: 'Francois One', sans-serif;
+  text-decoration-style: solid;
 }
 .accent-red {
   font-family: 'Francois One', sans-serif;

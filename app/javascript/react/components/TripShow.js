@@ -22,7 +22,7 @@ const TripShow = props =>{
   const userList = props.users.map(user =>{
     return(
       <div key={user.id}>
-      <h3 className="text-blue">{user.first_name}</h3>
+      <h3 className="text-blue center">{user.first_name}</h3>
       </div>
     )
   })
@@ -39,8 +39,10 @@ const TripShow = props =>{
         trip={props.trip}
         />
         <br/>
-        <h3 className="text-blue">FRIENDS ON THIS TRIP</h3>
+        <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
+        <div className="square center">
         {userList}
+        </div>
         </div>
       </div>
       <div className="column text center">
@@ -48,7 +50,7 @@ const TripShow = props =>{
         <h4></h4>
         <h1>
         {eventList}
-        </h1>
+        </h1><br/>
         <Link to={`/trips/${props.trip.id}/events`} className="text">VOTE ON NEW EVENTS</Link>
       </div>
     </div>
