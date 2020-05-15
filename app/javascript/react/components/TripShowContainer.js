@@ -41,6 +41,7 @@ const TripShowContainer = (props) =>{
         events={tripEvents}
         users={users}
         />
+
     </div>
   )
 }

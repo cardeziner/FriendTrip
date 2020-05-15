@@ -20,4 +20,5 @@ Tripmember.create(user_id: 3, trip_id: 1)
 
 Event.create(name:"Wakeboarding",location:"Bahamas",cost: 1200 ,date:"09/01/2020", trip_id: 1, votes:4)
 Event.create(name:"Surfing",location:"Jacksonville",cost: 1200 ,date:"09/01/2020", trip_id: 1, votes: 5)
+
 Event.create(name:"Paragliding",location:"Aruba",cost: 1200 ,date:"09/01/2020", trip_id: 2)

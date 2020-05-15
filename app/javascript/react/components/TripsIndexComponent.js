@@ -41,7 +41,6 @@ const TripsIndexComponent = (props) =>{
   })
 debugger
 
-
   return(
     <div className="row">
     <div className="column">
