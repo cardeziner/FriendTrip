@@ -51,6 +51,29 @@ body {
     font-family: 'Francois One', sans-serif;
 }
 
+.border-blue {
+  border-radius: 15px;
+  border: 5px solid #1BB0CE
+}
+
+.border-red {
+  border-radius: 15px;
+  border: 5px solid #FF003C;
+  align-items: center;
+  margin-top: auto;
+}
+
+.submit-blue{
+  background-color: #1BB0CE;
+  border-radius: 15px;
+  border: 5px solid #FABE28;
+  color: white;
+  padding: 16px 32px;
+  font-family: 'Francois One', sans-serif;
+  margin: 1px 3px;
+  cursor: pointer;
+}
+
 .submit{
   background-color: #FABE28;
   border-radius: 15px;
@@ -105,6 +128,18 @@ body {
 
 }
 
+#map1,#map2,#map3,#map4 {
+  height: 300px;
+  max-width: 400px;
+  margin: auto;
+}
+
+#map {
+  height: 300px;
+  max-width: 800px;
+  margin: auto;
+}
+
 .field {
     font-family: 'Francois One', sans-serif;
     $label-color: #88C100;
@@ -150,7 +185,7 @@ body {
 }
 
 .text-blue {
-  color: #2B879E;
+  color: #1BB0CE;
   font-family: 'Francois One', sans-serif;
 }
 .accent-red {

@@ -9,7 +9,7 @@ const EventShow = (props) =>{
       <div className="text center column">
         <h1 className="font">{singleEvent.name}</h1>
           <div className="frame">
-            <h3 className="text"> Date of event: {singleEvent.date}</h3>
+            <h3 className="font"> Date of event: {singleEvent.date}</h3>
             <h3 className="text"> Location: {singleEvent.location}</h3>
         </div>
       </div>

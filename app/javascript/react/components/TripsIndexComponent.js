@@ -31,13 +31,15 @@ const TripsIndexComponent = (props) =>{
 
   const tripList = trips.map(trip =>{
     return (
+      <div key={trip.id}>
       <TripTile
       id={trip.id}
       trip={trip}
       />
+      </div>
     )
   })
-
+debugger
 
 
   return(

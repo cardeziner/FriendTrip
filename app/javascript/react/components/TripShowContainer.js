@@ -8,7 +8,6 @@ const TripShowContainer = (props) =>{
   const [tripEvents, setTripEvents] = useState([])
   const [users, setUsers] = useState([])
   const [tripInfo, setTripInfo] = useState({})
-
   const tripId = props.match.params.id
 
   useEffect(() =>{

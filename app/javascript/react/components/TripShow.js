@@ -1,44 +1,50 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import GoogleMap from './GoogleMap'
+import GoogleMap from './GoogleMapTile'
+
 
 const TripShow = props =>{
 
   const eventList = props.events.map(singleEvent =>{
     if(singleEvent.votes > props.users.length){
-    return(
-      <div key={singleEvent.id}><br/>
-        <Link to={`/trips/${singleEvent.id}/events`} className="submit">{singleEvent.name}</Link><br />
-        <p className="green text">Day of Event : {singleEvent.date}</p>
-        <br/>
+      return(
+        <div key={singleEvent.id} ><br/>
+          <Link to={`/trips/${singleEvent.id}/events`} className="submit">{singleEvent.name}</Link><br />
+          <h5 className="submit-blue"> {singleEvent.date} </h5>
+          <br/>
 
-      </div>
-    )}
-  })
+        </div>
+      )}
+    })
+
 
   const userList = props.users.map(user =>{
     return(
-      <p className="text">{user.name}</p>
+      <div key={user.id}>
+      <h3 className="text-blue">{user.first_name}</h3>
+      </div>
     )
   })
 
   return(
     <div className="row">
-      <div className="column font">
+      <div  key={props.trip.id} className="column font">
         <h1 className="accent-red"> TRIP INFO </h1>
-        <h4>
-          LOCATION:
-          {props.trip.city}
+        <h2 className="text-blue">{props.trip.city}</h2><p className="text-blue">({props.trip.start_date} through {props.trip.end_date})</p>
+        <div>
         <GoogleMap
-        city={props.trip.city}
-        state={props.trip.state}
+        id={props.trip.id}
+        location={props.trip.city}
+        trip={props.trip}
         />
+        <br/>
+        <h3 className="text-blue">FRIENDS ON THIS TRIP</h3>
         {userList}
-        </h4>
+        </div>
       </div>
       <div className="column text center">
-        <h1 className="accent-red text-right">TRIP ITINERARY</h1>
+        <h1 className="text-blue text-right">TRIP ITINERARY</h1>
         <h4></h4>
         <h1>
         {eventList}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_172118) do
+ActiveRecord::Schema.define(version: 2020_05_13_171532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_05_11_172118) do
     t.bigint "trip_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "votes"
+    t.integer "votes"
     t.index ["trip_id"], name: "index_events_on_trip_id"
   end
 

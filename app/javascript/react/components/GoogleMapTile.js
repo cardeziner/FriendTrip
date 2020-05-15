@@ -1,71 +1,31 @@
-import React, { Component, useState, useEffect } from 'react';
-import GoogleMapReact from 'google-map-react';
-import Geocode from "react-geocode"
+import React, { useEffect } from 'react'
 
 const GoogleMapTile = (props) => {
 
-const location = props.city
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-  const [latitude, setLatitude] = useState(0)
-  const [longitude, setLongitude] = useState(0)
-  const [locationProps, setLocationProps] = useState({})
-
-
-
-
-  useEffect(() =>{
-
-    Geocode.setApiKey("AIzaSyB6-s7yJ6sFvKg1iFz2RMBzkHC2rWm8ncY");
-    Geocode.setLanguage("en");
-    Geocode.setRegion("es");
-    Geocode.enableDebug();
-
-
-    Geocode.fromAddress("San Diego").then(
-      response => {
-        const { lat, lng } = response.results[0].geometry.location;
-        setLatitude(lat)
-        setLongitude(lng)
-        setLocationProps({center: {
-          lat: lat,
-          lng: lng
-        },
-        zoom: 11
-      })
-      },
-      error => {
-        console.error(error);
+  useEffect(() => {
+    const geocoder = new google.maps.Geocoder();
+    const address = `${props.location}`
+    geocoder.geocode( { 'address': address}, function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        let latitude = results[0].geometry.location.lat()
+        let longitude = results[0].geometry.location.lng()
+        const map = new google.maps.Map(document.getElementById(`map${props.id}`), {
+             center: results[0].geometry.location,
+             zoom: 12
+        })
+        const marker = new google.maps.Marker({position: results[0].geometry.location, map: map})
+        google.maps.event.addListener(marker, 'click', function () {
+          window.open('https://www.google.com/maps?z=12&t=m&q=loc:latitude+longitude');
+       })
+        marker.setMap( map )
       }
-    )
+
+    })
   },[])
 
-  const defaultProps = {
-    center: {
-      lat: latitude,
-      lng: longitude
-    },
-    zoom: 11
-  };
-
-    return (
-      <div className="align-items"><p>{props.location}</p>
-      <div style={{ height: '15%', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyB6-s7yJ6sFvKg1iFz2RMBzkHC2rWm8ncY' }}
-          center={[latitude,longitude]}
-          defaultZoom={defaultProps.zoom}
-        >
-          <AnyReactComponent
-            lat={latitude}
-            lng={longitude}
-            text=<h5 className="font green">FriendTrip</h5>
-          />
-          </GoogleMapReact>
-          </div>
-          </div>
-    )
-  }
-
+  return (
+    <div id={`map${props.id}`}></div>
+  )
+}
 
 export default GoogleMapTile

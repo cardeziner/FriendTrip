@@ -12,12 +12,14 @@ const EventsTile = (props) => {
   }
 
   return(
-    <div>
+    <div key={props.id}>
       <div>
 
       <h5 className="text center align-items items-body-content" onClick={() => window.alert(`You voted for ${props.event.name}`)}>{props.event.name}  |  ${props.event.cost } each  |  {props.event.date} </h5>
       <p className="text green"> {props.event.location}</p>
       <GoogleMapTile
+      id={props.event.id}
+      location={props.event.location}
       />
       <p className="line"></p>
       </div>
