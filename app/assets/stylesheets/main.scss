@@ -7,6 +7,7 @@ body {
 .top-bar-color {
   color: #FF003C;
 }
+
 .text {
   font-family: 'Francois One', sans-serif;
   font-size: 35;
@@ -15,11 +16,6 @@ body {
 .text-white{
   font-family: 'Francois One', sans-serif;
   color: #ffffff;
-}
-
-.list {
-
-
 }
 
 .font{
@@ -38,6 +34,7 @@ body {
   color: #00C176;
   font-size: 25;
 }
+
 .myNavbar   {
     border-bottom-style: solid;
     border-bottom-width: 75px;
@@ -79,6 +76,35 @@ body {
   margin-top: auto;
 }
 
+.border-green{
+  font-family: 'Francois One', sans-serif;
+  border-radius: 15px;
+  border: 5px solid #00C176;
+  align-items: center;
+  margin-top: auto;
+  color: #00C176
+}
+.hover-text{
+  font-family: 'Francois One', sans-serif;
+  border-radius: 15px;
+  text-emphasis-color: white;
+}
+.hover-text:hover {
+  color: white;
+  background-color: #FABE28;
+
+}
+
+.border-green:hover{
+  border-radius: 15px;
+  border: 5px solid #FABE28;
+  color: #FF003C;
+}
+
+.center-column {
+
+}
+
 .submit-blue{
   background-color: #1BB0CE;
   border-radius: 15px;
@@ -88,6 +114,10 @@ body {
   font-family: 'Francois One', sans-serif;
   margin: 1px 3px;
   cursor: pointer;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center
 }
 
 .submit{
@@ -203,6 +233,7 @@ body {
 
 .center {
   text-align: center;
+  align-items: center;
 }
 
 .text-blue {
@@ -231,11 +262,9 @@ body {
 }
 
 .items-body-content {
-  padding: 30px;
+  padding: 10px;
   padding-right: 0px;
   display: grid;
-  grid-template-columns: 10fr 1fr;
-  // background-color: lightblue;
   font-size: 30px;
   grid-gap: 10px;
   border: 5px solid transparent;

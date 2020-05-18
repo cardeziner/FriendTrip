@@ -25,6 +25,13 @@ protect_from_forgery unless: -> { request.format.json? }
     end
   end
 
+  def update
+    event = Event.find(params[:id])
+    event.votes += 1
+    event.save
+    render json: { event: event }
+  end
+
   protected
 
   def event_params

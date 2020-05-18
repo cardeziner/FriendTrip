@@ -39,24 +39,18 @@ const TripsIndexComponent = (props) =>{
       </div>
     )
   })
-debugger
 
   return(
-    <div className="row">
-    <div className="column">
-      <div>
-      <h1 className="font green center">Welcome Back!{user.first_name}</h1>
-      <p className="line"></p>
-      <h5 className="font green center">Click on any trip below to begin</h5>
-      {tripList}
+      <div className="column-center">
+        <div className="center">
+          <h1 className="font green">Welcome Back!{user.first_name}</h1>
+          <p className="line"></p>
+          <h5 className="font green center">Click on any trip below to begin</h5>
+          {tripList}
+        </div>
+          <p className="line"></p>
+          <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
       </div>
-      <p className="line"></p>
-    <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
-    </div>
-      <div className="column">
-        <p>Hello {user.first_name}</p>
-      </div>
-  </div>
   )
 }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import NewTripForm from './NewTripForm'
 
@@ -47,6 +48,7 @@ const NewTripContainer = props =>{
       <NewTripForm
       addNewTrip={addNewTrip}
       />
+      <Link to={`/trips/${trip.id}`}>Back to Trip Info</Link>
   </div>
   )
 }

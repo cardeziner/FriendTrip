@@ -5,7 +5,7 @@ const TripTile = (props) =>{
 
   return(
     <div>
-      <h3 className="text items-body-content">
+      <h3 className="text items-body-content center">
         <Link to={`/trips/${props.trip.id}`} className="accent-red center">{props.trip.name}</Link>
         </h3>
     </div>
