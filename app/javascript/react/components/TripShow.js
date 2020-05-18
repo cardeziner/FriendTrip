@@ -19,30 +19,32 @@ const TripShow = props =>{
 
   const userList = props.users.map(member =>{
     return(
-      <div>
-        <h3 className="text">
+      <div key={member.id}>
+        <h3 className="text green">
         {member.first_name}
         </h3>
       </div>
     )
   })
   return(
+
     <div className="row">
       <div  key={props.trip.id} className="column font">
         <h1 className="accent-red"> TRIP INFO </h1>
-        <h2 className="text-blue">{props.trip.city}</h2><p className="text-blue">({props.trip.start_date} through {props.trip.end_date})</p>
-        <div>
-        <GoogleMap
-        id={props.trip.id}
-        location={props.trip.city}
-        trip={props.trip}
-        />
-        <br/>
-        <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
-        <div className="square center">
-        {userList}
+        <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
+          <div>
+            <GoogleMap
+            id={props.trip.id}
+            location={props.trip.city}
+            trip={props.trip}
+            />
+            <br/><br/>
+            <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
+            <div className="square center">
+            {userList}
+          </div>
         </div>
-        </div>
+
       </div>
       <div className="column text center">
         <h1 className="text-blue text-right">TRIP ITINERARY</h1>
@@ -50,7 +52,7 @@ const TripShow = props =>{
         <h1>
         {eventList}
         </h1><br/>
-        <Link to={`/trips/${props.trip.id}/events`} className="text">VOTE ON NEW EVENTS</Link>
+        <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
       </div>
     </div>
   )

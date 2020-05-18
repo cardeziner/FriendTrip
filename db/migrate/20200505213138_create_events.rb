@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :location, null: false
       t.integer :cost, null: false
       t.string :date, null: false
+      t.integer :votes, null: false, default: 0
       t.belongs_to :trip, null: false
 
       t.timestamps null: false

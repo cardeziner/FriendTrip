@@ -77,9 +77,9 @@ const EventShowContainer = (props) =>{
   })
 
     return(
-      <div key={trip.id} className="row">
+      <div key={trip.id} className="row"><br/><br/>
       <div className="column">
-        <h4 className="text blue text center">VOTE ON EVENTS FOR</h4>
+        <h4 className="text-green text center">VOTE ON EVENTS FOR</h4>
         <h1 className="accent-red center">{trip.name}</h1>
         <h5 className="text-blue center">CLICK ON AN EVENT BELOW TO VOTE</h5>
         <p className="line"></p>

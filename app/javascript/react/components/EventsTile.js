@@ -3,28 +3,56 @@ import React, { Component, useState, useEffect } from "react";
 import GoogleMapTile from './GoogleMapTile'
 
 const EventsTile = (props) => {
+  //
+  // const addEventVote = () => {
+  //   useEffect(() =>{
+  //     props.event.votes = props.event.votes + 1
+  //     window.alert("you have voted for !");
+  //   })
+  // }
 
-  const addEventVote = () => {
-    useEffect(() =>{
-      props.event.votes = props.event.votes + 1
-      window.alert("you have voted for !");
+
+  const addEventVote = () =>{
+    window.alert(`You have added a vote for ${props.event.name}`)
+    fetch(`/api/v1/trips/${props.tripId}/events/${props.event.id}`, {
+      credentials: "same-origin",
+      method: 'PATCH',
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
     })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedInfo => {
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
   return(
     <div key={props.id}>
-      <div>
-
-      <h5 className="text center align-items items-body-content" onClick={() => window.alert(`You voted for ${props.event.name}`)}>{props.event.name}  |  ${props.event.cost } each  |  {props.event.date} </h5>
-      <p className="text green"> {props.event.location}</p>
+      <div className="hover-text" onClick={addEventVote}>
+      <h2 className="hover-text center" >{props.event.name} </h2>
+      <h4 className="hover-text center"> ${props.event.cost} per person     /     {props.event.date}</h4>
+    <h2 className="hover-text"> {props.event.location}</h2>
       <GoogleMapTile
       id={props.event.id}
       location={props.event.location}
       />
-      <p className="line"></p>
-      </div>
 
+      </div>
+      <br/>
+      <p className ="line"></p>
     </div>
+
   )
 }
 
