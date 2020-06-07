@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {GenericScrollBox, ScrollAxes, FastTrack} from 'react-scroll-box'; // ES6
+import {GenericScrollBox, ScrollAxes, FastTrack} from 'react-scroll-box';
 
 
 
@@ -7,13 +7,12 @@ const EventsList = (props) => {
 
 
 
-    return(
-<GenericScrollBox style={{height: '200px'}} >
+  return(
+      <GenericScrollBox style={{height: '200px'}} >
+        <div >
 
-  <div >
-
-  </div>
-</GenericScrollBox>
+        </div>
+      </GenericScrollBox>
   )
 }
 
