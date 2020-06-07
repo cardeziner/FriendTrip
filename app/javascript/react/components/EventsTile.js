@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 
 import GoogleMapTile from './GoogleMapTile'
 
+
 const EventsTile = (props) => {
   const addEventVote = () =>{
     window.alert(`You have added a vote for ${props.event.name}`)
@@ -29,16 +30,15 @@ const EventsTile = (props) => {
   }
 
   return(
-    <div key={props.id}>
+    <div>
       <div className="hover-text" onClick={addEventVote}>
-      <h2 className="hover-text center" >{props.event.name} </h2>
-      <h4 className="hover-text center"> ${props.event.cost} per person     /     {props.event.date}</h4>
-    <h2 className="hover-text"> {props.event.location}</h2>
+      <h2 className="hover-text text-blue center" >{props.event.name} </h2>
+      <h4 className="hover-text text-green center"> ${props.event.cost} per person     /     {props.event.date}</h4>
       <GoogleMapTile
       id={props.event.id}
       location={props.event.location}
       />
-
+      <h2 className="hover-text accent-red center"> {props.event.location}</h2>
       </div>
       <br/>
       <p className ="line"></p>
