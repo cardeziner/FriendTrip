@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   get "/trips/new", to: 'static_pages#index'
   get "/trips/:id", to: 'static_pages#index'
   get "/trips/:id/events", to: 'static_pages#index'
-
-
+  get "/trips/:trip_id/events/:id", to: 'static_pages#index'
 
   namespace :api do
     namespace :v1 do
       resources :trips, only: [:index, :show, :create, :update] do
-        resources :events, only: [:index,:show, :create]
+        resources :events, only: [:index,:show, :create, :update]
       end
     end
   end
+
 end

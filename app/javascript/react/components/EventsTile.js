@@ -3,15 +3,6 @@ import React, { Component, useState, useEffect } from "react";
 import GoogleMapTile from './GoogleMapTile'
 
 const EventsTile = (props) => {
-  //
-  // const addEventVote = () => {
-  //   useEffect(() =>{
-  //     props.event.votes = props.event.votes + 1
-  //     window.alert("you have voted for !");
-  //   })
-  // }
-
-
   const addEventVote = () =>{
     window.alert(`You have added a vote for ${props.event.name}`)
     fetch(`/api/v1/trips/${props.tripId}/events/${props.event.id}`, {
@@ -52,7 +43,6 @@ const EventsTile = (props) => {
       <br/>
       <p className ="line"></p>
     </div>
-
   )
 }
 
