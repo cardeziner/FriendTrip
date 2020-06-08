@@ -26,8 +26,24 @@ const TripShow = props =>{
       </div>
     )
   })
-  return(
 
+  function blankUser(){
+    if(userList.length < 1){
+      return(
+        <div className="text-yellow">
+        NO USERS HAVE BEEN ADDED TO THIS TRIP YET!
+        </div>
+      )
+    } else {
+      return(
+        <div>
+        {userList}
+        </div>
+      )
+    }
+  }
+
+  return(
     <div className="row">
       <div  key={props.trip.id} className="column font">
         <h1 className="accent-red"> TRIP INFO </h1>
@@ -41,8 +57,9 @@ const TripShow = props =>{
             <br/><br/>
             <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
             <div className="square center">
-            {userList}
+            {blankUser()}
           </div>
+          <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </div>
 
       </div>
