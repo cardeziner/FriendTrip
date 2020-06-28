@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get "/trips/new", to: 'static_pages#index'
   get "/trips/:id", to: 'static_pages#index'
   get "/trips/:id/events", to: 'static_pages#index'
+  get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
+  get "/aboutus", to: 'static_pages#index'
 
   namespace :api do
     namespace :v1 do
