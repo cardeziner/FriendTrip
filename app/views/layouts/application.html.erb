@@ -15,8 +15,9 @@
 
     <section class="top-bar white">
       <a href="/"><%= image_tag "logo.png"%></a>
-      <ul class="right link white">
+      <ul class="right link ">
         <%- if current_user -%>
+          <p class="white"><%= link_to 'My FriendTrips', trips_path %></p>
           <p class="white"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
         <%- else -%>
           <p class="white"><%= link_to 'Sign Up', new_user_registration_path %></p>
