@@ -34,7 +34,10 @@ body {
   color: #00C176;
   font-size: 25;
 }
-
+.text-red {
+  font-family: 'Francois One', sans-serif;
+  color: #FF003C;
+}
 .myNavbar   {
     border-bottom-style: solid;
     border-bottom-width: 75px;
@@ -278,6 +281,7 @@ body {
 }
 
 .square {
+display: inline-block;
 border-radius: 15px;
 border: 5px solid #FABE28;
 margin: 15px 15px 15px 15px;
@@ -285,6 +289,9 @@ padding: 5px 10px 5px 5x;
 
 }
 
+.center-box{
+  text-align: center;
+}
 .cube {
   display: inline-block;
   margin: 0 10px;
