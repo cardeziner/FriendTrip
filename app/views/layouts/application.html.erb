@@ -9,21 +9,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <nav class="myNavbar white" >
     <div>
-
     <section class="top-bar white">
       <a href="/"><%= image_tag "logo.png"%></a>
-      <ul class="right link ">
+      <div className="row">
         <%- if current_user -%>
-          <p class="white"><%= link_to 'My FriendTrips', trips_path %></p>
-          <p class="white"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
+          <div class="white col-3"><%= link_to 'My FriendTrips', trips_path %></div>
+          <div class="white col-3"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></div>
         <%- else -%>
-          <p class="white"><%= link_to 'Sign Up', new_user_registration_path %></p>
-          <p class="white"><%= link_to 'Sign In', new_user_session_path %></p>
+          <p class="white col-3"><%= link_to 'Sign Up', new_user_registration_path %></p>
+          <p class="white col-3"><%= link_to 'Sign In', new_user_session_path %></p>
+
         <%- end -%>
-      </ul>
+      </div>
     </section>
   </nav>
 
