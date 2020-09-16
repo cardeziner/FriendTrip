@@ -288,7 +288,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  bootstrap
+  bootstrap (~> 4.5)
   capybara
   database_cleaner
   devise
