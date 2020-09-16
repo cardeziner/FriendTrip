@@ -53,3 +53,5 @@ gem 'lodash-rails'
 gem 'foundation-rails', '~> 6.5'
 gem 'active_model_serializers'
 gem 'webpacker', '~> 3.3'
+
+gem "bootstrap", "~> 4.5"
