@@ -13,13 +13,14 @@
     <div>
     <section class="top-bar white">
       <a href="/"><%= image_tag "logo.png"%></a>
-      <div className="row">
         <%- if current_user -%>
-          <div class="white col-3"><%= link_to 'My FriendTrips', trips_path %></div>
-          <div class="white col-3"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></div>
+        <div className="row">
+          <div class="white col-6"><%= link_to 'My FriendTrips', trips_path %></div>
+          <div class="white col-6"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></div>
         <%- else -%>
-          <p class="white col-3"><%= link_to 'Sign Up', new_user_registration_path %></p>
-          <p class="white col-3"><%= link_to 'Sign In', new_user_session_path %></p>
+        <div className="row">
+          <p class="white col-6"><%= link_to 'Sign Up', new_user_registration_path %></p>
+          <p class="white col-6"><%= link_to 'Sign In', new_user_session_path %></p></div>
         <%- end -%>
       </div>
     </section>
