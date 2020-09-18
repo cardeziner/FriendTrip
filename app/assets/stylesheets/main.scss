@@ -22,7 +22,7 @@ body {
     font-family: 'Francois One', sans-serif;
 }
 .white {
-    background-color: #ffffff;
+  background-color: white;
 }
 .link {
     font-family: 'Francois One', sans-serif;
@@ -35,10 +35,9 @@ body {
   font-size: 25;
 }
 
-.myNavbar   {
-    border-bottom-style: solid;
-    border-bottom-width: 75px;
-    border-bottom-color: #FF003C;
+.myNavbar {
+  box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+  width: 100%;
 }
 
 .top-margin {
@@ -179,7 +178,7 @@ body {
 
 }
 
-#map1,#map2,#map3,#map4 {
+#map1,#map2,#map3,#map4,#map5,#map6,#map7,#map8 {
   height: 300px;
   max-width: 400px;
   margin: auto;
