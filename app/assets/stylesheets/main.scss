@@ -24,7 +24,7 @@ html, body {
 
 .title{
     font-family: 'Londrina Solid', cursive;
-    color: #ff003b;
+    color: white;
 }
 .font{
     font-family: 'Francois One', sans-serif;
@@ -99,7 +99,6 @@ html, body {
 .hover-text:hover {
   color: white;
   background-color: #FABE28;
-
 }
 
 .border-green:hover{
@@ -108,13 +107,14 @@ html, body {
   color: #FF003C;
 }
 
-.center-column {
-
-}
-
-
 .bg-gray{
-  background-color: #EDEBE6;
+  background: image-url("AboutUs.jpg");
+  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  z-index: 1;
+  background-size:cover;
 }
 
 
