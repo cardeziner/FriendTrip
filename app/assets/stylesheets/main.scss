@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-body {
-  margin: 15px 25px 15px 25px;
+html, body {
+    margin: 0;
+    height: 100%;
 }
+
 
 .top-bar-color {
   color: #FF003C;
@@ -18,6 +21,9 @@ body {
   color: #ffffff;
 }
 
+.title{
+    font-family: 'Anton', sans-serif;
+}
 .font{
     font-family: 'Francois One', sans-serif;
 }
@@ -103,13 +109,17 @@ body {
 .center-column {
 
 }
+
+
 .bg-gray{
   background-color: #EDEBE6;
 }
 
 
 .bigbox{
-  border: 1px solid gray;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px solid #EDEBE6;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
 
