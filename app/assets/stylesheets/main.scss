@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Londrina+Solid:wght@900&display=swap');
 
 html, body {
     margin: 0;
     height: 100%;
 }
-
 
 .top-bar-color {
   color: #FF003C;
@@ -22,7 +23,8 @@ html, body {
 }
 
 .title{
-    font-family: 'Anton', sans-serif;
+    font-family: 'Londrina Solid', cursive;
+    color: #ff003b;
 }
 .font{
     font-family: 'Francois One', sans-serif;
@@ -119,6 +121,7 @@ html, body {
 .bigbox{
   margin-left: 5%;
   margin-right: 5%;
+   border-radius: 10px;
   border: 1px solid #EDEBE6;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
@@ -266,7 +269,7 @@ html, body {
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 30px;
-  color: #FF003C;;
+  color: #FF003C;
 }
 
 .page-title {
