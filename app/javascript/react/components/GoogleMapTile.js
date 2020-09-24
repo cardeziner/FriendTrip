@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 
 const GoogleMapTile = (props) => {
   useEffect(() => {
-    debugger
     const geocoder = new google.maps.Geocoder();
     const address = `${props.location}`
     geocoder.geocode( { 'address': address}, function (results, status) {
