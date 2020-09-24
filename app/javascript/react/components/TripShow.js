@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import GoogleMap from './GoogleMapTile'
+import GoogleMapTile from './GoogleMapTile'
 
 const TripShow = props =>{
 
@@ -49,7 +49,7 @@ const TripShow = props =>{
         <h1 className="accent-red"> TRIP INFO </h1>
         <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
           <div>
-            <GoogleMap
+            <GoogleMapTile
             id={props.trip.id}
             location={props.trip.city}
             trip={props.trip}
