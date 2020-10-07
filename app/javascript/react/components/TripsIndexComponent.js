@@ -41,8 +41,8 @@ const TripsIndexComponent = (props) =>{
   })
 
   return(
-      <div className="column-center">
-        <div className="center">
+      <div className="home-bg top-shad">
+        <div className="center display-col">
           <h1 className="font green">Welcome Back!{user.first_name}</h1>
           <p className="line"></p>
           <h5 className="font green center">Click on any trip below to begin</h5>
