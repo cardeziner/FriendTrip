@@ -18,6 +18,17 @@ html, body {
   font-size: 35;
 }
 
+.blur-box{
+  background: inherit;
+  overflow: hidden;
+  filter: blur(20px);
+   box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3)
+}
+
+.no-blur{
+  filter: blur(0px);
+}
+
 .text-white{
   font-family: 'Francois One', sans-serif;
   color: #ffffff;
@@ -34,6 +45,7 @@ html, body {
 }
 .font{
     font-family: 'Francois One', sans-serif;
+    color: white;
 }
 .white {
   background-color: white;
