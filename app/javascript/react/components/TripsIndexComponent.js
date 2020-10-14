@@ -41,7 +41,7 @@ const TripsIndexComponent = (props) =>{
   })
 
   return(
-      <div className="home-bg top-shad blur-div">
+      <div className="home-bg">
         <div className="center display-col blur-div">
           <div>
           <h1 className="font green">Welcome Back!{user.first_name}</h1>
