@@ -24,11 +24,13 @@ html, body {
   overflow: hidden;
 }
 
-.blur-div::before{
+.blur-div:before {
+  content: " ";
   background: inherit;
+  position: absolute;
   overflow: hidden;
   filter: blur(20px);
-  box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3)
+  box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
 }
 
 .no-blur{
@@ -361,11 +363,11 @@ padding: 5px 10px 5px 5px;
 
 .home-bg{
   background: image-url("home-page.jpg");
+  background-attachment: fixed;
   background-position: center;
   min-width: 100%;
   min-height: 100%;
   position: absolute;
-  z-index: 1;
   background-size:cover;
 }
 
