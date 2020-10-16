@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Londrina+Solid:wght@900&display=swap');
 
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 html, body {
     margin: 0;
@@ -22,6 +23,11 @@ html, body {
   background: inherit;
   position: absolute;
   overflow: hidden;
+}
+
+.container {
+ background-color: rgba(255, 255, 255, .15);
+ backdrop-filter: blur(5px);
 }
 
 .blur-div:before {
