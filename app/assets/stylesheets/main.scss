@@ -1,13 +1,26 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T");
 @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Londrina+Solid:wght@900&display=swap');
 
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
 html, body {
     margin: 0;
     height: 100%;
+}
+
+.blur-back{
+  background: inherit;
+  position: absolute;
+  overflow: hidden;
+  filter: blur(20px);
+  box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+  z-index: 1;
+}
+
+.blur-text{
+  z-index: 2;
+  color: #ffffff;
 }
 
 .top-bar-color {
@@ -347,13 +360,17 @@ padding: 5px 10px 5px 5px;
 }
 
 .display-col{
+  background: inherit;
+  position:absolute;
   padding: 5%;
   margin: 10%;
+  backdrop-filter:blur(20px);
+  overflow:auto;
   margin-left: 15%;
   margin-right: 15%;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.55);
   background-color: white;
+  z-index: 0;
 }
 
 .center-box{

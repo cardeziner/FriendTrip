@@ -42,7 +42,7 @@ const TripsIndexComponent = (props) =>{
 
   return(
       <div className="home-bg row">
-        <div className="center display-col blur-div col-6">
+        <div className="center display-col col-6">
           <div>
           <h1 className="font green">Welcome Back!{user.first_name}</h1>
           <p className="line"></p>
