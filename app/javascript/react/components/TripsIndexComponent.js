@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import BackdropFilter from "react-backdrop-filter";
 import TripShowContainer from './TripShowContainer'
 import TripTile from './TripTile'
 
@@ -42,19 +42,24 @@ const TripsIndexComponent = (props) =>{
 
   return(
       <div className="home-bg row">
-        <div className="center display-col col-6">
+        <div className="center display-col col-6 blur-back">
+        <BackdropFilter
+        filter={"blur(10px)"}
+        >
           <div>
           <h1 className="font green">Welcome Back!{user.first_name}</h1>
           <p className="line"></p>
           <h5 className="font green center">Click on any trip below to begin</h5>
           {tripList}
         </div>
+        </BackdropFilter>
         </div>
-        <div className="column col-6">
 
+        <div className="column col-6">
         </div>
           <p className="line"></p>
           <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
+
       </div>
   )
 }
