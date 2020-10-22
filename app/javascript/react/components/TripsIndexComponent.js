@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import TripShowContainer from './TripShowContainer'
 import TripTile from './TripTile'
+import trips_logo from '../../../assets/images/trips-icon.png'
 
 const TripsIndexComponent = (props) =>{
   const [trips, setTrips] = useState([])
@@ -41,15 +42,14 @@ const TripsIndexComponent = (props) =>{
   })
 
   return(
-      <div className="home-bg row center">
-        <div className="center col-5">
+      <div className="home-bg">
+        <div className="row center">
+        <div className="col-5">
           <BackdropFilter
           filter={"blur(10px)"}
           >
-          <div>
-            <h1 className="font green">Welcome Back!{user.first_name}</h1>
-            <p className="line"></p>
-            <h5 className="font green center">Click on any trip below to begin</h5>
+          <img className="icon" src={trips_logo}/><h1 className="yellow-title">MY TRIPS</h1>
+          <div className="center">
           {tripList}
           </div>
         </BackdropFilter>
@@ -59,7 +59,7 @@ const TripsIndexComponent = (props) =>{
         </div>
           <p className="line"></p>
           <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
-
+        </div>
       </div>
   )
 }

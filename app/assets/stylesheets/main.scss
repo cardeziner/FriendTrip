@@ -6,6 +6,7 @@
 
 html, body {
     margin: 0;
+    padding: 0;
     height: 100%;
 }
 
@@ -310,12 +311,47 @@ html, body {
   font-family: 'Francois One', sans-serif;
   text-decoration-style: solid;
 }
+
 .accent-red {
   font-family: 'Francois One', sans-serif;
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 30px;
   color: #FF003C;
+}
+
+.white {
+  font-family: 'Francois One', sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.accent-white {
+  font-family: 'Francois One', sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.yellow-title{
+  font-family: 'Francois One', sans-serif;
+  color: #FABE28;
+  display: inline;
+  vertical-align: middle;
+  font-size: 50px;
+  padding-left: 5%;
+}
+
+.accent-white:hover {
+  font-family: 'Francois One', sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  transform: scale(1.5);
+  color: #FF003C;
+  text-decoration: none;
 }
 
 .page-title {
@@ -338,12 +374,6 @@ html, body {
   grid-gap: 10px;
   border: 5px solid transparent;
   cursor: pointer;
-}
-
-.items-body-content:hover {
-  border-radius: 15px;
-  border: 5px solid #FABE28;
-  color: #FF003C;
 }
 
 .square {
@@ -393,6 +423,14 @@ padding: 5px 10px 5px 5px;
   min-height: 100%;
   position: absolute;
   background-size:cover;
+}
+
+.icon{
+  margin: 5%;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 .border {
