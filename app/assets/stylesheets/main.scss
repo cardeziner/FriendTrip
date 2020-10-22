@@ -19,6 +19,10 @@ html, body {
   z-index: 1;
 }
 
+.radius{
+  border-radius: 10px;
+}
+
 .blur-text{
   z-index: 2;
   color: #ffffff;
@@ -255,6 +259,10 @@ html, body {
   margin: auto;
 }
 
+.pad{
+  padding: 5%;
+}
+
 #map {
   height: 300px;
   max-width: 800px;
@@ -341,7 +349,6 @@ html, body {
   display: inline;
   vertical-align: middle;
   font-size: 50px;
-  padding-left: 5%;
 }
 
 .accent-white:hover {
@@ -349,7 +356,7 @@ html, body {
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 30px;
-  transform: scale(1.5);
+  transform: scale(1.25);
   color: #FF003C;
   text-decoration: none;
 }
@@ -431,6 +438,14 @@ padding: 5px 10px 5px 5px;
   width: 100px;
   height: 100px;
   box-shadow: 0 8px 6px -6px black;
+}
+
+.vert{
+  vertical-align: middle;
+}
+
+.gray-line{
+  color: gray;
 }
 
 .border {
