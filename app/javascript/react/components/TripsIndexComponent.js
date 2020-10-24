@@ -61,7 +61,20 @@ const TripsIndexComponent = (props) =>{
         </BackdropFilter>
       </div>
         <div className="col-5">
-          <h1 className="accent-red">Hello</h1>
+        <BackdropFilter
+        filter={"blur(15px)"}
+        background-color={"black"}
+        opacity={".5"}
+        border-radius={"10px"}
+        >
+        <img className="icon vert" src={trips_logo}/><h1 className="yellow-title">MY TRIPS</h1>
+        <hr className="gray-line"/>
+        <div className="center">
+        {tripList}
+        </div>
+        <hr className="gray-line"/>
+        <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
+      </BackdropFilter>
         </div>
           <p className="line"></p>
         </div>
