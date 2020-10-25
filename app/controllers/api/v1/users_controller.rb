@@ -1,11 +1,9 @@
-class Api::V1::EventsController < ApplicationController
+class Api::V1::UsersController < ApplicationController
 
   def index
     user = User.find(params[:id])
-    trips = user.trips
     render json: {
-    user: user,
-    trips: trips
+    user: user
   }
   end
 

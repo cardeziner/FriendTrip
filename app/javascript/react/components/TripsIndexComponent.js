@@ -53,6 +53,7 @@ const TripsIndexComponent = (props) =>{
           >
           <img className="icon vert" src={trips_logo}/><h1 className="yellow-title">MY TRIPS</h1>
           <hr className="gray-line"/>
+          <h1>{user.first_name}</h1>
           <div className="center">
           {tripList}
           </div>
