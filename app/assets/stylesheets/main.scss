@@ -10,6 +10,13 @@ html, body {
     height: 100%;
 }
 
+.backdrop{
+  background-color: black;
+  filter: opacity(.1);
+  border-radius: 20px;
+  z-index: -1;
+}
+
 .blur-back{
   background: inherit;
   position: absolute;
