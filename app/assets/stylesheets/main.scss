@@ -443,6 +443,10 @@ padding: 5px 10px 5px 5px;
   margin: 20px 20px 20px 50px;
 }
 
+.bord {
+  border-radius: 15px;
+}
+
 .home-bg{
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("home-page.jpg");
   background-attachment: fixed;

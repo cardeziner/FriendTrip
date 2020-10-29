@@ -45,8 +45,9 @@ const TripsIndexComponent = (props) =>{
       <div className="home-bg">
         <div className="front">
           <div className="row pad">
-            <div className="col-6">
+            <div className="col-6 bord">
               <BackdropFilter
+              className="bord"
               filter={"blur(15px)"}
               >
               <img className="icon vert" src={trips_logo}/><h1 className="yellow-title">MY TRIPS</h1>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const TripTile = (props) =>{
-
+  
   return(
     <div>
       <h3 className="text items-body-content middle">
