@@ -43,37 +43,23 @@ const TripsIndexComponent = (props) =>{
 
   return(
       <div className="home-bg">
-        <div className="row pad">
-        <div className="col-6">
-          <BackdropFilter
-          filter={"blur(15px)"}
-          >
-          <div className="backdrop">
-          <img className="icon vert front" src={trips_logo}/><h1 className="yellow-title">MY TRIPS</h1>
-          <hr className="gray-line front"/>
-          <h1>{user.first_name}</h1>
-          <div className="center">
-          {tripList}
+        <div className="front">
+          <div className="row pad">
+            <div className="col-6">
+              <BackdropFilter
+              filter={"blur(15px)"}
+              >
+              <img className="icon vert" src={trips_logo}/><h1 className="yellow-title">MY TRIPS</h1>
+              <hr className="gray-line"/>
+              <div className="center">
+                {tripList}
+              </div>
+              <hr className="gray-line"/>
+              <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
+              </BackdropFilter>
+            </div>
+            <p className="line"></p>
           </div>
-          <hr className="gray-line"/>
-          <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
-          </div>
-        </BackdropFilter>
-      </div>
-        <div className="col-5">
-        <BackdropFilter
-        filter={"blur(15px)"}
-        >
-        <img className="icon vert" src={trips_logo}/><h1 className="yellow-title">MY TRIPS</h1>
-        <hr className="gray-line"/>
-        <div className="center">
-        {tripList}
-        </div>
-        <hr className="gray-line"/>
-        <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
-      </BackdropFilter>
-        </div>
-          <p className="line"></p>
         </div>
       </div>
   )
