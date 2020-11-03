@@ -1,9 +1,10 @@
 class Api::V1::UsersController < ApplicationController
+before_action :authenticate_user!
 
   def index
-    user = User.find(params[:id])
+    user = current_user
     render json: {
-    user: user
+    user: user,
   }
   end
 

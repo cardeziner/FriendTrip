@@ -25,10 +25,31 @@ const TripsIndexComponent = (props) =>{
     .then(response => response.json())
     .then(parsedTripData =>{
       setTrips(parsedTripData)
+      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  useEffect(() =>{
+    fetch('/api/v1/trips', {
+      credentials: "same-origin"
+    })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedTripData =>{
+      setTrips(parsedTripData)
+      debugger
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }, [])
 
   const tripList = trips.map(trip =>{
     return (
@@ -56,7 +77,7 @@ const TripsIndexComponent = (props) =>{
                 {tripList}
               </div>
               <hr className="gray-line"/>
-              <p className="center"> <Link to="/trips/new" className="add-link">Add a new FriendTrip</Link></p>
+              <p className="center"> <Link to="/trips/new" className="add-link">ADD A NEW FRIENDTRIP</Link></p>
               </BackdropFilter>
             </div>
             <p className="line"></p>
