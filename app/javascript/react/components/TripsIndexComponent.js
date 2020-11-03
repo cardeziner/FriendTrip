@@ -56,7 +56,7 @@ const TripsIndexComponent = (props) =>{
                 {tripList}
               </div>
               <hr className="gray-line"/>
-              <p className="center"> <Link to="/trips/new" className="font">Add a new FriendTrip</Link></p>
+              <p className="center"> <Link to="/trips/new" className="add-link">Add a new FriendTrip</Link></p>
               </BackdropFilter>
             </div>
             <p className="line"></p>
