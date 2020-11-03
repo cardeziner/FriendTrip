@@ -25,13 +25,12 @@ const TripsIndexComponent = (props) =>{
     .then(response => response.json())
     .then(parsedTripData =>{
       setTrips(parsedTripData)
-      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
   useEffect(() =>{
-    fetch('/api/v1/trips', {
+    fetch('/api/v1/users', {
       credentials: "same-origin"
     })
     .then(response => {
@@ -45,8 +44,7 @@ const TripsIndexComponent = (props) =>{
     })
     .then(response => response.json())
     .then(parsedTripData =>{
-      setTrips(parsedTripData)
-      debugger
+      setUser(parsedTripData.user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -64,6 +62,14 @@ const TripsIndexComponent = (props) =>{
 
   return(
       <div className="home-bg">
+        <div className="row pad">
+        <BackdropFilter
+        className="bord"
+        filter={"blur(15px)"}
+        >
+        <h1 className="col-12 font trim">Welcome Back {user.email}!</h1>
+        </BackdropFilter>
+        </div>
         <div className="front">
           <div className="row pad">
             <div className="col-6 bord">
