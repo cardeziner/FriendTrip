@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import GoogleMapTile from './GoogleMapTile'
 
+import config from 'universal-config';
+import Unsplash from 'unsplash-js'
+
+
 const TripShow = props =>{
+  const [image, setImage] = useState({})
+
+  const Unsplash = require('unsplash-js').default
+  const toJson = require('unsplash-js').toJson
+
+  const unsplash = new Unsplash({
+  accessKey: config.get('DYRsiHm9-XDRY4CvYvVwfUhDX2TO5ZfgXkYqq3uLW6E')
+  });
+
+  unsplash.search.photos("dogs", 1, 1, { orientation: "portrait", color: "green" })
+  .then(toJson)
+  .then(json => {
+  setImage(json)
+  });
+
+
 
   const eventList = props.events.map(singleEvent =>{
     if(singleEvent.votes > props.users.length){
@@ -43,10 +63,14 @@ const TripShow = props =>{
     }
   }
 
+
+
   return(
     <div className="row">
+
       <div  key={props.trip.id} className="column font">
         <h1 className="accent-red"> TRIP INFO </h1>
+
         <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
           <div>
             <GoogleMapTile
