@@ -67,7 +67,7 @@ const TripsIndexComponent = (props) =>{
         className="bord"
         filter={"blur(15px)"}
         >
-        <h1 className="col-12 font trim">Welcome Back {user.email}!</h1>
+        <h1 className="col-12 font trim vert">Welcome Back {user.email}!</h1>
         </BackdropFilter>
         </div>
         <div className="front">
@@ -77,7 +77,7 @@ const TripsIndexComponent = (props) =>{
               className="bord"
               filter={"blur(15px)"}
               >
-              <img className="icon vert" src={trips_logo}/><h1 className="yellow-title">MY TRIPS</h1>
+              <img className="icon" src={trips_logo}/><h1 className="yellow-title vert">MY TRIPS</h1>
               <hr className="gray-line"/>
               <div className="center">
                 {tripList}
