@@ -17,7 +17,6 @@ const TripShow = props =>{
   accessKey: config.get('DYRsiHm9-XDRY4CvYvVwfUhDX2TO5ZfgXkYqq3uLW6E')
   });
 
-
   useEffect(() =>{
     fetch('https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=dogs', {
       credentials: "same-origin",
@@ -54,7 +53,6 @@ const TripShow = props =>{
   const userList = props.users.map(member =>{
     return(
       <div key={member.id}>
-      <img src={imageUrl}/>
         <h3 className="text green">
         {member.first_name}
         </h3>
@@ -82,10 +80,8 @@ const TripShow = props =>{
 
   return(
     <div className="row">
-
       <div  key={props.trip.id} className="column font">
         <h1 className="accent-red"> TRIP INFO </h1>
-
         <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
           <div>
             <GoogleMapTile

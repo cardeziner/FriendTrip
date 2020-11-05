@@ -8,6 +8,7 @@ import trips_logo from '../../../assets/images/trips-icon.png'
 const TripsIndexComponent = (props) =>{
   const [trips, setTrips] = useState([])
   const [user, setUser] = useState({})
+  const [imageUrl, setImageUrl] = useState({})
 
   useEffect(() =>{
     fetch('/api/v1/trips', {
@@ -28,7 +29,7 @@ const TripsIndexComponent = (props) =>{
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
-
+//current_user data
   useEffect(() =>{
     fetch('/api/v1/users', {
       credentials: "same-origin"
@@ -45,6 +46,27 @@ const TripsIndexComponent = (props) =>{
     .then(response => response.json())
     .then(parsedTripData =>{
       setUser(parsedTripData.user)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }, [])
+
+//unsplash api
+  useEffect(() =>{
+    fetch('https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=trip', {
+      credentials: "same-origin",
+        })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedData =>{
+      setImageUrl(parsedData.results[Math.floor(Math.random() * parsedData.results.length)].urls.full)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])

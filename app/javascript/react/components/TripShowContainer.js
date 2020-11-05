@@ -32,7 +32,6 @@ const TripShowContainer = (props) =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
-    
 
   return(
     <div className="row">
@@ -40,6 +39,7 @@ const TripShowContainer = (props) =>{
         <TripShow
         id={tripId}
         trip={trip}
+        city={trip.city}
         events={tripEvents}
         users={users}
         />
