@@ -48,7 +48,6 @@ const TripShowContainer = (props) =>{
       })
       .then(response => response.json())
       .then(parsedTripsData =>{
-        debugger
         setTripSet(parsedTripsData)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
