@@ -4,6 +4,7 @@ import BackdropFilter from "react-backdrop-filter";
 import TripShowContainer from './TripShowContainer'
 import TripTile from './TripTile'
 import trips_logo from '../../../assets/images/trips-icon.png'
+import TripShow from './TripShow'
 
 const TripsIndexComponent = (props) =>{
   const [trips, setTrips] = useState([])

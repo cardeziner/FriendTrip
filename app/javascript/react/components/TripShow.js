@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom'
 
 import GoogleMapTile from './GoogleMapTile'
 
-import config from 'universal-config';
 import Unsplash from 'unsplash-js'
 
 
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState([])
 
-  const Unsplash = require('unsplash-js').default
-  const toJson = require('unsplash-js').toJson
-
-  const unsplash = new Unsplash({
-  accessKey: config.get('DYRsiHm9-XDRY4CvYvVwfUhDX2TO5ZfgXkYqq3uLW6E')
-  });
+  // const Unsplash = require('unsplash-js').default
+  // const toJson = require('unsplash-js').toJson
+  //
+  // const unsplash = new Unsplash({
+  // accessKey: config.get('DYRsiHm9-XDRY4CvYvVwfUhDX2TO5ZfgXkYqq3uLW6E')
+  // });
+  const iD = (props.id - 1)
 
   useEffect(() =>{
-    fetch('https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=dogs', {
+    fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=dogs`, {
       credentials: "same-origin",
         })
     .then(response => {
@@ -36,6 +36,7 @@ const TripShow = props =>{
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
+
 
 
   const eventList = props.events.map(singleEvent =>{
