@@ -8,7 +8,7 @@ import Unsplash from 'unsplash-js'
 
 
 const TripShow = props =>{
-  const [image, setImage] = useState({})
+  const [imageUrl, setImageUrl] = useState([])
 
   const Unsplash = require('unsplash-js').default
   const toJson = require('unsplash-js').toJson
@@ -17,12 +17,26 @@ const TripShow = props =>{
   accessKey: config.get('DYRsiHm9-XDRY4CvYvVwfUhDX2TO5ZfgXkYqq3uLW6E')
   });
 
-  unsplash.search.photos("dogs", 1, 1, { orientation: "portrait", color: "green" })
-  .then(toJson)
-  .then(json => {
-  setImage(json)
-  });
 
+  useEffect(() =>{
+    fetch('https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=dogs', {
+      credentials: "same-origin",
+        })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedData =>{
+      setImageUrl(parsedData.results[Math.floor(Math.random() * parsedData.results.length)].urls.full)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }, [])
 
 
   const eventList = props.events.map(singleEvent =>{
@@ -40,6 +54,7 @@ const TripShow = props =>{
   const userList = props.users.map(member =>{
     return(
       <div key={member.id}>
+      <img src={imageUrl}/>
         <h3 className="text green">
         {member.first_name}
         </h3>
