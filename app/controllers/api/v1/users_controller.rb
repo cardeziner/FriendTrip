@@ -1,11 +1,10 @@
-class Api::V1::EventsController < ApplicationController
+class Api::V1::UsersController < ApplicationController
+before_action :authenticate_user!
 
   def index
-    user = User.find(params[:id])
-    trips = user.trips
+    user = current_user
     render json: {
     user: user,
-    trips: trips
   }
   end
 

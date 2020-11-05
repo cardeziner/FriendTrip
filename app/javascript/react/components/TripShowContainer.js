@@ -9,6 +9,7 @@ const TripShowContainer = (props) =>{
   const [users, setUsers] = useState([])
   const [tripInfo, setTripInfo] = useState({})
   const tripId = props.match.params.id
+  const [tripSet, setTripSet] = useState([])
 
   useEffect(() =>{
     fetch(`/api/v1/trips/${tripId}`, {
@@ -32,7 +33,26 @@ const TripShowContainer = (props) =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
-    
+    useEffect(() =>{
+      fetch('/api/v1/trips', {
+        credentials: "same-origin",
+          })
+      .then(response => {
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`
+          error = new Error(errorMessage)
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(parsedTripsData =>{
+        setTripSet(parsedTripsData)
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }, [])
+
 
   return(
     <div className="row">
@@ -40,6 +60,8 @@ const TripShowContainer = (props) =>{
         <TripShow
         id={tripId}
         trip={trip}
+        tripSet={tripSet}
+        city={trip.city}
         events={tripEvents}
         users={users}
         />

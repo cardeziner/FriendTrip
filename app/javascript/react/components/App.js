@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import BackdropFilter from 'react-backdrop-filter'
 
 import TripsIndexComponent from './TripsIndexComponent'
 import TripShowContainer from './TripShowContainer'
