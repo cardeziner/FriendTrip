@@ -8,17 +8,33 @@ import Unsplash from 'unsplash-js'
 
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState([])
+  const [tripCity, setTripCity] = useState()
 
-  // const Unsplash = require('unsplash-js').default
-  // const toJson = require('unsplash-js').toJson
-  //
-  // const unsplash = new Unsplash({
-  // accessKey: config.get('DYRsiHm9-XDRY4CvYvVwfUhDX2TO5ZfgXkYqq3uLW6E')
-  // });
   const iD = (props.id - 1)
 
   useEffect(() =>{
-    fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=dogs`, {
+    fetch(`/api/v1/trips/${props.id}`, {
+      credentials: "same-origin",
+        })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedTripsData =>{
+      setTripCity(parsedTripsData.trip.city)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }, [])
+
+
+  useEffect(() =>{
+    fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${tripCity}`, {
       credentials: "same-origin",
         })
     .then(response => {
@@ -37,8 +53,6 @@ const TripShow = props =>{
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-
-
   const eventList = props.events.map(singleEvent =>{
     if(singleEvent.votes > props.users.length){
       return(
@@ -46,7 +60,6 @@ const TripShow = props =>{
           <Link to={`/trips/${singleEvent.id}/events`} className="submit">{singleEvent.name}</Link><br />
           <h5 className="submit-blue"> {singleEvent.date} </h5>
           <br/>
-
         </div>
       )}
     })
@@ -87,7 +100,7 @@ const TripShow = props =>{
           <div>
             <GoogleMapTile
             id={props.trip.id}
-            location={props.trip.city}
+            location={tripCity}
             trip={props.trip}
             />
             <br/><br/>
@@ -102,9 +115,10 @@ const TripShow = props =>{
       <div className="column text center">
         <h1 className="text-blue text-right">TRIP ITINERARY</h1>
         <h4></h4>
-        <h1>
+        <img src={imageUrl}/>
+        <h1>{tripCity}</h1>
         {eventList}
-        </h1><br/>
+        <br/>
         <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
       </div>
     </div>
