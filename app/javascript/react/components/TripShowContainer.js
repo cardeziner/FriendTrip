@@ -60,8 +60,6 @@ const TripShowContainer = (props) =>{
         <TripShow
         id={tripId}
         trip={trip}
-        tripSet={tripSet}
-        city={trip.city}
         events={tripEvents}
         users={users}
         />
