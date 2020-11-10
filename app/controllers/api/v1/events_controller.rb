@@ -2,14 +2,13 @@ class Api::V1::EventsController < ApplicationController
 protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    render json: Event.all
+    render json: Trip.find(params[:trip_id])
   end
 
   def show
     trip = Trip.find(params[:id])
     events = trip.events
     render json: {
-      trip: trip,
       events: events
     }
   end
