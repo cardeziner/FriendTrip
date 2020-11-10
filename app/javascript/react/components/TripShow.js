@@ -90,8 +90,6 @@ const TripShow = props =>{
     }
   }
 
-
-
   return(
     <div className="row">
       <div  key={props.trip.id} className="column font">
