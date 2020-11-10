@@ -11,7 +11,7 @@ const EventShowContainer = (props) =>{
     const [redirect, setRedirect] = useState(false)
 
     const tripId = props.match.params.id
-    
+
     useEffect(() =>{
       fetch(`/api/v1/trips/${tripId}`, {
         credentials: "same-origin"
@@ -27,7 +27,6 @@ const EventShowContainer = (props) =>{
         })
         .then(response => response.json())
         .then(parsedTrip => {
-          debugger
           setTrip(parsedTrip.trip)
           setTripEvents(parsedTrip.events)
           setUsers(parsedTrip.users)
@@ -78,7 +77,7 @@ const EventShowContainer = (props) =>{
   })
 
     return(
-      <div key={tripId} className="row"><br/><br/>
+      <div className="row"><br/><br/>
       <div className="column">
         <h4 className="text-green text center">VOTE ON ANY EVENT FOR</h4>
         <h1 className="accent-red center">{trip.name}</h1>
