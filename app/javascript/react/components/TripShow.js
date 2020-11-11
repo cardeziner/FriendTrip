@@ -5,7 +5,6 @@ import GoogleMapTile from './GoogleMapTile'
 
 import Unsplash from 'unsplash-js'
 
-
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState([])
   const [tripCity, setTripCity] = useState()
@@ -32,9 +31,8 @@ const TripShow = props =>{
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-
   useEffect(() =>{
-    fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${tripCity}`, {
+    fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city}`, {
       credentials: "same-origin",
         })
     .then(response => {
