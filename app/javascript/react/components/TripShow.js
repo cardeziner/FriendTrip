@@ -96,7 +96,7 @@ const TripShow = props =>{
 
   return(
     <div className="row bg" style={sectionStyle}>
-      <div  key={props.trip.id} className="column font">
+      <div  key={props.trip.id} className="col-6 font">
         <h1 className="accent-red"> TRIP INFO </h1>
         <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
           <div>
