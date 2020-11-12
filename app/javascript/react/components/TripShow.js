@@ -5,7 +5,6 @@ import GoogleMapTile from './GoogleMapTile'
 
 import Unsplash from 'unsplash-js'
 
-
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState([])
   const [tripCity, setTripCity] = useState()
@@ -32,9 +31,8 @@ const TripShow = props =>{
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-
   useEffect(() =>{
-    fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${tripCity}`, {
+    fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city}`, {
       credentials: "same-origin",
         })
     .then(response => {
@@ -90,10 +88,14 @@ const TripShow = props =>{
     }
   }
 
-
+  var sectionStyle = {
+  width: "100%",
+  height: "400px",
+  backgroundImage: `url(${imageUrl})`
+}
 
   return(
-    <div className="row">
+    <div className="row bg" style={sectionStyle}>
       <div  key={props.trip.id} className="column font">
         <h1 className="accent-red"> TRIP INFO </h1>
         <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
@@ -115,7 +117,6 @@ const TripShow = props =>{
       <div className="column text center">
         <h1 className="text-blue text-right">TRIP ITINERARY</h1>
         <h4></h4>
-        <img src={imageUrl}/>
         <h1>{tripCity}</h1>
         {eventList}
         <br/>

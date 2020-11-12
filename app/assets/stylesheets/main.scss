@@ -473,6 +473,17 @@ padding: 5px 10px 5px 5px;
   z-index: 3;
 }
 
+.bg{
+  background-attachment: fixed;
+  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  background-size: cover;
+  box-shadow: inset 0 7px 9px -7px black;
+  z-index: 3;
+}
+
 .add-link{
   color: white;
   font-family: 'Francois One', sans-serif;
