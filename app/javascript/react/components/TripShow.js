@@ -89,21 +89,27 @@ const TripShow = props =>{
   }
 
   var sectionStyle = {
-  width: "100%",
-  height: "400px",
-  backgroundImage: `url(${imageUrl})`
+  backgroundImage: `url(${imageUrl})`,
+  backgroundAttachment: 'fixed',
+  backgroundPosition: 'center',
+  minWidth: '100%',
+  minHeight: '100%',
+  position: 'absolute',
+  backgroundSize: 'cover',
+  boxShadow: 'inset 0 7px 9px -7px black',
+  margin: "0 auto"
 }
 
   return(
-    <div className="bg" style={sectionStyle}>
+    <div style={sectionStyle}>
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
-        <div key={props.trip.id} className="col-6 font">
+        <div key={props.trip.id} className="col-5 font">
+        <h1 className="accent-red"> TRIP INFO </h1>
         <BackdropFilter
         className="bord"
         filter={"blur(15px)"}
         >
-        <h1 className="accent-red"> TRIP INFO </h1>
         <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
           <div>
             <GoogleMapTile
@@ -113,26 +119,27 @@ const TripShow = props =>{
             />
             <br/><br/>
             <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
-            <div className="square center">
+            <div className="center">
             {blankUser()}
           </div>
           <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </div>
         </BackdropFilter>
       </div>
+        <div className="col-5">
+        <h1 className="text-blue text-right">TRIP ITINERARY</h1>
       <BackdropFilter
-      className="bord col-6"
+      className="bord"
       filter={"blur(15px)"}
       >
-      <div className="text center">
-        <h1 className="text-blue text-right">TRIP ITINERARY</h1>
-        <h4></h4>
+      <div className="text center opac">
         <h1>{tripCity}</h1>
         {eventList}
         <br/>
         <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
       </div>
       </BackdropFilter>
+      </div>
       </div>
     </div>
   )
