@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
 
 import Unsplash from 'unsplash-js'
@@ -95,8 +95,14 @@ const TripShow = props =>{
 }
 
   return(
-    <div className="row bg" style={sectionStyle}>
-      <div  key={props.trip.id} className="col-6 font">
+    <div className="bg" style={sectionStyle}>
+      <h1 className="font center accent-red">{props.trip.name}</h1>
+      <div className="row">
+        <div key={props.trip.id} className="col-6 font">
+        <BackdropFilter
+        className="bord"
+        filter={"blur(15px)"}
+        >
         <h1 className="accent-red"> TRIP INFO </h1>
         <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
           <div>
@@ -112,15 +118,21 @@ const TripShow = props =>{
           </div>
           <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </div>
-
+        </BackdropFilter>
       </div>
-      <div className="column text center">
+      <BackdropFilter
+      className="bord col-6"
+      filter={"blur(15px)"}
+      >
+      <div className="text center">
         <h1 className="text-blue text-right">TRIP ITINERARY</h1>
         <h4></h4>
         <h1>{tripCity}</h1>
         {eventList}
         <br/>
         <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
+      </div>
+      </BackdropFilter>
       </div>
     </div>
   )

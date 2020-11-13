@@ -55,8 +55,7 @@ const TripShowContainer = (props) =>{
 
 
   return(
-    <div className="row">
-      <h1 className="font center accent-red">{trip.name}</h1>
+    <div>
         <TripShow
         id={tripId}
         trip={trip}
