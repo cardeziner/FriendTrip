@@ -92,23 +92,21 @@ const TripShow = props =>{
   backgroundImage: `url(${imageUrl})`,
   backgroundAttachment: 'fixed',
   backgroundPosition: 'center',
-  minWidth: '100%',
-  minHeight: '100%',
   position: 'absolute',
   backgroundSize: 'cover',
   boxShadow: 'inset 0 7px 9px -7px black',
-  margin: "0 auto"
+  paddingBottom: '0'
 }
 
   return(
-    <div style={sectionStyle}>
+    <div className="bg" style={sectionStyle}>
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
         <div key={props.trip.id} className="col-5 font">
         <h1 className="accent-red"> TRIP INFO </h1>
         <BackdropFilter
         className="bord"
-        filter={"blur(15px)"}
+        filter={"blur(20px)"}
         >
         <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
           <div>
@@ -130,7 +128,7 @@ const TripShow = props =>{
         <h1 className="text-blue text-right">TRIP ITINERARY</h1>
       <BackdropFilter
       className="bord"
-      filter={"blur(15px)"}
+      filter={"blur(20px)"}
       >
       <div className="text center opac">
         <h1>{tripCity}</h1>
