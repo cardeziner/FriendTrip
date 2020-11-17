@@ -92,10 +92,10 @@ const TripShow = props =>{
   backgroundImage: `url(${imageUrl})`,
   backgroundAttachment: 'fixed',
   backgroundPosition: 'center',
+  height: '100%',
   position: 'absolute',
   backgroundSize: 'cover',
   boxShadow: 'inset 0 7px 9px -7px black',
-  paddingBottom: '0'
 }
 
   return(
@@ -133,7 +133,6 @@ const TripShow = props =>{
       <div className="text center opac">
         <h1>{tripCity}</h1>
         {eventList}
-        <br/>
         <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
       </div>
       </BackdropFilter>
