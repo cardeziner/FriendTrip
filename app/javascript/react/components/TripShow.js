@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
+import trip_info from '../../../assets/images/trip-info.png'
 
 import Unsplash from 'unsplash-js'
 
@@ -103,7 +104,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
         <div key={props.trip.id} className="col-5 font">
-        <h1 className="accent-red"> TRIP INFO </h1>
+        <h1 className="accent-red"><img src={trip_info} className="icon"/> TRIP INFO </h1>
         <BackdropFilter
         className="bord"
         filter={"blur(20px)"}
