@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
 import trip_info from '../../../assets/images/trip-info.png'
-
+import location from '../../../assets/images/location.png'
+import dates from '../../../assets/images/dates.png'
 import Unsplash from 'unsplash-js'
 
 const TripShow = props =>{
@@ -109,15 +110,22 @@ const TripShow = props =>{
         className="bord"
         filter={"blur(20px)"}
         >
-        <h2 className="text-white opac-black">{props.trip.city}</h2>
-        <p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
-        <hr className="gray-line"/>
-          <div>
+        <br className="line"/>
+        <h2 className="text-white opac-black">
+          <img src={location} className="icon"/>
+          <div className="vert-line"></div>{props.trip.city}<div className="right">
             <GoogleMapTile
             id={props.trip.id}
             location={tripCity}
             trip={props.trip}
             />
+            <br/>
+          </div>
+        </h2>
+        <p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
+        <hr className="gray-line"/>
+          <div>
+
             <br/><br/>
             <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
             <div className="center">
