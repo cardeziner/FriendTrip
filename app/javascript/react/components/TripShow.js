@@ -104,12 +104,14 @@ const TripShow = props =>{
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
         <div key={props.trip.id} className="col-5 font">
-        <h1 className="accent-red"><img src={trip_info} className="icon"/> TRIP INFO </h1>
+        <h1 className="text-blue vert"><img src={trip_info} className="icon"/> TRIP INFO </h1>
         <BackdropFilter
         className="bord"
         filter={"blur(20px)"}
         >
-        <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
+        <h2 className="text-white opac-black">{props.trip.city}</h2>
+        <p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
+        <hr className="gray-line"/>
           <div>
             <GoogleMapTile
             id={props.trip.id}
