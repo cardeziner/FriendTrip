@@ -105,12 +105,11 @@ const TripShow = props =>{
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
         <div key={props.trip.id} className="col-5 font">
-        <h1 className="text-blue vert"><img src={trip_info} className="icon"/> TRIP INFO </h1>
+        <h1 className="text-blue vert left-blue"><img src={trip_info} className="icon"/> TRIP INFO </h1>
         <BackdropFilter
         className="bord"
         filter={"blur(20px)"}
         >
-        <br className="line"/>
         <h2 className="text-white opac-black">
           <img src={location} className="icon"/>
           <div className="vert-line"></div>{props.trip.city}<div className="right">
@@ -119,13 +118,12 @@ const TripShow = props =>{
             location={tripCity}
             trip={props.trip}
             />
-            <br/>
+            <br className="line"/>
           </div>
         </h2>
         <p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
         <hr className="gray-line"/>
           <div>
-
             <br/><br/>
             <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
             <div className="center">
