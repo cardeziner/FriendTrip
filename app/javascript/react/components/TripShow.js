@@ -5,6 +5,7 @@ import GoogleMapTile from './GoogleMapTile'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
+import friends from '../../../assets/images/friends.png'
 import Unsplash from 'unsplash-js'
 
 const TripShow = props =>{
@@ -124,11 +125,8 @@ const TripShow = props =>{
           <h2 className="text-white"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
           <hr className="line"/>
           <div>
-          <br/><br/>
-          <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
-          <div className="center">
-            {blankUser()}
-          </div>
+          <h2 className="text-white center"><img src={friends} className="icon"/>{blankUser()}</h2>
+
           <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </div>
         </BackdropFilter>
