@@ -122,7 +122,7 @@ const TripShow = props =>{
           </div>
           </h2>
           <h2 className="text-white"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
-          <hr className="gray-line"/>
+          <hr className="line"/>
           <div>
           <br/><br/>
           <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
