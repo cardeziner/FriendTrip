@@ -8,6 +8,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    zoom: 90%;
 }
 
 .backdrop{
@@ -378,7 +379,7 @@ html, body {
 }
 
 .left-blue{
-  border-left: 4px solid #1BB0CE;
+  border-left: 8px solid #1BB0CE;
 }
 
 .accent-white:hover {
@@ -552,7 +553,7 @@ padding: 5px 10px 5px 5px;
 
 .no-wrap{
   white-space: nowrap;
-  width: 10%;
+  max-width: 75%;
 }
 
 .gray-line{

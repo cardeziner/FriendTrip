@@ -105,7 +105,7 @@ const TripShow = props =>{
     <div className="bg" style={sectionStyle}>
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
-        <div key={props.trip.id} className="col-5 font">
+        <div key={props.trip.id} className="col-xs-12 col-md-5 font">
           <h1 className="text-white vert left-blue pad left"> TRIP INFO </h1>
           <BackdropFilter
           className="bord opac-black"
@@ -122,11 +122,11 @@ const TripShow = props =>{
             <br className="gray-line"/>
           </div>
           </h2>
-          <img src={dates} className="icon"/><h2 className="text-white no-wrap">{props.trip.start_date} - {props.trip.end_date}</h2>
+          <h2 className="text-white no-wrap inline"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
           <hr className="line"/>
-          <div className="row vert center">
+          <div className="row vert">
             <div className="col-3">
-          <h2 className="text-white center vert inline"><img src={friends} className="icon inline"/></h2>
+          <h3 className="text-white center vert"><img src={friends} className="icon inline" /></h3>
           </div>
             <h2 className="center mid-float">
             {blankUser()}
