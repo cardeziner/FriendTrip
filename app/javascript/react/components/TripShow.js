@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
-
+import trip_info from '../../../assets/images/trip-info.png'
+import location from '../../../assets/images/location.png'
+import dates from '../../../assets/images/dates.png'
+import friends from '../../../assets/images/friends.png'
 import Unsplash from 'unsplash-js'
 
 const TripShow = props =>{
@@ -65,7 +68,7 @@ const TripShow = props =>{
   const userList = props.users.map(member =>{
     return(
       <div key={member.id}>
-        <h3 className="text green">
+        <h3 className="text green center block">
         {member.first_name}
         </h3>
       </div>
@@ -89,38 +92,58 @@ const TripShow = props =>{
   }
 
   var sectionStyle = {
-  width: "100%",
-  height: "400px",
-  backgroundImage: `url(${imageUrl})`
+  backgroundImage: `url(${imageUrl})`,
+  backgroundAttachment: 'fixed',
+  backgroundPosition: 'center',
+  height: '100%',
+  position: 'absolute',
+  backgroundSize: 'cover',
+  boxShadow: 'inset 0 7px 9px -7px black',
 }
 
   return(
-    <div className="row bg" style={sectionStyle}>
-      <div  key={props.trip.id} className="column font">
-        <h1 className="accent-red"> TRIP INFO </h1>
-        <h2 className="text-blue">{props.trip.city}</h2><p className="text-green">({props.trip.start_date} through {props.trip.end_date})</p>
-          <div>
+    <div className="bg" style={sectionStyle}>
+      <h1 className="font center accent-red">{props.trip.name}</h1>
+      <div className="row">
+        <div key={props.trip.id} className="col-xs-12 col-md-5 font">
+          <h1 className="text-white vert left-blue pad left"> TRIP INFO </h1>
+          <BackdropFilter
+          className="bord opac-black"
+          filter={"blur(20px)"}
+          >
+          <h2 className="text-white">
+          <img src={location} className="icon"/>
+          <div className="vert-line"></div>{props.trip.city}<div className="right">
             <GoogleMapTile
             id={props.trip.id}
             location={tripCity}
             trip={props.trip}
             />
-            <br/><br/>
-            <h2 className="text-blue center">FRIENDS ON THIS TRIP</h2>
-            <div className="square center">
-            {blankUser()}
+            <br className="gray-line"/>
           </div>
-          <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
-        </div>
+          </h2>
+          <h2 className="text-white no-wrap inline"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
+          <hr className="line"/>
 
+          <h3 className="text-white center vert"><img src={friends} className="icon inline" />{blankUser()}</h3>
+
+          <hr className="gray-line"/>
+        <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
+        </BackdropFilter>
       </div>
-      <div className="column text center">
+        <div className="col-5">
         <h1 className="text-blue text-right">TRIP ITINERARY</h1>
-        <h4></h4>
+      <BackdropFilter
+      className="bord"
+      filter={"blur(20px)"}
+      >
+      <div className="text center opac">
         <h1>{tripCity}</h1>
         {eventList}
-        <br/>
         <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
+      </div>
+      </BackdropFilter>
+      </div>
       </div>
     </div>
   )

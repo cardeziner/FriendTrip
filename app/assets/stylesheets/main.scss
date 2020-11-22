@@ -8,6 +8,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    zoom: 90%;
 }
 
 .backdrop{
@@ -28,6 +29,11 @@ html, body {
 
 .radius{
   border-radius: 10px;
+}
+
+
+.block{
+  display: inline-block;
 }
 
 .blur-text{
@@ -88,9 +94,11 @@ html, body {
     font-family: 'Francois One', sans-serif;
     color: white;
 }
+
 .white-back {
   background-color: white;
 }
+
 .link {
     font-family: 'Francois One', sans-serif;
 }
@@ -271,9 +279,17 @@ html, body {
 
 }
 
+.left-pad{
+  padding-left: 1%;
+}
+
+.red-top{
+  border-top: 4px solid #FF003C;
+}
+
 #map1,#map2,#map3,#map4,#map5,#map6,#map7,#map8 {
   height: 300px;
-  max-width: 400px;
+  max-width: 100%;
   margin: auto;
 }
 
@@ -310,7 +326,7 @@ html, body {
 .line{
     width: auto;
     height: 0px;
-    border-bottom: 3px solid #00C176;
+    border-bottom: 1px solid white;
     align-content: center;
 }
 
@@ -341,8 +357,6 @@ html, body {
 .accent-red {
   font-family: 'Francois One', sans-serif;
   font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 30px;
   color: #FF003C;
 }
 
@@ -367,6 +381,10 @@ html, body {
   display: inline;
   vertical-align: middle;
   font-size: 50px;
+}
+
+.left-blue{
+  border-left: 8px solid #1BB0CE;
 }
 
 .accent-white:hover {
@@ -459,6 +477,23 @@ padding: 5px 10px 5px 5px;
 
 .bord {
   border-radius: 15px;
+  align-items: center;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.vert-line {
+  border-left: 1px solid black;
+  float: left;
+}
+
+.opac{
+  z-index:3;
+}
+
+.opac-black{
+  background-color: black;
+  opacity: .6;
 }
 
 .home-bg{
@@ -478,10 +513,8 @@ padding: 5px 10px 5px 5px;
   background-position: center;
   min-width: 100%;
   min-height: 100%;
-  position: absolute;
-  background-size: cover;
+  background-size:cover;
   box-shadow: inset 0 7px 9px -7px black;
-  z-index: 3;
 }
 
 .add-link{
@@ -504,9 +537,10 @@ padding: 5px 10px 5px 5px;
 .icon{
   margin: 5%;
   border-radius: 10px;
-  width: 100px;
-  height: 100px;
+  width: 65px;
+  height: 65px;
   box-shadow: 0 8px 6px -6px black;
+  spacing: 5%;
 }
 
 .nav-white{
@@ -518,14 +552,28 @@ padding: 5px 10px 5px 5px;
   vertical-align: middle;
 }
 
+.inline{
+  display: inline;
+}
+
+.no-wrap{
+  white-space: nowrap;
+  font-size: 2rem;
+}
+
 .gray-line{
-  color: gray;
+  color: white;
 }
 
 .border {
   margin: 15px 15px 15px 15px;
   padding: 5px 10px 5px 5x;
   border-radius: 25px;
+}
+
+.mid-float{
+  float: none;
+  margin: auto;
 }
 
 .callout {
