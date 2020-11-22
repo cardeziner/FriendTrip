@@ -546,6 +546,15 @@ padding: 5px 10px 5px 5px;
   vertical-align: middle;
 }
 
+.inline{
+  display: inline;
+}
+
+.no-wrap{
+  white-space: nowrap;
+  width: 10%;
+}
+
 .gray-line{
   color: white;
 }
@@ -554,6 +563,11 @@ padding: 5px 10px 5px 5px;
   margin: 15px 15px 15px 15px;
   padding: 5px 10px 5px 5x;
   border-radius: 25px;
+}
+
+.mid-float{
+  float: none;
+  margin: auto;
 }
 
 .callout {

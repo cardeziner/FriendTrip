@@ -122,11 +122,11 @@ const TripShow = props =>{
             <br className="gray-line"/>
           </div>
           </h2>
-          <h2 className="text-white"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
+          <img src={dates} className="icon"/><h2 className="text-white no-wrap">{props.trip.start_date} - {props.trip.end_date}</h2>
           <hr className="line"/>
           <div className="row vert center">
             <div className="col-3">
-          <h2 className="text-white center vert"><img src={friends} className="icon"/></h2>
+          <h2 className="text-white center vert inline"><img src={friends} className="icon inline"/></h2>
           </div>
             <h2 className="center mid-float">
             {blankUser()}
