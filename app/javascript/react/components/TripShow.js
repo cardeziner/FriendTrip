@@ -67,8 +67,8 @@ const TripShow = props =>{
 
   const userList = props.users.map(member =>{
     return(
-      <div key={member.id} className="col-2">
-        <h3 className="text green">
+      <div key={member.id}>
+        <h3 className="text green center block">
         {member.first_name}
         </h3>
       </div>
@@ -124,16 +124,10 @@ const TripShow = props =>{
           </h2>
           <h2 className="text-white no-wrap inline"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
           <hr className="line"/>
-          <div className="row vert">
-            <div className="col-3">
-          <h3 className="text-white center vert"><img src={friends} className="icon inline" /></h3>
-          </div>
-            <h2 className="center mid-float">
-            {blankUser()}
-            </h2>
-          <hr className="gray-line"/>
 
-        </div>
+          <h3 className="text-white center vert"><img src={friends} className="icon inline" />{blankUser()}</h3>
+
+          <hr className="gray-line"/>
         <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </BackdropFilter>
       </div>
