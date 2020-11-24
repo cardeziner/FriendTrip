@@ -65,25 +65,15 @@ const TripShow = props =>{
       )}
     })
 
+    const length = props.users.length
+
   const userList = props.users.map(member =>{
-    if (member.id !== props.users[-1]){
     return(
-      <div key={member.id}>
-        <h3 className="text green center block">
-        {member.first_name},
-        </h3>
-      </div>
-    )
-  }else{
-    return(
-      <div key={member.id}>
-        <h3 className="text green center block">
+        <h3 key={member.id} className="text green center block">
         {member.first_name}
         </h3>
-      </div>
-    )
-  }
-  })
+      )
+    })
 
   function blankUser(){
     if(userList.length < 1){
@@ -131,9 +121,9 @@ const TripShow = props =>{
             />
           </div>
           </h2>
-          <h2 className="text-white no-wrap inline"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
-          <hr className="line"/>
-          <h3 className="text-white center vert"><img src={friends} className="icon inline" />{blankUser()}</h3>
+          <h2 className="text-white no-wrap inline vert"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
+          <hr className="line vert"/>
+          <h3 className="text-white center vert"><img src={friends} className="icon" />{blankUser()}</h3>
           <hr className="gray-line"/>
         </BackdropFilter>
       </div>
@@ -151,6 +141,7 @@ const TripShow = props =>{
             </BackdropFilter>
         </div>
       </div>
+      <br></br>
       <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
     </div>
   )
