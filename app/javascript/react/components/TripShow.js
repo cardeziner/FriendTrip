@@ -127,18 +127,19 @@ const TripShow = props =>{
           <hr className="gray-line"/>
         </BackdropFilter>
       </div>
-        <div className="col-5">
-          <h1 className="text-blue text-right">TRIP ITINERARY</h1>
+        <div className="col-5 right">
+          <h1 className="text-white vert right-yellow pad">TRIP ITINERARY</h1>
             <BackdropFilter
             className="bord"
             filter={"blur(20px)"}
             >
             <div className="text center opac">
-              <h1>{tripCity}</h1>
+              <h1 className="text-white"></h1>
               {eventList}
               <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
             </div>
             </BackdropFilter>
+
         </div>
       </div>
       <br></br>

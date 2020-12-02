@@ -53,7 +53,6 @@ html, body {
 
 .blur-div{
   background: inherit;
-  position: absolute;
   overflow: hidden;
 }
 
@@ -386,6 +385,11 @@ html, body {
 
 .left-blue{
   border-left: 8px solid #1BB0CE;
+}
+
+.right-yellow{
+  border-right: 8px solid #FABE28;
+  text-align: left;
 }
 
 .accent-white:hover {
