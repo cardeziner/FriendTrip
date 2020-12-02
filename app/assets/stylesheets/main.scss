@@ -61,6 +61,11 @@ html, body {
  backdrop-filter: blur(5px);
 }
 
+.col-5{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .blur-div:before {
   content: " ";
   background: inherit;
