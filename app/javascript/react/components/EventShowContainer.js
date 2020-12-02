@@ -34,34 +34,34 @@ const EventShowContainer = (props) =>{
         .catch(error => console.error(`Error in fetch: ${error.message}`))
       }, [])
 
-      const addNewEvent = (formPayload) => {
-    fetch(`/api/v1/trips/${tripId}/events`, {
-      credentials: "same-origin",
-      method: 'POST',
-      body: JSON.stringify(formPayload),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => {
-      if(response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage);
-        throw(error)
-      }
-    })
-    .then(response => response.json())
-    .then(parsedNewEvent => {
-      setTripEvents([
-        ...tripEvents,
-        parsedNewEvent.event
-      ])
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }
+    const addNewEvent = (formPayload) => {
+      fetch(`/api/v1/trips/${tripId}/events`, {
+        credentials: "same-origin",
+        method: 'POST',
+        body: JSON.stringify(formPayload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(parsedNewEvent => {
+        setTripEvents([
+          ...tripEvents,
+          parsedNewEvent.event
+        ])
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }
 
   const eventsList = tripEvents.map(singleEvent => {
     return (
@@ -75,7 +75,7 @@ const EventShowContainer = (props) =>{
       </div>
     )
   })
-
+  
     return(
       <div className="row"><br/><br/>
       <div className="column">

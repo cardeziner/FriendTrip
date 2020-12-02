@@ -7,12 +7,10 @@ const NewEventForm = props =>{
   const [newFormPayload, setNewFormPayload] = useState({
     name: "",
     location: "",
-    cost: 0,
+    cost: "0",
     date: "",
-    trip_id: props.tripId,
+    trip_id: props.id,
   })
-
-  debugger
 
   const handleInputChange = event =>{
     setNewFormPayload({
@@ -22,11 +20,9 @@ const NewEventForm = props =>{
   }
 
   const validForSubmission = () =>{
-
     let submitErrors = {}
     const requiredFields = ["name", "location", "cost", "date"]
     requiredFields.forEach(field =>{
-
       if (newFormPayload[field].trim() === ""){
         submitErrors = {
           ...submitErrors,
