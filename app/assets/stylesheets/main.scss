@@ -61,7 +61,7 @@ html, body {
  backdrop-filter: blur(5px);
 }
 
-.col-5{
+col-5, col-6, col-xs-12, col-md-5{
   display: flex;
   flex-wrap: wrap;
 }
