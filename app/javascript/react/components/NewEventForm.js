@@ -12,6 +12,8 @@ const NewEventForm = props =>{
     trip_id: props.tripId,
   })
 
+  debugger
+
   const handleInputChange = event =>{
     setNewFormPayload({
       ...newFormPayload,
@@ -20,6 +22,7 @@ const NewEventForm = props =>{
   }
 
   const validForSubmission = () =>{
+
     let submitErrors = {}
     const requiredFields = ["name", "location", "cost", "date"]
     requiredFields.forEach(field =>{
@@ -36,6 +39,7 @@ const NewEventForm = props =>{
   }
 
   const handleSubmit = event => {
+
     event.preventDefault()
     if (validForSubmission()) {
       props.addNewEvent({ event: newFormPayload })

@@ -30,7 +30,7 @@ const TripsIndexComponent = (props) =>{
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
-//current_user data
+
   useEffect(() =>{
     fetch('/api/v1/users', {
       credentials: "same-origin"
