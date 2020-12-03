@@ -194,6 +194,16 @@ col-5, col-6, col-xs-12, col-md-5{
   color: #FF003C;
 }
 
+.bg-signin{
+  background: image-url("friends-home.jpg");
+  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  z-index: 1;
+  background-size:cover;
+}
+
 .bg-gray{
   background: image-url("AboutUs.jpg");
   background-position: center;
