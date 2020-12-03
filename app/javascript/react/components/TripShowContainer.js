@@ -26,6 +26,7 @@ const TripShowContainer = (props) =>{
       })
       .then(response => response.json())
       .then(parsedTrip => {
+        debugger
         setTrip(parsedTrip.trip)
         setTripEvents(parsedTrip.events)
         setUsers(parsedTrip.users)
@@ -52,7 +53,6 @@ const TripShowContainer = (props) =>{
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
-
 
   return(
     <div>

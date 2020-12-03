@@ -128,7 +128,7 @@ const TripShow = props =>{
         </BackdropFilter>
       </div>
         <div className="col-5 right">
-          <h1 className="text-white vert right-yellow pad">TRIP ITINERARY</h1>
+          <h1 className="text-white vert right-yellow pad margin-right">TRIP ITINERARY</h1>
             <BackdropFilter
             className="bord"
             filter={"blur(20px)"}

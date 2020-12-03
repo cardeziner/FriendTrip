@@ -66,6 +66,10 @@ col-5, col-6, col-xs-12, col-md-5{
   flex-wrap: wrap;
 }
 
+.margin-right{
+  margin-right: 0;
+}
+
 .blur-div:before {
   content: " ";
   background: inherit;
