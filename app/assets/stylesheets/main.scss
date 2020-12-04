@@ -205,6 +205,12 @@ col-5, col-6, col-xs-12, col-md-5{
   background-size:cover;
 }
 
+.blur-box{
+  border-radius: 15px;
+  filter:blur(25px);
+  z-index: 1
+}
+
 .bg-gray{
   background: image-url("AboutUs.jpg");
   background-position: center;
@@ -219,6 +225,10 @@ col-5, col-6, col-xs-12, col-md-5{
   padding-top: 5rem;
 }
 
+.backdrop{
+  filter: blur(20px);
+  padding: 10%;
+}
 
 .bigbox{
   margin-left: 5%;
