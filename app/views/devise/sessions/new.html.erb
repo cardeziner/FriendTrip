@@ -2,7 +2,7 @@
 <div class="bg-signin top-pad">
   <div class="row">
     <div class="center col-5 sign-in">
-<h2 class="header">Already a member? Log-in to continue!</h2><br/>
+<h2 class="header top-pad">Already a member? Log-in to continue!</h2><br/>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field text-blue">
     <%= f.label :email %>
@@ -25,5 +25,6 @@
   <br></br>
   <h1 class="text">Not a member? JOIN US!</h1><br/><br/>
   <%= render "devise/shared/links" %>
+  <p class="bot-pad"</p>
   </div>
 </div>

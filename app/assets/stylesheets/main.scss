@@ -16,7 +16,7 @@ html, body {
 .sign-in{
   background-color: white;
   border-radius: 15px;
-  box-shadow: 3px 3px 3px gray;
+  box-shadow: 0 8px 6px -6px gray;
 }
 
 
@@ -25,6 +25,10 @@ html, body {
   filter: opacity(.1);
   border-radius: 20px;
   z-index: 0;
+}
+
+.field{
+  padding: 5%;
 }
 
 .blur-back{
