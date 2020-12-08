@@ -19,6 +19,22 @@ html, body {
   box-shadow: 0 8px 6px -6px gray;
 }
 
+.bg-reg{
+  background: image-url("friends-home.jpg");
+  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  z-index: 1;
+  filter: blur(120px);
+  background-size:cover;
+  z-index: 1;
+}
+
+.z1{
+  filter: blur(0px);
+  z-index: 0;
+}
 
 .backdrop{
   background-color: black;
@@ -27,10 +43,10 @@ html, body {
   z-index: 0;
 }
 
+
 .field{
   padding: 5%;
   border-bottom-color: black;
-  border-bottom-width: thick;
 }
 
 .blur-back{
