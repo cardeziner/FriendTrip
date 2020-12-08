@@ -5,38 +5,40 @@
 <div>
   <div class="small-6 large-2 columns">
     <div class="bg-reg"></div>
-    <div class="shrink form-text">
+    <div class="">
       <br/>
         <div class="row">
           <div class="column opac-black">
             <div class="text top-margin">
               <h2 class="text-white center">SIGN UP FOR FRIENDTRIP</h2>
-              <div>
+              <div class="text-white">
+        <span>
           <div class="field"><br />
-            <%= f.label :first_name, "FIRST NAME"%>
+            <%= f.label :first_name, "FIRST NAME", class:"text-white"%>
             <%= f.text_field :first_name%>
           </div>
+        </span>
 
           <div class="field">
-            <%= f.label :last_name, "Last Name" %>
+            <%= f.label :last_name, "LAST NAME", class:"text-white" %>
             <%= f.text_field :last_name%>
           </div>
 
           <div class="field">
-            <%= f.label :email %>
+            <%= f.label :email, "EMAIL" ,class:"text-white" %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
 
           <div class="field">
-            <%= f.label :password %>
+            <%= f.label :password, "PASSWORD",class:"text-white"%>
             <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <em className="text-white">(<%= @minimum_password_length %> CHARACTERS MINIMUM)</em>
             <% end %><br/>
             <%= f.password_field :password, autocomplete: "new-password" %>
           </div>
 
           <div class="field">
-            <%= f.label :password_confirmation %>
+            <%= f.label :password_confirmation, "CONFIRM PASSWORD", class:"text-white" %>
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </div><br/>
 

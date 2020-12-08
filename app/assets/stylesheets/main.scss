@@ -46,10 +46,20 @@ html, body {
   z-index: 0;
 }
 
+label{
+  color: solid white;
+}
+
+.form-style{
+  border: none;
+  background-color: inherit;
+}
 
 .field{
   padding: 5%;
-  border-bottom-color: black;
+  outline: none;
+  text-decoration-color: white;
+  color: white;
 }
 
 .blur-back{
@@ -120,6 +130,7 @@ col-5, col-6, col-xs-12, col-md-5{
 .text-white{
   font-family: 'Francois One', sans-serif;
   color: #ffffff;
+  text-transform: capitalize;
 }
 
 .bodytext{
@@ -155,8 +166,6 @@ col-5, col-6, col-xs-12, col-md-5{
   color: #00C176;
   font-size: 25;
 }
-
-
 
 .friendtrip-logo{
   max-width: 150px;
