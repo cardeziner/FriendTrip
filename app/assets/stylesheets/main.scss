@@ -12,6 +12,10 @@ html, body {
     overflow: scroll;
 }
 
+.opac-black{
+  background-color: black;
+  opacity: .5%;
+}
 
 .sign-in{
   background-color: white;
@@ -28,12 +32,11 @@ html, body {
   z-index: 1;
   filter: blur(120px);
   background-size:cover;
-  z-index: 1;
+  z-index: -1;
 }
 
 .z1{
-  filter: blur(0px);
-  z-index: 0;
+  z-index: 10;
 }
 
 .backdrop{

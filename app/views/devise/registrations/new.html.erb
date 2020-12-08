@@ -3,16 +3,17 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 <div>
-  <div class="small-6 large-2 columns bg-reg">
+  <div class="small-6 large-2 columns">
+    <div class="bg-reg"></div>
     <div class="shrink form-text">
       <br/>
         <div class="row">
-          <div class="column">
+          <div class="column opac-black">
             <div class="text top-margin">
-              <h2 class="text center">SIGN UP FOR FRIENDTRIP</h2>
+              <h2 class="text-white center">SIGN UP FOR FRIENDTRIP</h2>
               <div>
           <div class="field"><br />
-            <%= f.label :first_name, "First Name"%>
+            <%= f.label :first_name, "FIRST NAME"%>
             <%= f.text_field :first_name%>
           </div>
 
@@ -40,7 +41,7 @@
           </div><br/>
 
           <div class="text center submit-button">
-            <%= f.submit "Sign up" %>
+            <%= f.submit "SIGN UP" %>
           </div>
             <% end %>
 
