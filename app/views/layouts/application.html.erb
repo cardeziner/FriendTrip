@@ -15,15 +15,15 @@
       <a href="/" class="friendtrip-logo"><%= image_tag "new-logo.png"%></a>
         <%- if current_user -%>
         <ul class="nav white-back">
-          <li class="nav-link"><%= link_to 'My FriendTrips', trips_path %></li>
-          <li class="nav-link"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li class="nav-link center"><%= link_to 'My FriendTrips', trips_path %></li>
+          <li class="nav-link center"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         </ul
         <%- else -%>
-        <div className="nav white-back">
-          <p class="nav-link"><%= link_to 'Sign Up', new_user_registration_path %></p>
-          <p class="nav-link"><%= link_to 'Sign In', new_user_session_path %></p>
-          <p class="nav-link"><%= link_to 'About Us', aboutus_path %></p>
-        </div>
+        <ul className="nav white-back">
+          <li class="nav-link center"><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li class="nav-link center"><%= link_to 'Sign In', new_user_session_path %></li>
+          <li class="nav-link center"><%= link_to 'About Us', aboutus_path %></li>
+        </ul>
         <%- end -%>
     </section>
   </nav>
