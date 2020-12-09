@@ -17,6 +17,14 @@ html, body {
   opacity: .5%;
 }
 
+.sub{
+  opacity: 0;
+}
+
+.sub:hover{
+  background-color: white;
+}
+
 .sign-in{
   background-color: white;
   border-radius: 15px;
@@ -164,7 +172,6 @@ col-5, col-6, col-xs-12, col-md-5{
   font-family: 'Francois One', sans-serif;
   margin-top: 10px;
   color: #00C176;
-  font-size: 25;
 }
 
 .friendtrip-logo{
