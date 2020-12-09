@@ -9,6 +9,48 @@ html, body {
     padding: 0;
     height: 100%;
     zoom: 90%;
+    overflow: scroll;
+}
+
+.opac-black{
+  background-color: black;
+  opacity: .7;
+}
+
+.btn{
+  height: 50px;
+  width: 100px;
+  font-size: medium;
+}
+
+.sub{
+  opacity: 0;
+}
+
+.sub:hover{
+  background-color: white;
+}
+
+.sign-in{
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 6px -6px gray;
+}
+
+.bg-reg{
+  background: image-url("friends-home.jpg");
+  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  z-index: 1;
+  filter: blur(120px);
+  background-size:cover;
+  z-index: -1;
+}
+
+.z1{
+  z-index: 10;
 }
 
 .backdrop{
@@ -16,6 +58,22 @@ html, body {
   filter: opacity(.1);
   border-radius: 20px;
   z-index: 0;
+}
+
+label{
+  color: solid white;
+}
+
+.form-style{
+  border: none;
+  background-color: inherit;
+}
+
+.field{
+  padding: 5%;
+  outline: none;
+  text-decoration-color: white;
+  color: white;
 }
 
 .blur-back{
@@ -52,13 +110,21 @@ html, body {
 
 .blur-div{
   background: inherit;
-  position: absolute;
   overflow: hidden;
 }
 
 .container {
  background-color: rgba(255, 255, 255, .15);
  backdrop-filter: blur(5px);
+}
+
+col-5, col-6, col-xs-12, col-md-5{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.margin-right{
+  margin-right: 0;
 }
 
 .blur-div:before {
@@ -78,6 +144,7 @@ html, body {
 .text-white{
   font-family: 'Francois One', sans-serif;
   color: #ffffff;
+  text-transform: capitalize;
 }
 
 .bodytext{
@@ -111,10 +178,7 @@ html, body {
   font-family: 'Francois One', sans-serif;
   margin-top: 10px;
   color: #00C176;
-  font-size: 25;
 }
-
-
 
 .friendtrip-logo{
   max-width: 150px;
@@ -185,6 +249,23 @@ html, body {
   color: #FF003C;
 }
 
+
+.bg-signin{
+  background: image-url("friends-home.jpg");
+  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  z-index: 1;
+  background-size:cover;
+}
+
+.blur-box{
+  border-radius: 15px;
+  filter:blur(25px);
+  z-index: 1
+}
+
 .bg-gray{
   background: image-url("AboutUs.jpg");
   background-position: center;
@@ -195,6 +276,14 @@ html, body {
   background-size:cover;
 }
 
+.top-pad{
+  padding-top: 5rem;
+}
+
+.backdrop{
+  filter: blur(20px);
+  padding: 10%;
+}
 
 .bigbox{
   margin-left: 5%;
@@ -219,6 +308,7 @@ html, body {
   margin-right: 30%;
   text-align: center
 }
+
 
 .submit{
   background-color: #FABE28;
@@ -387,6 +477,11 @@ html, body {
   border-left: 8px solid #1BB0CE;
 }
 
+.right-yellow{
+  border-right: 8px solid #FABE28;
+  text-align: left;
+}
+
 .accent-white:hover {
   font-family: 'Francois One', sans-serif;
   font-weight: bold;
@@ -493,7 +588,7 @@ padding: 5px 10px 5px 5px;
 
 .opac-black{
   background-color: black;
-  opacity: .6;
+  opacity: .7;
 }
 
 .home-bg{

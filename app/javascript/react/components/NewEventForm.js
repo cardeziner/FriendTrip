@@ -7,9 +7,9 @@ const NewEventForm = props =>{
   const [newFormPayload, setNewFormPayload] = useState({
     name: "",
     location: "",
-    cost: 0,
+    cost: "0",
     date: "",
-    trip_id: props.tripId,
+    trip_id: props.id,
   })
 
   const handleInputChange = event =>{
@@ -23,7 +23,6 @@ const NewEventForm = props =>{
     let submitErrors = {}
     const requiredFields = ["name", "location", "cost", "date"]
     requiredFields.forEach(field =>{
-
       if (newFormPayload[field].trim() === ""){
         submitErrors = {
           ...submitErrors,
@@ -36,6 +35,7 @@ const NewEventForm = props =>{
   }
 
   const handleSubmit = event => {
+
     event.preventDefault()
     if (validForSubmission()) {
       props.addNewEvent({ event: newFormPayload })

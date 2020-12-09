@@ -65,15 +65,15 @@ const TripShow = props =>{
       )}
     })
 
+    const length = props.users.length
+
   const userList = props.users.map(member =>{
     return(
-      <div key={member.id}>
-        <h3 className="text green center block">
+        <h3 key={member.id} className="text green center block">
         {member.first_name}
         </h3>
-      </div>
-    )
-  })
+      )
+    })
 
   function blankUser(){
     if(userList.length < 1){
@@ -119,32 +119,31 @@ const TripShow = props =>{
             location={tripCity}
             trip={props.trip}
             />
-            <br className="gray-line"/>
           </div>
           </h2>
-          <h2 className="text-white no-wrap inline"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
-          <hr className="line"/>
-
-          <h3 className="text-white center vert"><img src={friends} className="icon inline" />{blankUser()}</h3>
-
+          <h2 className="text-white no-wrap inline vert"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
+          <hr className="line vert"/>
+          <h3 className="text-white center vert"><img src={friends} className="icon" />{blankUser()}</h3>
           <hr className="gray-line"/>
-        <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </BackdropFilter>
       </div>
-        <div className="col-5">
-        <h1 className="text-blue text-right">TRIP ITINERARY</h1>
-      <BackdropFilter
-      className="bord"
-      filter={"blur(20px)"}
-      >
-      <div className="text center opac">
-        <h1>{tripCity}</h1>
-        {eventList}
-        <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
+        <div className="col-5 right">
+          <h1 className="text-white vert right-yellow pad margin-right">TRIP ITINERARY</h1>
+            <BackdropFilter
+            className="bord"
+            filter={"blur(20px)"}
+            >
+            <div className="text center opac">
+              <h1 className="text-white"></h1>
+              {eventList}
+              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
+            </div>
+            </BackdropFilter>
+
+        </div>
       </div>
-      </BackdropFilter>
-      </div>
-      </div>
+      <br></br>
+      <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
     </div>
   )
 }
