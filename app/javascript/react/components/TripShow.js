@@ -103,6 +103,7 @@ const TripShow = props =>{
 
   return(
     <div className="bg" style={sectionStyle}>
+      <div className="dark"></div>
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
         <div key={props.trip.id} className="col-xs-12 col-md-5 font">
@@ -136,7 +137,7 @@ const TripShow = props =>{
             <div className="text center opac">
               <h1 className="text-white"></h1>
               {eventList}
-              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> CLICK HERE TO ADD &</h5>VOTE ON NEW EVENTS</Link>
+              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> EVENTS &</h5>VOTES</Link>
             </div>
             </BackdropFilter>
 
