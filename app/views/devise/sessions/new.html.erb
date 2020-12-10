@@ -1,7 +1,7 @@
 
 <div class="bg-signin top-pad">
   <div class="row">
-    <div class="center col-5 sign-in opac-black">
+    <div class="center col-xs-8 col-sm-9 col-md-5 sign-in opac-black">
 <h1 class="header top-pad">LOG-IN TO CONTINUE</h1><br/>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field ">
@@ -19,7 +19,7 @@
     </div>
   <% end %>
   <div class="actions"><br/>
-    <%= f.submit "LOG-IN", class: 'btn btn-primary'  %>
+    <%= f.submit "LOG-IN", class: 'btn btn-primary text'  %>
   </div>
   <% end %>
   <br></br>
