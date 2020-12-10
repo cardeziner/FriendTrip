@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Londrina+Solid:wght@900&display=swap');
 
 @import "bootstrap";
+
 html, body {
     margin: 0;
     padding: 0;
@@ -12,6 +13,8 @@ html, body {
     zoom: 90%;
     overflow: scroll;
 }
+
+
 
 .opac-black{
   background-color: black;
@@ -34,7 +37,6 @@ html, body {
 
 .sign-in{
   background-color: white;
-  border-radius: 15px;
   box-shadow: 0 8px 6px -6px gray;
 }
 
