@@ -43,10 +43,10 @@ html, body {
   min-width: 100%;
   min-height: 100%;
   position: absolute;
-  z-index: 1;
-  filter: blur(120px);
+  filter: blur(20px);
   background-size:cover;
   z-index: -1;
+  overflow: visible;
 }
 
 .z1{
@@ -341,16 +341,14 @@ col-5, col-6, col-xs-12, col-md-5{
   float: left;
   display: inline;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-height: 80vh;
   border-style:inherit;
   width: 45%;
   border-radius: 15px;
-  border: 5px solid #FABE28;
   margin: 0 0 0 35px;
   padding: 15px 15px 15px 15px;
-
+  overflow:hidden;
 }
 
 .column-2 {
