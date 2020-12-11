@@ -142,15 +142,23 @@ const TripShow = props =>{
             <div className="vert-line"></div>{props.trip.city}<div className="right">
           </div>
           </h2>
-          <h4 className="text-white no-wrap inline vert"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h4>
-          <h3 className="text-white vert row"><img src={friends} className="icon" />{blankUser()}</h3>
+          <h4 className="font"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h4>
+
+          <div className="row">
+            <div className="col-3 vert">
+              <img src={friends} className="icon"/>
+            </div>
+            <div className="col-3 center">
+              <h3 className="text-white vert row">{blankUser()}</h3>
+            </div>
+          </div>
           <hr className="gray-line"/>
         </BackdropFilter>
       </div>
         <div className="col-5 right">
           <h1 className="text-white vert right-yellow pad margin-right">TRIP ITINERARY</h1>
             <BackdropFilter
-            className="opac-black"
+            className="bord"
             filter={"blur(20px)"}
             >
             <div className="text center opac">
