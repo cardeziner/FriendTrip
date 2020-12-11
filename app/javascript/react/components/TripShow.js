@@ -85,11 +85,11 @@ const TripShow = props =>{
       )}
     })
 
-    const length = props.users.length
+  const length = props.users.length
 
   const userList = props.users.map(member =>{
     return(
-        <h3 key={member.id} className="text green center block">
+        <h3 key={member.id} className="text green col-2">
         {member.first_name}
         </h3>
       )
@@ -129,29 +129,28 @@ const TripShow = props =>{
         <div key={props.trip.id} className="col-xs-12 col-md-5 font">
           <h1 className="text-white vert left-blue pad left"> TRIP INFO </h1>
           <BackdropFilter
-          className="bord opac-black"
+          className="bord"
           filter={"blur(20px)"}
           >
-          <h2 className="text-white">
-          <img src={location} className="icon"/>
-          <div className="vert-line"></div>{props.trip.city}<div className="right">
             <GoogleMapTile
             id={props.trip.id}
             location={tripCity}
             trip={props.trip}
             />
+            <h2 className="text-white">
+            <img src={location} className="icon"/>
+            <div className="vert-line"></div>{props.trip.city}<div className="right">
           </div>
           </h2>
-          <h2 className="text-white no-wrap inline vert"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h2>
-          <hr className="line vert"/>
-          <h3 className="text-white center vert"><img src={friends} className="icon" />{blankUser()}</h3>
+          <h4 className="text-white no-wrap inline vert"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h4>
+          <h3 className="text-white vert row"><img src={friends} className="icon" />{blankUser()}</h3>
           <hr className="gray-line"/>
         </BackdropFilter>
       </div>
         <div className="col-5 right">
           <h1 className="text-white vert right-yellow pad margin-right">TRIP ITINERARY</h1>
             <BackdropFilter
-            className="bord"
+            className="opac-black"
             filter={"blur(20px)"}
             >
             <div className="text center opac">
