@@ -74,16 +74,20 @@ const TripShow = props =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
+  const url = imageUrl
+
   const eventList = props.events.map(singleEvent =>{
     if(singleEvent.votes > props.users.length){
       return(
-        <div key={singleEvent.id} ><br/>
-          <Link to={`/trips/${singleEvent.id}/events`} className="submit">{singleEvent.name}</Link><br />
-          <h5 className="submit-blue"> {singleEvent.date} </h5>
+        <div key={singleEvent.id} className="click-block" ><br/>
+          <h2 className="text">{singleEvent.name}</h2>
+          <h5 className="text-white"> {singleEvent.date} </h5>
           <br/>
         </div>
       )}
     })
+
+    // <Link to={`/trips/${singleEvent.id}/events`}>{singleEvent.name}</Link><br />
 
   const length = props.users.length
 
@@ -112,7 +116,7 @@ const TripShow = props =>{
   }
 
   var sectionStyle = {
-  backgroundImage: `url(${imageUrl})`,
+  backgroundImage: `url(${url})`,
   backgroundAttachment: 'fixed',
   backgroundPosition: 'center',
   height: '100%',
@@ -146,6 +150,7 @@ const TripShow = props =>{
 
           <div className="row">
             <div className="col-3 vert margin-left">
+            <br/>
               <img src={friends} className="icon"/>
             </div>
             <div className="col-3 center">
@@ -164,7 +169,7 @@ const TripShow = props =>{
             <div className="text center opac">
               <h1 className="text-white"></h1>
               {eventList}
-              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text"> EVENTS &</h5>VOTES</Link>
+              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">Navigate to: <br/>EVENTS & VOTES</h5></Link>
             </div>
             </BackdropFilter>
 

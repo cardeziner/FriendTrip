@@ -127,6 +127,17 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   vertical-align: middle;
 }
 
+.click-block{
+  color: #1BB0CE;
+  font-family: 'Francois One', sans-serif;
+}
+
+.click-block:hover{
+  border-left: 5px solid #FABE28;
+  border-right: 5px solid #FABE28;
+  color: #FF003C;
+}
+
 .margin-right{
   margin-right: 0;
 }
