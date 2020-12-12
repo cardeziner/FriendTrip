@@ -142,10 +142,10 @@ const TripShow = props =>{
             <div className="vert-line"></div>{props.trip.city}<div className="right">
           </div>
           </h2>
-          <h4 className="font"><img src={dates} className="icon"/>{props.trip.start_date} - {props.trip.end_date}</h4>
+          <h4 className="font"><img src={dates} className="icon center"/>{props.trip.start_date} - {props.trip.end_date}</h4>
 
           <div className="row">
-            <div className="col-3 vert">
+            <div className="col-3 vert margin-left">
               <img src={friends} className="icon"/>
             </div>
             <div className="col-3 center">
