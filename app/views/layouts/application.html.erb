@@ -11,7 +11,7 @@
 <body>
   <nav>
     <div>
-    <section class="top-bar nav-white">
+    <section class="top-bar nav-white white-back">
       <a href="/" class="friendtrip-logo"><%= image_tag "new-logo.png"%></a>
         <%- if current_user -%>
         <ul class="nav white-back">
@@ -20,9 +20,9 @@
         </ul
         <%- else -%>
         <ul className="nav white-back">
-          <li class="nav-link center"><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li class="nav-link center"><%= link_to 'Sign In', new_user_session_path %></li>
-          <li class="nav-link center"><%= link_to 'About Us', aboutus_path %></li>
+          <li class="nav-link center text-white"><%= link_to 'SIGN UP', new_user_registration_path %></li>
+          <li class="nav-link center text-white"><%= link_to 'SIGN IN', new_user_session_path %></li>
+          <li class="nav-link center text-white"><%= link_to 'ABOUT US', aboutus_path %></li>
         </ul>
         <%- end -%>
     </section>

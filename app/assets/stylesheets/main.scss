@@ -458,9 +458,12 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .flash{
-  background-color: black;
-  color: white;
+  background: inherit;
+  filter: opacity(1);
+  color: #1BB0CE;
   font-family: 'Francois One', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .accent-red {
@@ -667,6 +670,7 @@ padding: 5px 10px 5px 5px;
 .nav-white{
   background-color: white;
   box-shadow: 0 8px 6px -6px black;
+  vertical-align: middle;
 }
 
 .vert{
@@ -675,6 +679,10 @@ padding: 5px 10px 5px 5px;
 
 .inline{
   display: inline;
+}
+
+.nav{
+  text-decoration: none;
 }
 
 .no-wrap{
