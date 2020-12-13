@@ -727,3 +727,31 @@ padding: 5px 10px 5px 5px;
   color: #FF003C;
   border-radius: 40px;
 }
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: white;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float:inherit;
+  display:inline-block;
+  color: black;
+  text-align: center;
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Francois One', sans-serif;
+  align-items: center;
+  box-sizing:border-box;
+  border-radius: 5px;
+}
+
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover {
+  text-decoration: none;
+  color: #FABE28;
+  transform: scale(1.1);
+}
