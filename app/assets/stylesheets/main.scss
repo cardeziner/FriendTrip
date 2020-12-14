@@ -618,6 +618,11 @@ padding: 5px 10px 5px 5px;
   filter: opacity(.6);
 }
 
+.float{
+  float: left;
+  display: inline;
+}
+
 .home-bg{
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("home-page.jpg");
   background-attachment: fixed;
@@ -672,6 +677,8 @@ padding: 5px 10px 5px 5px;
   box-shadow: 0 8px 6px -6px black;
   vertical-align: middle;
 }
+
+
 
 .black{
   background-color: black;

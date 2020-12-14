@@ -90,12 +90,12 @@ const TripsIndexComponent = (props) =>{
         className="bord"
         filter={"blur(15px)"}
         >
-        <h1 className="col-12 font trim vert no-bot-pad">Welcome Back {user.email}!</h1>
+        <h1 className="col-12 center font trim vert no-bot-pad">Welcome Back {user.email}!</h1>
         </BackdropFilter>
         </div>
         <div className="front">
           <div className="row bot-pad">
-            <div className="col-6 bord">
+            <div className="col-5 bord">
               <BackdropFilter
               className="bord"
               filter={"blur(15px)"}
@@ -104,9 +104,17 @@ const TripsIndexComponent = (props) =>{
               <hr className="gray-line"/>
               <div className="center">
                 {tripList}
-              </div>
+            </div>
               <hr className="gray-line"/>
               <p className="center"> <Link to="/trips/new" className="add-link">ADD A NEW FRIENDTRIP</Link></p>
+              </BackdropFilter>
+            </div>
+            <div className="col-5 float">
+              <BackdropFilter
+              className="bord"
+              filter={"blur(15px)"}
+              >
+              <h1>Hello World</h1>
               </BackdropFilter>
             </div>
             <p className="line"></p>

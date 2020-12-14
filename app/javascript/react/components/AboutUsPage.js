@@ -17,10 +17,8 @@ const AboutUsPage = props =>{
         </h4>
         </div>
       <div className="column bigbox ">
-        <h1 className="inline-block center vert bodytext fifty text-yellow">COMING SOON...</h1>
-        <div>
+        <h1 className="center bodytext fifty text-yellow">COMING SOON...</h1>
           <h1 className="bodytext center">Write a Review!</h1>
-        </div>
       </div>
     </div>
   </div>

@@ -172,7 +172,6 @@ const TripShow = props =>{
               <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">Navigate to: <br/>EVENTS & VOTES</h5></Link>
             </div>
             </BackdropFilter>
-
         </div>
       </div>
       <br></br>
