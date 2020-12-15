@@ -112,10 +112,10 @@ const TripsIndexComponent = (props) =>{
                 <BackdropFilter
                 className="bord"
                 filter={"blur(15px)"}
-                ><br/>
+                >
                 <div>
                   <Link to='trips/new' className="no-dec">
-                  <h1 className="inline sides-pad text-yellow">+</h1>
+                  <h1 className="inline sides-pad text-yellow big">+</h1>
                   <h1 className="inline no-dec text-yellow">NEW FRIENDTRIP</h1>
                   </Link>
                 </div>
