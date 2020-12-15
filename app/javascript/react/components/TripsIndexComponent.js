@@ -105,17 +105,18 @@ const TripsIndexComponent = (props) =>{
               <div className="center">
                 {tripList}
             </div>
-              <hr className="gray-line"/>
-              <p className="center"> <Link to="/trips/new" className="add-link">ADD A NEW FRIENDTRIP</Link></p>
               </BackdropFilter>
             </div>
             <div className="col-5 float">
-              <BackdropFilter
-              className="bord"
-              filter={"blur(15px)"}
-              >
-              <h1>Hello World</h1>
-              </BackdropFilter>
+              <div className="fifty">
+                <BackdropFilter
+                className="bord"
+                filter={"blur(15px)"}
+                ><br/>
+                <h1 className="text"><Link to="/trips/new" className="pad-trip fifty">ADD A NEW FRIENDTRIP</Link></h1>
+                <br/>
+                </BackdropFilter>
+              </div>
             </div>
             <p className="line"></p>
           </div>
