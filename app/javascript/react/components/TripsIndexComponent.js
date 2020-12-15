@@ -113,7 +113,10 @@ const TripsIndexComponent = (props) =>{
                 className="bord"
                 filter={"blur(15px)"}
                 ><br/>
-                <h1 className="text"><Link to="/trips/new" className="pad-trip fifty">ADD A NEW FRIENDTRIP</Link></h1>
+                <div>
+                  <h1 className="inline sides-pad yellow big">+</h1>
+                  <h1 className="inline"><Link to='trips/new' className="no-dec text-yellow">NEW FRIENDTRIP</Link></h1>
+                </div>
                 <br/>
                 </BackdropFilter>
               </div>

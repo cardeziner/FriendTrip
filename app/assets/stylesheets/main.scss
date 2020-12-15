@@ -88,6 +88,10 @@ label{
   z-index: 1;
 }
 
+.no-dec{
+  text-decoration: none!important;
+}
+
 .radius{
   border-radius: 10px;
 }
@@ -604,12 +608,17 @@ padding: 5px 10px 5px 5px;
   float: left;
 }
 
-.pad-trip{
-  margin: 20px;
+.big{
+  font-size: 200%;
 }
 
 .opac{
   z-index:3;
+}
+
+.sides-pad{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .opac-black{
