@@ -113,10 +113,10 @@ const TripsIndexComponent = (props) =>{
                 className="bord"
                 filter={"blur(15px)"}
                 >
-                <div>
+                <div className="no-dec">
                   <Link to='trips/new' className="no-dec">
-                  <h1 className="inline sides-pad text-yellow big">+</h1>
-                  <h1 className="inline no-dec text-yellow">NEW FRIENDTRIP</h1>
+                  <h1 className="inline sides-pad text-yellow big no-dec">+</h1>
+                  <h1 className="inline no-dec text-yellow center">NEW FRIENDTRIP</h1>
                   </Link>
                 </div>
                 <br/>

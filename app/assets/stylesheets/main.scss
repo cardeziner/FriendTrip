@@ -612,6 +612,14 @@ padding: 5px 10px 5px 5px;
   font-size: 80;
 }
 
+.no-dec:hover{
+  color: #FF003C;
+  transform: scale(1.05);
+}
+
+.butt:hover{
+  transform: scale(1.1);
+}
 .opac{
   z-index:3;
 }
