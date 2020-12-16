@@ -51,8 +51,8 @@ const NewTripForm = (props) =>{
   }
 
   return(
-    <div>
-        <div>
+    <div className="center">
+        <div className="col-6 center opac-black">
           <form onSubmit={handleSubmit}>
             <label className="name">
               Name:
@@ -64,6 +64,7 @@ const NewTripForm = (props) =>{
                 value={newFormPayload.name}
               />
             </label>
+            <br/>
             <label className="city">
               City:
               <input
@@ -74,6 +75,7 @@ const NewTripForm = (props) =>{
                 value={newFormPayload.city}
               />
             </label>
+            <br/>
             <label className="state">
               State:
               <input
@@ -84,6 +86,7 @@ const NewTripForm = (props) =>{
                 value={newFormPayload.state}
               />
             </label>
+            <br/>
             <label className="start_date">
               Start Date (MM/DD/YYYY):
               <input
@@ -94,6 +97,7 @@ const NewTripForm = (props) =>{
                 value={newFormPayload.start_date}
               />
             </label>
+            <br/>
             <label className="end_date">
               End Date (MM/DD/YYYY):
               <input
@@ -104,7 +108,6 @@ const NewTripForm = (props) =>{
                 value={newFormPayload.end_date}
               />
             </label>
-
           <div className="button-group">
             <input className="button" type="submit" value="Add New Trip" />
           </div>
