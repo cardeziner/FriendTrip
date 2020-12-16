@@ -80,8 +80,23 @@ const TripsIndexComponent = (props) =>{
       trip={trip}
       />
       </div>
-    )
-  })
+      )
+    }
+  )
+
+  function noTripCheck() {
+    if (trips.length < 1){
+      return(
+        <div>
+          <br/><br/>
+          <h2 className="text-white">
+            YOU CURRENTLY HAVE NO ACTIVE FRIENDTRIPS!
+          </h2>
+          <br/><br/>
+        </div>
+      )
+    }
+  }
 
   return(
       <div className="home-bg">
@@ -103,8 +118,8 @@ const TripsIndexComponent = (props) =>{
               <img className="icon" src={trips_logo}/><h1 className="yellow-title vert">MY TRIPS</h1>
               <hr className="gray-line"/>
               <div className="center">
-                {tripList}
-            </div>
+                {tripList}{noTripCheck()}
+                </div>
               </BackdropFilter>
             </div>
             <div className="col-xs-8 col-md-5 float">
@@ -123,7 +138,6 @@ const TripsIndexComponent = (props) =>{
                 </BackdropFilter>
               </div>
             </div>
-            <p className="line"></p>
           </div>
         </div>
       </div>
