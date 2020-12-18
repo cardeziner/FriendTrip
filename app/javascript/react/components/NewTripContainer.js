@@ -43,8 +43,8 @@ const NewTripContainer = props =>{
     }
 
   return(
-    <div>
-    <h4 className="text">Add a New Trip</h4>
+    <div className="new-trip-bg center text-white"><br/>
+    <h4 className="text">Add a New Trip</h4><br/>
       <NewTripForm
       addNewTrip={addNewTrip}
       />
