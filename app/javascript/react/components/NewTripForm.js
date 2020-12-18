@@ -51,7 +51,7 @@ const NewTripForm = (props) =>{
   }
 
   return(
-    <div className="center">
+    <div className="center new-trip-bg">
         <div className="col-6 center opac-black">
           <form onSubmit={handleSubmit}>
             <label className="name">
