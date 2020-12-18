@@ -54,7 +54,7 @@ const NewTripForm = (props) =>{
     <div className="new-trip-bg"><br/>
       <h1 className="text-white center">Add a New Trip</h1><br/>
         <div className="center opac-black col-6 mid-float">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="wide-field">
             <label className="name text-white">
               TRIP NAME
               <input
