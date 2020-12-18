@@ -51,7 +51,8 @@ const NewTripForm = (props) =>{
   }
 
   return(
-    <div className="opac-black col-6 center">
+    <div>
+      <h4 className="text-white center">Add a New Trip</h4><br/>
         <div>
           <form onSubmit={handleSubmit}>
             <label className="name">
@@ -115,7 +116,9 @@ const NewTripForm = (props) =>{
         </div>
         <div className="bottom-bar">
         <Link to="/trips">Back to Home</Link>
+        <Link to={`/trips/${props.tripId}`}>Back to Trip Info</Link>
         </div>
+
       </div>
 
   )
