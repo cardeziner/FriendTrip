@@ -51,12 +51,12 @@ const NewTripForm = (props) =>{
   }
 
   return(
-    <div>
-      <h4 className="text-white center">Add a New Trip</h4><br/>
-        <div>
+    <div className="new-trip-bg"><br/>
+      <h1 className="text-white center">Add a New Trip</h1><br/>
+        <div className="center opac-black col-6 mid-float">
           <form onSubmit={handleSubmit}>
-            <label className="name">
-              Name:
+            <label className="name text-white">
+              TRIP NAME
               <input
                 name="name"
                 id="name"
@@ -66,8 +66,8 @@ const NewTripForm = (props) =>{
               />
             </label>
             <br/>
-            <label className="city">
-              City:
+            <label className="city text-white">
+              CITY
               <input
                 name="city"
                 id="city"
@@ -77,8 +77,8 @@ const NewTripForm = (props) =>{
               />
             </label>
             <br/>
-            <label className="state">
-              State:
+            <label className="state text-white">
+              STATE
               <input
                 name="state"
                 id="state"
@@ -88,8 +88,8 @@ const NewTripForm = (props) =>{
               />
             </label>
             <br/>
-            <label className="start_date">
-              Start Date (MM/DD/YYYY):
+            <label className="start_date text-white">
+              START DATE  (MM/DD/YYYY)
               <input
                 name="start_date"
                 id="start_date"
@@ -99,8 +99,8 @@ const NewTripForm = (props) =>{
               />
             </label>
             <br/>
-            <label className="end_date">
-              End Date (MM/DD/YYYY):
+            <label className="end_date text-white">
+              END DATE  (MM/DD/YYYY)
               <input
                 name="end_date"
                 id="end_date"
@@ -108,17 +108,14 @@ const NewTripForm = (props) =>{
                 onChange={handleInputChange}
                 value={newFormPayload.end_date}
               />
-            </label>
-          <div className="button-group">
+            </label><br/>
             <input className="button" type="submit" value="Add New Trip" />
-          </div>
           </form>
         </div>
         <div className="bottom-bar">
         <Link to="/trips">Back to Home</Link>
         <Link to={`/trips/${props.tripId}`}>Back to Trip Info</Link>
         </div>
-
       </div>
 
   )
