@@ -109,7 +109,7 @@ const NewTripForm = (props) =>{
                 value={newFormPayload.end_date}
               />
             </label><br/><br/>
-            <input className="button" type="submit" value="Add New Trip" />
+            <input className="btn btn-primary text center" type="submit" value="Add Trip" />
           </form><br/>
         </div>
         <div className="bottom-bar">
