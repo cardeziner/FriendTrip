@@ -80,8 +80,23 @@ const TripsIndexComponent = (props) =>{
       trip={trip}
       />
       </div>
-    )
-  })
+      )
+    }
+  )
+
+  function noTripCheck() {
+    if (trips.length < 1){
+      return(
+        <div>
+          <br/><br/>
+          <h2 className="text-white">
+            YOU CURRENTLY HAVE NO ACTIVE FRIENDTRIPS!
+          </h2>
+          <br/><br/>
+        </div>
+      )
+    }
+  }
 
   return(
       <div className="home-bg">
@@ -90,12 +105,12 @@ const TripsIndexComponent = (props) =>{
         className="bord"
         filter={"blur(15px)"}
         >
-        <h1 className="col-12 font trim vert no-bot-pad">Welcome Back {user.email}!</h1>
+        <h1 className="col-12 center font trim vert no-bot-pad">Welcome Back {user.email}!</h1>
         </BackdropFilter>
         </div>
         <div className="front">
           <div className="row bot-pad">
-            <div className="col-6 bord">
+            <div className="col-xs-10 col-md-5 bord">
               <BackdropFilter
               className="bord"
               filter={"blur(15px)"}
@@ -103,13 +118,26 @@ const TripsIndexComponent = (props) =>{
               <img className="icon" src={trips_logo}/><h1 className="yellow-title vert">MY TRIPS</h1>
               <hr className="gray-line"/>
               <div className="center">
-                {tripList}
-              </div>
-              <hr className="gray-line"/>
-              <p className="center"> <Link to="/trips/new" className="add-link">ADD A NEW FRIENDTRIP</Link></p>
+                {tripList}{noTripCheck()}
+                </div>
               </BackdropFilter>
             </div>
-            <p className="line"></p>
+            <div className="col-xs-8 col-md-5 float">
+              <div className="fifty">
+                <BackdropFilter
+                className="bord"
+                filter={"blur(15px)"}
+                >
+                <div className="no-dec">
+                  <Link to='trips/new' className="no-dec center">
+                  <h1 className="inline sides-pad text-yellow big">+</h1>
+                  <h1 className="inline no-dec text-yellow center">NEW FRIENDTRIP</h1>
+                  </Link>
+                </div>
+                <br/>
+                </BackdropFilter>
+              </div>
+            </div>
           </div>
         </div>
       </div>

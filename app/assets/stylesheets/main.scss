@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Londrina+Solid:wght@900&display=swap');
 
+@import "bootstrap";
+
 html, body {
     margin: 0;
     padding: 0;
@@ -11,6 +13,8 @@ html, body {
     zoom: 90%;
     overflow: scroll;
 }
+
+
 
 .opac-black{
   background-color: black;
@@ -21,6 +25,11 @@ html, body {
   height: 50px;
   width: 100px;
   font-size: medium;
+  text-align: center;
+}
+
+.invert{
+  outline-color: invert;
 }
 
 .sub{
@@ -33,7 +42,6 @@ html, body {
 
 .sign-in{
   background-color: white;
-  border-radius: 15px;
   box-shadow: 0 8px 6px -6px gray;
 }
 
@@ -43,10 +51,10 @@ html, body {
   min-width: 100%;
   min-height: 100%;
   position: absolute;
-  z-index: 1;
-  filter: blur(120px);
+  filter: blur(20px);
   background-size:cover;
   z-index: -1;
+  overflow: visible;
 }
 
 .z1{
@@ -85,6 +93,10 @@ label{
   z-index: 1;
 }
 
+.no-dec{
+  text-decoration: none!important;
+}
+
 .radius{
   border-radius: 10px;
 }
@@ -118,9 +130,21 @@ label{
  backdrop-filter: blur(5px);
 }
 
-col-5, col-6, col-xs-12, col-md-5{
+col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   display: flex;
   flex-wrap: wrap;
+  vertical-align: middle;
+}
+
+.click-block{
+  color: #1BB0CE;
+  font-family: 'Francois One', sans-serif;
+}
+
+.click-block:hover{
+  border-left: 5px solid #FABE28;
+  border-right: 5px solid #FABE28;
+  color: #FF003C;
 }
 
 .margin-right{
@@ -341,16 +365,14 @@ col-5, col-6, col-xs-12, col-md-5{
   float: left;
   display: inline;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-height: 80vh;
   border-style:inherit;
   width: 45%;
   border-radius: 15px;
-  border: 5px solid #FABE28;
   margin: 0 0 0 35px;
   padding: 15px 15px 15px 15px;
-
+  overflow:hidden;
 }
 
 .column-2 {
@@ -442,6 +464,15 @@ col-5, col-6, col-xs-12, col-md-5{
   color: #1BB0CE;
   font-family: 'Francois One', sans-serif;
   text-decoration-style: solid;
+}
+
+.flash{
+  background: inherit;
+  filter: opacity(1);
+  color: #1BB0CE;
+  font-family: 'Francois One', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .accent-red {
@@ -582,17 +613,58 @@ padding: 5px 10px 5px 5px;
   float: left;
 }
 
+.big{
+  font-size: 80;
+}
+
+.no-dec:hover{
+  color: #FF003C;
+  transform: scale(1.05);
+}
+
+.butt:hover{
+  transform: scale(1.1);
+}
 .opac{
   z-index:3;
 }
 
+.sides-pad{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .opac-black{
   background-color: black;
-  opacity: .7;
+  backdrop-filter: blur(35px) opacity(.7);
+}
+
+.dark{
+  background-color: black;
+  filter: opacity(.6);
+}
+
+.float{
+  float: left;
+  display: inline;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .home-bg{
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("home-page.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  background-size: cover;
+  box-shadow: inset 0 7px 9px -7px black;
+  z-index: 3;
+}
+
+.new-trip-bg{
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("new-trip.jpg");
   background-attachment: fixed;
   background-position: center;
   min-width: 100%;
@@ -609,6 +681,7 @@ padding: 5px 10px 5px 5px;
   min-width: 100%;
   min-height: 100%;
   background-size:cover;
+
   box-shadow: inset 0 7px 9px -7px black;
 }
 
@@ -629,6 +702,8 @@ padding: 5px 10px 5px 5px;
   justify-content: center;
 }
 
+
+
 .icon{
   margin: 5%;
   border-radius: 10px;
@@ -636,19 +711,38 @@ padding: 5px 10px 5px 5px;
   height: 65px;
   box-shadow: 0 8px 6px -6px black;
   spacing: 5%;
+  position:relative;
 }
 
 .nav-white{
   background-color: white;
   box-shadow: 0 8px 6px -6px black;
+  vertical-align: middle;
+}
+
+
+
+.black{
+  background-color: black;
+  color: white;
 }
 
 .vert{
   vertical-align: middle;
 }
 
+.fifty{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .inline{
   display: inline;
+}
+
+.nav{
+  text-decoration: none;
 }
 
 .no-wrap{
@@ -667,8 +761,13 @@ padding: 5px 10px 5px 5px;
 }
 
 .mid-float{
+  text-align: center;
   float: none;
   margin: auto;
+}
+
+.wide-field{
+  min-width: 80%;
 }
 
 .callout {
@@ -692,4 +791,34 @@ padding: 5px 10px 5px 5px;
   box-shadow: 5px 10px;
   color: #FF003C;
   border-radius: 40px;
+}
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: white;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float:inherit;
+  display:inline-block;
+  color: #FABE28;
+  filter: opacity(.6);
+  text-align: center;
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Francois One', sans-serif;
+  align-items: center;
+  box-sizing:border-box;
+  border-radius: 5px;
+}
+
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover {
+  text-decoration: none;
+  color: #FABE28;
+  transform: scale(1.1);
+  filter: opacity(1);
 }

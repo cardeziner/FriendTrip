@@ -26,7 +26,6 @@ const TripShowContainer = (props) =>{
       })
       .then(response => response.json())
       .then(parsedTrip => {
-        debugger
         setTrip(parsedTrip.trip)
         setTripEvents(parsedTrip.events)
         setUsers(parsedTrip.users)
@@ -34,25 +33,25 @@ const TripShowContainer = (props) =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
-    useEffect(() =>{
-      fetch('/api/v1/trips', {
-        credentials: "same-origin",
-          })
-      .then(response => {
-        if(response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`
-          error = new Error(errorMessage)
-          throw(error)
-        }
-      })
-      .then(response => response.json())
-      .then(parsedTripsData =>{
-        setTripSet(parsedTripsData)
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
-    }, [])
+    // useEffect(() =>{
+    //   fetch('/api/v1/trips', {
+    //     credentials: "same-origin",
+    //       })
+    //   .then(response => {
+    //     if(response.ok) {
+    //       return response
+    //     } else {
+    //       let errorMessage = `${response.status} (${response.statusText})`
+    //       error = new Error(errorMessage)
+    //       throw(error)
+    //     }
+    //   })
+    //   .then(response => response.json())
+    //   .then(parsedTripsData =>{
+    //     setTripSet(parsedTripsData)
+    //   })
+    //   .catch(error => console.error(`Error in fetch: ${error.message}`))
+    // }, [])
 
   return(
     <div>

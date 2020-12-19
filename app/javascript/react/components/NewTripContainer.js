@@ -44,11 +44,10 @@ const NewTripContainer = props =>{
 
   return(
     <div>
-    <h4 className="text">Add a New Trip</h4>
       <NewTripForm
       addNewTrip={addNewTrip}
+      tripId={trip.id}
       />
-      <Link to={`/trips/${trip.id}`}>Back to Trip Info</Link>
   </div>
   )
 }
