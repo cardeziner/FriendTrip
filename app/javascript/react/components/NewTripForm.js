@@ -89,22 +89,22 @@ const NewTripForm = (props) =>{
             </label>
             <br/>
             <label className="start_date text-white">
-              START DATE  (MM/DD/YYYY)
+              START DATE
               <input
                 name="start_date"
                 id="start_date"
-                type="text"
+                type="date"
                 onChange={handleInputChange}
                 value={newFormPayload.start_date}
               />
             </label>
             <br/>
             <label className="end_date text-white">
-              END DATE  (MM/DD/YYYY)
+              END DATE
               <input
                 name="end_date"
                 id="end_date"
-                type="text"
+                type="date"
                 onChange={handleInputChange}
                 value={newFormPayload.end_date}
               />
