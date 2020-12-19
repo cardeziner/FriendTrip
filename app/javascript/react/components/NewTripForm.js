@@ -52,8 +52,8 @@ const NewTripForm = (props) =>{
 
   return(
     <div className="new-trip-bg"><br/>
-      <h1 className="text-white center">Add a New Trip</h1><br/>
-        <div className="center opac-black col-6 mid-float">
+      <h1 className="text-yellow center">Add a New Trip</h1><br/>
+        <div className="center opac-black col-6 mid-float"><br/>
           <form onSubmit={handleSubmit} className="wide-field">
             <label className="name text-white">
               TRIP NAME
@@ -108,9 +108,9 @@ const NewTripForm = (props) =>{
                 onChange={handleInputChange}
                 value={newFormPayload.end_date}
               />
-            </label><br/>
+            </label><br/><br/>
             <input className="button" type="submit" value="Add New Trip" />
-          </form>
+          </form><br/>
         </div>
         <div className="bottom-bar">
         <Link to="/trips">Back to Home</Link>
