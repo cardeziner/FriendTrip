@@ -142,22 +142,13 @@ const TripShow = props =>{
             trip={props.trip}
             />
             <h2 className="text-white">
-            <img src={location} className="icon"/>
+            <img src={location} className="inline icon"/>
             <div className="vert-line"></div>{props.trip.city}<div className="right">
           </div>
           </h2>
-          <h4 className="font"><img src={dates} className="icon center"/>{props.trip.start_date} - {props.trip.end_date}</h4>
-
-          <div className="row">
-            <div className="col-3 vert margin-left">
+          <h4 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h4>
             <br/>
-              <img src={friends} className="icon"/>
-            </div>
-            <div className="col-3 center">
-              <h3 className="text-white vert row">{blankUser()}</h3>
-            </div>
-          </div>
-          <hr className="gray-line"/>
+              <h4 className="font inline "><img src={friends} className="icon inline"/>{blankUser()}</h4>
         </BackdropFilter>
       </div>
         <div className="col-5 right">

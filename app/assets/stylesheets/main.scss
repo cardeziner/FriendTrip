@@ -702,9 +702,17 @@ padding: 5px 10px 5px 5px;
   justify-content: center;
 }
 
+.table{
+  display: table-cell;
+}
 
+.absolute{
+  position: absolute;
+}
 
 .icon{
+  display: block;
+  vertical-align: middle;
   margin: 5%;
   border-radius: 10px;
   width: 65px;
