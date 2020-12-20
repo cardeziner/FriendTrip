@@ -124,6 +124,19 @@ const TripShow = props =>{
   backgroundSize: 'cover',
   boxShadow: 'inset 0 7px 9px -7px black',
 }
+  const months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
+
+  function dateByName(date){
+    let splitDate = date.split("-");
+    let index = splitDate[1] + 1;
+    if(date){
+      return(
+        months[index] + "," + date.split("-")[2] + "" + splitDate[0]
+      )
+    }else{
+      return("ERROR")
+    }
+  }
 
   return(
     <div className="bg" style={sectionStyle}>
@@ -143,7 +156,7 @@ const TripShow = props =>{
             />
             <h2 className="text-white">
             <img src={location} className="inline icon"/>
-            <div className="vert-line"></div>{props.trip.city}<div className="right">
+            <div className="vert-line"></div>{(props.trip.city)}, {props.trip.state}<div className="right">
           </div>
           </h2>
           <h4 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h4>
