@@ -86,7 +86,7 @@ const TripShow = props =>{
         </div>
       )}else{
         return(
-          <h4 className="text-yellow pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE! CLICK BELOW TO VOTE NOW!<br/><br/></h4>
+          <h4 className="text-yellow pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
         )
       }
     })
@@ -106,9 +106,9 @@ const TripShow = props =>{
   function blankUser(){
     if(userList.length < 1){
       return(
-        <div className="text-yellow">
+        <h4 className="text-yellow inline absolute vert center">
         NO USERS HAVE BEEN ADDED TO THIS TRIP YET!
-        </div>
+        </h4>
       )
     } else {
       return(
@@ -165,7 +165,7 @@ const TripShow = props =>{
           </h2>
           <h4 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h4>
             <br/>
-              <h4 className="font inline "><img src={friends} className="icon inline"/>{blankUser()}</h4>
+          <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
         </BackdropFilter>
       </div>
         <div className="col-5 right">
