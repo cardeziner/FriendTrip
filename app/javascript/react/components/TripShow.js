@@ -132,7 +132,7 @@ const TripShow = props =>{
 
   function dateByName(date){
     let splitDate = date.split("-");
-    let index = splitDate.length + 1;
+    let index = splitDate[1] + 1;
     if(date){
       return(
         months[index] + "," + date.split("-")[2] + "" + splitDate[0]
@@ -163,7 +163,7 @@ const TripShow = props =>{
             <div className="vert-line"></div>{(props.trip.city)}, {props.trip.state}<div className="right">
           </div>
           </h2>
-          <h4 className="font"><img src={dates} className="icon inline center"/>{dateByName(props.trip.start_date)} - {props.trip.end_date}</h4>
+          <h4 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h4>
             <br/>
               <h4 className="font inline "><img src={friends} className="icon inline"/>{blankUser()}</h4>
         </BackdropFilter>
