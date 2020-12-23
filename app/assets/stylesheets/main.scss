@@ -667,6 +667,11 @@ padding: 5px 10px 5px 5px;
   z-index: 3;
 }
 
+.logo{
+  width: 200px;
+  height: auto;
+}
+
 .new-trip-bg{
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("new-trip.jpg");
   background-attachment: fixed;
