@@ -205,8 +205,9 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .friendtrip-logo{
-  max-width: 150px;
-  height: 150px;
+  max-height: 150px;
+  max-width: 350px;
+  position:relative;
 }
 
 .friendtrip-name{
