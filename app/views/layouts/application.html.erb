@@ -14,7 +14,7 @@
       <a href="/" class="friendtrip-logo left vert"><%= image_tag "new-logo.png"%></a>
         <%- if current_user -%>
         <div class="topnav" id="myTopnav">
-          <a><%= link_to 'MY FRIENTRIPS', trips_path %></a>
+          <a><%= link_to 'MY FRIENDTRIPS', trips_path %></a>
           <a><%= link_to 'ABOUT US', aboutus_path %></a>
           <a><%= link_to 'SIGN OUT', destroy_user_session_path, method: :delete %></a>
         </div>
