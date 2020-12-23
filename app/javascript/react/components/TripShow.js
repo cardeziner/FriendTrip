@@ -86,7 +86,7 @@ const TripShow = props =>{
         </div>
       )}else{
         return(
-          <h4 className="text-yellow pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
+          <h4 className="text-green font pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
         )
       }
     })
@@ -158,7 +158,7 @@ const TripShow = props =>{
             location={tripCity}
             trip={props.trip}
             />
-            <h2 className="text-white">
+            <h2 className="text-white inset">
             <img src={location} className="inline icon"/>
             <div className="vert-line"></div>{(props.trip.city)}, {props.trip.state}<div className="right">
           </div>
