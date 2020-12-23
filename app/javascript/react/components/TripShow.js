@@ -86,7 +86,7 @@ const TripShow = props =>{
         </div>
       )}else{
         return(
-          <h4 className="text-green font pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
+          <h4 className="text-white font pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
         )
       }
     })

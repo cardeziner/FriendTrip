@@ -21,6 +21,7 @@ const AboutUsPage = props =>{
           <h1 className="bodytext center">Write a Review!</h1>
       </div>
     </div>
+    <br/><br/>
   </div>
   )
 }
