@@ -112,8 +112,8 @@ const NewTripForm = (props) =>{
             <input className="btn btn-primary text center" type="submit" value="Add Trip" />
           </form><br/>
         </div>
-        <div className="bottom-bar">
-        <Link to="/trips">Back to Home</Link>
+        <div className="bottom-bar text-white no-dec center"><br/>
+        <Link to="/trips">Back to Home</Link><br/>
         <Link to={`/trips/${props.tripId}`}>Back to Trip Info</Link>
         </div>
       </div>

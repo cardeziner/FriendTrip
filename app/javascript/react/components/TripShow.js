@@ -107,7 +107,7 @@ const TripShow = props =>{
     if(userList.length < 1){
       return(
         <h4 className="text-yellow inline absolute vert center">
-        NO USERS HAVE BEEN ADDED TO THIS TRIP YET!
+        NO FRIENDS HAVE BEEN ADDED TO THIS TRIP YET!
         </h4>
       )
     } else {
