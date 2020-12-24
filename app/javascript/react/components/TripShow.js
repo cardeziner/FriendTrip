@@ -168,7 +168,7 @@ const TripShow = props =>{
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
         </BackdropFilter>
       </div>
-        <div className="col-xs-12 col--md-5 right float">
+        <div className="col-5 right">
           <h1 className="text-yellow vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
             <BackdropFilter
             className="bord right-head"
