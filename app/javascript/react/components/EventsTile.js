@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 
 import GoogleMapTile from './GoogleMapTile'
+import BackdropFilter from "react-backdrop-filter";
 
 
 const EventsTile = (props) => {
@@ -31,6 +32,10 @@ const EventsTile = (props) => {
 
   return(
     <div>
+    <BackdropFilter
+    className="bord opac-black"
+    filter={"blur(20px)"}
+    >
       <div className="hover-text" onClick={addEventVote}>
       <h2 className="hover-text text-blue center" >{props.event.name} </h2>
       <h4 className="hover-text text-green center"> ${props.event.cost} per person     /     {props.event.date}</h4>
@@ -41,7 +46,7 @@ const EventsTile = (props) => {
       <h2 className="hover-text accent-red center"> {props.event.location}</h2>
       </div>
       <br/>
-      <p className ="line"></p>
+      </BackdropFilter>
     </div>
   )
 }
