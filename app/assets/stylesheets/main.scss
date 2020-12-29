@@ -21,6 +21,15 @@ html, body {
   opacity: .7;
 }
 
+.opac-black-tile{
+  background-color: black;
+  opacity: .7;
+}
+
+.opac-black-tile:hover{
+  opacity: .85;
+}
+
 .btn{
   height: 50px;
   width: 100px;
@@ -236,6 +245,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
     border: 5px solid #FABE28;
     margin: 0 0 0 35px;
     padding: 15px 15px 15px 15px;
+}
+
+.bot-bord{
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .form {

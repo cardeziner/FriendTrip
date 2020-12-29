@@ -32,21 +32,23 @@ const EventsTile = (props) => {
 
   return(
     <div>
-    <BackdropFilter
-    className="bord opac-black"
-    filter={"blur(20px)"}
-    >
-      <div className="hover-text" onClick={addEventVote}>
-      <h2 className="hover-text text-blue center" >{props.event.name} </h2>
-      <h4 className="hover-text text-green center"> ${props.event.cost} per person     /     {props.event.date}</h4>
-      <GoogleMapTile
-      id={props.event.id}
-      location={props.event.location}
-      />
-      <h2 className="hover-text accent-red center"> {props.event.location}</h2>
-      </div>
-      <br/>
+
+    <GoogleMapTile
+    id={props.event.id}
+    location={props.event.location}
+    />
+      <div className="opac-black-tile bot-bord" onClick={addEventVote}>
+      <BackdropFilter
+      className="bord"
+      filter={"blur(20px)"}
+      >
+      <h2 className="text-blue center" >{props.event.name} </h2>
+      <h4 className="text-green center"> ${props.event.cost} per person     /     {props.event.date}</h4>
+
+      <h2 className="accent-red center"> {props.event.location}</h2>
       </BackdropFilter>
+      </div>
+
     </div>
   )
 }
