@@ -86,7 +86,7 @@ const TripShow = props =>{
         </div>
       )}else{
         return(
-          <h4 className="text-white font pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
+          <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
         )
       }
     })
@@ -107,7 +107,7 @@ const TripShow = props =>{
     if(userList.length < 1){
       return(
         <h4 className="text-yellow inline absolute vert center">
-        NO FRIENDS HAVE BEEN ADDED TO THIS TRIP YET!
+        <h4 className="side-pad text-yellow">NO FRIENDS HAVE BEEN ADDED TO THIS TRIP YET!</h4>
         </h4>
       )
     } else {
@@ -174,7 +174,7 @@ const TripShow = props =>{
             className="bord right-head"
             filter={"blur(20px)"}
             >
-            <div className="text center opac">
+            <div className="text center opac col-xs-12">
               <h1 className="text-white"></h1>
               {eventList}
               <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">Navigate to: <br/>EVENTS & VOTES</h5></Link>
