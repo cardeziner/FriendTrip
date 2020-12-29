@@ -784,6 +784,11 @@ padding: 5px 10px 5px 5px;
   color: white;
 }
 
+.dark-div{
+  background-color: black;
+  backdrop-filter: opacity(.5);
+}
+
 .border {
   margin: 15px 15px 15px 15px;
   padding: 5px 10px 5px 5x;

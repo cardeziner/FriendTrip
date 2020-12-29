@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import EventsTile from './EventsTile'
 import NewEventForm from './NewEventForm'
+import BackdropFilter from "react-backdrop-filter";
 import vote_bg from '../../../assets/images/vote-bg.jpg'
 
 const EventShowContainer = (props) =>{

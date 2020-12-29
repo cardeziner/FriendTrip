@@ -174,6 +174,7 @@ const TripShow = props =>{
             className="bord right-head"
             filter={"blur(20px)"}
             >
+            <div className="dark-div"></div>
             <div className="text center opac col-xs-12">
               <h1 className="text-white"></h1>
               {eventList}
