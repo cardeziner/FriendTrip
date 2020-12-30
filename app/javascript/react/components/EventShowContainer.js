@@ -103,7 +103,7 @@ const EventShowContainer = (props) =>{
             <br/>
             {eventsList}
           </div>
-          <div className="column">
+          <div className="col-5 center opac-black">
             <NewEventForm
             id={tripId}
             addNewEvent={addNewEvent}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import _ from 'lodash'
+import BackdropFilter from "react-backdrop-filter";
 
 const NewEventForm = props =>{
   const [errors, setErrors] = useState({})
