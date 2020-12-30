@@ -52,7 +52,7 @@ const NewEventForm = props =>{
 
   return(
     <div key={props.id}><br/>
-      <h1 className="text-blue center">ADD A NEW TRIP EVENT</h1>
+      <h1 className="text-blue center">+ NEW TRIP EVENT</h1>
       <p className="line"></p>
         <p className="font green center">Enter information on the event you would like to post on the form below</p>
         <div className="text">
@@ -66,7 +66,7 @@ const NewEventForm = props =>{
                 onChange={handleInputChange}
                 value={newFormPayload.name}
               />
-            </label>
+            </label><br/>
             <label className="location">
               location:
               <input
@@ -76,7 +76,7 @@ const NewEventForm = props =>{
                 onChange={handleInputChange}
                 value={newFormPayload.location}
               />
-              </label>
+              </label><br/>
               <label className="cost">
                 Cost (per person):
                 <input
@@ -86,7 +86,7 @@ const NewEventForm = props =>{
                   onChange={handleInputChange}
                   value={newFormPayload.cost}
                 />
-            </label>
+            </label><br/>
             <label className="date">
               Date:
               <input
