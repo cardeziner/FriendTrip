@@ -32,7 +32,6 @@ const EventsTile = (props) => {
 
   return(
     <div>
-
     <GoogleMapTile
     id={props.event.id}
     location={props.event.location}
@@ -48,7 +47,7 @@ const EventsTile = (props) => {
       <h2 className="accent-red center"> {props.event.location}</h2>
       </BackdropFilter>
       </div>
-
+      <br/>
     </div>
   )
 }
