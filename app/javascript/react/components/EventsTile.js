@@ -41,10 +41,10 @@ const EventsTile = (props) => {
       className="bord"
       filter={"blur(20px)"}
       >
-      <h2 className="text-blue center" >{props.event.name} </h2>
-      <h4 className="text-green center"> ${props.event.cost} per person     /     {props.event.date}</h4>
+      <h2 className="text-yellow center" >{props.event.name} </h2>
+      <h4 className="text-white center"> ${props.event.cost} per person / {props.event.date}</h4>
 
-      <h2 className="accent-red center"> {props.event.location}</h2>
+      <h2 className="text-white center"> {props.event.location}</h2>
       </BackdropFilter>
       </div>
       <br/>

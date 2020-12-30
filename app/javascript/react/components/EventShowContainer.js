@@ -84,7 +84,7 @@ const EventShowContainer = (props) =>{
     backgroundPosition: 'center',
     height: '100%',
     position: 'absolute',
-    backgroundSize: '100% 100%',
+    backgroundSize: '100%',
     boxShadow: 'inset 0 7px 9px -7px black',
   }
 
@@ -96,9 +96,9 @@ const EventShowContainer = (props) =>{
             className="bord"
             filter={"blur(20px)"}
             >
-            <h4 className="text-white text center">VOTE ON ANY EVENT FOR</h4>
+            <h5 className="text-white text center side-pad">VOTE ON ANY EVENT FOR</h5>
             <h1 className="font text-green center">{trip.name}</h1>
-            <h5 className="text-white center">CLICK ON AN EVENT BELOW TO VOTE</h5>
+            <p className="text-white center">CLICK ON AN EVENT BELOW TO VOTE</p>
             </BackdropFilter>
             <br/>
             {eventsList}
