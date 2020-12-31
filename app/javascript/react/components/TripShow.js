@@ -84,12 +84,10 @@ const TripShow = props =>{
           <h5 className="text-white"> {singleEvent.date} </h5>
           <br/>
         </div>
-      )}else{
-        return(
-          <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
-        )
-      }
+      )}
     })
+
+    // <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
 
     // <Link to={`/trips/${singleEvent.id}/events`}>{singleEvent.name}</Link><br />
 
