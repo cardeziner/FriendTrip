@@ -77,9 +77,7 @@ const TripShow = props =>{
   const url = imageUrl
 
   const eventList = props.events.map(singleEvent =>{
-
     let count = 0
-
     if(singleEvent.votes > props.users.length){
       count = (count + 1)
       return(
@@ -95,7 +93,8 @@ const TripShow = props =>{
           )
         }
       }
-    })
+    }
+  )
 
 
     // <Link to={`/trips/${singleEvent.id}/events`}>{singleEvent.name}</Link><br />
