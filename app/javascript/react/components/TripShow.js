@@ -77,17 +77,26 @@ const TripShow = props =>{
   const url = imageUrl
 
   const eventList = props.events.map(singleEvent =>{
+
+    let count = 0
+
     if(singleEvent.votes > props.users.length){
+      count = (count + 1)
       return(
         <div key={singleEvent.id} className="click-block" ><br/>
           <h2 className="text">{singleEvent.name}</h2>
           <h5 className="text-white"> {singleEvent.date} </h5>
           <br/>
         </div>
-      )}
+      )}else{
+        if (count = 0) {
+          return(
+            <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
+          )
+        }
+      }
     })
 
-    // <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
 
     // <Link to={`/trips/${singleEvent.id}/events`}>{singleEvent.name}</Link><br />
 
