@@ -79,7 +79,7 @@ const TripShow = props =>{
   const eventList = props.events.map(singleEvent =>{
     let count = 0
     if(singleEvent.votes > props.users.length){
-      count = (count + 1)
+      count += 1
       return(
         <div key={singleEvent.id} className="click-block" ><br/>
           <h2 className="text">{singleEvent.name}</h2>
@@ -154,7 +154,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
         <div key={props.trip.id} className="col-xs-12 col-md-5 font">
-          <h1 className="text-blue vert left-blue pad left"> TRIP INFO </h1>
+          <h1 className="text-blue vert left-blue pad left opac-black"> TRIP INFO </h1>
           <BackdropFilter
           className="bord"
           filter={"blur(20px)"}
@@ -175,7 +175,7 @@ const TripShow = props =>{
         </BackdropFilter>
       </div>
         <div className="col-5 right">
-          <h1 className="text-yellow vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
+          <h1 className="text-yellow vert right-yellow pad right-head opac-black">TRIP ITINERARY</h1><br/>
             <BackdropFilter
             className="bord right-head"
             filter={"blur(20px)"}
