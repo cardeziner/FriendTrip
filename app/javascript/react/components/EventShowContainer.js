@@ -93,12 +93,13 @@ const EventShowContainer = (props) =>{
         <div className="row pad center"><br/><br/>
           <div className="col-5">
             <BackdropFilter
-            className="bord"
+            className="bord vert side-pad"
             filter={"blur(20px)"}
             >
-            <h5 className="text-white center side-pad pad">VOTE ON ANY EVENT FOR</h5>
-            <h1 className="font accent-red center fifty">{trip.name}</h1>
-            <p className="text-white center no-pad">CLICK ON AN EVENT BELOW TO VOTE</p>
+            <h5 className="text-white center side-pad">VOTE ON ANY EVENT FOR</h5>
+            <h1 className="font accent-red center">{trip.name}</h1>
+            <p className="line"></p>
+            <p className="text-white center no-pad">CLICK ON ANY EVENT BELOW TO VOTE</p>
             </BackdropFilter>
             <br/>
             {eventsList}
