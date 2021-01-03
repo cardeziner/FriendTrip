@@ -53,7 +53,7 @@ const NewTripForm = (props) =>{
   return(
     <div className="new-trip-bg"><br/>
       <h1 className="text-yellow center">Add a New Trip</h1><br/>
-        <div className="center opac-black col-6 mid-float"><br/>
+        <div className="center opac-black col-5 mid-float"><br/>
           <form onSubmit={handleSubmit} className="wide-field">
             <label className="name text-white">
               TRIP NAME

@@ -52,12 +52,12 @@ const NewEventForm = props =>{
 
   return(
     <div key={props.id}><br/>
-      <h1 className="text-blue center">+ NEW TRIP EVENT</h1>
+      <h1 className="accent-red center">+ NEW TRIP EVENT</h1>
       <p className="line"></p>
-        <p className="font green center">Enter information on the event you would like to post on the form below</p>
+        <p className="text-yellow center">FILL OUT REQUIRED FIELDS BELOW FOR THE EVENT YOU WOULD LIKE TO POST</p>
         <div className="text">
           <form onSubmit={handleSubmit}>
-            <label className="name">
+            <label className="name text-white">
               Name:
               <input
                 name="name"
@@ -67,7 +67,7 @@ const NewEventForm = props =>{
                 value={newFormPayload.name}
               />
             </label><br/>
-            <label className="location">
+            <label className="location text-white">
               location:
               <input
                 name="location"
@@ -77,7 +77,7 @@ const NewEventForm = props =>{
                 value={newFormPayload.location}
               />
               </label><br/>
-              <label className="cost">
+              <label className="cost text-white">
                 Cost (per person):
                 <input
                   name="cost"
@@ -87,7 +87,7 @@ const NewEventForm = props =>{
                   value={newFormPayload.cost}
                 />
             </label><br/>
-            <label className="date">
+            <label className="text-white">
               Date:
               <input
                 name="date"
