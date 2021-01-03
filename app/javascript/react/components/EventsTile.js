@@ -33,6 +33,7 @@ const EventsTile = (props) => {
   return(
     <div>
     <GoogleMapTile
+    className="short-map"
     id={props.event.id}
     location={props.event.location}
     />
@@ -41,7 +42,7 @@ const EventsTile = (props) => {
       className="bord"
       filter={"blur(20px)"}
       >
-      <h2 className="text-yellow center" >{props.event.name} </h2>
+      <h2 className="font text-green center" >{props.event.name} </h2>
       <h4 className="text-white center"> ${props.event.cost} per person / {props.event.date}</h4>
 
       <h2 className="text-white center"> {props.event.location}</h2>
