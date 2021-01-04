@@ -536,9 +536,17 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   border-left: 8px solid #1BB0CE;
 }
 
+.left{
+  align-items: left !important;
+}
+
 .right-yellow{
   border-right: 8px solid #FABE28;
   text-align: left;
+}
+
+.no-pad{
+  padding: 0;
 }
 
 .accent-white:hover {

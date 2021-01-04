@@ -33,19 +33,28 @@ const EventsTile = (props) => {
   return(
     <div>
     <GoogleMapTile
-    className="short-map"
     id={props.event.id}
     location={props.event.location}
     />
-      <div className="opac-black-tile bot-bord" onClick={addEventVote}>
+      <div className="" onClick={addEventVote}>
       <BackdropFilter
       className="bord"
       filter={"blur(20px)"}
       >
-      <h2 className="font text-green center" >{props.event.name} </h2>
-      <h4 className="text-white center"> ${props.event.cost} per person / {props.event.date}</h4>
-
-      <h2 className="text-white center"> {props.event.location}</h2>
+        <div className="row left">
+          <div className="col-6">
+            <h4 className="font fifty" >{props.event.name} </h4>
+          </div>
+          <div className="col-6">
+            <h4 className="font fifty"> ${props.event.cost} per person</h4>
+          </div>
+          <div className="col-6">
+            <h4 className="font fifty"> {props.event.location}</h4>
+          </div>
+          <div className="col-6">
+            <h4 className="font fifty">{props.event.date}</h4>
+          </div>
+          </div>
       </BackdropFilter>
       </div>
       <br/>
