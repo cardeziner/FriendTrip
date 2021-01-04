@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 
 import GoogleMapTile from './GoogleMapTile'
 import BackdropFilter from "react-backdrop-filter";
+import price from '../../../assets/images/price.png'
 
 
 const EventsTile = (props) => {
@@ -36,17 +37,17 @@ const EventsTile = (props) => {
     id={props.event.id}
     location={props.event.location}
     />
-      <div className="" onClick={addEventVote}>
+      <div className="opac-black" onClick={addEventVote}>
       <BackdropFilter
       className="bord"
       filter={"blur(20px)"}
       >
         <div className="row left">
           <div className="col-6">
-            <h4 className="font fifty" >{props.event.name} </h4>
+            <h4 className="font fifty left" >{props.event.name} </h4>
           </div>
           <div className="col-6">
-            <h4 className="font fifty"> ${props.event.cost} per person</h4>
+            <h4 className="font fifty"> ${props.event.cost}</h4>
           </div>
           <div className="col-6">
             <h4 className="font fifty"> {props.event.location}</h4>
