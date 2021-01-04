@@ -3,7 +3,9 @@ import React, { Component, useState, useEffect } from "react";
 import GoogleMapTile from './GoogleMapTile'
 import BackdropFilter from "react-backdrop-filter";
 import price from '../../../assets/images/price.png'
-
+import location from '../../../assets/images/location.png'
+import date from '../../../assets/images/dates.png'
+import place from '../../../assets/images/place.png'
 
 const EventsTile = (props) => {
   const addEventVote = () =>{
@@ -42,18 +44,18 @@ const EventsTile = (props) => {
       className="bord"
       filter={"blur(20px)"}
       >
-        <div className="row left">
+        <div className="row left no-wrap">
           <div className="col-6">
-            <h4 className="font fifty left" >{props.event.name} </h4>
+            <h4 className="font fifty left"><img src={place} className="icon-small"/>{props.event.name} </h4>
           </div>
           <div className="col-6">
-            <h4 className="font fifty"> ${props.event.cost}</h4>
+            <h4 className="font fifty"><img src={price} className="icon-small"/> ${props.event.cost}</h4>
           </div>
           <div className="col-6">
-            <h4 className="font fifty"> {props.event.location}</h4>
+            <h4 className="font fifty"><img src={location} className="icon-small"/> {props.event.location}</h4>
           </div>
           <div className="col-6">
-            <h4 className="font fifty">{props.event.date}</h4>
+            <h4 className="font fifty"><img src={location} className="icon-small"/>{props.event.date}</h4>
           </div>
           </div>
       </BackdropFilter>
