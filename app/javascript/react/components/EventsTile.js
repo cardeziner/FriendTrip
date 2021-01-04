@@ -39,7 +39,7 @@ const EventsTile = (props) => {
     id={props.event.id}
     location={props.event.location}
     />
-      <div className="opac-black" onClick={addEventVote}>
+      <div className="opac-black-tile" onClick={addEventVote}>
       <BackdropFilter
       className="bord"
       filter={"blur(20px)"}
@@ -52,7 +52,7 @@ const EventsTile = (props) => {
             <h4 className="font fifty"><img src={price} className="icon-small"/> ${props.event.cost}</h4>
           </div>
           <div className="col-6">
-            <h4 className="font fifty"><img src={location} className="icon-small"/> {props.event.location}</h4>
+            <h4 className="font fifty"><img src={location} className="icon-small" behavior="scroll"/> {props.event.location}</h4>
           </div>
           <div className="col-6">
             <h4 className="font fifty"><img src={location} className="icon-small"/>{props.event.date}</h4>
