@@ -46,16 +46,16 @@ const EventsTile = (props) => {
       >
         <div className="row left no-wrap">
           <div className="col-6">
-            <h4 className="font fifty left"><img src={place} className="icon-small"/>{props.event.name} </h4>
+            <h4 className="font resize-font fifty left"><img src={place} className="icon-small"/>{props.event.name} </h4>
           </div>
           <div className="col-6">
-            <h4 className="font fifty"><img src={price} className="icon-small"/> ${props.event.cost}</h4>
+            <h4 className="font resize-font fifty"><img src={price} className="icon-small"/> ${props.event.cost}</h4>
           </div>
           <div className="col-6">
-            <h4 className="font fifty"><img src={location} className="icon-small" behavior="scroll"/> {props.event.location}</h4>
+            <h4 className="font resize-font fifty"><img src={location} className="icon-small" behavior="scroll"/> {props.event.location}</h4>
           </div>
           <div className="col-6">
-            <h4 className="font fifty"><img src={location} className="icon-small"/>{props.event.date}</h4>
+            <h4 className="font resize-font fifty"><img src={location} className="icon-small"/>{props.event.date}</h4>
           </div>
           </div>
       </BackdropFilter>
