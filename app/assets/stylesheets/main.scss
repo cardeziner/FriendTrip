@@ -200,12 +200,22 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   overflow: auto;
 }
 
+.light-bord{
+  border: 2px solid #FABE28;
+  border-radius: 10px;
+}
+
 .white-back {
   background-color: white;
 }
 
 .link {
     font-family: 'Francois One', sans-serif;
+}
+
+.width{
+  width: 100%;
+  padding: 1rem;
 }
 
 .anim{

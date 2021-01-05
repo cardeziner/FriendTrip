@@ -154,7 +154,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row">
         <div key={props.trip.id} className="col-xs-12 col-md-5 font">
-          <h1 className="text-blue vert left-blue pad left opac-black"> TRIP INFO </h1>
+          <h1 className="text-blue vert left-blue pad left"> TRIP INFO </h1>
           <BackdropFilter
           className="bord"
           filter={"blur(20px)"}
@@ -175,16 +175,17 @@ const TripShow = props =>{
         </BackdropFilter>
       </div>
         <div className="col-5 right">
-          <h1 className="text-yellow vert right-yellow pad right-head opac-black">TRIP ITINERARY</h1><br/>
+          <h1 className="text-yellow vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
             <BackdropFilter
             className="bord right-head"
             filter={"blur(20px)"}
             >
-            <div className="dark-div"></div>
-            <div className="text center opac col-xs-12">
-              <h1 className="text-white"></h1>
+            <div className="text width center opac">
+              <h2 className="text-white"> EVENTS SCHEDULED SO FAR: </h2>
+              <div className="">
               {eventList}
-              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">Navigate to: <br/>EVENTS & VOTES</h5></Link>
+              </div><br/>
+              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
             </div>
             </BackdropFilter>
         </div>
