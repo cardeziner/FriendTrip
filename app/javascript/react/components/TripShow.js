@@ -184,7 +184,7 @@ const TripShow = props =>{
               <h2 className="text-blue text"> EVENTS SCHEDULED SO FAR: </h2>
               <div className="">
               {eventList}
-              </div>
+              </div><br/>
               <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
             </div>
             </BackdropFilter>
