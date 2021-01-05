@@ -81,7 +81,7 @@ const TripShow = props =>{
     if(singleEvent.votes > props.users.length){
       count += 1
       return(
-        <div key={singleEvent.id} className="click-block" ><br/>
+        <div key={singleEvent.id} className="text-yellow click-block" ><br/>
           <h2 className="text">{singleEvent.name}</h2>
           <h5 className="text-white"> {singleEvent.date} </h5>
           <br/>
@@ -169,7 +169,7 @@ const TripShow = props =>{
             <div className="vert-line"></div>{(props.trip.city)}, {props.trip.state}<div className="right">
           </div>
           </h2>
-          <h4 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h4>
+          <h3 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
         </BackdropFilter>
@@ -181,10 +181,10 @@ const TripShow = props =>{
             filter={"blur(20px)"}
             >
             <div className="text width center opac">
-              <h2 className="text-white"> EVENTS SCHEDULED SO FAR: </h2>
+              <h2 className="text-blue text"> EVENTS SCHEDULED SO FAR: </h2>
               <div className="">
               {eventList}
-              </div><br/>
+              </div>
               <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
             </div>
             </BackdropFilter>
