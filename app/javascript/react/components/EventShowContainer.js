@@ -83,8 +83,10 @@ const EventShowContainer = (props) =>{
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     height: '100%',
+    minHeight: '100%',
+    backgroundRepeat: 'no-repeat',
     position: 'absolute',
-    backgroundSize: '100%',
+    backgroundSize: 'cover',
     boxShadow: 'inset 0 7px 9px -7px black',
   }
 
@@ -104,7 +106,7 @@ const EventShowContainer = (props) =>{
             <br/>
             {eventsList}
           </div>
-          <div className="col-5 center opac-black">
+          <div className="col-5 center opac-black-tile">
             <NewEventForm
             id={tripId}
             addNewEvent={addNewEvent}
