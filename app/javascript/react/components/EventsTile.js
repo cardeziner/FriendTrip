@@ -6,6 +6,7 @@ import price from '../../../assets/images/price.png'
 import location from '../../../assets/images/location.png'
 import date from '../../../assets/images/dates.png'
 import place from '../../../assets/images/place.png'
+import vote from '../../../assets/images/vote.png'
 
 const EventsTile = (props) => {
   const addEventVote = () =>{
@@ -57,7 +58,7 @@ const EventsTile = (props) => {
           <div className="col-6">
             <h4 className="font resize-font fifty"><img src={location} className="icon-small"/>{props.event.date}</h4>
           </div>
-          <h1 className="vote-click">VOTE</h1>
+          <h1 className="vote-click vert"><img src={vote} className="vote"/> VOTE</h1>
           </div>
       </BackdropFilter>
       </div>
