@@ -56,7 +56,7 @@ const EventsTile = (props) => {
             <h4 className="font resize-font fifty"><img src={location} className="icon-small scroll" /> {props.event.location}</h4>
           </div>
           <div className="col-6">
-            <h4 className="font resize-font fifty"><img src={location} className="icon-small"/>{props.event.date}</h4>
+            <h4 className="font resize-font fifty"><img src={date} className="icon-small"/>{props.event.date}</h4>
           </div>
           <h1 className="vote-click vert" onClick={addEventVote}><img src={vote} className="vote"/> VOTE</h1>
           </div>
