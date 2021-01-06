@@ -102,9 +102,10 @@ const EventShowContainer = (props) =>{
             <h1 className="font accent-red center">{trip.name}</h1>
             <p className="line side-pad"></p>
             <p className="text-white center -pad">CLICK ON ANY EVENT BELOW TO VOTE</p>
-            </BackdropFilter>
+
             <br/>
             {eventsList}
+            </BackdropFilter>
           </div>
           <div className="col-5 center opac-black-tile">
             <NewEventForm

@@ -57,6 +57,7 @@ const EventsTile = (props) => {
           <div className="col-6">
             <h4 className="font resize-font fifty"><img src={location} className="icon-small"/>{props.event.date}</h4>
           </div>
+          <h1 className="vote-click">VOTE</h1>
           </div>
       </BackdropFilter>
       </div>
