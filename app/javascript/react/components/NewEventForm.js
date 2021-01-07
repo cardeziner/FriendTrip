@@ -54,11 +54,11 @@ const NewEventForm = props =>{
     <div key={props.id}><br/>
       <h1 className="accent-red center">+ NEW TRIP EVENT</h1>
       <p className="line"></p>
-        <p className="text-yellow center">FILL OUT REQUIRED FIELDS BELOW FOR THE EVENT YOU WOULD LIKE TO POST</p>
-        <div className="text">
+      <p className="text-yellow center">FILL OUT REQUIRED FIELDS BELOW FOR THE EVENT YOU WOULD LIKE TO POST</p>
+      <div className="text">
           <form onSubmit={handleSubmit}>
             <label className="name text-white">
-              Name:
+              NAME
               <input
                 name="name"
                 id="name"
@@ -68,7 +68,7 @@ const NewEventForm = props =>{
               />
             </label><br/>
             <label className="location text-white">
-              location:
+              LOCATION
               <input
                 name="location"
                 id="location"
@@ -76,19 +76,19 @@ const NewEventForm = props =>{
                 onChange={handleInputChange}
                 value={newFormPayload.location}
               />
-              </label><br/>
-              <label className="cost text-white">
-                Cost (per person):
-                <input
-                  name="cost"
-                  id="cost"
-                  type="text"
-                  onChange={handleInputChange}
-                  value={newFormPayload.cost}
-                />
+            </label><br/>
+            <label className="cost text-white">
+              COST (PER PERSON)
+              <input
+                name="cost"
+                id="cost"
+                type="text"
+                onChange={handleInputChange}
+                value={newFormPayload.cost}
+              />
             </label><br/>
             <label className="text-white">
-              Date:
+              DATE OF EVENT
               <input
                 name="date"
                 id="date"
@@ -97,14 +97,13 @@ const NewEventForm = props =>{
                 value={newFormPayload.date}
               />
             </label><br/>
-
-          <div className="center">
-            <input className="tn btn-primary text center" type="submit" value="ADD NEW EVENT" />
-          </div>
+            <div className="center">
+              <input className="tn btn-primary text center" type="submit" value="ADD NEW EVENT" />
+            </div>
           </form>
         </div>
         <div className="bottom-bar text-white no-dec center"><br/>
-        <Link to="/trips">Back to Home</Link>
+          <Link to="/trips">Back to Home</Link>
         </div><br/>
       </div>
   )
