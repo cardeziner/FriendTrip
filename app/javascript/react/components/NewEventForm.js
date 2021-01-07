@@ -98,12 +98,14 @@ const NewEventForm = props =>{
               />
             </label><br/>
 
-          <div className="center">
+          <div className="center"><br/>
             <input className="tn btn-primary text center" type="submit" value="ADD NEW EVENT" />
-          </div><br/>
+          </div>
           </form>
         </div>
-        <Link to="/trips" className="text no-dec">Back to Home</Link>
+        <div className="bottom-bar text-white no-dec center"><br/>
+        <Link to="/trips">Back to Home</Link>
+        </div><br/>
       </div>
   )
 }
