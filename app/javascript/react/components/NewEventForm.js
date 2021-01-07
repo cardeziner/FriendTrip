@@ -92,13 +92,13 @@ const NewEventForm = props =>{
               <input
                 name="date"
                 id="date"
-                type="text"
+                type="date"
                 onChange={handleInputChange}
                 value={newFormPayload.date}
               />
             </label><br/>
 
-          <div className="center"><br/>
+          <div className="center">
             <input className="tn btn-primary text center" type="submit" value="ADD NEW EVENT" />
           </div>
           </form>
