@@ -481,6 +481,10 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   padding: 5%;
 }
 
+.head-pad{
+  padding-bottom: 5%;
+}
+
 #map {
   height: 300px;
   max-width: 800px;
@@ -587,7 +591,6 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 
 .right-yellow{
   border-right: 8px solid #FABE28;
-  text-align: left;
 }
 
 .no-pad{
@@ -795,12 +798,23 @@ padding: 5px 10px 5px 5px;
   justify-content: center;
 }
 
+.grid{
+  display: grid;
+}
+
 .right-head{
   position: relative;
   float: right;
+  text-align: right;
 }
 
+.no-bot{
+  padding-bottom: 0;
+}
 
+.float-right{
+  float: right;
+}
 
 .table{
   display: table-cell;

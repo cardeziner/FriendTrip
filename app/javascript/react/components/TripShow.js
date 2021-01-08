@@ -153,7 +153,7 @@ const TripShow = props =>{
     <div className="bg" style={sectionStyle}>
       <div className="dark"></div>
       <h1 className="font center accent-red">{props.trip.name}</h1>
-      <div className="row">
+      <div className="row pad">
         <div key={props.trip.id} className="col-xs-12 col-md-5 font">
           <h1 className="text-blue vert left-blue pad left"> TRIP INFO </h1>
           <BackdropFilter
@@ -175,14 +175,15 @@ const TripShow = props =>{
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
         </BackdropFilter>
       </div>
-        <div className="col-5 right">
-          <h1 className="text-yellow vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
+        <div className="col-5 right grid">
+          <h1 className="text-yellow vert right-yellow pad right-head no-bot">TRIP ITINERARY</h1><br/>
             <BackdropFilter
-            className="bord right-head"
+            className="bord"
             filter={"blur(20px)"}
             >
-            <div className="text center opac">
-              <h2 className="text-blue width text"><img src={schedule} className="inline corners"/> Scheduled Events </h2>
+              <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert"> Scheduled Events </h2>
+              <hr className="gray-line"/>
+              <div className="text center">
               <div className="">
               {eventList}
               </div><br/>
