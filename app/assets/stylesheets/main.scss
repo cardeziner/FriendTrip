@@ -753,6 +753,8 @@ padding: 5px 10px 5px 5px;
   height: auto;
 }
 
+
+
 .new-trip-bg{
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("new-trip.jpg");
   background-attachment: fixed;
@@ -806,6 +808,18 @@ padding: 5px 10px 5px 5px;
 
 .absolute{
   position: absolute;
+}
+
+.corners{
+  display: inline;
+  vertical-align: middle;
+  margin: 5%;
+  border-radius: 15px;
+  width: 65px;
+  height: 65px;
+  box-shadow: 0 8px 6px -6px black;
+  spacing: 5%;
+  position:relative;
 }
 
 .icon{

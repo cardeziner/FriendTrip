@@ -181,8 +181,8 @@ const TripShow = props =>{
             className="bord right-head"
             filter={"blur(20px)"}
             >
-            <div className="text width center opac">
-              <h2 className="text-blue text"> EVENTS SCHEDULED SO FAR: </h2>
+            <div className="text center opac">
+              <h2 className="text-blue width text"><img src={schedule} className="inline corners"/> Scheduled Events </h2>
               <div className="">
               {eventList}
               </div><br/>
