@@ -7,6 +7,7 @@ import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
 import friends from '../../../assets/images/friends.png'
 import Unsplash from 'unsplash-js'
+import schedule from '../../../assets/images/schedule.png'
 
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
