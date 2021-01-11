@@ -798,6 +798,10 @@ padding: 5px 10px 5px 5px;
   justify-content: center;
 }
 
+.all-sides:hover{
+  box-shadow: 0 0 10px gray;
+}
+
 .grid{
   display: grid;
 }

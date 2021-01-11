@@ -98,7 +98,7 @@ const EventShowContainer = (props) =>{
             <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
             <h1 className="font accent-red center large">{trip.name}</h1><br/>
             <BackdropFilter
-            className="bord vert"
+            className="bord vert all-sides"
             filter={"blur(20px)"}
             >
             {eventsList}
