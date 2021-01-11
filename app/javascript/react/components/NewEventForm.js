@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import _ from 'lodash'
+import BackdropFilter from "react-backdrop-filter";
 
 const NewEventForm = props =>{
   const [errors, setErrors] = useState({})
@@ -51,13 +52,13 @@ const NewEventForm = props =>{
 
   return(
     <div key={props.id}><br/>
-      <h1 className="text-blue center">ADD A NEW TRIP EVENT</h1>
+      <h1 className="accent-red center">+ NEW TRIP EVENT</h1>
       <p className="line"></p>
-        <p className="font green center">Enter information on the event you would like to post on the form below</p>
-        <div className="text">
+      <p className="text-yellow center">FILL OUT REQUIRED FIELDS BELOW FOR THE EVENT YOU WOULD LIKE TO POST</p>
+      <div className="text">
           <form onSubmit={handleSubmit}>
-            <label className="name">
-              Name:
+            <label className="name text-white">
+              NAME
               <input
                 name="name"
                 id="name"
@@ -65,9 +66,9 @@ const NewEventForm = props =>{
                 onChange={handleInputChange}
                 value={newFormPayload.name}
               />
-            </label>
-            <label className="location">
-              location:
+            </label><br/>
+            <label className="location text-white">
+              LOCATION
               <input
                 name="location"
                 id="location"
@@ -75,36 +76,35 @@ const NewEventForm = props =>{
                 onChange={handleInputChange}
                 value={newFormPayload.location}
               />
-              </label>
-              <label className="cost">
-                Cost (per person):
-                <input
-                  name="cost"
-                  id="cost"
-                  type="text"
-                  onChange={handleInputChange}
-                  value={newFormPayload.cost}
-                />
-            </label>
-            <label className="date">
-              Date:
+            </label><br/>
+            <label className="cost text-white">
+              COST (PER PERSON)
+              <input
+                name="cost"
+                id="cost"
+                type="text"
+                onChange={handleInputChange}
+                value={newFormPayload.cost}
+              />
+            </label><br/>
+            <label className="text-white">
+              DATE OF EVENT
               <input
                 name="date"
                 id="date"
-                type="text"
+                type="date"
                 onChange={handleInputChange}
                 value={newFormPayload.date}
               />
             </label><br/>
-
-          <div className="center">
-            <input className="submit" type="submit" value="Add new event" />
-          </div><br/>
+            <div className="center">
+              <input className="tn btn-primary no-dec text center" type="submit" value="ADD NEW EVENT" />
+            </div>
           </form>
         </div>
-        <div className="center">
-        <Link to="/trips" className="text">Back to Home</Link>
-        </div>
+        <div className="text-white no-dec center"><br/>
+          <Link to="/trips" className="text-white no-dec">Back to Home</Link>
+        </div><br/>
       </div>
   )
 }

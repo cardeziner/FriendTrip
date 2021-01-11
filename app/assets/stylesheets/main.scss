@@ -21,7 +21,18 @@ html, body {
   opacity: .7;
 }
 
+.opac-black-tile{
+  background-color: black;
+  opacity: .75;
+}
+
+.opac-black-tile:hover{
+  opacity: .95;
+}
+
 .btn{
+  background-color: #1BB0CE;
+  color: white;
   height: 50px;
   width: 100px;
   font-size: medium;
@@ -29,7 +40,7 @@ html, body {
 }
 
 .invert{
-  outline-color: invert;
+  filter: invert(25%);
 }
 
 .sub{
@@ -186,12 +197,54 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
     color: white;
 }
 
+.resize-font{
+  font-size: 2.25vw;
+  overflow: auto;
+}
+
+.scroll{
+
+   animation: linear 10s;
+}
+
+.scroll:hover{
+
+}
+
+.vote-click{
+  font-family: 'Francois One', sans-serif;
+  color: #00C176;
+}
+
+.vote-click:hover{
+  transform: scale(1.1);
+}
+
+.vote{
+  border-radius: 360px;
+  width: 50px;
+}
+
+.light-bord{
+  border: 2px solid #FABE28;
+  border-radius: 10px;
+}
+
 .white-back {
   background-color: white;
 }
 
 .link {
     font-family: 'Francois One', sans-serif;
+}
+
+.width{
+  width: 100%;
+  padding: 1rem;
+}
+
+.anim{
+  animate: 15s linear infinite;
 }
 
 .bot-pad{
@@ -205,7 +258,12 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .friendtrip-logo{
-  max-width: 150px;
+  max-height: 150px;
+  max-width: 350px;
+  position:relative;
+}
+
+.friendtrip-name{
   height: 150px;
 }
 
@@ -233,8 +291,18 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
     padding: 15px 15px 15px 15px;
 }
 
+.bot-bord{
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
 .form {
     font-family: 'Francois One', sans-serif;
+}
+
+.gray-text{
+  font-family: 'Francois One', sans-serif;
+  color: #eaeaea;
 }
 
 .border-blue {
@@ -400,13 +468,21 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 #map1,#map2,#map3,#map4,#map5,#map6,#map7,#map8 {
-  height: 300px;
+  height: 250px;
   max-width: 100%;
   margin: auto;
 }
 
+.short-map{
+  height: 200px !important;
+}
+
 .pad{
   padding: 5%;
+}
+
+.head-pad{
+  padding-bottom: 5%;
 }
 
 #map {
@@ -508,9 +584,17 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   border-left: 8px solid #1BB0CE;
 }
 
+.left{
+  display: inline-block;
+  text-align: left;
+}
+
 .right-yellow{
   border-right: 8px solid #FABE28;
-  text-align: left;
+}
+
+.no-pad{
+  padding: 0;
 }
 
 .accent-white:hover {
@@ -663,6 +747,17 @@ padding: 5px 10px 5px 5px;
   z-index: 3;
 }
 
+.inset{
+  box-shadow: inset 0 7px 9px -7px black;
+}
+
+.logo{
+  width: 200px;
+  height: auto;
+}
+
+
+
 .new-trip-bg{
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("new-trip.jpg");
   background-attachment: fixed;
@@ -680,8 +775,9 @@ padding: 5px 10px 5px 5px;
   background-position: center;
   min-width: 100%;
   min-height: 100%;
+  height: 100%;
+  overflow:auto;
   background-size:cover;
-
   box-shadow: inset 0 7px 9px -7px black;
 }
 
@@ -702,13 +798,67 @@ padding: 5px 10px 5px 5px;
   justify-content: center;
 }
 
+.all-sides:hover{
+  box-shadow: 0 0 10px gray;
+}
 
+.grid{
+  display: grid;
+}
+
+.right-head{
+  position: relative;
+  float: right;
+  text-align: right;
+}
+
+.no-bot{
+  padding-bottom: 0;
+}
+
+.float-right{
+  float: right;
+}
+
+.table{
+  display: table-cell;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.corners{
+  display: inline;
+  vertical-align: middle;
+  margin: 5%;
+  border-radius: 15px;
+  width: 65px;
+  height: 65px;
+  box-shadow: 0 8px 6px -6px black;
+  spacing: 5%;
+  position:relative;
+}
 
 .icon{
+  display: inline;
+  vertical-align: middle;
   margin: 5%;
   border-radius: 10px;
   width: 65px;
   height: 65px;
+  box-shadow: 0 8px 6px -6px black;
+  spacing: 5%;
+  position:relative;
+}
+
+.icon-small{
+  display: inline;
+  vertical-align: middle;
+  margin: 5%;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
   box-shadow: 0 8px 6px -6px black;
   spacing: 5%;
   position:relative;
@@ -719,8 +869,6 @@ padding: 5px 10px 5px 5px;
   box-shadow: 0 8px 6px -6px black;
   vertical-align: middle;
 }
-
-
 
 .black{
   background-color: black;
@@ -747,17 +895,26 @@ padding: 5px 10px 5px 5px;
 
 .no-wrap{
   white-space: nowrap;
-  font-size: 2rem;
 }
 
 .gray-line{
   color: white;
 }
 
+.dark-div{
+  background-color: black;
+  backdrop-filter: opacity(.5);
+}
+
 .border {
   margin: 15px 15px 15px 15px;
   padding: 5px 10px 5px 5x;
   border-radius: 25px;
+}
+
+.side-pad{
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .mid-float{
@@ -777,7 +934,6 @@ padding: 5px 10px 5px 5px;
   border-color: #FABE28;
   background-color: #FABE28;
 }
-
 
 .frame-yellow{
   border-style: solid;

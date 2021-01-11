@@ -115,8 +115,10 @@ const TripsIndexComponent = (props) =>{
               className="bord"
               filter={"blur(15px)"}
               >
+              <div className="opac-black">
               <img className="icon" src={trips_logo}/><h1 className="yellow-title vert">MY TRIPS</h1>
               <hr className="gray-line"/>
+              </div>
               <div className="center">
                 {tripList}{noTripCheck()}
                 </div>
@@ -128,8 +130,8 @@ const TripsIndexComponent = (props) =>{
                 className="bord"
                 filter={"blur(15px)"}
                 >
-                <div className="no-dec">
-                  <Link to='trips/new' className="no-dec center">
+                <div className="no-dec center">
+                  <Link to='trips/new' className="no-dec">
                   <h1 className="inline sides-pad text-yellow big">+</h1>
                   <h1 className="inline no-dec text-yellow center">NEW FRIENDTRIP</h1>
                   </Link>

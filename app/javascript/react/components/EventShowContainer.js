@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import EventsTile from './EventsTile'
 import NewEventForm from './NewEventForm'
+import BackdropFilter from "react-backdrop-filter";
+import vote_bg from '../../../assets/images/vote-bg.jpg'
 
 const EventShowContainer = (props) =>{
     const [trip, setTrip] = useState({})
@@ -65,7 +67,7 @@ const EventShowContainer = (props) =>{
 
   const eventsList = tripEvents.map(singleEvent => {
     return (
-      <div key={props.match.params.id}>
+      <div key={props.match.params.id} className="all-sides">
       <EventsTile
       id={singleEvent.id}
       users={users}
@@ -75,21 +77,39 @@ const EventShowContainer = (props) =>{
       </div>
     )
   })
-  
+
+  var sectionStyle = {
+    backgroundImage: `url(${vote_bg})`,
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    height: '100%',
+    minHeight: '100%',
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    objectFit: 'cover',
+    boxShadow: 'inset 0 7px 9px -7px black',
+  }
+
     return(
-      <div className="row"><br/><br/>
-      <div className="column">
-        <h4 className="text-green text center">VOTE ON ANY EVENT FOR</h4>
-        <h1 className="accent-red center">{trip.name}</h1>
-        <h5 className="text-blue center">CLICK ON AN EVENT BELOW TO VOTE</h5>
-        <p className="line"></p>
-        {eventsList}
-        </div>
-        <div className="column">
-        <NewEventForm
-        id={tripId}
-        addNewEvent={addNewEvent}
-        />
+      <div className="bg" style={sectionStyle}>
+        <div className="row pad center"><br/><br/>
+          <div className="col-5">
+
+            <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
+            <h1 className="font accent-red center large">{trip.name}</h1><br/>
+            <BackdropFilter
+            className="bord vert"
+            filter={"blur(20px)"}
+            >
+            {eventsList}
+            </BackdropFilter>
+          </div>
+          <div className="col-5 center opac-black-tile">
+            <NewEventForm
+            id={tripId}
+            addNewEvent={addNewEvent}
+            />
+          </div>
         </div>
       </div>
     )

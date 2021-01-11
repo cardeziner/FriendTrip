@@ -1,7 +1,12 @@
 import React, { Component, useState, useEffect } from "react";
 
 import GoogleMapTile from './GoogleMapTile'
-
+import BackdropFilter from "react-backdrop-filter";
+import price from '../../../assets/images/price.png'
+import location from '../../../assets/images/location.png'
+import date from '../../../assets/images/dates.png'
+import place from '../../../assets/images/place.png'
+import vote from '../../../assets/images/vote.png'
 
 const EventsTile = (props) => {
   const addEventVote = () =>{
@@ -30,18 +35,34 @@ const EventsTile = (props) => {
   }
 
   return(
-    <div>
-      <div className="hover-text" onClick={addEventVote}>
-      <h2 className="hover-text text-blue center" >{props.event.name} </h2>
-      <h4 className="hover-text text-green center"> ${props.event.cost} per person     /     {props.event.date}</h4>
-      <GoogleMapTile
-      id={props.event.id}
-      location={props.event.location}
-      />
-      <h2 className="hover-text accent-red center"> {props.event.location}</h2>
+    <div className="all-sides">
+    <GoogleMapTile
+    id={props.event.id}
+    location={props.event.location}
+    />
+      <div className="opac-black-tile">
+      <BackdropFilter
+      className="bord"
+      filter={"blur(20px)"}
+      >
+        <div className="row left no-wrap">
+          <div className="col-6">
+            <h4 className="font resize-font fifty left"><img src={place} className="icon-small"/>{props.event.name} </h4>
+          </div>
+          <div className="col-6">
+            <h4 className="font resize-font fifty"><img src={price} className="icon-small"/> ${props.event.cost}</h4>
+          </div>
+          <div className="col-6">
+            <h4 className="font resize-font fifty"><img src={location} className="icon-small scroll" /> {props.event.location}</h4>
+          </div>
+          <div className="col-6">
+            <h4 className="font resize-font fifty"><img src={date} className="icon-small"/>{props.event.date}</h4>
+          </div>
+          <h1 className="vote-click vert" onClick={addEventVote}><img src={vote} className="vote"/> VOTE</h1>
+          </div>
+      </BackdropFilter>
       </div>
       <br/>
-      <p className ="line"></p>
     </div>
   )
 }
