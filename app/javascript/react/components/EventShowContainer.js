@@ -67,7 +67,7 @@ const EventShowContainer = (props) =>{
 
   const eventsList = tripEvents.map(singleEvent => {
     return (
-      <div key={props.match.params.id}>
+      <div key={props.match.params.id} className="all-sides">
       <EventsTile
       id={singleEvent.id}
       users={users}
@@ -86,7 +86,7 @@ const EventShowContainer = (props) =>{
     minHeight: '100%',
     backgroundRepeat: 'no-repeat',
     position: 'absolute',
-    backgroundSize: 'cover',
+    objectFit: 'cover',
     boxShadow: 'inset 0 7px 9px -7px black',
   }
 
@@ -98,7 +98,7 @@ const EventShowContainer = (props) =>{
             <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
             <h1 className="font accent-red center large">{trip.name}</h1><br/>
             <BackdropFilter
-            className="bord vert all-sides"
+            className="bord vert"
             filter={"blur(20px)"}
             >
             {eventsList}
