@@ -802,6 +802,11 @@ padding: 5px 10px 5px 5px;
   box-shadow: 0 0 10px gray;
 }
 
+.no-top{
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
 .grid{
   display: grid;
 }
@@ -814,6 +819,7 @@ padding: 5px 10px 5px 5px;
 
 .no-bot{
   padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .float-right{
