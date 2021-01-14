@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/trips/:id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
+  get "/users/invitation/new", to: 'users/invitations#new'
 
   get "/aboutus", to: 'static_pages#index'
 
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:index]
+      resources :users, only: [:index, :new, :create]
     end
   end
 
