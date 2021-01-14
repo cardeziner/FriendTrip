@@ -113,8 +113,8 @@ const TripShow = props =>{
   function blankUser(){
     if(userList.length < 1){
       return(
-        <h4 className="text-yellow inline absolute vert center">
-        <h4 className="side-pad text-yellow">NO FRIENDS HAVE BEEN ADDED TO THIS TRIP YET!</h4>
+        <h4 className="text-yellow inline absolute vert center side-pad">
+        NO FRIENDS HAVE BEEN ADDED TO THIS TRIP YET!
         </h4>
       )
     } else {
@@ -154,7 +154,7 @@ const TripShow = props =>{
       <div className="dark"></div>
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row pad">
-        <div key={props.trip.id} className="col-xs-12 col-md-5 font">
+        <div key={props.trip.id} className="col-xs-12 col-md-5 font grid">
           <h1 className="text-blue vert left-blue pad left"> TRIP INFO </h1>
           <BackdropFilter
           className="bord"
@@ -175,22 +175,22 @@ const TripShow = props =>{
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
         </BackdropFilter>
       </div>
-        <div className="col-5 right grid">
+        <div className="col-5 grid ">
           <h1 className="text-yellow vert right-yellow pad right-head no-bot">TRIP ITINERARY</h1><br/>
             <BackdropFilter
             className="bord"
             filter={"blur(20px)"}
             >
-            <div className="opac-black">
+            <div className="opac-black no-top">
               <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert"> Scheduled Events </h2>
               <hr className="gray-line"/>
               </div>
               <div className="text center">
-              <div className="">
-              {eventList}
-              </div><br/>
+                <div className="">
+                  {eventList}
+                </div><br/>
               <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
-            </div>
+              </div>
             </BackdropFilter>
         </div>
       </div>
