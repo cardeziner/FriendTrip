@@ -173,6 +173,9 @@ const TripShow = props =>{
           <h3 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
+          <div className="center">
+            <h5><a href="/users/invitation/new" className="font center no-dec">+ INVITE A FRIEND</a></h5>
+          </div>
         </BackdropFilter>
       </div>
         <div className="col-5 grid ">
