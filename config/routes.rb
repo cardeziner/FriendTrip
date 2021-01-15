@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
   get "/users/invitation/new(.:format)", to: 'users/invitations#new'
-
+  # get "/users" to: 'devise_invitable/registrations#create'
+  
   get "/aboutus", to: 'static_pages#index'
+
+
 
   namespace :api do
     namespace :v1 do
@@ -28,5 +31,10 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :new, :create]
 
+    as :user do
+    get 'signin' => 'devise/sessions#new'
+    post 'signin' => 'devise/sessions#create'
+    delete 'signout' => 'devise/sessions#destroy'
+  end
 
 end
