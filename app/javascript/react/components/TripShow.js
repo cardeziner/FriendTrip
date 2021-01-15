@@ -173,15 +173,18 @@ const TripShow = props =>{
           <h3 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
+          <div className="center">
+            <h5><a href="/users/invitation/new" className="font center no-dec">+ INVITE A FRIEND</a></h5>
+          </div>
         </BackdropFilter>
       </div>
-        <div className="col-5 grid ">
-          <h1 className="text-yellow vert right-yellow pad right-head no-bot">TRIP ITINERARY</h1><br/>
+        <div className="col-5 grid tall">
+          <h1 className="text-yellow vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
             <BackdropFilter
             className="bord"
             filter={"blur(20px)"}
             >
-            <div className="opac-black no-top">
+            <div className="opac-black">
               <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert"> Scheduled Events </h2>
               <hr className="gray-line"/>
               </div>
