@@ -4,5 +4,5 @@ class Users::InvitationsController < Devise::InvitationsController
 
   end
 
-  
+
 end
