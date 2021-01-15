@@ -147,6 +147,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   vertical-align: middle;
 }
 
+.tall{
+  height: 100%;
+  width: 100%;
+}
+
 .click-block{
   color: #1BB0CE;
   font-family: 'Francois One', sans-serif;
@@ -796,6 +801,7 @@ padding: 5px 10px 5px 5px;
 
 .row{
   justify-content: center;
+  display: flex;
 }
 
 .all-sides:hover{

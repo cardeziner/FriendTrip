@@ -178,13 +178,13 @@ const TripShow = props =>{
           </div>
         </BackdropFilter>
       </div>
-        <div className="col-5 grid ">
-          <h1 className="text-yellow vert right-yellow pad right-head no-bot">TRIP ITINERARY</h1><br/>
+        <div className="col-5 grid tall">
+          <h1 className="text-yellow vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
             <BackdropFilter
             className="bord"
             filter={"blur(20px)"}
             >
-            <div className="opac-black no-top">
+            <div className="opac-black">
               <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert"> Scheduled Events </h2>
               <hr className="gray-line"/>
               </div>
