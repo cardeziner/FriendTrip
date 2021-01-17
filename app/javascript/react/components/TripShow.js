@@ -88,7 +88,7 @@ const TripShow = props =>{
           <br/>
         </div>
       )}else{
-        if (count = 0) {
+        if (count < 1) {
           return(
             <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
           )
@@ -97,6 +97,13 @@ const TripShow = props =>{
     }
   )
 
+  function noEvents(){
+    if (props.events.length < 1){
+      return(
+        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
+      )
+    }
+  }
 
     // <Link to={`/trips/${singleEvent.id}/events`}>{singleEvent.name}</Link><br />
 
@@ -172,7 +179,7 @@ const TripShow = props =>{
           </h2>
           <h3 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
             <br/>
-          <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
+          <div><img src={friends} className="inline icon fifty"/>{blankUser()}{noEvents()}</div>
           <div className="center">
             <h5><a href="/users/invitation/new" className="font center no-dec">+ INVITE A FRIEND</a></h5>
           </div>
