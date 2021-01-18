@@ -145,15 +145,15 @@ const TripShow = props =>{
   const months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
 
   function dateByName(date){
-    let splitDate = date.split("-");
-    let index = splitDate[1] + 1;
-    if(date){
-      return(
-        months[index] + "," + date.split("-")[2] + "" + splitDate[0]
-      )
-    }else{
-      console.log("ERROR")
-    }
+      let splitDate = date.split("-");
+      let index = splitDate[1].to_i + 1;
+      if(date){
+        return(
+          months[index] + "," + date.split("-")[2] + "" + splitDate[0]
+        )
+      }else{
+        console.log("ERROR")
+      }
   }
 
   return(
@@ -179,7 +179,7 @@ const TripShow = props =>{
           </h2>
           <h3 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
             <br/>
-          <div><img src={friends} className="inline icon fifty"/>{blankUser()}{noEvents()}</div>
+          <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
           <div className="center">
             <h5><a href="/users/invitation/new" className="font center no-dec">+ INVITE A FRIEND</a></h5>
           </div>
@@ -197,9 +197,10 @@ const TripShow = props =>{
               </div>
               <div className="text center">
                 <div className="">
-                  {eventList}
-                </div><br/>
-              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
+                  {eventList}{noEvents()}
+                  <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
+                </div>
+
               </div>
             </BackdropFilter>
         </div>
