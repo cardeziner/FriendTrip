@@ -9,10 +9,8 @@ Rails.application.routes.draw do
   get "/trips/:id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
-
+#devise invite
   get '/users/sign_up', to: 'devise_invitable/registrations#new'
-
-
 
   namespace :api do
     namespace :v1 do
