@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { invitations: 'devise/invitations' }
+  devise_for :users, controllers: { invitations: 'users/invitations' }
   root 'static_pages#index'
 
   get "/trips", to: 'static_pages#index'
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/trips/:id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
-  get "/users/invitation/new.user", to: 'users/invitations#new'
+  # get "/users/invitations/new", to: 'users/invitations#new'
   get '/users/sign_up', to: 'devise_invitable/registrations#new'
   # get "/users" to: 'devise_invitable/registrations#create'
 
