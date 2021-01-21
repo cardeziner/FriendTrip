@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { invitations: 'devise/invitations' }
+  devise_for :users, controllers: { invitations: 'users/invitations' }
   root 'static_pages#index'
 
   get "/aboutus", to: 'static_pages#index'
@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get "/trips/:id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
-#devise invite test
+  post "users/invitation/new", to: 'devise/invitations#new'
+
   get '/users/sign_up', to: 'devise_invitable/registrations#new'
 
   namespace :api do
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :new, :create]
 
     as :user do
-    get 'signin' => 'devise/sessions#new'
+    get 'signup' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
     delete 'signout' => 'devise/sessions#destroy'
   end
