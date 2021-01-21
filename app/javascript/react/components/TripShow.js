@@ -139,7 +139,7 @@ const TripShow = props =>{
   backgroundPosition: 'center',
   height: '100%',
   position: 'absolute',
-  backgroundSize: '100% 100%',
+  objectFit: 'cover',
   boxShadow: 'inset 0 14px 18px -14px black',
 }
   const months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
