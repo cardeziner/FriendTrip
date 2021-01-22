@@ -8,7 +8,7 @@ import TripShowContainer from './TripShowContainer'
 import EventShowContainer from './EventShowContainer'
 import NewTripContainer from './NewTripContainer'
 import AboutUsPage from './AboutUsPage'
-
+import AirbnbIndex from './AirbnbIndex'
 
 export const App = (props) => {
   return (
