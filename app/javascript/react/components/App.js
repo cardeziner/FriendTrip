@@ -20,6 +20,7 @@ export const App = (props) => {
         <Route exact path='/trips/:id' component={TripShowContainer}></Route>
         <Route exact path='/trips/:id/events' component={EventShowContainer}></Route>
         <Route exact path='/aboutus' component={AboutUsPage}></Route>
+        <Route exact path='/trips/:id/airbnbs' component={AirbnbIndex}></Route>
       </Switch>
     </BrowserRouter>
   )
