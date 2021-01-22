@@ -139,7 +139,7 @@ const TripShow = props =>{
   backgroundPosition: 'center',
   height: '100%',
   position: 'absolute',
-  backgroundSize: '100% 100%',
+  objectFit: 'cover',
   boxShadow: 'inset 0 14px 18px -14px black',
 }
   const months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
@@ -162,7 +162,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red">{props.trip.name}</h1>
       <div className="row pad">
         <div key={props.trip.id} className="col-xs-12 col-md-5 font grid">
-          <h1 className="text-blue vert left-blue pad left"> TRIP INFO </h1>
+          <h1 className="text-white vert left-blue pad left"> TRIP INFO </h1>
           <BackdropFilter
           className="bord"
           filter={"blur(20px)"}
@@ -172,12 +172,12 @@ const TripShow = props =>{
             location={tripCity}
             trip={props.trip}
             />
-            <h2 className="text-white inset">
+            <h2 className="text-blue inset">
             <img src={location} className="inline icon"/>
             <div className="vert-line"></div>{(props.trip.city)}, {props.trip.state}<div className="right">
           </div>
           </h2>
-          <h3 className="font"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
+          <h3 className="text-blue"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
           <div className="center">
@@ -186,7 +186,7 @@ const TripShow = props =>{
         </BackdropFilter>
       </div>
         <div className="col-5 grid tall">
-          <h1 className="text-yellow vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
+          <h1 className="text-white vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
             <BackdropFilter
             className="bord"
             filter={"blur(20px)"}
