@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get "/trips/:id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
-  post "users/invitation/new", to: 'devise/invitations#new'
+  # get "users/invitation/new.user", to: 'devise/invitations#new'
+  # post "users/invitation/new.user", to: 'devise/invitations#new'
+  #
 
   get '/users/sign_up', to: 'devise_invitable/registrations#new'
 
