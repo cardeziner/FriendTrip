@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :invites, controller: 'invitation/invites', only: [:new, :create]
+  resources :invites, controller: 'invites', only: [:new, :create]
   devise_for :users, controllers: { invitations: 'devise/invitations' }
   root 'static_pages#index'
 
