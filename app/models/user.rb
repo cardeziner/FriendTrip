@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Invitation::User
+
   has_many :tripmembers
   has_many :trips, through: :tripmembers
   # # Include default devise modules. Others available are:
