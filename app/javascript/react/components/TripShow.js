@@ -181,7 +181,7 @@ const TripShow = props =>{
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
           <div className="center">
-            <h5><a href="/users/invitation/new" className="font center no-dec">+ INVITE A FRIEND</a></h5>
+            <h5><a href="/invites/new" className="font center no-dec">+ INVITE A FRIEND</a></h5>
           </div>
         </BackdropFilter>
       </div>
