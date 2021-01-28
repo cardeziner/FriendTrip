@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # get "users/invitation/new.user", to: 'devise/invitations#new'
   # post "users/invitation/new.user", to: 'devise/invitations#new'
   #
-  get "/invites/new", to: 'invitation/invites#new'
+  get "trips/:trip_id/invites/new", to: 'static_pages#index'
 
   namespace :api do
     namespace :v1 do

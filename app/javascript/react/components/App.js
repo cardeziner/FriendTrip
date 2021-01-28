@@ -8,6 +8,7 @@ import TripShowContainer from './TripShowContainer'
 import EventShowContainer from './EventShowContainer'
 import NewTripContainer from './NewTripContainer'
 import AboutUsPage from './AboutUsPage'
+import NewTripmemberForm from './NewTripmemberForm'
 
 
 export const App = (props) => {
@@ -18,6 +19,7 @@ export const App = (props) => {
         <Route exact path='/trips' component={TripsIndexComponent}></Route>
         <Route exact path='/trips/new' component={NewTripContainer}></Route>
         <Route exact path='/trips/:id' component={TripShowContainer}></Route>
+        <Route exact path='/trips/:id/invites/new' component={TripShowContainer}></Route>
         <Route exact path='/trips/:id/events' component={EventShowContainer}></Route>
         <Route exact path='/aboutus' component={AboutUsPage}></Route>
       </Switch>
