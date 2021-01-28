@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
   # get "users/invitation/new.user", to: 'devise/invitations#new'
   # post "users/invitation/new.user", to: 'devise/invitations#new'
-  #
+  # #
   get "trips/:trip_id/invites/new", to: 'static_pages#index'
-
+  
   namespace :api do
     namespace :v1 do
       resources :trips, only: [:index, :show, :create, :update] do
