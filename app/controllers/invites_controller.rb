@@ -1,7 +1,7 @@
 class InvitesController < Invitation::InvitesController
 
   def new
-    @invite = InviteForm.new(invite_params)
+    @invite = Invite.new(invite_params)
     render template: 'invites/new'
   end
 
