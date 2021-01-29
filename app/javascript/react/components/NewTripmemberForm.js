@@ -1,6 +1,7 @@
 import React from 'react'
 
 const NewTripmemberForm = props =>{
+
   return(
     <div>
       <h1>
