@@ -105,7 +105,7 @@ const TripsIndexComponent = (props) =>{
         className="bord"
         filter={"blur(15px)"}
         >
-        <h1 className="col-12 center font trim vert no-bot-pad">Welcome Back {user.email}!</h1>
+        <h1 className="col-12 center font trim vert no-bot-pad">Welcome Back {user.first_name}!</h1>
         </BackdropFilter>
         </div>
         <div className="front">
