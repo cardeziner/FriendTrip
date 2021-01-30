@@ -62,7 +62,6 @@ const EventsTile = (props) => {
           </div>
       </BackdropFilter>
       </div>
-      <br/>
     </div>
   )
 }
