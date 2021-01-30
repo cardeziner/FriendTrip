@@ -1,4 +1,4 @@
-class CreateTripmember < ActiveRecord::Migration[5.2]
+class CreateTripmembers < ActiveRecord::Migration[5.2]
   def change
     create_table :tripmembers do |t|
       t.belongs_to :user

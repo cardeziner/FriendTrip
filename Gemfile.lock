@@ -110,6 +110,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    invitation (0.6.1)
+      rails (>= 4.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jquery-rails (4.3.5)
@@ -307,6 +309,7 @@ DEPENDENCIES
   factory_bot
   faker
   foundation-rails (~> 6.5)
+  invitation
   jbuilder (~> 2.5)
   jquery-rails
   launchy
