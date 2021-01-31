@@ -77,6 +77,12 @@ const TripShow = props =>{
 
   const url = imageUrl
 
+  function hoverInfo(){
+    return(
+      <div><h1>Hello World</h1></div>
+    )
+  }
+
   const eventList = props.events.map(singleEvent =>{
     let count = 0
     if(singleEvent.votes > props.users.length){
@@ -196,7 +202,7 @@ const TripShow = props =>{
               <hr className="gray-line"/>
               </div>
               <div className="text center">
-                <div className="">
+                <div className="" onmouseover={hoverInfo()}>
                   {eventList}{noEvents()}
                   <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
                 </div>
