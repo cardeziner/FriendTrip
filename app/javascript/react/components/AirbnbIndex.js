@@ -3,7 +3,7 @@ import React from 'react'
 const AirbnbIndex = props =>{
 
   return(
-    <div>Hello World</div>
+    <div>Hello World </div>
   )
 }
 

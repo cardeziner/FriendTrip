@@ -14,8 +14,6 @@ html, body {
     overflow: scroll;
 }
 
-
-
 .opac-black{
   background-color: black;
   opacity: .7;
@@ -28,6 +26,14 @@ html, body {
 
 .opac-black-tile:hover{
   opacity: .95;
+}
+
+.hide{
+  display: none;
+}
+
+.my:hover .hide{
+  display: block;
 }
 
 .btn{

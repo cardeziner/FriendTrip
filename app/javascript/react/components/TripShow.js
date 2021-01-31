@@ -77,21 +77,20 @@ const TripShow = props =>{
 
   const url = imageUrl
 
-  function hoverInfo(){
-    return(
-      <div><h1>Hello World</h1></div>
-    )
-  }
-
   const eventList = props.events.map(singleEvent =>{
     let count = 0
     if(singleEvent.votes > props.users.length){
       count += 1
       return(
-        <div key={singleEvent.id} className="text-yellow click-block" ><br/>
+        <div>
+        <div key={singleEvent.id} className="myDIV text-yellow click-block" ><br/>
           <h2 className="text">{singleEvent.name}</h2>
           <h5 className="text-white"> {singleEvent.date} </h5>
           <br/>
+        </div>
+        <div className="hide">
+        HELLO WORLD
+        </div>
         </div>
       )}else{
         if (count < 1) {
@@ -202,11 +201,8 @@ const TripShow = props =>{
               <hr className="gray-line"/>
               </div>
               <div className="text center">
-                <div className="" onmouseover={hoverInfo()}>
                   {eventList}{noEvents()}
                   <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
-                </div>
-
               </div>
             </BackdropFilter>
         </div>
