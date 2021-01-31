@@ -26,18 +26,20 @@ html, body {
 
 
 .showme{
-       display: none;
-   }
-   .showhim:hover .showme{
-       display : block;
-   }
-   .showhim:hover .hideme{
-       display : none;
-   }
-   .showhim:hover ~ .hideme2{
-       display:none;
-   }
+  display: none;
+}
 
+.showhim:hover .showme{
+  display : block;
+}
+
+.showhim:hover .hideme{
+  display : none;
+}
+
+.showhim:hover ~ .hideme2{
+  display:none;
+}
 
 .opac-black-tile:hover{
   opacity: .95;
