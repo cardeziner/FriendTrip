@@ -24,6 +24,21 @@ html, body {
   opacity: .75;
 }
 
+
+.showme{
+       display: none;
+   }
+   .showhim:hover .showme{
+       display : block;
+   }
+   .showhim:hover .hideme{
+       display : none;
+   }
+   .showhim:hover ~ .hideme2{
+       display:none;
+   }
+
+
 .opac-black-tile:hover{
   opacity: .95;
 }

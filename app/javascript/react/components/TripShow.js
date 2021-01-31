@@ -83,13 +83,10 @@ const TripShow = props =>{
       count += 1
       return(
         <div>
-        <div key={singleEvent.id} className="myDIV text-yellow click-block" ><br/>
+        <div key={singleEvent.id} className="showhim text-yellow click-block" ><br/>
           <h2 className="text">{singleEvent.name}</h2>
           <h5 className="text-white"> {singleEvent.date} </h5>
-          <br/>
-        </div>
-        <div className="hide">
-        HELLO WORLD
+          <div className="showme">HELLO WORLD</div>
         </div>
         </div>
       )}else{
