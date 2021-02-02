@@ -12,6 +12,7 @@ import schedule from '../../../assets/images/schedule.png'
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
   const [tripCity, setTripCity] = useState({})
+  const [click, setClick] = useState(true)
 
   const iD = (props.id - 1)
 
@@ -55,7 +56,8 @@ const TripShow = props =>{
   //     .catch(error => console.error(`Error in fetch: ${error.message}`))
   // }, [tripCity])
 
-    if(props.trip.city){
+
+    if(props.trip.city && click){
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",
           })
@@ -71,8 +73,9 @@ const TripShow = props =>{
       .then(response => response.json())
       .then(parsedData =>{
         setImageUrl(parsedData.results[Math.floor(Math.random() * parsedData.results.length)].urls.full)
+        setClick(false)
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
+      .catch(error => console.error(`Error in fetch: ${error.message}`)),[]
   }
 
   const url = imageUrl
