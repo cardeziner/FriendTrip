@@ -40,7 +40,7 @@ const EventsTile = (props) => {
     id={props.event.id}
     location={props.event.location}
     />
-      <div className="opac-black-tile">
+      <div className="opac-black-tile bot-bord">
       <BackdropFilter
       className="bord"
       filter={"blur(20px)"}
@@ -60,9 +60,8 @@ const EventsTile = (props) => {
           </div>
           <h1 className="vote-click vert" onClick={addEventVote}><img src={vote} className="vote"/> VOTE</h1>
           </div>
-          <br/>
       </BackdropFilter>
-      </div>
+      </div><br/>
     </div>
   )
 }
