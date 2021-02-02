@@ -60,6 +60,7 @@ const EventsTile = (props) => {
           </div>
           <h1 className="vote-click vert" onClick={addEventVote}><img src={vote} className="vote"/> VOTE</h1>
           </div>
+          <br/>
       </BackdropFilter>
       </div>
     </div>

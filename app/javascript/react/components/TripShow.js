@@ -82,8 +82,8 @@ const TripShow = props =>{
     if(singleEvent.votes > props.users.length){
       count += 1
       return(
-        <div>
-          <div key={singleEvent.id} className="showhim text-yellow click-block bot-pad vert" ><br/>
+        <div key={singleEvent.id}>
+          <div className="showhim text-yellow click-block bot-pad vert" ><br/>
             <h2 className="text">{singleEvent.name}</h2>
             <h5 className="text-white"> {singleEvent.date} </h5>
               <div className="showme">
@@ -93,13 +93,7 @@ const TripShow = props =>{
               </div>
           </div>
         </div>
-      )}else{
-        if (count < 1) {
-          return(
-            <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
-          )
-        }
-      }
+      )}
     }
   )
 
