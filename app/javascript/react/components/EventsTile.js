@@ -35,7 +35,7 @@ const EventsTile = (props) => {
   }
 
   return(
-    <div className="all-sides">
+    <div className="all-sides top-bord">
     <GoogleMapTile
     id={props.event.id}
     location={props.event.location}

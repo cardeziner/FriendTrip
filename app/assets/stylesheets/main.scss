@@ -24,7 +24,6 @@ html, body {
   opacity: .75;
 }
 
-
 .showme{
   display: none;
 }
@@ -321,6 +320,12 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 .bot-bord{
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+}
+
+.top-bord{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
 }
 
 .form {
