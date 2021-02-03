@@ -4,19 +4,17 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>You got a new order from <%= @order.name %>!</p>
+    <p>You got a new invite from <%= @invite.email %>!</p>
     <p>
-    Order details<br>
+    Invite Details<br>
     --------------------------
     </p>
-    <p>Name: <%= @order.name %></p>
-    <p>Email: <%= @order.email %></p>
-    <p>Address: <%= @order.address %></p>
-    <p>Phone: <%= @order.phone %></p>
+    <p>Email: <%= @invite.email %></p>
+
     <p>
     Message:<br>
     ----------
     </p>
-    <p><%= @order.message %></p>
+    <p>You have been invited to join a friendtrip group!</p>
   </body>
 </html>
