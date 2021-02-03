@@ -145,9 +145,9 @@ const TripShow = props =>{
   objectFit: 'cover',
   boxShadow: 'inset 0 14px 18px -14px black',
 }
-  const months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
 
   function dateByName(date){
+      let months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
       let splitDate = date.split("-");
       let index = splitDate[1].to_i + 1;
       if(date){
