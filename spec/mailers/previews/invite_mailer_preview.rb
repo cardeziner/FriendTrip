@@ -2,7 +2,7 @@
 class InviteMailerPreview < ActionMailer::Preview
   def new_invite_email
     # Set up a temporary order for the preview
-    order = Invite.new(email: "joe@gmail.com")
+    invite = Invite.new(email: "joe@gmail.com")
 
     InviteMailer.with(invite: invite).new_invite_email
   end
