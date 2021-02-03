@@ -7,7 +7,7 @@ class Api::V1::InvitesController < ApplicationController
   def create
     invite = Invite.new(invite_params)
 
-    if @order.save
+    if @invite.save
       flash[:success] = t('flash.order.success')
       redirect_to root_path
     else
