@@ -5,7 +5,7 @@ const NewTripmemberForm = props =>{
   return(
     <div>
       <h1>
-        hello world
+        hello world from Invite Form
       </h1>
     </div>
   )

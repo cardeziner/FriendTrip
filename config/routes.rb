@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   # get "users/invitation/new.user", to: 'devise/invitations#new'
   # post "users/invitation/new.user", to: 'devise/invitations#new'
   # #
-  get "trips/:trip_id/invites/new", to: 'static_pages#index'
-  
+  get "invites/new", to: 'static_pages#index'
+
   namespace :api do
     namespace :v1 do
       resources :trips, only: [:index, :show, :create, :update] do
@@ -27,6 +27,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :new, :create]
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :invites, only: [:index, :new, :create]
     end
   end
 
