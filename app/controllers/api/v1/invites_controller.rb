@@ -5,12 +5,12 @@ class Api::V1::InvitesController < ApplicationController
   end
 
   def create
-    @invite = Invite.new(invite_params, password: "password")
-    @user = User.new(user_params)
-    @tripmember = TripMember.new(user_id: @invite.id, trip: trip_params)
+    @user = User.new(user_params, password: "password")
+    @invite = Invite.new(email: @user.email)
+    @tripmember = TripMember.new(user_id: @user.id, trip_id: trip_params)
 
     if @invite.save && @user.save && @tripmember.save
-      InviteMailer.with(invite: @invite).new_invite_email.deliver_later
+      InviteMailer.with(invite: @invite, email: @user.email).new_invite_email.deliver_later
 
       flash[:success] = t('flash.order.success')
       redirect_to root_path
