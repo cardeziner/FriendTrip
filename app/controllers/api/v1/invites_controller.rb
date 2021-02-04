@@ -23,15 +23,7 @@ class Api::V1::InvitesController < ApplicationController
   private
 
   def invite_params
-    params.require(:invite).permit(:email)
-  end
-
-  def user_params
     params.require(:user).permit(:email, :first_name, :last_name)
-  end
-
-  def trip_params
-    params.require(:trip).permit(:trip_id)
   end
 
 end
