@@ -1,11 +1,9 @@
 class InviteMailer < ApplicationMailer
 
   def new_invite_email
-  @invite = params[:invite]
+    email = params[:email]
 
-  
-
-  mail(to: "cardeziner@gmail.com", subject: "You got a new invite!")
+    mail(to: email, subject: "You got a new invite!")
   end
 
 end

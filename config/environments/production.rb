@@ -15,15 +15,15 @@ Rails.application.configure do
   # config/environments/production.rb
 
   config.action_mailer.delivery_method = :smtp
-  host = 'gmail.com'
+  host = 'friendtrip-bt.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => <"friendtripus@gmail.com">,
-    :password             => <"Friendtrip123!">,
+    :user_name            => "friendtripus@gmail.com",
+    :password             => "Friendtrip123!",
     :authentication       => "plain",
     :enable_starttls_auto => true
   }

@@ -21,24 +21,14 @@ Rails.application.routes.draw do
       resources :trips, only: [:index, :show, :create, :update] do
         resources :events, only: [:index,:show, :create, :update]
       end
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
       resources :users, only: [:index, :new, :create]
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
       resources :invites, only: [:index, :new, :create]
     end
   end
 
-    resources :users, only: [:index, :new, :create]
+  resources :users, only: [:index, :new, :create]
 
-    as :user do
+  as :user do
     get 'signup' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
     delete 'signout' => 'devise/sessions#destroy'

@@ -9,12 +9,11 @@ const NewTripmemberForm = props =>{
     email: "",
     first_name: "",
     last_name: "",
-    ecrypted_password: "password",
   })
 
   const addNewUser = (formPayload) => {
 
-    fetch('/api/v1/users', {
+    fetch('/api/v1/invites', {
         credentials: "same-origin",
         method: 'POST',
         body: JSON.stringify(formPayload),
@@ -71,7 +70,6 @@ const NewTripmemberForm = props =>{
         email: "",
         first_name: "",
         last_name: "",
-        encrypted_password: "password"
       })
       setErrors({})
     }
