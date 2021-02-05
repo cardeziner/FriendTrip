@@ -2,6 +2,21 @@ import React from 'react'
 
 const NewTripmemberForm = props =>{
 
+  const handleSubmit = event => {
+
+    event.preventDefault()
+    if (validForSubmission()) {
+      props.addNewEvent({ event: newFormPayload })
+      setNewFormPayload({
+        email: "",
+        first_name: "",
+        last_name: "",
+        encrypted_password: "password"
+      })
+      setErrors({})
+    }
+  }
+
   return(
     <div>
       <h1>
