@@ -4,9 +4,25 @@ const NewTripmemberForm = props =>{
 
   const handleSubmit = event => {
 
+    const validForSubmission = () =>{
+      let submitErrors = {}
+      const requiredFields = ["email", "first_name", "last_name"]
+      requiredFields.forEach(field =>{
+
+        if (newFormPayload[field].trim() === ""){
+          submitErrors = {
+            ...submitErrors,
+            [field]: "is blank"
+          }
+        }
+      })
+      setErrors(submitErrors)
+      return _.isEmpty(submitErrors)
+    }
+
     event.preventDefault()
     if (validForSubmission()) {
-      props.addNewEvent({ event: newFormPayload })
+      props.addNewEvent({ user: newFormPayload })
       setNewFormPayload({
         email: "",
         first_name: "",
