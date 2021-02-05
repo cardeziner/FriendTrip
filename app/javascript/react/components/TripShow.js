@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
+import NewTripmemberForm from './NewTripmemberForm'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -204,6 +205,9 @@ const TripShow = props =>{
               </div>
             </BackdropFilter>
         </div>
+        <NewTripmemberForm
+        trip_id={props.trip.id}
+        />
       </div>
       <br></br>
       <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>

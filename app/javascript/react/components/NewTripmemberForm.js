@@ -3,14 +3,43 @@ import { Link } from 'react-router-dom'
 import _ from 'lodash'
 
 const NewTripmemberForm = props =>{
+  const [user, setUser] = useState({})
   const [errors, setErrors] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
     email: "",
     first_name: "",
     last_name: "",
-    ecrypted_password: "password"
+    ecrypted_password: "password",
   })
 
+  const addNewUser = (formPayload) => {
+
+    fetch('/api/v1/users', {
+        credentials: "same-origin",
+        method: 'POST',
+        body: JSON.stringify(formPayload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(parsedNewUser => {
+        let user = parsedNewUser.user
+        setUser(user)
+        setRedirect(true)
+      })
+      .catch(error => console.error(`Error in fetch: ${errorMessage}`))
+    }
 
   const handleInputChange = event =>{
     setNewFormPayload({
@@ -37,7 +66,7 @@ const NewTripmemberForm = props =>{
   const handleSubmit = event => {
     event.preventDefault()
     if (validForSubmission()) {
-      props.addNewEvent({ user: newFormPayload })
+      addNewUser({ user: newFormPayload })
       setNewFormPayload({
         email: "",
         first_name: "",
@@ -86,7 +115,7 @@ const NewTripmemberForm = props =>{
               value={newFormPayload.last_name}
             />
           </label>
-          <input className="btn btn-primary text center" type="submit" value="Add Trip" />
+          <input className="btn btn-primary text center" type="submit" value="Send Invite" />
         </form>
     </div>
   )

@@ -5,10 +5,27 @@ before_action :set_invite_token, only: [:new]
 after_action :process_invite_token, only: [:create]
 
   def index
+    users = User.all
     user = current_user
     render json: {
     user: user,
+    users: users
   }
+  end
+
+  def create
+    user = User.new(user_params)
+    if user.save
+      render json: { user: user }
+    else
+      render json: { error: user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+private
+
+  def user_params
+    params.require(:user).permit(:email, :first_name, :last_name, :encrypted_password)
   end
 
 end
