@@ -1,25 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import _ from 'lodash'
 
 const NewTripmemberForm = props =>{
+  const [errors, setErrors] = useState({})
+  const [newFormPayload, setNewFormPayload] = useState({
+    email: "",
+    first_name: "",
+    last_name: "",
+    ecrypted_password: "password"
+  })
+
+
+  const handleInputChange = event =>{
+    setNewFormPayload({
+      ...newFormPayload,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  const validForSubmission = () =>{
+    let submitErrors = {}
+    const requiredFields = ["email", "first_name", "last_name"]
+    requiredFields.forEach(field =>{
+      if (newFormPayload[field].trim() === ""){
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
 
   const handleSubmit = event => {
-
-    const validForSubmission = () =>{
-      let submitErrors = {}
-      const requiredFields = ["email", "first_name", "last_name"]
-      requiredFields.forEach(field =>{
-
-        if (newFormPayload[field].trim() === ""){
-          submitErrors = {
-            ...submitErrors,
-            [field]: "is blank"
-          }
-        }
-      })
-      setErrors(submitErrors)
-      return _.isEmpty(submitErrors)
-    }
-
     event.preventDefault()
     if (validForSubmission()) {
       props.addNewEvent({ user: newFormPayload })
@@ -36,8 +51,43 @@ const NewTripmemberForm = props =>{
   return(
     <div>
       <h1>
-        hello world from Invite Form
-      </h1>
+        please fill out new user info below
+        </h1>
+        <form onSubmit={handleSubmit} className="wide-field">
+          <label className="email">
+            Friends Email
+            <input
+              name="email"
+              id="email"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.email}
+            />
+          </label>
+          <br/>
+          <label className="first_name">
+            Friends first name
+            <input
+              name="first_name"
+              id="first_name"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.first_name}
+            />
+          </label>
+          <br/>
+          <label className="last_name">
+            Friends last name
+            <input
+              name="last_name"
+              id="last_name"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.last_name}
+            />
+          </label>
+          <input className="btn btn-primary text center" type="submit" value="Add Trip" />
+        </form>
     </div>
   )
 }
