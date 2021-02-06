@@ -14,13 +14,12 @@ class Api::V1::InvitesController < ApplicationController
     # @invite = Invite.new(email: @user.email,)
 
     if @user.save
-      flash[:notice] = "Friend has been invited"
       InviteMailer.with(email: @user.email).new_invite_email.deliver_later
 
-      redirect_to trips_path
+      render json: { user: @user }
+      alert("hello")
     else
-      flash.now[:error] = t('flash.order.error_html')
-      render :new
+      render json: { error: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
