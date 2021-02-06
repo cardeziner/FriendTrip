@@ -14,10 +14,10 @@ class Api::V1::InvitesController < ApplicationController
     # @invite = Invite.new(email: @user.email,)
 
     if @user.save
-      InviteMailer.with(email: @user.email).new_invite_email.deliver_later
+      InviteMailer.with() email: @user.email).new_invite_email.deliver_later
 
       flash[:success] = t('flash.order.success')
-      redirect_to root_path
+      redirect_to :back, notice: "Friend has been invited to trip!"
     else
       flash.now[:error] = t('flash.order.error_html')
       render :new
