@@ -160,6 +160,11 @@ const TripShow = props =>{
       }
   }
 
+  var showDiv = {
+    display: '',
+  }
+
+
   return(
     <div className="bg" style={sectionStyle}>
       <div className="dark"></div>
@@ -185,7 +190,8 @@ const TripShow = props =>{
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
           <div className="center">
-            <h5><Link to="/invites/new" className="font center no-dec">+ INVITE A FRIEND</Link></h5>
+          <div id="myDiv" className="no-display">WELCOME</div>
+            <h5 className="font center no-dec" onClick={showDiv}>+ INVITE A FRIEND</h5>
           </div>
         </BackdropFilter>
       </div>
@@ -205,6 +211,7 @@ const TripShow = props =>{
               </div>
             </BackdropFilter>
         </div>
+
         <NewTripmemberForm
         trip_id={props.trip.id}
         />
