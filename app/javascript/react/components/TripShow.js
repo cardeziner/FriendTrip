@@ -164,18 +164,14 @@ const TripShow = props =>{
   //     document.getElementById("myDiv").style.display = "";
   // }
 
-  const switcher = true
-
   function toggle() {
-    if (switcher === true){
-       let switcher = false
-      return(
-        <div> this is a test </div>
-      )
-    }else{
-      let switcher = true
-    }
-  }
+        let v = document.getElementById("toggle");
+        if (v.style.display === "none") {
+           v.style.display = "block";
+        } else {
+           v.style.display = "none";
+        }
+     }
 
 
   return(
@@ -205,6 +201,7 @@ const TripShow = props =>{
           <div className="center">
           <div id="myDiv" className="no-display">WELCOME</div>
             <h5 className="font center no-dec" onClick={toggle()}>+ INVITE A FRIEND</h5>
+            <div id="toggle">here is form info</div>
           </div>
         </BackdropFilter>
       </div>
