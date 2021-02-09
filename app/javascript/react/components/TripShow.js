@@ -160,8 +160,21 @@ const TripShow = props =>{
       }
   }
 
-  var showDiv = {
-    display: '',
+  // function showDiv() {
+  //     document.getElementById("myDiv").style.display = "";
+  // }
+
+  const switcher = true
+
+  function toggle() {
+    if (switcher === true){
+       let switcher = false
+      return(
+        <div> this is a test </div>
+      )
+    }else{
+      let switcher = true
+    }
   }
 
 
@@ -191,7 +204,7 @@ const TripShow = props =>{
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
           <div className="center">
           <div id="myDiv" className="no-display">WELCOME</div>
-            <h5 className="font center no-dec" onClick={showDiv}>+ INVITE A FRIEND</h5>
+            <h5 className="font center no-dec" onClick={toggle()}>+ INVITE A FRIEND</h5>
           </div>
         </BackdropFilter>
       </div>
