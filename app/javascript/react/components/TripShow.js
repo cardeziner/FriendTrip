@@ -164,14 +164,36 @@ const TripShow = props =>{
   //     document.getElementById("myDiv").style.display = "";
   // }
 
-  function toggle() {
-        let v = document.getElementById("toggle");
-        if (v.style.display === "none") {
-           v.style.display = "block";
-        } else {
-           v.style.display = "none";
-        }
-     }
+  // function toggle() {
+  //       let v = document.getElementById("toggle");
+  //       if (v.style.display === "none") {
+  //          v.style.display = "block";
+  //       } else {
+  //          v.style.display = "none";
+  //       }
+  //    }
+  const toggler = true
+
+    function toggleClick() {
+
+      if (toggler === true) {
+        let toggler = false
+      }else{
+        let toggler = false
+      }
+    }
+
+    function toggleClass() {
+      if (toggler === true){
+      return(
+        "hide"
+      )
+    }else{
+      return(
+        "display"
+      )
+    }
+    }
 
 
   return(
@@ -200,8 +222,8 @@ const TripShow = props =>{
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
           <div className="center">
           <div id="myDiv" className="no-display">WELCOME</div>
-            <h5 className="font center no-dec" onClick={toggle()}>+ INVITE A FRIEND</h5>
-            <div id="toggle">here is form info</div>
+            <h5 className="font center no-dec"> INVITE A FRIEND</h5>
+            <div onClick={toggleClick()} className={toggleClick()} >here is form info</div>
           </div>
         </BackdropFilter>
       </div>
