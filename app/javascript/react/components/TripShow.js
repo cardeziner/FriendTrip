@@ -210,8 +210,12 @@ const TripShow = props =>{
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
           <div>
-          <h5 className="" onClick={change}> INVITE A FRIEND</h5>
-          <h5 id="form-info" className={toggle}>here is form info</h5>
+          <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
+            <div id="form-info" className={toggle}>
+              <NewTripmemberForm
+              trip_id={props.trip.id}
+              />
+            </div>
           </div>
         </BackdropFilter>
       </div>
@@ -231,10 +235,6 @@ const TripShow = props =>{
               </div>
             </BackdropFilter>
         </div>
-
-        <NewTripmemberForm
-        trip_id={props.trip.id}
-        />
       </div>
       <br></br>
       <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
