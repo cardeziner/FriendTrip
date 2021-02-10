@@ -14,6 +14,7 @@ const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
   const [tripCity, setTripCity] = useState({})
   const [click, setClick] = useState(true)
+  const [toggle, setToggle] = useState("hide")
 
   const iD = (props.id - 1)
 
@@ -172,28 +173,16 @@ const TripShow = props =>{
   //          v.style.display = "none";
   //       }
   //    }
-  const toggler = true
 
-    function toggleClick() {
 
-      if (toggler === true) {
-        let toggler = false
-      }else{
-        let toggler = false
-      }
-    }
-
-    function toggleClass() {
-      if (toggler === true){
-      return(
-        "hide"
-      )
-    }else{
-      return(
-        "display"
-      )
-    }
-    }
+  function change(){
+    const v = document.getElementById("form-info")
+    if (toggle === "hide"){
+     setToggle("display")
+  }else{
+    setToggle("hide")
+  }
+}
 
 
   return(
@@ -220,10 +209,9 @@ const TripShow = props =>{
           <h3 className="text-blue"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
-          <div className="center">
-          <div id="myDiv" className="no-display">WELCOME</div>
-            <h5 className="font center no-dec"> INVITE A FRIEND</h5>
-            <div onClick={toggleClick()} className={toggleClick()} >here is form info</div>
+          <div>
+          <h5 className="" onClick={change}> INVITE A FRIEND</h5>
+          <h5 id="form-info" className={toggle}>here is form info</h5>
           </div>
         </BackdropFilter>
       </div>
