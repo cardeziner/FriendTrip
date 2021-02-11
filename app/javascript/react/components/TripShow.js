@@ -125,7 +125,7 @@ const TripShow = props =>{
   function blankUser(){
     if(userList.length < 1){
       return(
-        <h4 className="text-yellow inline absolute vert center side-pad">
+        <h4 className="text-yellow inline absolute vert resize-text center side-pad">
         NO FRIENDS HAVE BEEN ADDED TO THIS TRIP YET!
         </h4>
       )
@@ -149,40 +149,26 @@ const TripShow = props =>{
 }
 
   function dateByName(date){
-      let months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
-      let splitDate = date.split("-");
-      let index = splitDate[1].to_i + 1;
-      if(date){
-        return(
-          months[index] + "," + date.split("-")[2] + "" + splitDate[0]
+    let months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
+    let splitDate = date.split("-");
+    let index = splitDate[1].to_i + 1;
+    if(date){
+      return(
+        months[index] + "," + date.split("-")[2] + "" + splitDate[0]
         )
       }else{
         console.log("ERROR")
       }
-  }
+    }
 
-  // function showDiv() {
-  //     document.getElementById("myDiv").style.display = "";
-  // }
-
-  // function toggle() {
-  //       let v = document.getElementById("toggle");
-  //       if (v.style.display === "none") {
-  //          v.style.display = "block";
-  //       } else {
-  //          v.style.display = "none";
-  //       }
-  //    }
-
-
-  function change(){
-    const v = document.getElementById("form-info")
-    if (toggle === "hide"){
-     setToggle("display")
-  }else{
-    setToggle("hide")
-  }
-}
+    function change(){
+      const v = document.getElementById("form-info")
+      if (toggle === "hide"){
+        setToggle("display")
+     }else{
+       setToggle("hide")
+     }
+   }
 
 
   return(
@@ -201,12 +187,12 @@ const TripShow = props =>{
             location={tripCity}
             trip={props.trip}
             />
-            <h2 className="text-blue inset">
+            <h4 className="text-white inset vert">
             <img src={location} className="inline icon"/>
-            <div className="vert-line"></div>{(props.trip.city)}, {props.trip.state}<div className="right">
+            <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
           </div>
-          </h2>
-          <h3 className="text-blue"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
+          </h4>
+          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><p className="center resize-font inline">{props.trip.start_date} - {props.trip.end_date}</p></h3>
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
           <div>
