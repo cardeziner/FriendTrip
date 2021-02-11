@@ -10,7 +10,7 @@ class Api::V1::InvitesController < ApplicationController
     params["password"] = "password"
     params["password_confirmation"] = "password"
     @user = User.new(params)
-
+    @tripmember = Tripmember.new(user_id: @user.id, trip_id: tripmember_params)
     # @invite = Invite.new(email: @user.email,)
 
     if @user.save
@@ -33,4 +33,6 @@ class Api::V1::InvitesController < ApplicationController
     params.require(:user).permit(:email, :first_name, :last_name)
   end
 
-end
+  def tripmember_params
+    params.require(:user).permit(:trip_id)
+  end
