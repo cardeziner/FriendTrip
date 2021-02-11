@@ -9,7 +9,6 @@ const NewTripmemberForm = props =>{
     email: "",
     first_name: "",
     last_name: "",
-    trip_id: null,
   })
 
   const addNewUser = (formPayload) => {
@@ -71,7 +70,6 @@ const NewTripmemberForm = props =>{
         email: "",
         first_name: "",
         last_name: "",
-        trip_id: props.trip.id,
       })
       setErrors({})
     }
