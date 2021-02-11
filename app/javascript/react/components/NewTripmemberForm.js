@@ -10,6 +10,7 @@ const NewTripmemberForm = props =>{
     first_name: "",
     last_name: "",
   })
+  debugger
 
   const addNewUser = (formPayload) => {
 
