@@ -77,11 +77,11 @@ const NewTripmemberForm = props =>{
 
   return(
     <div>
-      <h1>
-        please fill out new user info below
+      <h1 className="center font accent-red">
+        ENTER FRIENDS INFO
         </h1>
-        <form onSubmit={handleSubmit} className="wide-field">
-          <label className="email">
+        <form onSubmit={handleSubmit} className="wide-field center">
+          <label className="email text-white">
             Friends Email
             <input
               name="email"
@@ -92,7 +92,7 @@ const NewTripmemberForm = props =>{
             />
           </label>
           <br/>
-          <label className="first_name">
+          <label className="first_name text-white">
             Friends first name
             <input
               name="first_name"
@@ -103,7 +103,7 @@ const NewTripmemberForm = props =>{
             />
           </label>
           <br/>
-          <label className="last_name">
+          <label className="last_name text-white">
             Friends last name
             <input
               name="last_name"
@@ -112,9 +112,9 @@ const NewTripmemberForm = props =>{
               onChange={handleInputChange}
               value={newFormPayload.last_name}
             />
-          </label>
+          </label><br/>
           <input className="btn btn-primary text center" type="submit" value="Send Invite" />
-        </form>
+        </form><br/>
     </div>
   )
 }
