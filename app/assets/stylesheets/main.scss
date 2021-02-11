@@ -228,6 +228,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   overflow: auto;
 }
 
+.resize-font1{
+  font-size: 3.5vw;
+  overflow: auto;
+}
+
 .scroll{
 
    animation: linear 10s;
@@ -365,15 +370,6 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   align-items: center;
   margin-top: auto;
   color: #00C176
-}
-.hover-text{
-  font-family: 'Francois One', sans-serif;
-  border-radius: 15px;
-  text-emphasis-color: white;
-}
-.hover-text:hover {
-  color: white;
-  background-color: #FABE28;
 }
 
 .border-green:hover{

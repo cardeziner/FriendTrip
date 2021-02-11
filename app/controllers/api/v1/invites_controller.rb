@@ -36,3 +36,5 @@ class Api::V1::InvitesController < ApplicationController
   def tripmember_params
     params.require(:user).permit(:trip_id)
   end
+  
+end
