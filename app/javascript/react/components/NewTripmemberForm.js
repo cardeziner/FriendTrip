@@ -113,7 +113,7 @@ const NewTripmemberForm = props =>{
               value={newFormPayload.last_name}
             />
           </label><br/>
-          <input className="btn btn-primary text center" type="submit" value="Send Invite" onSubmit={Popup.alert('I am alert, nice to meet you')} />
+          <input className="btn btn-primary text center" type="submit" value="Send Invite" />
         </form><br/>
     </div>
   )

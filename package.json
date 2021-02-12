@@ -32,6 +32,7 @@
     "react-native-geolocation-service": "^4.0.1",
     "react-router-dom": "5.0.0",
     "react-simple-maps": "^2.0.0",
+    "reactjs-popup": "^2.0.4",
     "recompose": "^0.30.0",
     "redbox-react": "1.6.0",
     "universal-config": "^0.3.0",
