@@ -21,7 +21,6 @@ class Api::V1::InvitesController < ApplicationController
       InviteMailer.with(user: @user, email: @user.email, password: params["password"]).new_invite_email.deliver_later
 
       render json: { user: @user }
-      alert("hello")
     else
       render json: { error: @user.errors.full_messages }, status: :unprocessable_entity
     end
