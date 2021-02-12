@@ -15,10 +15,9 @@ class Api::V1::InvitesController < ApplicationController
     @user = User.new(params)
     # @tripmember = Tripmember.new(user_id: @user.id, trip_id: @trip.id)
     # @invite = Invite.new(email: @user.email,)
-    alert("hello")
     if @user.save
-      flash[:success] = "Friend has been invited"
-      InviteMailer.with(user: @user, email: @user.email, password: params["password"]).new_invite_email.deliver_later
+      # flash[:success] = "Friend has been invited"
+      InviteMailer.with(user: @name , email: @user.email, password: params["password"]).new_invite_email.deliver_later
 
       render json: { user: @user }
     else

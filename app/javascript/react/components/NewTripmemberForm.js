@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Popup from 'reactjs-popup';
 import _ from 'lodash'
 
 const NewTripmemberForm = props =>{
@@ -10,6 +11,10 @@ const NewTripmemberForm = props =>{
     first_name: "",
     last_name: "",
   })
+
+  function popUp() {
+    return(<Popup><h1>Hello</h1></Popup>)
+  }
 
   const addNewUser = (formPayload) => {
 
@@ -113,7 +118,7 @@ const NewTripmemberForm = props =>{
               value={newFormPayload.last_name}
             />
           </label><br/>
-          <input className="btn btn-primary text center" type="submit" value="Send Invite" />
+          <input className="btn btn-primary text center" type="submit" value="Send Invite" onClick={popUp}  />
         </form><br/>
     </div>
   )

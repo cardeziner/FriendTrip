@@ -4,17 +4,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>You got a new invite from friendtrip!</p>
+    <h2 class="accent-red font center"> Hello <%= @user %> Welcome to FriendTrip! </h2>
+    <br/>
     <p>
-    Invite Details<br>
-    --------------------------
+    You have been invited by a friend to join a FriendTrip group! Please look below for your log-in credentials, and click link below when you are ready to sign in!
+    <br/>----------
     </p>
-    <p></p>
-
-    <p>
-    Message:<br>
-    ----------
-    </p>
-    <p>You have been invited to join a friendtrip group!</p>
+    <h4>Your log-in:</h4>
+    <h5>User Name: <%= @email %></h5>
+    <h5>Password: <%= @password %></h5>
+    <a href="friendtrip-bt.herokuapp.com">Sign In Here</a>
   </body>
 </html>
