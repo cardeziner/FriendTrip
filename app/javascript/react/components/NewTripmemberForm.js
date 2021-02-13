@@ -70,7 +70,7 @@ const NewTripmemberForm = props =>{
   const handleSubmit = event => {
     event.preventDefault()
     if (validForSubmission()) {
-      addNewUser({ user: newFormPayload })
+      addNewUser({ user: newFormPayload, trip_id: props.trip_id })
       setNewFormPayload({
         email: "",
         first_name: "",

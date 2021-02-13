@@ -13,11 +13,12 @@ class Api::V1::InvitesController < ApplicationController
     params["password"] = @password
     params["password_confirmation"] = @password
     @user = User.new(params)
-    # @tripmember = Tripmember.new(user_id: @user.id, trip_id: @trip.id)
+    binding.pry
+    # @tripmember = Tripmember.new(user_id: @user.id, trip_id: trip_params.trip_id)
     # @invite = Invite.new(email: @user.email,)
     if @user.save
       # flash[:success] = "Friend has been invited"
-      InviteMailer.with(user: @name , email: @user.email, password: params["password"]).new_invite_email.deliver_later
+      InviteMailer.with(user: @name , email: @user.email, password: @password).new_invite_email.deliver_later
 
       render json: { user: @user }
     else
@@ -31,8 +32,9 @@ class Api::V1::InvitesController < ApplicationController
     params.require(:user).permit(:email, :first_name, :last_name, :trip_id)
   end
 
-  def tripmember_params
-    params.require(:user).permit(:trip_id)
+  def trip_params
+    params.permit(:trip_id)
+    ##params.require(:trip_id)
   end
 
 end
