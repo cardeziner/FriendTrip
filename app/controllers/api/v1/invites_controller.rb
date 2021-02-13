@@ -12,11 +12,11 @@ class Api::V1::InvitesController < ApplicationController
     params["password"] = @password
     params["password_confirmation"] = @password
     @user = User.new(params)
-    # @tripmember = Tripmember.new(user_id: @user["id"], trip_id: trip_params["trip_id"])
-
-    if @user.save 
+    if @user.save
+      @tripmember = Tripmember.new(user_id: @user["id"], trip_id: trip_params["trip_id"])
+      @tripmember.save
       InviteMailer.with(user: @name , email: @user.email, password: @password).new_invite_email.deliver_later
-      render json: { user: @user }
+      render json: { user: @user, tripmember: @tripmember }
     else
       render json: { error: @user.errors.full_messages }, status: :unprocessable_entity
     end

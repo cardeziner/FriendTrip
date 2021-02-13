@@ -116,7 +116,7 @@ const TripShow = props =>{
 
   const userList = props.users.map(member =>{
     return(
-        <h3 key={member.id} className="text green col-2">
+        <h3 key={member.id} className="inline center font absolute text-green">
         {member.first_name}
         </h3>
       )
@@ -131,7 +131,7 @@ const TripShow = props =>{
       )
     } else {
       return(
-        <div>
+        <div className="inline vert">
         {userList}
         </div>
       )
@@ -199,7 +199,7 @@ const TripShow = props =>{
           <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
             <div id="form-info" className={toggle}>
               <NewTripmemberForm
-              trip_id={props.trip.id}
+               trip_id={props.trip.id}
               />
             </div>
           </div>
