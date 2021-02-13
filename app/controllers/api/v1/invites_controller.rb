@@ -6,20 +6,16 @@ class Api::V1::InvitesController < ApplicationController
 
 
   def create
-    # @trip = Trip.find(params[:id])
     params = user_params
     @name = params["first_name"]
     @password = (@name + rand(1..100).to_s)
     params["password"] = @password
     params["password_confirmation"] = @password
     @user = User.new(params)
-    binding.pry
-    # @tripmember = Tripmember.new(user_id: @user.id, trip_id: trip_params.trip_id)
-    # @invite = Invite.new(email: @user.email,)
-    if @user.save
-      # flash[:success] = "Friend has been invited"
-      InviteMailer.with(user: @name , email: @user.email, password: @password).new_invite_email.deliver_later
+    # @tripmember = Tripmember.new(user_id: @user["id"], trip_id: trip_params["trip_id"])
 
+    if @user.save 
+      InviteMailer.with(user: @name , email: @user.email, password: @password).new_invite_email.deliver_later
       render json: { user: @user }
     else
       render json: { error: @user.errors.full_messages }, status: :unprocessable_entity
@@ -33,8 +29,8 @@ class Api::V1::InvitesController < ApplicationController
   end
 
   def trip_params
+      # params.permit(:trip_id)
     params.permit(:trip_id)
-    ##params.require(:trip_id)
   end
 
 end
