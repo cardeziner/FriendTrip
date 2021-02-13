@@ -5,16 +5,13 @@ import _ from 'lodash'
 
 const NewTripmemberForm = props =>{
   const [user, setUser] = useState({})
+  const [popUp, setPopUp] = useState(false)
   const [errors, setErrors] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
     email: "",
     first_name: "",
     last_name: "",
   })
-
-  function popUp() {
-    return(<Popup><h1>Hello</h1></Popup>)
-  }
 
   const addNewUser = (formPayload) => {
 
@@ -31,16 +28,23 @@ const NewTripmemberForm = props =>{
         if(response.ok) {
           return response
         } else {
+          if(response.status === "422"){
+            return response
+          }
           let errorMessage = `${response.status} (${response.statusText})`,
           error = new Error(errorMessage);
           throw(error)
         }
       })
       .then(response => response.json())
-      .then(parsedNewUser => {
-        let user = parsedNewUser.user
-        setUser(user)
-        setRedirect(true)
+      .then(parsedResponse => {
+        // debugger
+        if(!parsedResponse.error){
+          // debugger
+          let user = parsedResponse.user
+          setUser(user)
+          setPopUp("Invite Sent!")
+        }
       })
       .catch(error => console.error(`Error in fetch: ${errorMessage}`))
     }
@@ -78,6 +82,10 @@ const NewTripmemberForm = props =>{
       })
       setErrors({})
     }
+  }
+
+  if (popUp){
+    alert(popUp)
   }
 
   return(
@@ -118,7 +126,7 @@ const NewTripmemberForm = props =>{
               value={newFormPayload.last_name}
             />
           </label><br/>
-          <input className="btn btn-primary text center" type="submit" value="Send Invite" onClick={popUp}  />
+          <input className="btn btn-primary text center" type="submit" value="Send Invite"  />
         </form><br/>
     </div>
   )
