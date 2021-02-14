@@ -98,12 +98,22 @@ const TripShow = props =>{
               </div>
           </div>
         </div>
-      )}
+      )}else{
+        if( count < 1){
+          return(
+            <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
+          )
+        }
+      }
     }
   )
 
-  function noEvents(){
-    if (props.events.length < 1){
+
+
+
+
+  const noEvents = () =>{
+    if ((eventList.length === 0) || props.events.length < 1){
       return(
         <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
       )
