@@ -92,9 +92,14 @@ const EventShowContainer = (props) =>{
 
     return(
       <div className="bg" style={sectionStyle}>
+        <h1 className="accent-red center">EVENTS & VOTES</h1>
         <div className="row pad center"><br/><br/>
-          <div className="col-5">
 
+          <div className="col-5">
+          <BackdropFilter
+          className="bord vert pad"
+          filter={"blur(20px)"}
+          >
             <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
             <h1 className="font accent-red center large">{trip.name}</h1><br/>
             <BackdropFilter
@@ -103,8 +108,9 @@ const EventShowContainer = (props) =>{
             >
             {eventsList}
             </BackdropFilter>
+            </BackdropFilter>
           </div>
-          <div className="col-5 center opac-black-tile">
+          <div className="col-5 center opac-black-tile pad">
             <NewEventForm
             id={tripId}
             addNewEvent={addNewEvent}

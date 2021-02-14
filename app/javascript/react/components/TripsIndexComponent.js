@@ -97,7 +97,7 @@ const TripsIndexComponent = (props) =>{
       )
     }
   }
-
+  
   return(
       <div className="home-bg">
         <div className="row pad">

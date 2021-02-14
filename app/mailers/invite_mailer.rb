@@ -1,21 +1,11 @@
-# Send invitations to new and existing users.
-class InviteMailer < ActionMailer::Base
-  def existing_user(invite)
-    @invite = invite
-    mail(
-      from: Invitation.configuration.mailer_sender,
-      to: @invite.email,
-      subject: I18n.t('invitation.invite_mailer.existing_user.subject')
-    )
+class InviteMailer < ApplicationMailer
+
+  def new_invite_email
+    @email = params[:email]
+    @user = params[:user]
+    @password = params[:password]
+
+    mail(to: @email, subject: "Invite from FriendTrip!")
   end
 
-  def new_user(invite)
-    @invite = invite
-    @user_registration_url = Invitation.configuration.user_registration_url.call(invite_token: @invite.token)
-    mail(
-      from: Invitation.configuration.mailer_sender,
-      to: @invite.email,
-      subject: I18n.t('invitation.invite_mailer.new_user.subject')
-    )
-  end
 end

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
+import NewTripmemberForm from './NewTripmemberForm'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -12,6 +13,8 @@ import schedule from '../../../assets/images/schedule.png'
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
   const [tripCity, setTripCity] = useState({})
+  const [click, setClick] = useState(true)
+  const [toggle, setToggle] = useState("hide")
 
   const iD = (props.id - 1)
 
@@ -55,7 +58,8 @@ const TripShow = props =>{
   //     .catch(error => console.error(`Error in fetch: ${error.message}`))
   // }, [tripCity])
 
-    if(props.trip.city){
+
+    if(props.trip.city && click){
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",
           })
@@ -71,8 +75,9 @@ const TripShow = props =>{
       .then(response => response.json())
       .then(parsedData =>{
         setImageUrl(parsedData.results[Math.floor(Math.random() * parsedData.results.length)].urls.full)
+        setClick(false)
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
+      .catch(error => console.error(`Error in fetch: ${error.message}`)),[]
   }
 
   const url = imageUrl
@@ -82,13 +87,19 @@ const TripShow = props =>{
     if(singleEvent.votes > props.users.length){
       count += 1
       return(
-        <div key={singleEvent.id} className="text-yellow click-block" ><br/>
-          <h2 className="text">{singleEvent.name}</h2>
-          <h5 className="text-white"> {singleEvent.date} </h5>
-          <br/>
+        <div key={singleEvent.id}>
+          <div className="showhim text-yellow click-block bot-pad vert" ><br/>
+            <h2 className="text">{singleEvent.name}</h2>
+            <h5 className="text-white"> {singleEvent.date} </h5>
+              <div className="showme">
+                <h5 className="inline-block text-white">
+                {singleEvent.location}
+                </h5>
+              </div>
+          </div>
         </div>
       )}else{
-        if (count < 1) {
+        if( count < 1){
           return(
             <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
           )
@@ -97,8 +108,12 @@ const TripShow = props =>{
     }
   )
 
-  function noEvents(){
-    if (props.events.length < 1){
+
+
+
+
+  const noEvents = () =>{
+    if ((eventList.length === 0) || props.events.length < 1){
       return(
         <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
       )
@@ -111,7 +126,7 @@ const TripShow = props =>{
 
   const userList = props.users.map(member =>{
     return(
-        <h3 key={member.id} className="text green col-2">
+        <h3 key={member.id} className="inline center font absolute text-green">
         {member.first_name}
         </h3>
       )
@@ -120,13 +135,13 @@ const TripShow = props =>{
   function blankUser(){
     if(userList.length < 1){
       return(
-        <h4 className="text-yellow inline absolute vert center side-pad">
+        <h4 className="text-yellow inline absolute vert resize-text center side-pad">
         NO FRIENDS HAVE BEEN ADDED TO THIS TRIP YET!
         </h4>
       )
     } else {
       return(
-        <div>
+        <div className="inline vert">
         {userList}
         </div>
       )
@@ -142,19 +157,29 @@ const TripShow = props =>{
   objectFit: 'cover',
   boxShadow: 'inset 0 14px 18px -14px black',
 }
-  const months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
 
   function dateByName(date){
-      let splitDate = date.split("-");
-      let index = splitDate[1].to_i + 1;
-      if(date){
-        return(
-          months[index] + "," + date.split("-")[2] + "" + splitDate[0]
+    let months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
+    let splitDate = date.split("-");
+    let index = splitDate[1].to_i + 1;
+    if(date){
+      return(
+        months[index] + "," + date.split("-")[2] + "" + splitDate[0]
         )
       }else{
         console.log("ERROR")
       }
-  }
+    }
+
+    function change(){
+      const v = document.getElementById("form-info")
+      if (toggle === "hide"){
+        setToggle("display")
+     }else{
+       setToggle("hide")
+     }
+   }
+
 
   return(
     <div className="bg" style={sectionStyle}>
@@ -172,16 +197,21 @@ const TripShow = props =>{
             location={tripCity}
             trip={props.trip}
             />
-            <h2 className="text-blue inset">
+            <h4 className="text-white inset vert">
             <img src={location} className="inline icon"/>
-            <div className="vert-line"></div>{(props.trip.city)}, {props.trip.state}<div className="right">
+            <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
           </div>
-          </h2>
-          <h3 className="text-blue"><img src={dates} className="icon inline center"/>{props.trip.start_date} - {props.trip.end_date}</h3>
+          </h4>
+          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><p className="center resize-font inline">{props.trip.start_date} - {props.trip.end_date}</p></h3>
             <br/>
           <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
-          <div className="center">
-            <h5><a href={`trips/${props.trip.id}/invites/new`} className="font center no-dec">+ INVITE A FRIEND</a></h5>
+          <div>
+          <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
+            <div id="form-info" className={toggle}>
+              <NewTripmemberForm
+               trip_id={props.trip.id}
+              />
+            </div>
           </div>
         </BackdropFilter>
       </div>
@@ -192,15 +222,12 @@ const TripShow = props =>{
             filter={"blur(20px)"}
             >
             <div className="opac-black">
-              <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert"> Scheduled Events </h2>
+              <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
               <hr className="gray-line"/>
               </div>
               <div className="text center">
-                <div className="">
                   {eventList}{noEvents()}
                   <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
-                </div>
-
               </div>
             </BackdropFilter>
         </div>

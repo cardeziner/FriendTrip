@@ -14,8 +14,6 @@ html, body {
     overflow: scroll;
 }
 
-
-
 .opac-black{
   background-color: black;
   opacity: .7;
@@ -26,8 +24,32 @@ html, body {
   opacity: .75;
 }
 
+.showme{
+  display: none;
+}
+
+.showhim:hover .showme{
+  display : block;
+}
+
+.showhim:hover .hideme{
+  display : none;
+}
+
+.showhim:hover ~ .hideme2{
+  display:none;
+}
+
 .opac-black-tile:hover{
   opacity: .95;
+}
+
+.hide{
+  display: none;
+}
+
+.my:hover .hide{
+  display: block;
 }
 
 .btn{
@@ -206,6 +228,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   overflow: auto;
 }
 
+.resize-font1{
+  font-size: 3.5vw;
+  overflow: auto;
+}
+
 .scroll{
 
    animation: linear 10s;
@@ -295,9 +322,24 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
     padding: 15px 15px 15px 15px;
 }
 
+.hide{
+  display: none;
+}
+
+.display{
+  display: block;
+}
+
+
 .bot-bord{
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+}
+
+.top-bord{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
 }
 
 .form {
@@ -328,15 +370,6 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   align-items: center;
   margin-top: auto;
   color: #00C176
-}
-.hover-text{
-  font-family: 'Francois One', sans-serif;
-  border-radius: 15px;
-  text-emphasis-color: white;
-}
-.hover-text:hover {
-  color: white;
-  background-color: #FABE28;
 }
 
 .border-green:hover{
