@@ -164,7 +164,7 @@ const TripShow = props =>{
     let index = parseInt(splitDate[1]) + 1;
     if(date){
       return(
-        months[index] + "," + date.split("-")[2] + "" + splitDate[0]
+        months[index] + ", " + date.split("-")[2] + " " + splitDate[0]
         )
       }else{
         console.log("ERROR")
@@ -180,16 +180,10 @@ const TripShow = props =>{
      }
    }
 
-   function start() {
-     if (props.trip.start_date){
-     return(dateByName(props.trip.start_date))
-    }
-   }
-
-   function end() {
-     if (props.trip.end_date){
-     return(dateByName(props.trip.end_date))
-    }
+   function date(date) {
+     if (date) {
+       return(dateByName(date))
+     }
    }
 
   return(
@@ -213,9 +207,9 @@ const TripShow = props =>{
             <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
           </div>
           </h4>
-          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><p className="center resize-font inline">{start()} - {end()}</p></h3>
+          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><p className="center resize-font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</p></h3>
             <br/>
-          <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
+          <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline no-top">{blankUser()}</div></div>
           <div>
           <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
             <div id="form-info" className={toggle}>
