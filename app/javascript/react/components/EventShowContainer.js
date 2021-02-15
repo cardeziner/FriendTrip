@@ -66,64 +66,61 @@ const EventShowContainer = (props) =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }
 
-  const eventsList = tripEvents.map(singleEvent => {
-    return (
-      <div key={props.match.params.id} className="all-sides">
-      <EventsTile
-      id={singleEvent.id}
-      users={users}
-      event={singleEvent}
-      tripId={tripId}
-      />
-      </div>
-    )
-  })
+    const eventsList = tripEvents.map(singleEvent => {
+      return (
+        <div key={props.match.params.id} className="all-sides">
+        <EventsTile
+        id={singleEvent.id}
+        users={users}
+        event={singleEvent}
+        tripId={tripId}
+        />
+        </div>
+      )
+    }
+  )
 
-  var sectionStyle = {
-    backgroundImage: `url(${vote_bg})`,
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    height: '100%',
-    minHeight: '100%',
-    backgroundRepeat: 'no-repeat',
-    position: 'absolute',
-    objectFit: 'cover',
-    boxShadow: 'inset 0 7px 9px -7px black',
-  }
+    var sectionStyle = {
+      backgroundImage: `url(${vote_bg})`,
+      backgroundAttachment: 'fixed',
+      backgroundPosition: 'center',
+      height: '100%',
+      minHeight: '100%',
+      backgroundRepeat: 'no-repeat',
+      position: 'absolute',
+      objectFit: 'cover',
+      boxShadow: 'inset 0 7px 9px -7px black',
+    }
 
-    return(
-      <div className="bg" style={sectionStyle}>
-        <h1 className="accent-red center">EVENTS & VOTES</h1>
-        <div className="row pad center"><br/><br/>
-
-          <div className="col-5">
-          <BackdropFilter
-          className="bord vert pad"
-          filter={"blur(20px)"}
-          >
-
-            <img src={voting} className="icon inline"/>
-            <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
-            <h1 className="font text-green center large">{trip.name}</h1><br/>
-
-            <BackdropFilter
-            className="bord vert"
-            filter={"blur(20px)"}
-            >
-            {eventsList}
-            </BackdropFilter>
-            </BackdropFilter>
-          </div>
-          <div className="col-5 center opac-black-tile pad no-top">
-            <NewEventForm
-            id={tripId}
-            addNewEvent={addNewEvent}
-            />
-          </div>
+  return(
+    <div className="bg" style={sectionStyle}>
+      <h1 className="accent-red center">EVENTS & VOTES</h1>
+      <div className="row pad center"><br/><br/>
+        <div className="col-5">
+        <BackdropFilter
+        className="bord vert pad"
+        filter={"blur(20px)"}
+        >
+        <img src={voting} className="icon inline"/>
+        <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
+        <h1 className="font text-green center large">{trip.name}</h1><br/>
+        <BackdropFilter
+        className="bord vert"
+        filter={"blur(20px)"}
+        >
+        {eventsList}
+        </BackdropFilter>
+        </BackdropFilter>
+        </div>
+        <div className="col-5 center opac-black-tile pad vert fixed">
+        <NewEventForm
+        id={tripId}
+        addNewEvent={addNewEvent}
+        />
         </div>
       </div>
+    </div>
     )
-
   }
 
 export default EventShowContainer
