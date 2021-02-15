@@ -158,10 +158,10 @@ const TripShow = props =>{
   boxShadow: 'inset 0 14px 18px -14px black',
 }
 
-  function dateByName(date){
+  const dateByName = (date) =>{
     let months = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"]
     let splitDate = date.split("-");
-    let index = splitDate[1].to_i + 1;
+    let index = parseInt(splitDate[1]) + 1;
     if(date){
       return(
         months[index] + "," + date.split("-")[2] + "" + splitDate[0]
@@ -180,6 +180,17 @@ const TripShow = props =>{
      }
    }
 
+   function start() {
+     if (props.trip.start_date){
+     return(dateByName(props.trip.start_date))
+    }
+   }
+
+   function end() {
+     if (props.trip.end_date){
+     return(dateByName(props.trip.end_date))
+    }
+   }
 
   return(
     <div className="bg" style={sectionStyle}>
@@ -202,9 +213,9 @@ const TripShow = props =>{
             <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
           </div>
           </h4>
-          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><p className="center resize-font inline">{props.trip.start_date} - {props.trip.end_date}</p></h3>
+          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><p className="center resize-font inline">{start()} - {end()}</p></h3>
             <br/>
-          <div className="flex vert"><img src={friends} className="inline icon"/><div className="inline">{blankUser()}</div></div>
+          <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
           <div>
           <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
             <div id="form-info" className={toggle}>
