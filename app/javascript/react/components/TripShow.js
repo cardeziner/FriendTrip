@@ -6,6 +6,7 @@ import NewTripmemberForm from './NewTripmemberForm'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
+import pin from '../../../assets/images/pin.png'
 import friends from '../../../assets/images/friends.png'
 import Unsplash from 'unsplash-js'
 import schedule from '../../../assets/images/schedule.png'
@@ -90,9 +91,16 @@ const TripShow = props =>{
             <h2 className="text">{singleEvent.name}</h2>
             <h5 className="text-white"> {date(singleEvent.date)} </h5>
               <div className="showme">
-                <h5 className="inline-block text-white">
-                {singleEvent.location}
-                </h5>
+                <div className="row">
+                  <div className="col-6 inline-block">
+                    <p className="text-sm"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                    <p className="text-sm"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                  </div>
+                  <div className="col-6 inline-block text-white left">
+                    <p className="text-sm"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                    <p className="text-sm"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                  </div>
+                </div>
               </div>
           </div>
         </div>
