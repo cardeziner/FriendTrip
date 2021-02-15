@@ -104,7 +104,7 @@ const EventShowContainer = (props) =>{
 
             <img src={voting} className="icon inline"/>
             <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
-            <h1 className="font accent-red center large">{trip.name}</h1><br/>
+            <h1 className="font text-green center large">{trip.name}</h1><br/>
 
             <BackdropFilter
             className="bord vert"
@@ -114,7 +114,7 @@ const EventShowContainer = (props) =>{
             </BackdropFilter>
             </BackdropFilter>
           </div>
-          <div className="col-5 center opac-black-tile pad">
+          <div className="col-5 center opac-black-tile pad no-top">
             <NewEventForm
             id={tripId}
             addNewEvent={addNewEvent}
