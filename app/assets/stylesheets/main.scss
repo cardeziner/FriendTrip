@@ -504,7 +504,7 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   border-top: 4px solid #FF003C;
 }
 
-#map1,#map2,#map3,#map4,#map5,#map6,#map7,#map8 {
+#map1,#map2,#map3,#map4,#map5,#map6,#map7,#map8, #map9, #map10, #map11, #map12, {
   height: 250px;
   max-width: 100%;
   margin: auto;
@@ -840,6 +840,11 @@ padding: 5px 10px 5px 5px;
   box-shadow: 0 0 10px gray;
 }
 
+.head-shade{
+
+
+}
+
 .no-top{
   padding-top: 0px;
   margin-top: 0px;
@@ -891,9 +896,13 @@ padding: 5px 10px 5px 5px;
   border-radius: 10px;
   width: 65px;
   height: 65px;
-  box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 0 30px gray;
   spacing: 5%;
   position:relative;
+}
+
+.fixed{
+  position: fixed;
 }
 
 .icon-small{
@@ -961,10 +970,20 @@ padding: 5px 10px 5px 5px;
   padding-right: 20px;
 }
 
+.sm-side-pad{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .mid-float{
   text-align: center;
   float: none;
   margin: auto;
+}
+
+.flex{
+  display: flex;
+  text-align: center;
 }
 
 .wide-field{

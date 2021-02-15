@@ -103,7 +103,7 @@ const NewEventForm = props =>{
           </form>
         </div>
         <div className="text-white no-dec center"><br/>
-          <Link to="/trips" className="text-white no-dec">Back to Home</Link>
+          <Link to={`/trips/${props.id}`} className="text-white no-dec">Back to Trip Info</Link>
         </div><br/>
       </div>
   )
