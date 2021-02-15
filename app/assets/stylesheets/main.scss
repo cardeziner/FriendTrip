@@ -504,7 +504,7 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   border-top: 4px solid #FF003C;
 }
 
-#map1,#map2,#map3,#map4,#map5,#map6,#map7,#map8 {
+#map1,#map2,#map3,#map4,#map5,#map6,#map7,#map8, #map9, #map10, #map11, #map12, {
   height: 250px;
   max-width: 100%;
   margin: auto;
@@ -838,6 +838,11 @@ padding: 5px 10px 5px 5px;
 
 .all-sides:hover{
   box-shadow: 0 0 10px gray;
+}
+
+.head-shade{
+
+
 }
 
 .no-top{

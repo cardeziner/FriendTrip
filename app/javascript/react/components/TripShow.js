@@ -84,7 +84,7 @@ const TripShow = props =>{
 
   const eventList = props.events.map(singleEvent =>{
     let count = 0
-    if(singleEvent.votes > props.users.length){
+    if(singleEvent.votes > (props.users.length / 2)){
       count += 1
       return(
         <div key={singleEvent.id}>
@@ -98,16 +98,9 @@ const TripShow = props =>{
               </div>
           </div>
         </div>
-      )}else{
-        if( count < 1){
-          return(
-            <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
-          )
-        }
-      }
+      )}
     }
   )
-
 
 
 
@@ -126,7 +119,7 @@ const TripShow = props =>{
 
   const userList = props.users.map(member =>{
     return(
-        <h3 key={member.id} className=" inline vert font text-green ">
+        <h3 key={member.id} className=" inline vert font text-yellow ">
         {member.first_name}<br/>
         </h3>
       )
@@ -189,7 +182,7 @@ const TripShow = props =>{
   return(
     <div className="bg" style={sectionStyle}>
       <div className="dark"></div>
-      <h1 className="font center accent-red">{props.trip.name}</h1>
+      <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
         <div key={props.trip.id} className="col-xs-12 col-md-5 font grid">
           <h1 className="text-white vert left-blue pad left"> TRIP INFO </h1>
@@ -202,14 +195,14 @@ const TripShow = props =>{
             location={tripCity}
             trip={props.trip}
             />
-            <h4 className="text-white inset vert">
+            <h3 className="text-white inset vert">
             <img src={location} className="inline icon"/>
             <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
           </div>
-          </h4>
+          </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><p className="center resize-font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</p></h3>
             <br/>
-          <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline no-top">{blankUser()}</div></div>
+          <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
           <div>
           <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
             <div id="form-info" className={toggle}>
