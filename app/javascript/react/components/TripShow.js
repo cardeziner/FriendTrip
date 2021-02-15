@@ -126,8 +126,8 @@ const TripShow = props =>{
 
   const userList = props.users.map(member =>{
     return(
-        <h3 key={member.id} className="inline center font absolute text-green">
-        {member.first_name}
+        <h3 key={member.id} className=" inline vert font text-green ">
+        {member.first_name}<br/>
         </h3>
       )
     })
@@ -141,7 +141,7 @@ const TripShow = props =>{
       )
     } else {
       return(
-        <div className="inline vert">
+        <div className="block vert left">
         {userList}
         </div>
       )
@@ -204,7 +204,7 @@ const TripShow = props =>{
           </h4>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><p className="center resize-font inline">{props.trip.start_date} - {props.trip.end_date}</p></h3>
             <br/>
-          <div><img src={friends} className="inline icon fifty"/>{blankUser()}</div>
+          <div className="flex vert"><img src={friends} className="inline icon"/><div className="inline">{blankUser()}</div></div>
           <div>
           <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
             <div id="form-info" className={toggle}>
@@ -225,7 +225,7 @@ const TripShow = props =>{
               <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
               <hr className="gray-line"/>
               </div>
-              <div className="text center">
+              <div className="text center vert">
                   {eventList}{noEvents()}
                   <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
               </div>
