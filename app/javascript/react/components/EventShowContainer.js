@@ -5,6 +5,7 @@ import EventsTile from './EventsTile'
 import NewEventForm from './NewEventForm'
 import BackdropFilter from "react-backdrop-filter";
 import vote_bg from '../../../assets/images/vote-bg.jpg'
+import voting from '../../../assets/images/voting.png'
 
 const EventShowContainer = (props) =>{
     const [trip, setTrip] = useState({})
@@ -100,8 +101,11 @@ const EventShowContainer = (props) =>{
           className="bord vert pad"
           filter={"blur(20px)"}
           >
+
+            <img src={voting} className="icon inline"/>
             <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
             <h1 className="font accent-red center large">{trip.name}</h1><br/>
+
             <BackdropFilter
             className="bord vert"
             filter={"blur(20px)"}
