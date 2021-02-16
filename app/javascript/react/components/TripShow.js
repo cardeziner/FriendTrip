@@ -141,7 +141,7 @@ const TripShow = props =>{
       )
     } else {
       return(
-        <div className="block vert left">
+        <div className="block vert left inline-block">
         {userList}
         </div>
       )
