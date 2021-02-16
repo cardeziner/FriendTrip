@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
 import NewTripmemberForm from './NewTripmemberForm'
+import Unsplash from 'unsplash-js'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
 import pin from '../../../assets/images/pin.png'
 import friends from '../../../assets/images/friends.png'
-import Unsplash from 'unsplash-js'
 import schedule from '../../../assets/images/schedule.png'
+import clock from '../../../assets/images/clock.png'
+import cashbag from '../../../assets/images/cashbag.png'
+
 
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
@@ -87,18 +90,18 @@ const TripShow = props =>{
       count += 1
       return(
         <div key={singleEvent.id}>
-          <div className="showhim text-yellow click-block bot-pad vert" ><br/>
-            <h2 className="text">{singleEvent.name}</h2>
+          <div className="showhim click-block white-yell bot-pad vert" ><br/>
+            <h2 className="just-font">{singleEvent.name}</h2>
             <h5 className="text-white"> {date(singleEvent.date)} </h5>
               <div className="showme">
                 <div className="row">
-                  <div className="col-6 inline-block">
-                    <p className="text-sm"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
-                    <p className="text-sm"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                  <div className="col-6 inline-block text-white left">
+                    <p className="text-sm center"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                    <p className="text-sm"><img src={cashbag} className="left icon-small"/>{singleEvent.cost}</p>
                   </div>
                   <div className="col-6 inline-block text-white left">
-                    <p className="text-sm"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
-                    <p className="text-sm"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                    <p className="text-sm inline-block center"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                    <p className="text-sm inline-block center"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
                   </div>
                 </div>
               </div>

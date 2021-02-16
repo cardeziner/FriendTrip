@@ -225,7 +225,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 
 .font{
     font-family: 'Francois One', sans-serif;
-    color: white;
+    color: white
+}
+
+.just-font{
+  font-family: 'Francois One', sans-serif;
 }
 
 .resize-font{
@@ -351,14 +355,13 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
     font-family: 'Francois One', sans-serif;
 }
 
-.gray-text{
+.white-yell{
   font-family: 'Francois One', sans-serif;
-  color: #eaeaea;
+  color: white;
 }
 
-.border-blue {
-  border-radius: 15px;
-  border: 5px solid #1BB0CE
+.white-yell:hover{
+  color: #FABE28;
 }
 
 .border-red {
