@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
 import NewTripmemberForm from './NewTripmemberForm'
+import Unsplash from 'unsplash-js'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
+import pin from '../../../assets/images/pin.png'
 import friends from '../../../assets/images/friends.png'
-import Unsplash from 'unsplash-js'
 import schedule from '../../../assets/images/schedule.png'
+import cashbag from '../../../assets/images/cashbag.png'
+
 
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
@@ -86,13 +89,18 @@ const TripShow = props =>{
       count += 1
       return(
         <div key={singleEvent.id}>
-          <div className="showhim text-yellow click-block bot-pad vert" ><br/>
-            <h2 className="text">{singleEvent.name}</h2>
-            <h5 className="text-white"> {date(singleEvent.date)} </h5>
+          <div className="showhim click-block white-yell bot-pad vert" ><br/>
+            <h2 className="just-font">{singleEvent.name}</h2>
+            <h5 className="text-white">{date(singleEvent.date)} </h5>
               <div className="showme">
-                <h5 className="inline-block text-white">
-                {singleEvent.location}
-                </h5>
+                <div className="row inline-block">
+                  <div className="col-6 inline-block text-white left">
+                    <p className="text-sm center vert"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                  </div>
+                  <div className="col-6 inline-block text-white right">
+                    <p className="text-sm inline right vert">${singleEvent.cost} Per Person</p><img src={cashbag} className="inline icon-small right"/>
+                    </div>
+                  </div>
               </div>
           </div>
         </div>
@@ -204,7 +212,6 @@ const TripShow = props =>{
                 >
                 <div className="opac-black">
                   <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
-                  <hr className="gray-line"/>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}

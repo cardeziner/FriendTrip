@@ -101,9 +101,11 @@ const EventShowContainer = (props) =>{
         className="bord vert pad"
         filter={"blur(20px)"}
         >
-        <img src={voting} className="icon inline"/>
-        <h4 className="text-white font center side-pad">VOTE ON EVENTS FOR</h4>
-        <h1 className="font text-green center large">{trip.name}</h1><br/>
+
+          <div className="inline-block left vert">
+            <h4 className="text-white font center">VOTE ON EVENTS FOR</h4>
+            <h1 className="font text-yellow center large ">{trip.name}</h1><br/>
+          </div>
         <BackdropFilter
         className="bord vert"
         filter={"blur(20px)"}

@@ -97,11 +97,11 @@ const TripsIndexComponent = (props) =>{
       )
     }
   }
-  
+
   return(
       <div className="home-bg">
         <div className="row pad">
-        <h1 className="col-12 center font vert no-bot-pad">Welcome Back {user.first_name}!</h1>
+        <h1 className="col-12 center font vert no-bot-pad">Hello {user.first_name}!</h1>
         </div>
         <div className="front">
           <div className="row bot-pad">
