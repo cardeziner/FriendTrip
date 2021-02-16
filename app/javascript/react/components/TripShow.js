@@ -10,7 +10,6 @@ import dates from '../../../assets/images/dates.png'
 import pin from '../../../assets/images/pin.png'
 import friends from '../../../assets/images/friends.png'
 import schedule from '../../../assets/images/schedule.png'
-import clock from '../../../assets/images/clock.png'
 import cashbag from '../../../assets/images/cashbag.png'
 
 
@@ -92,18 +91,16 @@ const TripShow = props =>{
         <div key={singleEvent.id}>
           <div className="showhim click-block white-yell bot-pad vert" ><br/>
             <h2 className="just-font">{singleEvent.name}</h2>
-            <h5 className="text-white"> {date(singleEvent.date)} </h5>
+            <h5 className="text-white">{date(singleEvent.date)} </h5>
               <div className="showme">
-                <div className="row">
+                <div className="row inline-block">
                   <div className="col-6 inline-block text-white left">
-                    <p className="text-sm center"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
-                    <p className="text-sm"><img src={cashbag} className="left icon-small"/>{singleEvent.cost}</p>
+                    <p className="text-sm center vert"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
                   </div>
-                  <div className="col-6 inline-block text-white left">
-                    <p className="text-sm inline-block center"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
-                    <p className="text-sm inline-block center"><img src={pin} className="icon-small"/>{singleEvent.location}</p>
+                  <div className="col-6 inline-block text-white right">
+                    <p className="text-sm inline right vert">${singleEvent.cost} Per Person</p><img src={cashbag} className="inline icon-small right"/>
+                    </div>
                   </div>
-                </div>
               </div>
           </div>
         </div>
@@ -215,7 +212,6 @@ const TripShow = props =>{
                 >
                 <div className="opac-black">
                   <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
-                  <hr className="gray-line"/>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}
