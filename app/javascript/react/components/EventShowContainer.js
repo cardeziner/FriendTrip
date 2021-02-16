@@ -96,13 +96,12 @@ const EventShowContainer = (props) =>{
     <div className="bg" style={sectionStyle}>
       <h1 className="accent-red center">EVENTS & VOTES</h1>
       <div className="row pad center"><br/><br/>
-        <div className="col-5">
+        <div className="col-5 scrollable">
         <BackdropFilter
         className="bord vert pad"
         filter={"blur(20px)"}
         >
-
-          <div className="inline-block left vert">
+        <div className="no-pad">
             <h4 className="text-white font center">VOTE ON EVENTS FOR</h4>
             <h1 className="font text-yellow center large ">{trip.name}</h1><br/>
           </div>
