@@ -11,6 +11,7 @@ import pin from '../../../assets/images/pin.png'
 import friends from '../../../assets/images/friends.png'
 import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
+import cost from '../../../assets/images/cost.png'
 
 
 const TripShow = props =>{
@@ -192,7 +193,7 @@ const TripShow = props =>{
           </div>
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h3 className="center resize-font font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h3></h3>
-            <br/>
+            <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h3 className="center resize-font font inline">Cost</h3></h3><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
