@@ -98,6 +98,7 @@ const TripsIndexComponent = (props) =>{
     }
   }
 
+
   return(
       <div className="home-bg">
         <div className="row pad">
@@ -111,7 +112,7 @@ const TripsIndexComponent = (props) =>{
               filter={"blur(15px)"}
               >
               <div className="opac-black">
-              <img className="icon" src={trips_logo}/><h1 className="yellow-title vert">MY TRIPS</h1>
+              <img className="icon" src={trips_logo}/><h1 className="yellow-title vert resize-text">MY FRIENDTRIPS</h1>
               </div>
               <br/>
               <div className="center">
