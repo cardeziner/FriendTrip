@@ -51,7 +51,7 @@ const NewEventForm = props =>{
   }
 
   return(
-    <div key={props.id}><br/>
+    <div><br/>
       <h1 className="text-yellow center">+ NEW TRIP EVENT</h1>
       <p className="line"></p>
       <p className="text-blue font center">FILL OUT REQUIRED FIELDS BELOW FOR THE EVENT YOU WOULD LIKE TO POST</p>

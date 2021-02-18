@@ -96,28 +96,33 @@ const EventShowContainer = (props) =>{
     <div className="bg" style={sectionStyle}>
       <h1 className="accent-red center">EVENTS & VOTES</h1>
       <div className="row pad center"><br/><br/>
-        <div className="col-5 scrollable">
-        <BackdropFilter
-        className="bord vert pad"
-        filter={"blur(20px)"}
-        >
-        <div className="no-pad">
+        <div className="col-5">
+          <BackdropFilter
+          className="bord vert pad"
+          filter={"blur(20px)"}
+          >
+          <div className="no-pad">
             <h4 className="text-white font center">VOTE ON EVENTS FOR</h4>
             <h1 className="font text-yellow center large ">{trip.name}</h1><br/>
           </div>
+            <BackdropFilter
+            className="bord vert"
+            filter={"blur(20px)"}
+            >
+            {eventsList}
+            </BackdropFilter>
+          </BackdropFilter>
+        </div>
+        <div className="col-5 center  pad vert">
         <BackdropFilter
-        className="bord vert"
+        className="bord vert opac-black"
         filter={"blur(20px)"}
         >
-        {eventsList}
-        </BackdropFilter>
-        </BackdropFilter>
-        </div>
-        <div className="col-5 center opac-black-tile pad vert fixed">
         <NewEventForm
         id={tripId}
         addNewEvent={addNewEvent}
         />
+        </BackdropFilter>
         </div>
       </div>
     </div>
