@@ -16,7 +16,7 @@ html, body {
 
 .opac-black{
   background-color: black;
-  opacity: .7;
+  opacity: .95;
 }
 
 .opac-black-tile{
@@ -364,29 +364,6 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   color: #FABE28;
 }
 
-.border-red {
-  border-radius: 15px;
-  border: 5px solid #FF003C;
-  align-items: center;
-  margin-top: auto;
-}
-
-.border-green{
-  font-family: 'Francois One', sans-serif;
-  border-radius: 15px;
-  border: 5px solid #00C176;
-  align-items: center;
-  margin-top: auto;
-  color: #00C176
-}
-
-.border-green:hover{
-  border-radius: 15px;
-  border: 5px solid #FABE28;
-  color: #FF003C;
-}
-
-
 .bg-signin{
   background: image-url("friends-home.jpg");
   background-position: center;
@@ -595,6 +572,13 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   text-transform: uppercase;
   text-align: center;
 }
+
+.scrollable{
+  overflow-x:hidden;
+  overflow-y:auto;
+  height: 100vw;
+}
+
 
 .accent-red {
   font-family: 'Francois One', sans-serif;

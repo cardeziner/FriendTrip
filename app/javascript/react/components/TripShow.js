@@ -11,7 +11,7 @@ import pin from '../../../assets/images/pin.png'
 import friends from '../../../assets/images/friends.png'
 import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
-
+import cost from '../../../assets/images/cost.png'
 
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
@@ -83,10 +83,13 @@ const TripShow = props =>{
       }
     }
 
+    const count = 0
+
+  const eventArray = []
+
   const eventList = props.events.map(singleEvent =>{
-    let count = 0
     if(singleEvent.votes > (props.users.length / 2)){
-      count += 1
+        eventArray.push(singleEvent.cost)
       return(
         <div key={singleEvent.id}>
           <div className="showhim click-block white-yell bot-pad vert" ><br/>
@@ -104,9 +107,11 @@ const TripShow = props =>{
               </div>
           </div>
         </div>
-      )}
+      )
+    }
     }
   )
+
 
 
 
@@ -141,7 +146,7 @@ const TripShow = props =>{
       )
     } else {
       return(
-        <div className="block vert left">
+        <div className="block vert left inline-block">
         {userList}
         </div>
       )
@@ -168,6 +173,12 @@ const TripShow = props =>{
       }
     }
 
+    let tally = 0
+
+  const amountOwed = eventArray.map(cost =>{
+      tally += cost
+    }
+  )
 
 
   return(
@@ -192,9 +203,9 @@ const TripShow = props =>{
           </div>
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h3 className="center resize-font font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h3></h3>
-            <br/>
+            <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h3 className="center resize-font font inline">Your Costs: ${tally} </h3></h3><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
-              <div>
+              <div><br/>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
                 <div id="form-info" className={toggle}>
                   <NewTripmemberForm
