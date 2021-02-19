@@ -94,7 +94,7 @@ const EventShowContainer = (props) =>{
 
   return(
     <div className="bg" style={sectionStyle}>
-      <h1 className="accent-red center">EVENTS & VOTES</h1>
+      <h1 className="accent-red font center">EVENTS & VOTES</h1>
       <div className="row pad center"><br/><br/>
         <div className="col-5">
           <BackdropFilter
@@ -103,7 +103,7 @@ const EventShowContainer = (props) =>{
           >
           <div className="no-pad">
             <h4 className="text-white font center">VOTE ON EVENTS FOR</h4>
-            <h1 className="font accent-red center large ">{trip.name}</h1><br/>
+            <h1 className="font text-blue center large ">{trip.name}</h1><br/>
           </div>
             <BackdropFilter
             className="bord vert"
@@ -114,7 +114,7 @@ const EventShowContainer = (props) =>{
           </BackdropFilter>
         </div>
         <div className="col-5 center  pad vert">
-        <h1 className="text-yellow center">+ New Trip Event</h1>
+        <h1 className="accent-red center">+ New Trip Event</h1>
         <BackdropFilter
         className="bord vert "
         filter={"blur(20px)"}

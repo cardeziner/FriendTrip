@@ -202,8 +202,8 @@ const TripShow = props =>{
             <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
           </div>
           </h3>
-          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h3 className="center resize-font font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h3></h3>
-            <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h3 className="center resize-font font inline">Your Costs: ${tally} </h3></h3><br/>
+          <div className="text-white vert"><img src={dates} className="icon inline center"/><h3 className="center resize-font font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h3></div>
+            <div className="text-white vert"><img src={cost} className="icon inline center"/><h3 className="center resize-font font inline">Your Costs: ${tally} </h3></div><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div><br/>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
