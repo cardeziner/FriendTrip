@@ -37,12 +37,12 @@ const TripShowContainer = (props) =>{
   return(
     <div className="row">
       <h1 className="font center accent-red">{trip.name}</h1>
-        <TripShow
-        id={tripId}
-        trip={trip}
-        events={tripEvents}
-        users={users}
-        />
+      <TripShow
+      id={tripId}
+      trip={trip}
+      events={tripEvents}
+      users={users}
+      />
     </div>
   )
 }

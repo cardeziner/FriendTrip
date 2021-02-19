@@ -102,7 +102,7 @@ const TripsIndexComponent = (props) =>{
   return(
       <div className="home-bg">
         <div className="row pad">
-        <h1 className="col-12 center font vert no-bot-pad">Hello {user.first_name}!</h1>
+          <h1 className="col-12 center font vert no-bot-pad">Hello {user.first_name}!</h1>
         </div>
         <div className="front">
           <div className="row bot-pad">
@@ -112,12 +112,12 @@ const TripsIndexComponent = (props) =>{
               filter={"blur(15px)"}
               >
               <div className="opac-black">
-              <img className="icon" src={trips_logo}/><h1 className="yellow-title vert resize-text">MY FRIENDTRIPS</h1>
+                <img className="icon" src={trips_logo}/><h1 className="yellow-title vert resize-text">MY FRIENDTRIPS</h1>
               </div>
               <br/>
               <div className="center">
-                {tripList}{noTripCheck()}
-                </div>
+              {tripList}{noTripCheck()}
+              </div>
               </BackdropFilter>
             </div>
             <div className="col-xs-8 col-md-5 float">
@@ -128,8 +128,8 @@ const TripsIndexComponent = (props) =>{
                 >
                 <div className="no-dec center">
                   <Link to='trips/new' className="no-dec">
-                  <h1 className="inline sides-pad text-yellow big">+</h1>
-                  <h1 className="inline no-dec text-yellow center">NEW FRIENDTRIP</h1>
+                    <h1 className="inline sides-pad text-yellow big">+</h1>
+                    <h1 className="inline no-dec text-yellow center">NEW FRIENDTRIP</h1>
                   </Link>
                 </div>
                 <br/>

@@ -184,51 +184,51 @@ const TripShow = props =>{
   return(
     <div className="bg" style={sectionStyle}>
       <div className="dark"></div>
-      <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
-      <div className="row pad">
-        <div key={props.trip.id} className="col-xs-12 col-md-5 font grid">
-          <h1 className="text-white vert left-blue pad left"> TRIP INFO </h1>
-          <BackdropFilter
-          className="bord"
-          filter={"blur(20px)"}
-          >
-            <GoogleMapTile
-            id={props.trip.id}
-            location={tripCity}
-            trip={props.trip}
-            />
-            <h3 className="text-white inset vert">
-            <img src={location} className="inline icon"/>
-            <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
-          </div>
-          </h3>
-          <div className="text-white vert"><img src={dates} className="icon inline center"/><h3 className="center resize-font font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h3></div>
-            <div className="text-white vert"><img src={cost} className="icon inline center"/><h3 className="center resize-font font inline">Your Costs: ${tally} </h3></div><br/>
-            <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
+        <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
+        <div className="row pad">
+          <div key={props.trip.id} className="col-xs-12 col-md-5 font grid">
+            <h1 className="text-white vert left-blue pad left"> TRIP INFO </h1>
+            <BackdropFilter
+            className="bord"
+            filter={"blur(20px)"}
+            >
+              <GoogleMapTile
+              id={props.trip.id}
+              location={tripCity}
+              trip={props.trip}
+              />
+              <h3 className="text-white inset vert">
+                <img src={location} className="inline icon"/>
+                <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
+                </div>
+              </h3>
+              <div className="text-white vert"><img src={dates} className="icon inline center"/><h3 className="center resize-font font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h3></div>
+              <div className="text-white vert"><img src={cost} className="icon inline center"/><h3 className="center resize-font font inline">Your Costs: ${tally} </h3></div><br/>
+              <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div><br/>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
-                <div id="form-info" className={toggle}>
-                  <NewTripmemberForm
-                   trip_id={props.trip.id}
-                  />
-                </div>
+              <div id="form-info" className={toggle}>
+                <NewTripmemberForm
+                trip_id={props.trip.id}
+                />
               </div>
+            </div>
             </BackdropFilter>
           </div>
-            <div className="col-5 grid tall">
-              <h1 className="text-white vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
-                <BackdropFilter
-                className="bord"
-                filter={"blur(20px)"}
-                >
-                <div className="opac-black">
-                  <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
-                  </div>
-                  <div className="text center vert">
-                      {eventList}{noEvents()}
-                      <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
-                  </div>
-                </BackdropFilter>
+          <div className="col-5 grid tall">
+            <h1 className="text-white vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
+              <BackdropFilter
+              className="bord"
+              filter={"blur(20px)"}
+              >
+              <div className="opac-black">
+                <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
+              </div>
+              <div className="text center vert">
+              {eventList}{noEvents()}
+              <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
+              </div>
+              </BackdropFilter>
             </div>
           </div>
           <br></br>

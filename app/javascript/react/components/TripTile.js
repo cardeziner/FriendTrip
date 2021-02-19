@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const TripTile = (props) =>{
-  
+
   return(
     <div>
       <h3 className="text items-body-content middle">
         <Link to={`/trips/${props.trip.id}`} className="accent-white center">{props.trip.name}</Link>
-        </h3>
+      </h3>
     </div>
   )
 }

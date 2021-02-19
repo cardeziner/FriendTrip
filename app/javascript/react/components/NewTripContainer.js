@@ -30,7 +30,6 @@ const NewTripContainer = props =>{
       })
       .then(response => response.json())
       .then(parsedNewTrip => {
-        debugger
         let trip = parsedNewTrip.trip
         setTrip(trip)
         setRedirect(true)
@@ -48,7 +47,7 @@ const NewTripContainer = props =>{
       addNewTrip={addNewTrip}
       tripId={trip.id}
       />
-  </div>
+    </div>
   )
 }
 

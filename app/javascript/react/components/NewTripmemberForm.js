@@ -91,43 +91,43 @@ const NewTripmemberForm = props =>{
   return(
     <div>
       <h1 className="center font accent-red">
-        ENTER FRIENDS INFO
-        </h1>
-        <form onSubmit={handleSubmit} className="wide-field center">
-          <label className="email text-white">
-            Friends Email
-            <input
-              name="email"
-              id="email"
-              type="text"
-              onChange={handleInputChange}
-              value={newFormPayload.email}
-            />
-          </label>
-          <br/>
-          <label className="first_name text-white">
-            Friends first name
-            <input
-              name="first_name"
-              id="first_name"
-              type="text"
-              onChange={handleInputChange}
-              value={newFormPayload.first_name}
-            />
-          </label>
-          <br/>
-          <label className="last_name text-white">
-            Friends last name
-            <input
-              name="last_name"
-              id="last_name"
-              type="text"
-              onChange={handleInputChange}
-              value={newFormPayload.last_name}
-            />
-          </label><br/>
-          <input className="btn btn-primary text center" type="submit" value="Send Invite"  />
-        </form><br/>
+      ENTER FRIENDS INFO
+      </h1>
+      <form onSubmit={handleSubmit} className="wide-field center">
+        <label className="email text-white">
+        Friends Email
+          <input
+            name="email"
+            id="email"
+            type="text"
+            onChange={handleInputChange}
+            value={newFormPayload.email}
+          />
+        </label>
+        <br/>
+        <label className="first_name text-white">
+        Friends first name
+          <input
+            name="first_name"
+            id="first_name"
+            type="text"
+            onChange={handleInputChange}
+            value={newFormPayload.first_name}
+          />
+        </label>
+        <br/>
+        <label className="last_name text-white">
+        Friends last name
+          <input
+            name="last_name"
+            id="last_name"
+            type="text"
+            onChange={handleInputChange}
+            value={newFormPayload.last_name}
+          />
+        </label><br/>
+        <input className="btn btn-primary text center" type="submit" value="Send Invite"  />
+      </form><br/>
     </div>
   )
 }
