@@ -54,56 +54,56 @@ const NewEventForm = props =>{
     <div><br/>
       <p className="font center">FILL OUT REQUIRED FIELDS BELOW FOR THE EVENT YOU WOULD LIKE TO POST</p>
       <div className="text">
-          <form onSubmit={handleSubmit}>
-            <label className="name text-white">
-              NAME
-              <input
-                name="name"
-                id="name"
-                type="text"
-                onChange={handleInputChange}
-                value={newFormPayload.name}
-              />
-            </label><br/>
-            <label className="location text-white">
-              LOCATION
-              <input
-                name="location"
-                id="location"
-                type="text"
-                onChange={handleInputChange}
-                value={newFormPayload.location}
-              />
-            </label><br/>
-            <label className="cost text-white">
-              COST (PER PERSON)
-              <input
-                name="cost"
-                id="cost"
-                type="text"
-                onChange={handleInputChange}
-                value={newFormPayload.cost}
-              />
-            </label><br/>
-            <label className="text-white">
-              DATE OF EVENT
-              <input
-                name="date"
-                id="date"
-                type="date"
-                onChange={handleInputChange}
-                value={newFormPayload.date}
-              />
-            </label><br/>
-            <div className="center">
-              <input className="tn btn-primary no-dec text center" type="submit" value="ADD NEW EVENT" />
-            </div>
-          </form>
-        </div>
-        <div className="text-white no-dec center"><br/>
-          <Link to={`/trips/${props.id}`} className="text-white no-dec">Back to Trip Info</Link>
-        </div><br/>
+        <form onSubmit={handleSubmit}>
+          <label className="name text-white">
+            NAME
+            <input
+              name="name"
+              id="name"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.name}
+            />
+          </label><br/>
+          <label className="location text-white">
+            LOCATION
+            <input
+              name="location"
+              id="location"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.location}
+            />
+          </label><br/>
+          <label className="cost text-white">
+            COST (PER PERSON)
+            <input
+              name="cost"
+              id="cost"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.cost}
+            />
+          </label><br/>
+          <label className="text-white">
+            DATE OF EVENT
+            <input
+              name="date"
+              id="date"
+              type="date"
+              onChange={handleInputChange}
+              value={newFormPayload.date}
+            />
+          </label><br/>
+          <div className="center">
+            <input className="tn btn-primary no-dec text center" type="submit" value="ADD NEW EVENT" />
+          </div>
+        </form>
       </div>
+      <div className="text-white no-dec center"><br/>
+        <Link to={`/trips/${props.id}`} className="text-white no-dec">Back to Trip Info</Link>
+      </div><br/>
+    </div>
   )
 }
 export default NewEventForm

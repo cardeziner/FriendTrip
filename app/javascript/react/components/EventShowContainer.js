@@ -114,16 +114,16 @@ const EventShowContainer = (props) =>{
           </BackdropFilter>
         </div>
         <div className="col-5 center  pad vert">
-        <h1 className="accent-red center">+ New Trip Event</h1>
-        <BackdropFilter
-        className="bord vert "
-        filter={"blur(20px)"}
-        >
-        <NewEventForm
-        id={tripId}
-        addNewEvent={addNewEvent}
-        />
-        </BackdropFilter>
+          <h1 className="accent-red center">+ New Trip Event</h1>
+          <BackdropFilter
+          className="bord vert "
+          filter={"blur(20px)"}
+          >
+          <NewEventForm
+          id={tripId}
+          addNewEvent={addNewEvent}
+          />
+          </BackdropFilter>
         </div>
       </div>
     </div>
