@@ -187,7 +187,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
         <div key={props.trip.id} className="col-xs-12 col-md-5 font grid">
-          <h1 className="text-white vert left-blue pad left"> TRIP INFO </h1>
+          <h1 className="text-white vert left-blue pad left"><p className="">TRIP INFO</p></h1>
           <BackdropFilter
           className="bord"
           filter={"blur(20px)"}
@@ -216,12 +216,12 @@ const TripShow = props =>{
             </BackdropFilter>
           </div>
             <div className="col-5 grid tall">
-              <h1 className="text-white vert right-yellow pad right-head">TRIP ITINERARY</h1><br/>
+              <h1 className="text-white vert right-yellow pad right-head"><p className="">TRIP ITINERARY</p></h1><br/>
                 <BackdropFilter
                 className="bord"
                 filter={"blur(20px)"}
                 >
-                <div className="opac-black">
+                <div className="opac-black no-top">
                   <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">

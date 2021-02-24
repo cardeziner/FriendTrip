@@ -78,6 +78,10 @@ html, body {
   box-shadow: 0 8px 6px -6px gray;
 }
 
+.diff{
+  mix-blend-mode:difference;
+}
+
 .bg-reg{
   background: image-url("friends-home.jpg");
   background-position: center;
