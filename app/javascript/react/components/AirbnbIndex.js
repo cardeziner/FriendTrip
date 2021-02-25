@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const AirbnbIndex = props =>{
+
   const [locationResults, setLocationResults] = useState({})
 
 
@@ -14,8 +15,7 @@ const AirbnbIndex = props =>{
         }
       )
 .then(response => {
-  debugger
-	setAirBnbs(response);
+	setLocationResults(response);
 })
 .catch(err => {
 	console.error(err);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import BackdropFilter from "react-backdrop-filter";
 import _ from 'lodash'
 
 const NewTripForm = (props) =>{
@@ -53,7 +54,10 @@ const NewTripForm = (props) =>{
   return(
     <div className="new-trip-bg"><br/>
       <h1 className="text-yellow center">Add a New Trip</h1><br/>
-        <div className="center opac-black col-5 mid-float"><br/>
+      <BackdropFilter
+      className="bord center col-5 mid-float"
+      filter={"blur(20px)"}
+      ><br/>
           <form onSubmit={handleSubmit} className="wide-field">
             <label className="name text-white">
               TRIP NAME
@@ -111,13 +115,12 @@ const NewTripForm = (props) =>{
             </label><br/><br/>
             <input className="btn btn-primary text center" type="submit" value="Add Trip" />
           </form><br/>
-        </div>
+        </BackdropFilter>
         <div className="bottom-bar text-white no-dec center"><br/>
         <Link to="/trips">Back to Home</Link><br/>
         <Link to={`/trips/${props.tripId}`}>Back to Trip Info</Link>
         </div>
       </div>
-
   )
 }
 

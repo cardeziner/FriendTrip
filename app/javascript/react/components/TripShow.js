@@ -13,6 +13,8 @@ import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
 
+require('dotenv').config()
+
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
   const [tripCity, setTripCity] = useState({})
