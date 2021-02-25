@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_045813) do
+ActiveRecord::Schema.define(version: 2021_02_25_003748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "airbnbs", force: :cascade do |t|
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
