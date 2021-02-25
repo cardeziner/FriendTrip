@@ -69,6 +69,10 @@ html, body {
   opacity: 0;
 }
 
+.darken{
+  background-blend-mode: darken;
+}
+
 .sub:hover{
   background-color: white;
 }
@@ -85,6 +89,7 @@ html, body {
 .bg-reg{
   background: image-url("friends-home.jpg");
   background-position: center;
+  background-blend-mode: darken;
   min-width: 100%;
   min-height: 100%;
   position: absolute;

@@ -93,7 +93,7 @@ const EventShowContainer = (props) =>{
     }
 
   return(
-    <div className="bg" style={sectionStyle}>
+    <div className="bg darken" style={sectionStyle}>
       <h1 className="accent-red center">EVENTS & VOTES</h1>
       <div className="row pad center"><br/><br/>
         <div className="col-5">
