@@ -14,7 +14,6 @@ const NewTripmemberForm = props =>{
   })
 
   const addNewUser = (formPayload) => {
-
     fetch('/api/v1/invites', {
         credentials: "same-origin",
         method: 'POST',
@@ -38,9 +37,7 @@ const NewTripmemberForm = props =>{
       })
       .then(response => response.json())
       .then(parsedResponse => {
-        // debugger
         if(!parsedResponse.error){
-          // debugger
           let user = parsedResponse.user
           setUser(user)
           setPopUp("Invite Sent!")
@@ -106,7 +103,7 @@ const NewTripmemberForm = props =>{
           </label>
           <br/>
           <label className="first_name text-white">
-            Friends first name
+            Friends First Name
             <input
               name="first_name"
               id="first_name"
@@ -117,7 +114,7 @@ const NewTripmemberForm = props =>{
           </label>
           <br/>
           <label className="last_name text-white">
-            Friends last name
+            Friends Last Name
             <input
               name="last_name"
               id="last_name"
