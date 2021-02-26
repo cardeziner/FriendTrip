@@ -39,3 +39,5 @@ Start the Rails server and webpack-dev-server
 bundle exec rails s
 yarn run start
 The application can be accessed via http://localhost:3000
+
+[![Codeship Status for cardeziner/FriendTrip](https://app.codeship.com/projects/91018126-a6e4-40f4-8915-cc7dca23ca8a/status?branch=master)](https://app.codeship.com/projects/431232)
