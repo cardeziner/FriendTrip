@@ -26,9 +26,9 @@ const AirbnbIndex = props =>{
 
   return(
     <div>
-    <div className="showhim">
-        HOVER ME
-        <div className="showme">Hello World</div>
+    <div className="showhim center"><br/>
+        <h5>HOVER ME</h5>
+        <div className="showme"><h1>Hello World</h1></div>
     </div>
      </div>
   )
