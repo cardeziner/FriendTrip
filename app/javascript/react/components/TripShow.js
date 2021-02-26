@@ -44,6 +44,7 @@ const TripShow = props =>{
   }, [])
 
     if(props.trip.city && click){
+      debugger
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",
           })
