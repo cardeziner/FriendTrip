@@ -15,18 +15,6 @@ ActiveRecord::Schema.define(version: 2021_02_25_003748) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "airbnbs", force: :cascade do |t|
-    t.string "address", null: false
-    t.string "city", null: false
-    t.string "state", null: false
-    t.date "check_in_day"
-    t.date "check_out_day"
-    t.time "check_in_time"
-    t.time "check_out_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
     t.string "location", null: false
@@ -37,6 +25,18 @@ ActiveRecord::Schema.define(version: 2021_02_25_003748) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_events_on_trip_id"
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string "address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.date "check_in_day"
+    t.date "check_out_day"
+    t.time "check_in_time"
+    t.time "check_out_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "invites", force: :cascade do |t|

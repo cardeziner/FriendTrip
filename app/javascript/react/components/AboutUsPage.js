@@ -5,7 +5,7 @@ import BackdropFilter from "react-backdrop-filter"
 const AboutUsPage = props =>{
   return(
     <div className="bg-gray">
-      <h1 className="center title text-yellow">About Us</h1>
+      <h1 className="center title text-white">About Us</h1>
       <div className="row center">
       <div className="col-5">
       <BackdropFilter
@@ -28,7 +28,7 @@ const AboutUsPage = props =>{
         className="bord opac-black"
         filter={"blur(20px)"}
         >
-        <h1 className="bodytext center accent-red">Write a Review!</h1><br/>
+        <h1 className="bodytext center accent-red">Write a Review!</h1>
         <h1 className="center bodytext text-yellow">COMING SOON...</h1>
         </BackdropFilter>
       </div>

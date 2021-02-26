@@ -13,6 +13,8 @@ import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
 
+require('dotenv').config()
+
 const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
   const [tripCity, setTripCity] = useState({})
@@ -42,6 +44,7 @@ const TripShow = props =>{
   }, [])
 
     if(props.trip.city && click){
+      debugger
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",
           })
@@ -107,14 +110,10 @@ const TripShow = props =>{
               </div>
           </div>
         </div>
-      )
-    }
+        )
+      }
     }
   )
-
-
-
-
 
   const noEvents = () =>{
     if ((eventList.length === 0) || props.events.length < 1){
@@ -123,9 +122,7 @@ const TripShow = props =>{
       )
     }
   }
-
     // <Link to={`/trips/${singleEvent.id}/events`}>{singleEvent.name}</Link><br />
-
   const length = props.users.length
 
   const userList = props.users.map(member =>{
@@ -164,22 +161,21 @@ const TripShow = props =>{
   }
 
 
-    function change(){
-      const v = document.getElementById("form-info")
-      if (toggle === "hide"){
-        setToggle("display")
-     }else{
-       setToggle("hide")
-      }
+  function change(){
+    const v = document.getElementById("form-info")
+    if (toggle === "hide"){
+      setToggle("display")
+   }else{
+     setToggle("hide")
     }
+  }
 
-    let tally = 0
+  let tally = 0
 
   const amountOwed = eventArray.map(cost =>{
       tally += cost
     }
   )
-
 
   return(
     <div className="bg" style={sectionStyle}>
