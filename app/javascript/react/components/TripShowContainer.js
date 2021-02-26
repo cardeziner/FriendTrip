@@ -32,8 +32,6 @@ const TripShowContainer = (props) =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
-
-
   return(
     <div className="row">
       <h1 className="font center accent-red">{trip.name}</h1>
