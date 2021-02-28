@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 const GoogleMapTile = (props) => {
+
   useEffect(() => {
     const geocoder = new google.maps.Geocoder();
     const address = `${props.location}`
@@ -18,7 +19,6 @@ const GoogleMapTile = (props) => {
        })
         marker.setMap( map )
       }
-
     })
   },[])
 
