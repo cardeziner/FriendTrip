@@ -9,9 +9,7 @@ feature 'user signs in', %Q{
 
 
     user = FactoryBot.create(:user)
-    user.first_name = 'john'
-    user.last_name = 'doe'
-    user.save
+
     visit new_user_session_path
 
     fill_in 'Email', with: user.email
@@ -19,7 +17,7 @@ feature 'user signs in', %Q{
 
     click_button 'Log in'
     expect(page).to have_content('Signed in successfully')
-    expect(page).to have_content('Sign Out')
+    expect(page).to have_content('SIGN OUT')
   end
 
   scenario 'specify invalid credentials' do
@@ -27,6 +25,6 @@ feature 'user signs in', %Q{
 
     click_button 'Log in'
     expect(page).to have_content('Invalid Email or password')
-    expect(page).to_not have_content('Sign Out')
+    expect(page).to_not have_content('SIGN OUT')
   end
 end
