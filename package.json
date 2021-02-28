@@ -48,13 +48,13 @@
     "enzyme": "~3.10.0",
     "enzyme-adapter-react-16": "~1.14.0",
     "fetch-mock": "~5.13.1",
-    "jest": "^24.9.0",
+    "jest": "^26.6.3",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
     "start": "./bin/webpack-dev-server",
-    "test": "node_modules/.bin/jest",
+    "test": "node_modules/.bin/jest --passWithNoTests",
     "test:dev": "node_modules/.bin/jest --notify --watch"
   },
   "jest": {
