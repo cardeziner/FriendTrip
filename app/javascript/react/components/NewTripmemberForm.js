@@ -83,6 +83,10 @@ const NewTripmemberForm = props =>{
 
   if (popUp){
     alert(popUp)
+    setPopUp(false)
+    location.reload();
+    location.reload();
+    return false;
   }
 
   return(

@@ -91,7 +91,7 @@ const TripShow = props =>{
 
   const eventList = props.events.map(singleEvent =>{
     if(singleEvent.votes > (props.users.length / 2)){
-        eventArray.push(singleEvent.cost)
+      eventArray.push(singleEvent.cost)
       return(
         <div key={singleEvent.id}>
           <div className="showhim click-block white-yell bot-pad vert" ><br/>
@@ -110,23 +110,25 @@ const TripShow = props =>{
           </div>
         </div>
         )
+      } else {
+        return(<h4 className="text-white center pad">NO EVENTS HAVE RECEIVED A MAJORITY VOTE. <br/> CLICK BELOW TO VOTE NOW! </h4>)
       }
     }
   )
 
   const noEvents = () =>{
-    if ((eventList.length === 0) || props.events.length < 1){
+    if ((eventList.length === 0) || props.events.length < 1 ){
       return(
-        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE RECEIVED A MAJORITY VOTE.<br/> CLICK BELOW TO VOTE NOW!<br/><br/></h4>
+        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW ADD ONE!<br/></h4>
       )
     }
   }
     // <Link to={`/trips/${singleEvent.id}/events`}>{singleEvent.name}</Link><br />
-  const length = props.users.length
+
 
   const userList = props.users.map(member =>{
     return(
-        <h3 key={member.id} className=" inline vert font text-yellow ">
+        <h3 key={member.id} className="inline vert font text-yellow ">
         {member.first_name}<br/>
         </h3>
       )
