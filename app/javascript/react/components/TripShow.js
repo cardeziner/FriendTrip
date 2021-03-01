@@ -110,8 +110,6 @@ const TripShow = props =>{
           </div>
         </div>
         )
-      } else {
-        return(<h4 className="text-white center pad">NO EVENTS HAVE RECEIVED A MAJORITY VOTE. <br/> CLICK BELOW TO VOTE NOW! </h4>)
       }
     }
   )
