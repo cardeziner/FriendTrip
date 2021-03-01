@@ -9,6 +9,7 @@ import place from '../../../assets/images/place.png'
 import vote from '../../../assets/images/vote.png'
 
 const EventsTile = (props) => {
+
   const addEventVote = () =>{
     window.alert(`You have added a vote for ${props.event.name}`)
     fetch(`/api/v1/trips/${props.tripId}/events/${props.event.id}`, {
@@ -20,6 +21,7 @@ const EventsTile = (props) => {
       }
     })
     .then(response => {
+      debugger
       if(response.ok) {
         return response
       } else {
