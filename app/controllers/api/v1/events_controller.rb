@@ -16,6 +16,7 @@ protect_from_forgery unless: -> { request.format.json? }
   def create
     trip = Trip.find(params[:trip_id])
     event = Event.new(event_params)
+    event.votes = 0
     event.trip = trip
     if event.save
       render json: { event: event }
