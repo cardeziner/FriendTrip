@@ -9,5 +9,5 @@ class Scraper
 
   doc = Nokogiri::HTML(html)
 
-  binding.pry
+
 end
