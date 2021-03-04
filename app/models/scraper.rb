@@ -5,11 +5,12 @@ require 'pry'
 class Scraper
 
   def scrape_city_urls
-    idaho_url = 'http://www.museumsusa.org/museums/?k=1271400%2cState%3aID%3bDirectoryID%3a200454'
-    html = open(idaho_url)
+    airBnB_url = 'https://www.airbnb.com/rooms/16879963?adults=2&check_in=2021-03-03&check_out=2021-03-04&federated_search_id=85b0331c-3818-46dd-92c0-e51df2889c1a&source_impression_id=p3_1614821799_EMjhmAb9XmXQQwCm&guests=1'
+    html = open(airBnB_url)
     doc = Nokogiri::HTML(html)
 
-    cities = doc.css('#city').css('.browseCategoryItem').css('a')
+    airbnb_info = doc.css('#site-content')
+
     binding.pry
   end
 
