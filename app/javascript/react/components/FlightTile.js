@@ -1,10 +1,10 @@
 import React from 'react'
 
-const HotelTile = props =>{
+const FlightTile = props =>{
 
   return(
     <div> Hello </div>
   )
 }
 
-export default HotelTile
+export default FlightTile
