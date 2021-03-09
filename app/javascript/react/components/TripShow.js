@@ -121,8 +121,6 @@ const TripShow = props =>{
       )
     }
   }
-    // <Link to={`/trips/${singleEvent.id}/events`}>{singleEvent.name}</Link><br />
-
 
   const userList = props.users.map(member =>{
     return(
@@ -194,7 +192,7 @@ const TripShow = props =>{
             />
             <h3 className="text-white inset vert">
             <img src={location} className="inline icon"/>
-            <div className="vert-line vert"></div><p className="resize_font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
+            <div className="vert-line vert"></div><p className="resize-font inline">{(props.trip.city)}, {props.trip.state}</p><div className="right">
           </div>
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h3 className="center resize-font font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h3></h3>

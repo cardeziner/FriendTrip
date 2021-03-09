@@ -9,7 +9,7 @@ import EventShowContainer from './EventShowContainer'
 import NewTripContainer from './NewTripContainer'
 import AboutUsPage from './AboutUsPage'
 import NewTripmemberForm from './NewTripmemberForm'
-import AirbnbIndex from './FlightTile'
+import FlightTile from './FlightTile'
 
 
 export const App = (props) => {
