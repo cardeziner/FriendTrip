@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'invitation'
+gem 'nokogiri'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
