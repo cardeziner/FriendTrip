@@ -111,8 +111,8 @@ const TripsIndexComponent = (props) =>{
               className="bord"
               filter={"blur(15px)"}
               >
-              <div className="opac-black no-wrap resize-font">
-              <img className="icon" src={trips_logo}/><h3 className="yellow-title vert resize-font">MY FRIENDTRIPS</h3>
+              <div className="opac-black no-wrap">
+              <img className="icon" src={trips_logo}/><h5 className="yellow-title vert resize-font">MY FRIENDTRIPS</h5>
               </div>
               <br/>
               <div className="center">
