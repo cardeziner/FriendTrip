@@ -197,7 +197,7 @@ const TripShow = props =>{
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h1 className="center resize-font font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h1></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h1 className="center resize-font font inline">Your Costs: ${tally} </h1></h3><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
-              <div><br/>
+              <div>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
                 <div id="form-info" className={toggle}>
                   <NewTripmemberForm
@@ -207,7 +207,7 @@ const TripShow = props =>{
               </div>
             </BackdropFilter>
           </div>
-            <div className="col-5 grid tall">
+            <div className="col-xs-12 col-md-5 grid tall">
               <h1 className="text-white vert right-yellow pad right-head"><p className="">TRIP ITINERARY</p></h1>
                 <BackdropFilter
                 className="bord"
