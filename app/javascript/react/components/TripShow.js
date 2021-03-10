@@ -191,11 +191,11 @@ const TripShow = props =>{
             />
             <h3 className="text-white inset vert">
             <img src={location} className="inline icon"/>
-            <div className="vert-line vert"></div><h3 className=" inline text-white resize-font">{(props.trip.city)}, {props.trip.state}</h3><div className="right">
+            <div className="vert-line vert"></div><h5 className=" inline text-white resize-font">{(props.trip.city)}, {props.trip.state}</h5><div className="right">
           </div>
           </h3>
-          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h3 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h3></h3>
-            <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h3 className="center  font inline">Your Costs: ${tally} </h3></h3><br/>
+          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
+            <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
