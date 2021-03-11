@@ -96,7 +96,7 @@ const EventShowContainer = (props) =>{
     <div className="bg darken" style={sectionStyle}>
       <h1 className="accent-red center">EVENTS & VOTES</h1>
       <div className="row pad center"><br/><br/>
-        <div className="col-5">
+        <div className="col-xs-8 col-md-5">
           <BackdropFilter
           className="bord vert pad"
           filter={"blur(20px)"}
@@ -113,8 +113,8 @@ const EventShowContainer = (props) =>{
             </BackdropFilter>
           </BackdropFilter>
         </div>
-        <div className="col-5 center  pad vert">
-        <h1 className="text-yellow center">+ New Trip Event</h1>
+        <div className="col-xs-8 col-md-5 center  pad vert">
+        <h1 className=" accent-red center">+ New Trip Event</h1>
         <BackdropFilter
         className="bord vert "
         filter={"blur(20px)"}
