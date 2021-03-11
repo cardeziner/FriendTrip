@@ -23,6 +23,7 @@ gem 'faraday'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'invitation'
 gem 'nokogiri'
+gem 'pry'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -50,7 +51,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'pry-rails', group: [:test]
+gem 'pry-rails', group: [:development, :test]
 gem 'jquery-rails'
 gem 'dotenv-rails', group: [:development, :test]
 gem 'rspec-rails', '3.8.2', group: [:development, :test]
