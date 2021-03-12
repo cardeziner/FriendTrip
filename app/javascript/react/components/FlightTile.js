@@ -2,8 +2,12 @@ import React from 'react'
 
 const FlightTile = props =>{
 
+
+
   return(
-    <div> Hello </div>
+    <div>
+    hello world
+    </div>
   )
 }
 
