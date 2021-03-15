@@ -29,7 +29,7 @@ def new
             )
         end
     end
-    binding.pry
+
 end
 
 
