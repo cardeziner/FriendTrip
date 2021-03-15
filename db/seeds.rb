@@ -14,6 +14,10 @@
 # user2 = User.create(first_name: "Jeffrey", last_name: "Jefferson", email:"jeffy@gmail.com", password: "password")
 # user3 = User.create(first_name: "Billiam", last_name: "Cornwall", email:"Iambill@gmail.com", password: "password")
 #
+
+flight1 = Flight.create(airline: "United", on_time_status: "yes", departure_date: "11/01/2021", departure_time: "06:10:17", arrival_date: "11/01/2021", arrival_time: "09:10:17")
+
+
 # Tripmember.create(user_id: 1, trip_id: 1)
 # Tripmember.create(user_id: 2, trip_id: 1)
 # Tripmember.create(user_id: 3, trip_id: 1)

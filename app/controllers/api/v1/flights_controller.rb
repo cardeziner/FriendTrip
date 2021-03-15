@@ -7,6 +7,10 @@ def index
   render json: Flight.all
 end
 
+def show
+
+end
+
 def new
 
   params = {
