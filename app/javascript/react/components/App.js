@@ -10,6 +10,7 @@ import NewTripContainer from './NewTripContainer'
 import AboutUsPage from './AboutUsPage'
 import NewTripmemberForm from './NewTripmemberForm'
 import FlightTile from './FlightTile'
+import EventEditContainer from './EventEditContainer'
 
 
 export const App = (props) => {
@@ -21,6 +22,7 @@ export const App = (props) => {
         <Route exact path='/trips/new' component={NewTripContainer}></Route>
         <Route exact path='/trips/:id' component={TripShowContainer}></Route>
         <Route exact path='/trips/:id/events' component={EventShowContainer}></Route>
+        <Route exact path='/trips/:id/events/edit' component={EventEditContainer}></Route>
         <Route exact path='/aboutus' component={AboutUsPage}></Route>
         <Route exact path='/trips/:id/flights' component={FlightTile}></Route>
         <Route exact path='/invites/new' component={NewTripmemberForm}></Route>

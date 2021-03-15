@@ -21,7 +21,6 @@ const EventsTile = (props) => {
       }
     })
     .then(response => {
-      debugger
       if(response.ok) {
         return response
       } else {
