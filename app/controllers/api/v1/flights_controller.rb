@@ -4,7 +4,7 @@ require 'json'
 require 'pry'
 
 def index
-  flights = Flight.all
+  render json: Flight.all
 end
 
 def new
