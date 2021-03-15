@@ -25,8 +25,11 @@ Rails.application.routes.draw do
       end
       resources :users, only: [:index, :new, :create]
       resources :invites, only: [:index, :new, :create]
+      resources :flights, only: [:index, :new, :create]
     end
   end
+
+
 
   resources :users, only: [:index, :new, :create]
 
