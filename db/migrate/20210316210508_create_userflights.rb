@@ -1,4 +1,4 @@
-class CreateUserflights < ActiveRecord::Migration[5.2]
+class CreateUserFlights < ActiveRecord::Migration[5.2]
   def change
     create_table :userflights do |t|
       t.belongs_to :user
