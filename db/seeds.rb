@@ -19,6 +19,8 @@ flight1 = Flight.create(airline: "United", on_time_status: "yes", departure_date
 
 userflight1 = Userflight.create(user_id: 1, flight_id: 1)
 
+tripflight = Tripflight.create(trip_id: 1, flight_id: 1)
+
 # Tripmember.create(user_id: 1, trip_id: 1)
 # Tripmember.create(user_id: 2, trip_id: 1)
 # Tripmember.create(user_id: 3, trip_id: 1)

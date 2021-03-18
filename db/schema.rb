@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_210508) do
+ActiveRecord::Schema.define(version: 2021_03_18_013039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2021_03_16_210508) do
     t.index ["recipient_id"], name: "index_invites_on_recipient_id"
     t.index ["sender_id"], name: "index_invites_on_sender_id"
     t.index ["token"], name: "index_invites_on_token"
+  end
+
+  create_table "tripflights", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.bigint "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_tripflights_on_flight_id"
+    t.index ["trip_id"], name: "index_tripflights_on_trip_id"
   end
 
   create_table "tripmembers", force: :cascade do |t|
