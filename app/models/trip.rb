@@ -1,8 +1,11 @@
 class Trip < ApplicationRecord
+
+  has_many :events
   has_many :tripmembers
   has_many :users, through: :tripmembers
-  has_many :events 
-  has_many :flights
+  has_many :tripflights 
+  has_many :flights, through: :tripflights
+
 
   validates :name, presence: true
   validates :city, presence: true
