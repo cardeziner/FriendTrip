@@ -4,7 +4,7 @@ const FlightTile = props =>{
   const [flightInfo, setFlightInfo] = useState({})
 
   useEffect(() =>{
-    fetch('/api/v1/flights', {
+    fetch('/api/v1/tripflights', {
       credentials: "same-origin"
     })
     .then(response => {

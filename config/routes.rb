@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get "/aboutus", to: 'static_pages#index'
-  get "/trips", to: 'static_pages#index'
+  get "/tripflights", to: 'static_pages#index'
   get "/trips/new", to: 'static_pages#index'
   get "/trips/:id", to: 'static_pages#index'
   get "/trips/:id/events", to: 'static_pages#index'
