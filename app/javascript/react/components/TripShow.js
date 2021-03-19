@@ -20,7 +20,6 @@ const TripShow = props =>{
   const [tripCity, setTripCity] = useState({})
   const [click, setClick] = useState(true)
   const [toggle, setToggle] = useState("hide")
-  debugger
   const iD = (props.id - 1)
 
   useEffect(() =>{
