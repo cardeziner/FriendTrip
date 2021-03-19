@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import NewFlightForm from './NewFlightForm'
 
 const FlightTile = props =>{
   const [flightInfo, setFlightInfo] = useState({})
@@ -50,6 +51,8 @@ const FlightTile = props =>{
   return(
     <div>
     hello world
+    <NewFlightForm
+    />
     </div>
   )
 }

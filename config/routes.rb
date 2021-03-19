@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   get "/trips/:id/flights", to: 'static_pages#index'
   get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
-  # get "users/invitation/new.user", to: 'devise/invitations#new'
-  # post "users/invitation/new.user", to: 'devise/invitations#new'
-  # #
   get "invites/new", to: 'static_pages#index'
 
   namespace :api do

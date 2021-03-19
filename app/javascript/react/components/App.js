@@ -11,6 +11,7 @@ import AboutUsPage from './AboutUsPage'
 import NewTripmemberForm from './NewTripmemberForm'
 import FlightTile from './FlightTile'
 import EventEditContainer from './EventEditContainer'
+import NewFlightForm from './NewFlightForm'
 
 
 export const App = (props) => {
