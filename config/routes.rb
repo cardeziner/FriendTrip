@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#index'
 
+  get "/trips", to: 'static_pages#index'
   get "/aboutus", to: 'static_pages#index'
   get "/tripflights", to: 'static_pages#index'
   get "/trips/new", to: 'static_pages#index'
