@@ -234,6 +234,7 @@ const TripShow = props =>{
                   >
                 <FlightTile
                 tripId={props.trip.id}
+                flightData={flightData}
                 />
                 </BackdropFilter>
                 </div>
