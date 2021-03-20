@@ -12,6 +12,7 @@ import friends from '../../../assets/images/friends.png'
 import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
+import FlightTile from'./FlightTile'
 
 require('dotenv').config()
 
@@ -20,6 +21,7 @@ const TripShow = props =>{
   const [tripCity, setTripCity] = useState({})
   const [click, setClick] = useState(true)
   const [toggle, setToggle] = useState("hide")
+
   const iD = (props.id - 1)
 
   useEffect(() =>{
@@ -172,7 +174,6 @@ const TripShow = props =>{
       tally += cost
     }
   )
-  debugger
 
   return(
     <div className="bg" style={sectionStyle}>
@@ -197,7 +198,7 @@ const TripShow = props =>{
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
-            <div className="vert">hello</div>
+            <div className="vert">FLIGHT INFO</div>
               <div>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
                 <div id="form-info" className={toggle}>
@@ -222,7 +223,17 @@ const TripShow = props =>{
                       <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
                   </div>
                 </BackdropFilter>
+                <div className=" col-xs-12 col-md-12 top-pad">
+                <BackdropFilter
+                className="bord"
+                filter={"blur(20px)"}
+                >
+                <FlightTile
+                />
+                </BackdropFilter>
+                </div>
             </div>
+
           </div>
           <br></br>
           <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
