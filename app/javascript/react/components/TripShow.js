@@ -21,6 +21,7 @@ const TripShow = props =>{
   const [tripCity, setTripCity] = useState({})
   const [click, setClick] = useState(true)
   const [toggle, setToggle] = useState("hide")
+  const [flightData, setFlightData] = useState([])
 
   const iD = (props.id - 1)
 
@@ -39,6 +40,7 @@ const TripShow = props =>{
     })
     .then(response => response.json())
     .then(parsedTripsData =>{
+      setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -210,7 +212,7 @@ const TripShow = props =>{
             </BackdropFilter>
           </div>
             <div className="col-xs-12 col-md-5 grid tall">
-              <h1 className="text-white vert right-yellow pad right-head"><p className="">TRIP ITINERARY</p></h1>
+              <h1 className="text-white vert right-yellow pad right-head"><p className="">GROUP ITINERARY</p></h1>
                 <BackdropFilter
                 className="bord"
                 filter={"blur(20px)"}
@@ -223,12 +225,15 @@ const TripShow = props =>{
                       <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
                   </div>
                 </BackdropFilter>
-                <div className=" col-xs-12 col-md-12 top-pad">
-                <BackdropFilter
-                className="bord"
-                filter={"blur(20px)"}
-                >
+                <h1 className="text-white vert right-green pad right-head"><p className="">Flights</p></h1>
+                <div className=" col-xs-12 col-md-12 ">
+
+                  <BackdropFilter
+                  className="bord"
+                  filter={"blur(20px)"}
+                  >
                 <FlightTile
+                tripId={props.trip.id}
                 />
                 </BackdropFilter>
                 </div>

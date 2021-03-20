@@ -8,13 +8,15 @@ protect_from_forgery unless: -> { request.format.json? }
 
   def show
     trip = Trip.find(params[:id])
+    flights = trip.flights
     events = trip.events
     user = current_user
     users = trip.users
     render json: {
       trip: trip,
       events: events,
-      users: users
+      users: users,
+      flights: flights
     }
   end
 
