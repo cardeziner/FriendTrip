@@ -4,6 +4,8 @@ require 'json'
 require 'pry'
 
 def index
+  binding.pry
+  trip = Trip.find(id_params)
   render json: Flight.all
 end
 
@@ -11,8 +13,7 @@ def show
 
 end
 
-def new
-
+def flight_data
   params = {
     :access_key => ENV(AVIATION_KEY)
     }
@@ -22,18 +23,27 @@ def new
     api_response = JSON.parse(json)
 
     for flight in api_response['results']
-        unless flight['live']['is_ground']
-            puts sprintf("%s flight %s from %s (%s) to %s (%s) is in the air.",
-                flight['airline']['name'],
-                flight['flight']['iata'],
-                flight['departure']['airport'],
-                flight['departure']['iata'],
-                flight['arrival']['airport'],
-                flight['arrival']['iata']
+      unless flight['live']['is_ground']
+        puts sprintf("%s flight %s from %s (%s) to %s (%s) is in the air.",
+          flight['airline']['name'],
+          flight['flight']['iata'],
+          flight['departure']['airport'],
+          flight['departure']['iata'],
+          flight['arrival']['airport'],
+          flight['arrival']['iata']
             )
-        end
     end
+  end
+end
 
+def new
+
+end
+
+protected
+
+def id_params
+  params.require(:trip).permit(:id)
 end
 
 
