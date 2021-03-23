@@ -4,7 +4,7 @@ require 'json'
 require 'pry'
 
 def index
-  binding.pry
+
   trip = Trip.find(id_params)
   render json: Flight.all
 end
