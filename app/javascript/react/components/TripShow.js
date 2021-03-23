@@ -12,7 +12,8 @@ import friends from '../../../assets/images/friends.png'
 import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
-import FlightTile from'./FlightTile'
+import FlightTile from './FlightTile'
+import flight_logo from '../../../assets/images/Flight-logo.png'
 
 require('dotenv').config()
 
