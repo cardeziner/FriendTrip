@@ -183,7 +183,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
         <div key={props.trip.id} className="col-xs-9 col-md-5 font grid">
-          <h1 className="text-white vert left-blue pad left"><p className="">TRIP INFO</p></h1>
+          <h1 className="text-white vert left-red pad left"><p className="">TRIP INFO</p></h1>
           <BackdropFilter
           className="bord"
           filter={"blur(20px)"}
@@ -226,18 +226,18 @@ const TripShow = props =>{
                       <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
                   </div>
                 </BackdropFilter>
-                <h1 className="text-white vert right-green pad right-head"><p className="">Flights</p></h1>
+                <h1 className="text-white vert right-blue pad right-head inline"><p>Flights</p></h1>
                 <div className=" col-xs-12 col-md-12 ">
-
                   <BackdropFilter
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                <FlightTile
-                tripId={props.trip.id}
-                flightData={flightData}
-                />
-                </BackdropFilter>
+                  <img src={flight_logo} className="icon inline vert"/>
+                  <FlightTile
+                  tripId={props.trip.id}
+                  flightData={flightData}
+                  />
+                  </BackdropFilter>
                 </div>
             </div>
 
