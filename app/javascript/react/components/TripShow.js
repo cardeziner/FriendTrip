@@ -232,7 +232,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/>
+                  <img src={flight_logo} className="icon inline vert"/><h1 className="inline text-blue vert">Your Flights</h1>
                   <FlightTile
                   tripId={props.trip.id}
                   flightData={flightData}

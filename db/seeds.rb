@@ -16,10 +16,12 @@
 #
 
 flight1 = Flight.create(airline: "United", on_time_status: "yes", departure_date: "11/01/2021", departure_time: "06:10:17", arrival_date: "11/01/2021", arrival_time: "09:10:17")
+flight2 = Flight.create(airline: "American", on_time_status: "yes", departure_date: "11/02/2021", departure_time: "06:10:17", arrival_date: "11/02/2021", arrival_time: "09:10:17")
 
 userflight1 = Userflight.create(user_id: 1, flight_id: 1)
 
 tripflight = Tripflight.create(trip_id: 1, flight_id: 1)
+tripflight1 = Tripflight.create(trip_id: 1, flight_id: 2)
 
 # Tripmember.create(user_id: 1, trip_id: 1)
 # Tripmember.create(user_id: 2, trip_id: 1)

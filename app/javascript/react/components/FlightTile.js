@@ -27,9 +27,7 @@ const FlightTile = props =>{
     })
     .then(response => response.json())
     .then(parsedFlightData =>{
-
       setFlightInfo(parsedFlightData)
-      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
