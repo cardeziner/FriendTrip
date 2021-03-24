@@ -618,8 +618,12 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   font-size: 50px;
 }
 
-.left-blue{
-  border-left: 8px solid #1BB0CE;
+.right-blue{
+  border-right: 8px solid #1BB0CE;
+}
+
+.left-red{
+  border-left: 8px solid #FF003C;
 }
 
 .left{
@@ -629,6 +633,10 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 
 .right-yellow{
   border-right: 8px solid #FABE28;
+}
+
+.right-green{
+  border-right: 8px solid #00C176;
 }
 
 .no-pad{
@@ -794,8 +802,6 @@ padding: 5px 10px 5px 5px;
   height: auto;
 }
 
-
-
 .new-trip-bg{
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("new-trip.jpg");
   background-attachment: fixed;
@@ -839,11 +845,6 @@ padding: 5px 10px 5px 5px;
 
 .all-sides:hover{
   box-shadow: 0 0 10px gray;
-}
-
-.head-shade{
-
-
 }
 
 .no-top{
@@ -997,12 +998,6 @@ padding: 5px 10px 5px 5px;
   background-color: #FABE28;
 }
 
-.frame-yellow{
-  border-style: solid;
-  border-radius: 40px;
-  border-color: #FABE28;
-}
-
 .frame {
   background: #FABE28;
   border-style:none ;
@@ -1011,13 +1006,10 @@ padding: 5px 10px 5px 5px;
   border-radius: 40px;
 }
 
-
-/* Add a black background color to the top navigation */
 .topnav {
   background-color: white;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
   float:inherit;
   display:inline-block;
@@ -1033,7 +1025,6 @@ padding: 5px 10px 5px 5px;
   border-radius: 5px;
 }
 
-/* Add a dark background on topnav links and the dropdown button on hover */
 .topnav a:hover {
   text-decoration: none;
   color: #FABE28;

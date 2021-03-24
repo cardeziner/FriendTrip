@@ -12,6 +12,8 @@ import friends from '../../../assets/images/friends.png'
 import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
+import FlightTile from './FlightTile'
+import flight_logo from '../../../assets/images/Flight-logo.png'
 
 require('dotenv').config()
 
@@ -20,6 +22,7 @@ const TripShow = props =>{
   const [tripCity, setTripCity] = useState({})
   const [click, setClick] = useState(true)
   const [toggle, setToggle] = useState("hide")
+  const [flightData, setFlightData] = useState([])
 
   const iD = (props.id - 1)
 
@@ -38,6 +41,7 @@ const TripShow = props =>{
     })
     .then(response => response.json())
     .then(parsedTripsData =>{
+      setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -179,7 +183,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
         <div key={props.trip.id} className="col-xs-9 col-md-5 font grid">
-          <h1 className="text-white vert left-blue pad left"><p className="">TRIP INFO</p></h1>
+          <h1 className="text-white vert left-red pad left"><p className="">TRIP INFO</p></h1>
           <BackdropFilter
           className="bord"
           filter={"blur(20px)"}
@@ -197,6 +201,7 @@ const TripShow = props =>{
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
+            <div className="vert">FLIGHT INFO</div>
               <div>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
                 <div id="form-info" className={toggle}>
@@ -208,7 +213,7 @@ const TripShow = props =>{
             </BackdropFilter>
           </div>
             <div className="col-xs-12 col-md-5 grid tall">
-              <h1 className="text-white vert right-yellow pad right-head"><p className="">TRIP ITINERARY</p></h1>
+              <h1 className="text-white vert right-yellow pad right-head"><p className="">GROUP ITINERARY</p></h1>
                 <BackdropFilter
                 className="bord"
                 filter={"blur(20px)"}
@@ -221,7 +226,21 @@ const TripShow = props =>{
                       <Link to={`/trips/${props.trip.id}/events`} className="text button"><h5 className="text">VOTE ON EVENTS</h5></Link>
                   </div>
                 </BackdropFilter>
+                <h1 className="text-white vert right-blue pad right-head inline"><p>Flights</p></h1>
+                <div className=" col-xs-12 col-md-12 ">
+                  <BackdropFilter
+                  className="bord"
+                  filter={"blur(20px)"}
+                  >
+                  <img src={flight_logo} className="icon inline vert"/><h1 className="inline text-blue vert">Group Flights</h1>
+                  <FlightTile
+                  tripId={props.trip.id}
+                  flightData={flightData}
+                  />
+                  </BackdropFilter>
+                </div>
             </div>
+
           </div>
           <br></br>
           <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>

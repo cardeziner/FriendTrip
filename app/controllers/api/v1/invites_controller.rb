@@ -20,7 +20,6 @@ class Api::V1::InvitesController < ApplicationController
         InviteMailer.with(user: @name , email: @user.email, password: @password).new_invite_email.deliver_later
         render json: { user: @user, tripmember: @tripmember }
       else
-        binding.pry
         render json: { error: "Error occurred, please try again" }, status: :unprocessable_entity
       end
     else
@@ -35,7 +34,6 @@ class Api::V1::InvitesController < ApplicationController
   end
 
   def trip_params
-      # params.permit(:trip_id)
     params.permit(:trip_id)
   end
 

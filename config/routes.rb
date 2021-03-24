@@ -3,19 +3,18 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#index'
 
-  get "/aboutus", to: 'static_pages#index'
   get "/trips", to: 'static_pages#index'
+  get "/aboutus", to: 'static_pages#index'
+  get "/tripflights", to: 'static_pages#index'
   get "/trips/new", to: 'static_pages#index'
   get "/trips/:id", to: 'static_pages#index'
   get "/trips/:id/events", to: 'static_pages#index'
   get "/trips/:id/events/new", to: 'static_pages#index'
   get "events/:id/edit", to: 'static_pages#index'
+  get "/trips/:id/flights/new", to: 'static_pages#index'
   get "/trips/:id/flights", to: 'static_pages#index'
   get "/trips/:trip_id/events", to: 'static_pages#index'
   get "/trips/:trip_id/events/:id", to: 'static_pages#index'
-  # get "users/invitation/new.user", to: 'devise/invitations#new'
-  # post "users/invitation/new.user", to: 'devise/invitations#new'
-  # #
   get "invites/new", to: 'static_pages#index'
 
   namespace :api do

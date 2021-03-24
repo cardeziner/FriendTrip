@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_003748) do
+ActiveRecord::Schema.define(version: 2021_03_18_013039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2021_02_25_003748) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_events_on_trip_id"
+  end
+
+  create_table "flights", force: :cascade do |t|
+    t.string "airline", null: false
+    t.string "on_time_status"
+    t.date "departure_date", null: false
+    t.time "departure_time", null: false
+    t.date "arrival_date", null: false
+    t.time "arrival_time", null: false
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -55,6 +64,15 @@ ActiveRecord::Schema.define(version: 2021_02_25_003748) do
     t.index ["token"], name: "index_invites_on_token"
   end
 
+  create_table "tripflights", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.bigint "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_tripflights_on_flight_id"
+    t.index ["trip_id"], name: "index_tripflights_on_trip_id"
+  end
+
   create_table "tripmembers", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "trip_id"
@@ -72,6 +90,15 @@ ActiveRecord::Schema.define(version: 2021_02_25_003748) do
     t.string "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "userflights", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_userflights_on_flight_id"
+    t.index ["user_id"], name: "index_userflights_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
