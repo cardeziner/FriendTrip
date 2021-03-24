@@ -4,7 +4,7 @@ require 'json'
 require 'pry'
 
 def index
-  render json: Flight.all
+  render json: Flight.find(params[:trip_id])
 end
 
 def show
