@@ -6,12 +6,6 @@ const FlightTile = props =>{
   const [flightInfo, setFlightInfo] = useState({})
   const flights = props.flightData
 
-  const flightList = flights.map(flight =>{
-    return(
-      <h1>{flight.airline}</h1>
-    )
-  })
-
   useEffect(() =>{
     fetch(`/api/v1/flights`, {
       credentials: "same-origin",
@@ -27,10 +21,16 @@ const FlightTile = props =>{
     })
     .then(response => response.json())
     .then(parsedFlightData =>{
-      setFlightInfo(parsedFlightData)
+      setFlightInfo(parsedFlightData.group_flights)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
+
+  const flightList = flights.map(flight =>{
+    return(
+      <h1>{flight.airline}</h1>
+    )
+  })
 //   useEffect(() =>{
 //     fetch("https://priceline-com.p.rapidapi.com/cars/SEA?pickup_date=2021-01-31T12%3A00&return_date=2021-02-10T12%3A00", {
 // 	"method": "GET",
