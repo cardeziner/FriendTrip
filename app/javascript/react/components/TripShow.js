@@ -201,7 +201,7 @@ const TripShow = props =>{
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
-            <div className="vert">FLIGHT INFO</div>
+            <div className="flex vert"><img src={flight_logo} className="inline icon fifty"/><h4 className="text-white inline vert">"Flight info here"</h4></div>
               <div>
               <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
                 <div id="form-info" className={toggle}>

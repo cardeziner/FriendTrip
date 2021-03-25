@@ -6,26 +6,6 @@ const FlightTile = props =>{
   const [flightInfo, setFlightInfo] = useState({})
   const flights = props.flightData
 
-  useEffect(() =>{
-    fetch(`/api/v1/flights`, {
-      credentials: "same-origin",
-        })
-    .then(response => {
-      if(response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`
-        error = new Error(errorMessage)
-        throw(error)
-      }
-    })
-    .then(response => response.json())
-    .then(parsedFlightData =>{
-      setFlightInfo(parsedFlightData.group_flights)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
-
   const flightList = flights.map(flight =>{
     return(
       <h1>{flight.airline}</h1>
