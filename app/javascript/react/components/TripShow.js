@@ -23,7 +23,7 @@ const TripShow = props =>{
   const [click, setClick] = useState(true)
   const [toggle, setToggle] = useState("hide")
   const [flightData, setFlightData] = useState([])
-
+  
   const iD = (props.id - 1)
 
   useEffect(() =>{
