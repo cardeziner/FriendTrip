@@ -26,11 +26,13 @@ const FlightTile = props =>{
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  const flightList = flights.map(flight =>{
-    return(
-      <h1 key={flight.id}>{flight.airline} hi</h1>
-    )
-  })
+  props
+
+  // const flightList = flights.map(flight =>{
+  //   return(
+  //     <h1 key={flight.id}>{flight.airline} hi</h1>
+  //   )
+  // })
 //   useEffect(() =>{
 //     fetch("https://priceline-com.p.rapidapi.com/cars/SEA?pickup_date=2021-01-31T12%3A00&return_date=2021-02-10T12%3A00", {
 // 	"method": "GET",
@@ -59,7 +61,7 @@ const FlightTile = props =>{
   return(
     <div>
     <h1>{currentUser.first_name}</h1>
-    {flightList}
+    {}
     <NewFlightForm
     />
     </div>

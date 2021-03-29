@@ -23,7 +23,7 @@ const TripShow = props =>{
   const [click, setClick] = useState(true)
   const [toggle, setToggle] = useState("hide")
   const [flightData, setFlightData] = useState([])
-  
+
   const iD = (props.id - 1)
 
   useEffect(() =>{
@@ -232,7 +232,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h1 className="inline text-blue vert">Group Flights</h1>
+                  <img src={flight_logo} className="icon inline vert"/><h2 className="inline text-blue vert center">Group Flights</h2>
                   <FlightTile
                   tripId={props.trip.id}
                   flightData={flightData}
