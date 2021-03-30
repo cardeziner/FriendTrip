@@ -4,6 +4,11 @@ import NewFlightForm from './NewFlightForm'
 const FlightTile = props =>{
 
   const [currentUser, setCurrentUser] = useState({})
+  const [currentUserFlights, setCurrentUserFlights] = useState({})
+  const [airline, setAirline] = useState("")
+
+  debugger
+
   const flights = props.flightData
 
   useEffect(() =>{
@@ -21,11 +26,13 @@ const FlightTile = props =>{
     })
     .then(response => response.json())
     .then(parsedUsersData =>{
-      debugger
       setCurrentUser(parsedUsersData.user)
+      setCurrentUserFlights(parsedUsersData.user_flights)
+      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
+
 
   // const flightList = flights.map(flight =>{
   //   return(
@@ -59,7 +66,7 @@ const FlightTile = props =>{
 
   return(
     <div>
-    <h1>{currentUser.first_name}</h1>
+    <h1>{currentUser.first_name}{}</h1>
     {}
     <NewFlightForm
     />

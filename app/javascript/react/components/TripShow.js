@@ -23,6 +23,8 @@ const TripShow = props =>{
   const [click, setClick] = useState(true)
   const [toggle, setToggle] = useState("hide")
   const [flightData, setFlightData] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
+  const [currentUserFlights, setCurrentUserFlights] = useState({})
 
   const iD = (props.id - 1)
 
@@ -43,6 +45,28 @@ const TripShow = props =>{
     .then(parsedTripsData =>{
       setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }, [])
+
+  useEffect(() =>{
+    fetch(`/api/v1/users`, {
+      credentials: "same-origin",
+        })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedUsersData =>{
+      setCurrentUser(parsedUsersData.user)
+      setCurrentUserFlights(parsedUsersData.user_flights)
+      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -236,6 +260,8 @@ const TripShow = props =>{
                   <FlightTile
                   tripId={props.trip.id}
                   flightData={flightData}
+                  currentUser={currentUser}
+                  currentUserFlights={currentUserFlights}
                   />
                   </BackdropFilter>
                 </div>
