@@ -21,12 +21,11 @@ const FlightTile = props =>{
     })
     .then(response => response.json())
     .then(parsedUsersData =>{
+      debugger
       setCurrentUser(parsedUsersData.user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
-
-  props
 
   // const flightList = flights.map(flight =>{
   //   return(
