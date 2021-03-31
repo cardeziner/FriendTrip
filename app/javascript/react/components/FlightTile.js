@@ -2,39 +2,12 @@ import React, { useState, useEffect } from 'react'
 import NewFlightForm from './NewFlightForm'
 
 const FlightTile = props =>{
-
-  const [currentUser, setCurrentUser] = useState({})
-  const [currentUserFlights, setCurrentUserFlights] = useState({})
   const [airline, setAirline] = useState("")
 
-  debugger
+  const userFlights = props.currentUserFlights
 
-  const flights = props.flightData
-
-  useEffect(() =>{
-    fetch(`/api/v1/users`, {
-      credentials: "same-origin",
-        })
-    .then(response => {
-      if(response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`
-        error = new Error(errorMessage)
-        throw(error)
-      }
-    })
-    .then(response => response.json())
-    .then(parsedUsersData =>{
-      setCurrentUser(parsedUsersData.user)
-      setCurrentUserFlights(parsedUsersData.user_flights)
-      debugger
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
-
-
-  // const flightList = flights.map(flight =>{
+  
+  // const userFlightList = userFlights.map(flight =>{
   //   return(
   //     <h1 key={flight.id}>{flight.airline} hi</h1>
   //   )
@@ -66,7 +39,7 @@ const FlightTile = props =>{
 
   return(
     <div>
-    <h1>{currentUser.first_name}{}</h1>
+    <h1>{props.currentUser.first_name}{}</h1>
     {}
     <NewFlightForm
     />
