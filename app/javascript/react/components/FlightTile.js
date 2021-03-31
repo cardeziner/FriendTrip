@@ -2,16 +2,9 @@ import React, { useState, useEffect } from 'react'
 import NewFlightForm from './NewFlightForm'
 
 const FlightTile = props =>{
-  const [airline, setAirline] = useState("")
+  const [userFlights, setUserFlights] = useState([])
+debugger
 
-  const userFlights = props.currentUserFlights
-
-  
-  // const userFlightList = userFlights.map(flight =>{
-  //   return(
-  //     <h1 key={flight.id}>{flight.airline} hi</h1>
-  //   )
-  // })
 //   useEffect(() =>{
 //     fetch("https://priceline-com.p.rapidapi.com/cars/SEA?pickup_date=2021-01-31T12%3A00&return_date=2021-02-10T12%3A00", {
 // 	"method": "GET",
@@ -39,8 +32,7 @@ const FlightTile = props =>{
 
   return(
     <div>
-    <h1>{props.currentUser.first_name}{}</h1>
-    {}
+    <h1>{props.currentUser.first_name}</h1>
     <NewFlightForm
     />
     </div>
