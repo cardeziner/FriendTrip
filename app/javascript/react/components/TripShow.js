@@ -203,8 +203,8 @@ const TripShow = props =>{
 
   const tripFlightList = flightData.map(flight =>{
     return(
-      <div className="text-white">
-      {flight.airline}, {flight.departure_date},
+      <div>
+        <p className="text-white">{flight.airline}, {flight.departure_date}</p>
       </div>
     )
   })
@@ -269,7 +269,8 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h2 className="inline text-blue vert center">Group Flights</h2>
+                  <img src={flight_logo} className="icon inline vert"/><h1 className="inline text-blue vert center">Group Flights</h1>
+                  <h3 className="text-white center">({flightData.length}) flights added</h3>
                   {tripFlightList}
                   <FlightTile
                   tripId={props.trip.id}
