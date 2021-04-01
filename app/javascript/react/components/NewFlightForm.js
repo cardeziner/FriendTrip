@@ -9,10 +9,11 @@ const NewFlightForm = props =>{
     departure_time: "",
     arrival_date: "",
     arrival_time: "",
+
   })
 
   return(
-    <div>Hello from Flight Form</div>
+    <div className="text-white">Hello from Flight Form</div>
   )
 }
 
