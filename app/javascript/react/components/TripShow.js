@@ -107,9 +107,9 @@ const TripShow = props =>{
     }
 
   const formatAMPM = (unparsedDate) =>{
-    debugger
-    parseddate = new Date(unparsedDate)
 
+    const parseddate = new Date(unparsedDate)
+    
     var hours = parseddate.getHours();
     var minutes = parseddate.getMinutes();
     if(hours >= 12){
