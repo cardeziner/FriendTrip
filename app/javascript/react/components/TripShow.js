@@ -106,18 +106,22 @@ const TripShow = props =>{
       }
     }
 
-  function formatAMPM(unparsedDate) {
-    date = new Date(unparsedDate)
-    var hours = date.getHours();
+  const formatAMPM = (unparsedDate) =>{
     debugger
-    var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? 'pm' : 'am';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+minutes : minutes;
-    var strTime = hours + ':' + minutes + ' ' + ampm;
-    return(strTime);
+    parseddate = new Date(unparsedDate)
 
+    var hours = parseddate.getHours();
+    var minutes = parseddate.getMinutes();
+    if(hours >= 12){
+      return(`${(hours - 12)}:${minutes} PM`)
+    }
+    if(hours < 12){
+      if(hours === 0){
+        return(`12:${minutes} AM`)
+      }else{
+        return(`${hours}:${minutes} AM`)
+      }
+    }
 }
 
     function date(date) {
@@ -217,7 +221,7 @@ const TripShow = props =>{
 
   const tripFlightList = flightData.map(flight =>{
     return(
-      <div>
+      <div key={flight.id}>
         <p className="text-white">{flight.airline}, {flight.departure_date}</p>
       </div>
     )
@@ -225,9 +229,12 @@ const TripShow = props =>{
 
   const userFlightList = currentUserFlights.map(flight =>{
     return(
-      <div className="text-white center inline">{dateByName(flight.departure_date)} <br/> @ <br/>{formatAMPM(flight.departure_time)}</div>
+      <div key={flight.id} className="text-white center inline">{dateByName(flight.departure_date)} <br/> @ <br/>{formatAMPM(flight.departure_time)}</div>
     )
   })
+
+
+
 
   return(
     <div className="bg" style={sectionStyle}>
