@@ -109,7 +109,7 @@ const TripShow = props =>{
   const formatAMPM = (unparsedDate) =>{
 
     const parseddate = new Date(unparsedDate)
-    
+
     var hours = parseddate.getHours();
     var minutes = parseddate.getMinutes();
     if(hours >= 12){
@@ -228,9 +228,14 @@ const TripShow = props =>{
   })
 
   const userFlightList = currentUserFlights.map(flight =>{
-    return(
-      <div key={flight.id} className="text-white center inline">{dateByName(flight.departure_date)} <br/> @ <br/>{formatAMPM(flight.departure_time)}</div>
-    )
+    if(currentUserFlights.length === 0){
+      return(<p className="accent-red">You currently have no flights added</p>)
+    }else{
+      return(
+        <div key={flight.id} className="text-white center inline">{dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}</div>
+      )
+    }
+
   })
 
 
