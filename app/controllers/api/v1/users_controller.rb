@@ -8,7 +8,8 @@ after_action :process_invite_token, only: [:create]
 
     users = User.all
     user = current_user
-    user_flights = Flight.all
+    flights = Flight.all
+    user_flights = user.flights
     render json: {
     user: user,
     users: users,

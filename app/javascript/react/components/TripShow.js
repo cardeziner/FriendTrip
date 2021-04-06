@@ -45,7 +45,6 @@ const TripShow = props =>{
     .then(parsedTripsData =>{
       setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
-      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -67,6 +66,7 @@ const TripShow = props =>{
     .then(parsedUsersData =>{
       setCurrentUser(parsedUsersData.user)
       setCurrentUserFlights(parsedUsersData.user_flights)
+      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -108,9 +108,7 @@ const TripShow = props =>{
     }
 
   const formatAMPM = (unparsedDate) =>{
-
     const parseddate = new Date(unparsedDate)
-
     var hours = parseddate.getHours();
     var minutes = parseddate.getMinutes();
     if(hours >= 12){
@@ -229,13 +227,9 @@ const TripShow = props =>{
   })
 
   const userFlightList = currentUserFlights.map(flight =>{
-    if(currentUserFlights.length < 1){
-      return(<p className="accent-red">You currently have no flights added</p>)
-    }else{
       return(
         <div key={flight.id} className="text-white center inline">{dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}</div>
       )
-    }
   })
 
 
