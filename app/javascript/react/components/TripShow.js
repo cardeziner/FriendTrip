@@ -66,7 +66,7 @@ const TripShow = props =>{
     .then(parsedUsersData =>{
       setCurrentUser(parsedUsersData.user)
       setCurrentUserFlights(parsedUsersData.user_flights)
-      debugger
+
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])

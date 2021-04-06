@@ -5,11 +5,11 @@ before_action :set_invite_token, only: [:new]
 after_action :process_invite_token, only: [:create]
 
   def index
-
     users = User.all
     user = current_user
     flights = Flight.all
     user_flights = user.flights
+    binding.pry
     render json: {
     user: user,
     users: users,
