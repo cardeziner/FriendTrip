@@ -45,6 +45,7 @@ const TripShow = props =>{
     .then(parsedTripsData =>{
       setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
+      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -65,9 +66,7 @@ const TripShow = props =>{
     .then(response => response.json())
     .then(parsedUsersData =>{
       setCurrentUser(parsedUsersData.user)
-
       setCurrentUserFlights(parsedUsersData.user_flights)
-      debugger
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -230,7 +229,6 @@ const TripShow = props =>{
   })
 
   const userFlightList = currentUserFlights.map(flight =>{
-
     if(currentUserFlights.length < 1){
       return(<p className="accent-red">You currently have no flights added</p>)
     }else{

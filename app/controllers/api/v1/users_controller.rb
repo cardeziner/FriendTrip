@@ -5,9 +5,10 @@ before_action :set_invite_token, only: [:new]
 after_action :process_invite_token, only: [:create]
 
   def index
+
     users = User.all
     user = current_user
-    user_flights = user.flights
+    user_flights = Flight.all
     render json: {
     user: user,
     users: users,
