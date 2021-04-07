@@ -10,6 +10,7 @@ const NewFlightForm = props =>{
     arrival_date: "",
     arrival_time: "",
     user_id: props.userId.id,
+    trip_id: props.tripId,
   })
 
   const handeInputChange = event =>{
