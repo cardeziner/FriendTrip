@@ -4,9 +4,8 @@ require 'json'
 require 'pry'
 
 def index
-  render json: {
-    user_flights: Flight.find(params[:current_user])
-  }
+  flights = Flight.all
+  render json: flights
 end
 
 def show

@@ -9,8 +9,29 @@ const NewFlightForm = props =>{
     departure_time: "",
     arrival_date: "",
     arrival_time: "",
-
   })
+
+  const handeInputChange = event =>{
+    setNewFormPayload({
+      ...newFormPayload,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  const validForSubmission = () =>{
+    let submitErrors = {}
+    const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date",  "arrival_time"]
+    requiredFields.forEach(field =>{
+      if (newFormPayload[field].trim() === ""){
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
 
   return(
     <div className="text-white">Hello from Flight Form</div>
