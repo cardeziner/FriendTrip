@@ -35,6 +35,24 @@ const NewFlightForm = props =>{
     return _.isEmpty(submitErrors)
   }
 
+  const handleSubmit = event => {
+    event.preventDefault()
+    if (validForSubmission()) {
+      addNewFlight({ flight: newFormPayload })
+      setNewFormPayload({
+        airline: "",
+        on_time_status: "",
+        departure_date: "",
+        departure_time: "",
+        arrival_date: "",
+        arrival_time: "",
+        user_id: props.userId.id,
+        trip_id: props.tripId,
+      })
+      setErrors({})
+    }
+  }
+
   return(
     <div className="text-white">Hello from Flight Form</div>
   )

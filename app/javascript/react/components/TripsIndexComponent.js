@@ -107,7 +107,7 @@ const TripsIndexComponent = (props) =>{
         <div className="">
           <div className="row bot-pad">
             <div className="col-xs-8 col-md-5 bord">
-            <img className="icon no-wrap" src={trips_logo}/><h5 className="yellow-title vert resize-font no-wrap">MY FRIENDTRIPS</h5>
+            <img className="icon no-wrap" src={trips_logo}/><h2 className="inline vert text-yellow">MY FRIENDTRIPS</h2>
               <BackdropFilter
               className="bord"
               filter={"blur(15px)"}
