@@ -32,8 +32,6 @@ const FlightTile = props =>{
   return(
     <div>
     <h1 className="text-white">{props.currentUser.first_name}</h1>
-    <NewFlightForm
-    />
     </div>
   )
 }

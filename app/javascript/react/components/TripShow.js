@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
+import NewFlightForm from './NewFlightForm'
 import NewTripmemberForm from './NewTripmemberForm'
+import FlightTile from './FlightTile'
 import Unsplash from 'unsplash-js'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
@@ -12,7 +14,6 @@ import friends from '../../../assets/images/friends.png'
 import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
-import FlightTile from './FlightTile'
 import flight_logo from '../../../assets/images/Flight-logo.png'
 
 require('dotenv').config()
@@ -297,6 +298,9 @@ const TripShow = props =>{
                   flightData={flightData}
                   currentUser={currentUser}
                   currentUserFlights={currentUserFlights}
+                  />
+                  <NewFlightForm
+                  userId={currentUser}
                   />
                   </BackdropFilter>
                 </div>
