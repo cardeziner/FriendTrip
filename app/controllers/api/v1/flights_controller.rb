@@ -35,15 +35,23 @@ def flight_data
   end
 end
 
-def new
-
+def create
+  flight = Flight.create(strong_params)
+  if flight.save
+    render json: { flight: flight }
+  else
+    render json: { error: event.errors.full_messages }, status: :unprocessable_entity
+  end
 end
 
-protected
+private
 
 def id_params
   params.require(:trip).permit(:id)
 end
 
+def strong_params
+  params.require(:flight).permit(:airline, :on_time_status, :departure_date, :departure_time, :arrival_date, :arrival_time)
+end
 
 end

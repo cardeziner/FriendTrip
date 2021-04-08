@@ -28,8 +28,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :users, only: [:index, :new, :create]
 
   as :user do

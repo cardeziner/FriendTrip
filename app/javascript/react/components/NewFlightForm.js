@@ -36,39 +36,11 @@ const NewFlightForm = props =>{
     return _.isEmpty(submitErrors)
   }
 
-  const addNewFlight = (formPayload) => {
-    fetch('/api/v1/flights', {
-        credentials: "same-origin",
-        method: 'POST',
-        body: JSON.stringify(formPayload),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      })
-      .then(response => {
-        if(response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-          throw(error)
-        }
-      })
-      .then(response => response.json())
-      .then(parsedNewFlight => {
-        debugger
-        setFlight(parsedNewFlight)
-        setRedirect(true)
-      })
-      .catch(error => console.error(`Error in fetch: ${errorMessage}`))
-    }
-
 
   const handleSubmit = event => {
     event.preventDefault()
     if (validForSubmission()) {
-      addNewFlight({ flight: newFormPayload })
+      props.addNewFlight({ flight: newFormPayload })
       setNewFormPayload({
         airline: "",
         on_time_status: "",
