@@ -83,7 +83,7 @@ const NewFlightForm = props =>{
           <input
             name="departure_date"
             id="departure_date"
-            type="departure_date"
+            type="date"
             onChange={handleInputChange}
             value={newFormPayload.departure_date}
           />
@@ -103,7 +103,7 @@ const NewFlightForm = props =>{
           <input
             name="arrival_date"
             id="arrival_date"
-            type="arrival_date"
+            type="date"
             onChange={handleInputChange}
             value={newFormPayload.arrival_date}
           />

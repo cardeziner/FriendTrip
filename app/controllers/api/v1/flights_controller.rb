@@ -37,8 +37,10 @@ end
 
 def create
   flight = Flight.create(strong_params)
-  if flight.save
-    render json: { flight: flight }
+  tripflight = Tripflight.create(trip_id: trip_params, flight_id: flight.id)
+  userflight = Userflight.create(user_id: user_params, flight_id: flight.id)
+  if flight.save && tripflight.save && userflight.save
+    render json: { flight: flight, tripflight: tripflight, userflight: userflight }
   else
     render json: { error: event.errors.full_messages }, status: :unprocessable_entity
   end
@@ -46,8 +48,12 @@ end
 
 private
 
-def id_params
-  params.require(:trip).permit(:id)
+def user_params
+  params.permit(:user_id)
+end
+
+def trip_params
+  params.permit(:trip_id)
 end
 
 def strong_params
