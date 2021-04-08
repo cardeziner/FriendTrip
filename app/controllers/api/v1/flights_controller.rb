@@ -37,23 +37,24 @@ end
 
 def create
   flight = Flight.create(strong_params)
-  tripflight = Tripflight.create(trip_id: trip_params, flight_id: flight.id)
-  userflight = Userflight.create(user_id: user_params, flight_id: flight.id)
+  tripflight = Tripflight.create(trip_id: trip_params["trip_id"], flight_id: flight.id)
+  userflight = Userflight.create(user_id: user_params["user_id"], flight_id: flight.id)
+  binding.pry
   if flight.save && tripflight.save && userflight.save
     render json: { flight: flight, tripflight: tripflight, userflight: userflight }
   else
-    render json: { error: event.errors.full_messages }, status: :unprocessable_entity
+    render json: { error: tripflight.errors.full_messages }, status: :unprocessable_entity
   end
 end
 
 private
 
 def user_params
-  params.permit(:user_id)
+  params.require(:flight).permit(:user_id)
 end
 
 def trip_params
-  params.permit(:trip_id)
+  params.require(:flight).permit(:trip_id)
 end
 
 def strong_params
