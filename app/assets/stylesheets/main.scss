@@ -649,11 +649,16 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   font-weight: bold;
 }
 
+.bold-blue{
+  font-family: 'Francois One', sans-serif;
+  color: #1BB0CE;
+  font-weight: bold;
+}
+
 .white-blue:hover {
   font-family: 'Francois One', sans-serif;
   font-weight: bold;
   margin-top: 10px;
-  margin-bottom: 30px;
   transform: scale(1.25);
   color: #1BB0CE;
   text-decoration: none;

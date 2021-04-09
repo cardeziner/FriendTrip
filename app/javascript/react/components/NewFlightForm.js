@@ -56,7 +56,8 @@ const NewFlightForm = props =>{
   }
 
   return(
-    <div className="text-white">Hello from Flight Form
+    <div className="center">
+    <h1 className="bold-blue">ENTER FLIGHT INFO </h1>
       <form onSubmit={handleSubmit} className="wide-field">
         <label className="airline text-white">
           Airline<br/>
@@ -67,7 +68,7 @@ const NewFlightForm = props =>{
             onChange={handleInputChange}
             value={newFormPayload.airline}
           />
-        </label>
+        </label><br/>
         <label className="on_time_status text-white">
           On-time status<br/>
           <input
@@ -77,7 +78,7 @@ const NewFlightForm = props =>{
             onChange={handleInputChange}
             value={newFormPayload.on_time_status}
           />
-        </label>
+        </label><br/>
         <label className="name text-white">
           departure_date<br/>
           <input
@@ -87,7 +88,7 @@ const NewFlightForm = props =>{
             onChange={handleInputChange}
             value={newFormPayload.departure_date}
           />
-        </label>
+        </label><br/>
         <label className="name text-white">
           departure_time<br/>
           <input
@@ -97,7 +98,7 @@ const NewFlightForm = props =>{
             onChange={handleInputChange}
             value={newFormPayload.departure_time}
           />
-        </label>
+        </label><br/>
         <label className="name text-white">
           arrival_date<br/>
           <input
@@ -107,7 +108,7 @@ const NewFlightForm = props =>{
             onChange={handleInputChange}
             value={newFormPayload.arrival_date}
           />
-        </label>
+        </label><br/>
         <label className="name text-white">
           arrival_time<br/>
           <input
