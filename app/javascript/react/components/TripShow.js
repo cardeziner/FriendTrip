@@ -22,7 +22,8 @@ const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
   const [tripCity, setTripCity] = useState({})
   const [click, setClick] = useState(true)
-  const [toggle, setToggle] = useState("hide")
+  const [toggle1, setToggle1] = useState("hide")
+  const [toggle2, setToggle2] = useState("hide")
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
@@ -149,15 +150,15 @@ const TripShow = props =>{
         return(`${hours}:${minutes} AM`)
       }
     }
-}
+  }
 
-    function date(date) {
-      if (date) {
-        return(dateByName(date))
-      }
+  function date(date) {
+    if (date) {
+      return(dateByName(date))
     }
+  }
 
-    const count = 0
+  const count = 0
 
   const eventArray = []
 
@@ -230,12 +231,21 @@ const TripShow = props =>{
   }
 
 
-  function change(){
+  function change1(){
     const v = document.getElementById("form-info")
-    if (toggle === "hide"){
-      setToggle("display")
+    if (toggle1 === "hide"){
+      setToggle1("display")
    }else{
-     setToggle("hide")
+     setToggle1("hide")
+    }
+  }
+
+  function change2(){
+    const v = document.getElementById("form-info")
+    if (toggle2 === "hide"){
+      setToggle2("display")
+   }else{
+     setToggle2("hide")
     }
   }
 
@@ -267,10 +277,10 @@ const TripShow = props =>{
     <div className="bg" style={sectionStyle}>
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
-        <div key={props.trip.id} className="col-xs-9 col-md-5 font grid">
+        <div key={props.trip.id} className="col-xs-9 col-md-5 font">
           <h1 className="text-white vert left-red pad left"><p className="">TRIP INFO</p></h1>
           <BackdropFilter
-          className="bord"
+          className="bord vert"
           filter={"blur(20px)"}
           >
             <GoogleMapTile
@@ -288,8 +298,8 @@ const TripShow = props =>{
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
             <div className="flex vert"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white inline vert center">{userFlightList}</h5></div>
               <div>
-              <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
-                <div id="form-info" className={toggle}>
+              <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>
+                <div id="form-info" className={toggle1}>
                   <NewTripmemberForm
                    trip_id={props.trip.id}
                   />
@@ -317,7 +327,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h1 className="inline text-blue vert center">Group Flights</h1>
+                  <img src={flight_logo} className="icon inline vert"/><h3 className="inline text-blue vert center">Group Flights</h3>
                   <h3 className="text-white center">({flightData.length}) flights added</h3>
                   {tripFlightList}
                   <FlightTile
@@ -326,11 +336,16 @@ const TripShow = props =>{
                   currentUser={currentUser}
                   currentUserFlights={currentUserFlights}
                   />
-                  <NewFlightForm
-                  userId={currentUser.id}
-                  tripId={props.id}
-                  addNewFlight={addNewFlight}
-                  />
+                  <div>
+                  <h5 className="font center white-blue" onClick={change2}> + ADD A FLIGHT</h5>
+                    <div id="form-info" className={toggle2}>
+                    <NewFlightForm
+                    userId={currentUser.id}
+                    tripId={props.id}
+                    addNewFlight={addNewFlight}
+                    />
+                    </div>
+                  </div>
                   </BackdropFilter>
                 </div>
             </div>

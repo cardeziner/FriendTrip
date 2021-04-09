@@ -643,6 +643,22 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   padding: 0;
 }
 
+.white-blue{
+  font-family: 'Francois One', sans-serif;
+  color: white;
+  font-weight: bold;
+}
+
+.white-blue:hover {
+  font-family: 'Francois One', sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  transform: scale(1.25);
+  color: #1BB0CE;
+  text-decoration: none;
+}
+
 .accent-white:hover {
   font-family: 'Francois One', sans-serif;
   font-weight: bold;

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
 const NewFlightForm = props =>{
-  debugger
   const [errors, setErrors] = useState({})
   const [flight, setFlight] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
