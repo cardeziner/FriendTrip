@@ -327,7 +327,7 @@ const TripShow = props =>{
                   currentUserFlights={currentUserFlights}
                   />
                   <NewFlightForm
-                  userId={currentUser}
+                  userId={currentUser.id}
                   tripId={props.id}
                   addNewFlight={addNewFlight}
                   />

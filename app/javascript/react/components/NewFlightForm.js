@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 const NewFlightForm = props =>{
+  debugger
   const [errors, setErrors] = useState({})
   const [flight, setFlight] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
@@ -10,7 +11,7 @@ const NewFlightForm = props =>{
     departure_time: "",
     arrival_date: "",
     arrival_time: "",
-    user_id: props.userId.id,
+    user_id: props.userId,
     trip_id: props.tripId,
   })
 
@@ -48,7 +49,7 @@ const NewFlightForm = props =>{
         departure_time: "",
         arrival_date: "",
         arrival_time: "",
-        user_id: props.userId.id,
+        user_id: props.userId,
         trip_id: props.tripId,
       })
       setErrors({})
@@ -118,7 +119,7 @@ const NewFlightForm = props =>{
             value={newFormPayload.arrival_time}
           />
         </label>
-        <input className="btn btn-primary text center" type="submit" value="Add Trip" />
+        <input className="btn btn-primary text center" type="submit" value="Add Flight" />
       </form><br/>
     </div>
   )

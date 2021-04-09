@@ -39,7 +39,6 @@ def create
   flight = Flight.create(strong_params)
   tripflight = Tripflight.create(trip_id: trip_params["trip_id"], flight_id: flight.id)
   userflight = Userflight.create(user_id: user_params["user_id"], flight_id: flight.id)
-  binding.pry
   if flight.save && tripflight.save && userflight.save
     render json: { flight: flight, tripflight: tripflight, userflight: userflight }
   else
