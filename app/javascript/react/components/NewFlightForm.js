@@ -118,7 +118,7 @@ const NewFlightForm = props =>{
             onChange={handleInputChange}
             value={newFormPayload.arrival_time}
           />
-        </label>
+        </label><br/><br/>
         <input className="btn btn-primary text center" type="submit" value="Add Flight" />
       </form><br/>
     </div>

@@ -338,7 +338,7 @@ const TripShow = props =>{
                   />
                   <div>
                   <h5 className="font center white-blue" onClick={change2}> + ADD A FLIGHT</h5>
-                  
+                  <br/>
                     <div id="form-info" className={toggle2}>
                     <NewFlightForm
                     userId={currentUser.id}
