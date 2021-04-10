@@ -270,9 +270,6 @@ const TripShow = props =>{
       )
   })
 
-
-
-
   return(
     <div className="bg" style={sectionStyle}>
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
