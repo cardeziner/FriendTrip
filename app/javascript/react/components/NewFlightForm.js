@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 const NewFlightForm = props =>{
   const [errors, setErrors] = useState({})
-  const [flight, setFlight] = useState({})
+  const [userId, setUserId] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
     airline: "",
     on_time_status: "N/A",
