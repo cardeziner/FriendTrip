@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_013039) do
+ActiveRecord::Schema.define(version: 2021_04_11_003638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 2021_03_18_013039) do
     t.time "departure_time", null: false
     t.date "arrival_date", null: false
     t.time "arrival_time", null: false
+    t.string "user_name"
+    t.string "departing_airport"
+    t.string "arriving_airport"
   end
 
   create_table "hotels", force: :cascade do |t|
