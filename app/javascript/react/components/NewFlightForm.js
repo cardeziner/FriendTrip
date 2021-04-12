@@ -1,6 +1,14 @@
 import React, {useState, useEffect} from 'react'
 
 const NewFlightForm = props =>{
+
+  function userCheck() {
+    if (props.userId) {
+      return(props.userId)
+    }
+  }
+
+
   const [errors, setErrors] = useState({})
   const [userId, setUserId] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
@@ -10,7 +18,7 @@ const NewFlightForm = props =>{
     departure_time: "",
     arrival_date: "",
     arrival_time: "",
-    user_id: props.userId,
+    user_id: userCheck(),
     trip_id: props.tripId,
   })
 
@@ -94,7 +102,7 @@ const NewFlightForm = props =>{
           <input
             name="departure_time"
             id="departure_time"
-            type="departure_time"
+            type="time"
             onChange={handleInputChange}
             value={newFormPayload.departure_time}
           />
@@ -114,7 +122,7 @@ const NewFlightForm = props =>{
           <input
             name="arrival_time"
             id="arrival_time"
-            type="arrival_time"
+            type="time"
             onChange={handleInputChange}
             value={newFormPayload.arrival_time}
           />
