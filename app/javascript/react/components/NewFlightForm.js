@@ -11,8 +11,11 @@ const NewFlightForm = props =>{
       departure_time: "",
       arrival_date: "",
       arrival_time: "",
-      user_id: props.userId,
+      user_id: props.currentUser.id,
       trip_id: props.tripId,
+      user_name: props.currentUser.first_name,
+      departing_airport:"",
+      arriving_airport: "",
     })
 
     const handleInputChange = event =>{
@@ -24,7 +27,7 @@ const NewFlightForm = props =>{
 
     const validForSubmission = () =>{
       let submitErrors = {}
-      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date",  "arrival_time"]
+      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date",  "arrival_time", "user_name", "departing_airport", "arriving_airport"]
       requiredFields.forEach(field =>{
         if (newFormPayload[field].trim() === ""){
           submitErrors = {
@@ -49,8 +52,11 @@ const NewFlightForm = props =>{
           departure_time: "",
           arrival_date: "",
           arrival_time: "",
-          user_id: props.userId,
+          user_id: props.currentUser.id,
           trip_id: props.tripId,
+          user_name: props.currentUser.first_name,
+          departing_airport: "",
+          arriving_airport: "",
         })
         setErrors({})
       }
@@ -119,7 +125,28 @@ const NewFlightForm = props =>{
               onChange={handleInputChange}
               value={newFormPayload.arrival_time}
             />
-          </label><br/><br/>
+          </label>
+          <label className="name text-white">
+            arrival_time<br/>
+            <input
+              name="departing_airport"
+              id="departing_airport"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.departing_airport}
+            />
+          </label>
+          <label className="name text-white">
+            arrival_time<br/>
+            <input
+              name="arriving_airport"
+              id="arriving_airport"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.arriving_airport}
+            />
+          </label>
+          <br/><br/>
           <input className="btn btn-primary text center" type="submit" value="Add Flight" />
         </form><br/>
       </div>

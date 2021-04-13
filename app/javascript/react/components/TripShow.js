@@ -73,6 +73,8 @@ const TripShow = props =>{
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+
+
     if(props.trip.city && click){
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",
@@ -266,9 +268,11 @@ const TripShow = props =>{
 
   const userFlightList = currentUserFlights.map(flight =>{
       return(
-        <div key={flight.id} className="text-white center inline">{dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}</div>
+        <div key={flight.id} className="text-white center inline vert">{dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}</div>
       )
   })
+
+
 
   return(
     <div className="bg" style={sectionStyle}>
@@ -311,7 +315,7 @@ const TripShow = props =>{
                 filter={"blur(20px)"}
                 >
                 <div className="no-top">
-                  <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
+                  <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert "> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}
@@ -324,7 +328,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h3 className="inline text-blue vert center">Group Flights</h3>
+                  <img src={flight_logo} className="icon inline vert"/><h2 className="inline text-blue vert center"> Group Flights</h2>
                   <h3 className="text-white center">({flightData.length}) flights added</h3>
                   {tripFlightList}
                   <FlightTile
@@ -338,7 +342,7 @@ const TripShow = props =>{
                   <br/>
                     <div id="form-info" className={toggle2}>
                     <NewFlightForm
-                    userId={currentUser.id}
+                    currentUser={currentUser}
                     tripId={props.id}
                     addNewFlight={addNewFlight}
                     />
