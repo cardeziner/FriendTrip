@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 
 const NewFlightForm = props =>{
-  if(props.currentUser){
+
+  if (props.currentUser){
     const [errors, setErrors] = useState({})
-    const [userId, setUserId] = useState({})
     const [newFormPayload, setNewFormPayload] = useState({
       airline: "",
       on_time_status: "N/A",
@@ -27,7 +27,8 @@ const NewFlightForm = props =>{
 
     const validForSubmission = () =>{
       let submitErrors = {}
-      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date", "arrival_time", "user_name", "departing_airport", "arriving_airport"]
+      debugger
+      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date", "arrival_time", "user_name", "user_id", "trip_id", "departing_airport", "arriving_airport"]
       requiredFields.forEach(field =>{
         if (newFormPayload[field].trim() === ""){
           submitErrors = {
@@ -151,9 +152,7 @@ const NewFlightForm = props =>{
       </div>
     )
   }else{
-    return(
-      <div className="center">Loading...Please Wait</div>
-    )
+    return(<div className="center">LOADING - PLEASE WAIT!</div>)
   }
 }
 
