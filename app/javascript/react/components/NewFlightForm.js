@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 const NewFlightForm = props =>{
-  if(props.currentUser && props.tripId){
+  if(props.currentUser){
     const [errors, setErrors] = useState({})
     const [userId, setUserId] = useState({})
     const [newFormPayload, setNewFormPayload] = useState({
@@ -27,7 +27,7 @@ const NewFlightForm = props =>{
 
     const validForSubmission = () =>{
       let submitErrors = {}
-      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date", "arrival_time", "departing_airport", "arriving_airport"]
+      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date", "arrival_time", "user_name", "departing_airport", "arriving_airport"]
       requiredFields.forEach(field =>{
         if (newFormPayload[field].trim() === ""){
           submitErrors = {
