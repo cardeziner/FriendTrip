@@ -57,7 +57,7 @@ def trip_params
 end
 
 def strong_params
-  params.require(:flight).permit(:airline, :on_time_status, :departure_date, :departure_time, :arrival_date, :arrival_time)
+  params.require(:flight).permit(:airline, :on_time_status, :departure_date, :departure_time, :arrival_date, :arrival_time, :user_name, :departing_airport, :arriving_airport)
 end
 
 end

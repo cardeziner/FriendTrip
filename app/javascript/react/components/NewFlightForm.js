@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 const NewFlightForm = props =>{
-  if(props.userId){
+  if(props.currentUser && props.tripId){
     const [errors, setErrors] = useState({})
     const [userId, setUserId] = useState({})
     const [newFormPayload, setNewFormPayload] = useState({
@@ -27,7 +27,7 @@ const NewFlightForm = props =>{
 
     const validForSubmission = () =>{
       let submitErrors = {}
-      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date",  "arrival_time", "user_name", "departing_airport", "arriving_airport"]
+      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date", "arrival_time", "departing_airport", "arriving_airport"]
       requiredFields.forEach(field =>{
         if (newFormPayload[field].trim() === ""){
           submitErrors = {
@@ -39,7 +39,6 @@ const NewFlightForm = props =>{
       setErrors(submitErrors)
       return _.isEmpty(submitErrors)
     }
-
 
     const handleSubmit = event => {
       event.preventDefault()
@@ -125,9 +124,9 @@ const NewFlightForm = props =>{
               onChange={handleInputChange}
               value={newFormPayload.arrival_time}
             />
-          </label>
+          </label><br/>
           <label className="name text-white">
-            arrival_time<br/>
+            departing_airport<br/>
             <input
               name="departing_airport"
               id="departing_airport"
@@ -135,9 +134,9 @@ const NewFlightForm = props =>{
               onChange={handleInputChange}
               value={newFormPayload.departing_airport}
             />
-          </label>
+          </label><br/>
           <label className="name text-white">
-            arrival_time<br/>
+            arriving_airport<br/>
             <input
               name="arriving_airport"
               id="arriving_airport"
@@ -153,7 +152,7 @@ const NewFlightForm = props =>{
     )
   }else{
     return(
-      <div>Loading...Please Wait</div>
+      <div className="center">Loading...Please Wait</div>
     )
   }
 }
