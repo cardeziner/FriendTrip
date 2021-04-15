@@ -2,25 +2,21 @@ import React, {useState, useEffect} from 'react'
 
 const NewFlightForm = props =>{
   const [errors, setErrors] = useState({})
+  const [newFormPayload, setNewFormPayload] = useState({
+    airline: "",
+    on_time_status: "N/A",
+    departure_date: "",
+    departure_time: "",
+    arrival_date: "",
+    arrival_time: "",
+    user_id: props.currentUser.id,
+    trip_id: props.tripId,
+    user_name: props.currentUser.first_name,
+    departing_airport:"",
+    arriving_airport: "",
+  })
 
   if (props.currentUser){
-    let userID = props.currentUser.id
-    let userName = props.currentUser.first_name
-    let tripId = props.tripId
-    const [newFormPayload, setNewFormPayload] = useState({
-      airline: "",
-      on_time_status: "N/A",
-      departure_date: "",
-      departure_time: "",
-      arrival_date: "",
-      arrival_time: "",
-      user_id: userID,
-      trip_id: tripId,
-      user_name: userName,
-      departing_airport:"",
-      arriving_airport: "",
-    })
-
     const handleInputChange = event =>{
       setNewFormPayload({
         ...newFormPayload,
@@ -30,7 +26,7 @@ const NewFlightForm = props =>{
 
     const validForSubmission = () =>{
       let submitErrors = {}
-      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date", "arrival_time", "user_name", "user_id", "trip_id", "departing_airport", "arriving_airport"]
+      const requiredFields = ["airline", "on_time_status", "departure_date", "departure_time", "arrival_date", "arrival_time", "departing_airport", "arriving_airport"]
       requiredFields.forEach(field =>{
         if (newFormPayload[field].trim() === ""){
           submitErrors = {
@@ -46,6 +42,8 @@ const NewFlightForm = props =>{
     const handleSubmit = event => {
       event.preventDefault()
       if (validForSubmission()) {
+        newFormPayload["user_id"] = props.currentUser.id
+        newFormPayload["user_name"] = props.currentUser.first_name
         props.addNewFlight({ flight: newFormPayload })
         setNewFormPayload({
           airline: "",
