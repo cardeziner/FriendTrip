@@ -129,7 +129,8 @@ const TripsIndexComponent = (props) =>{
                   <Link to='trips/new' className="no-dec">
                   <h1 className="inline sides-pad text-yellow big">+</h1>
                   <h1 className="inline no-dec text-yellow center">NEW FRIENDTRIP</h1>
-                  </Link>
+                  </Link><br/>
+                  <div className="text-white center inline table-cell">11/15/2021 @ 6:54 PM<br/></div>
                 </div>
                 <br/>
                 </BackdropFilter>

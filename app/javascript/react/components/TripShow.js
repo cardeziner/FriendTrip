@@ -266,7 +266,7 @@ const TripShow = props =>{
 
   const userFlightList = currentUserFlights.map(flight =>{
       return(
-        <div key={flight.id} className="text-white center inline vert">{dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}</div>
+        <div key={flight.id} className="text-white center inline table-cell">{dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></div>
       )
   })
 
@@ -294,7 +294,7 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
-            <div className="flex vert"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white inline vert center">{userFlightList}</h5></div>
+            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white center vert table">{userFlightList}</h5></div>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>
