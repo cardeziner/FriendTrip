@@ -130,16 +130,6 @@ const TripsIndexComponent = (props) =>{
                   <h1 className="inline sides-pad text-yellow big">+</h1>
                   <h1 className="inline no-dec text-yellow center">NEW FRIENDTRIP</h1>
                   </Link><br/>
-                  <div className="row">
-                    <p className="col-4 center text-white">Airport</p>
-                    <p className="col-4 center text-white">Departure</p>
-                    <p className="col-4 center text-white">Arrival</p>
-                  </div>
-                  <div className="row left separate vert">
-                    <p className="col-4 center text-white inline table-cell">DEN <br/>to<br/> BOS<br/></p>
-                    <p className="col-4 center text-white inline table-cell">11/15/2021<br/>@<br/> 6:54 PM<br/></p>
-                    <p className="col-4 center text-white inline table-cell">11/15/2021<br/>@<br/> 11:35 PM<br/></p>
-                  </div>
                 </div>
                 <br/>
                 </BackdropFilter>

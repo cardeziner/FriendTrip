@@ -266,7 +266,18 @@ const TripShow = props =>{
 
   const userFlightList = currentUserFlights.map(flight =>{
       return(
-        <div key={flight.id} className="text-white center inline table-cell">{dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></div>
+        <div key={flight.id} className="grid">
+          <div className="row">
+            <p className="col-4 vert center text-white">Flight</p>
+            <p className="col-4 vert center text-white">Departure</p>
+            <p className="col-4 vert center text-white">Arrival</p>
+          </div>
+          <div className="row left separate">
+            <p className="col-4 center text-white inline table-cell">{flight.departing_airport} <br/>to<br/> {flight.arriving_airport}<br/></p>
+            <p className="col-4 center text-white inline table-cell">{dateByName(flight.departure_date)}<br/>@<br/> {formatAMPM(flight.departure_time)}<br/></p>
+            <p className="col-4 center text-white inline table-cell">{dateByName(flight.arrival_date)}<br/>@<br/> {formatAMPM(flight.arrival_time)}<br/></p>
+          </div>
+        </div>
       )
   })
 
