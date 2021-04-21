@@ -267,17 +267,16 @@ const TripShow = props =>{
   const sortedFlightList = _.sortBy(currentUserFlights, 'departure_date')
 
   const userFlightList = sortedFlightList.map(flight =>{
-    let flightNum = sortedFlightList.indexOf(flight)
+    let flightNum = sortedFlightList.indexOf(flight) + 1
       return(
         <div key={flight.id}>
           <div className="showhim">
-          <h3 className="text-blue">Flight {flightNum + 1}</h3>
-            <div className="showme">
-              <div className="row left">
-                <p className="col-4 center text-white inline table-cell vert">{flight.departing_airport} <br/>to<br/> {flight.arriving_airport}<br/></p><br/>
-                <p className="col-4 center text-white inline table-cell">{dateByName(flight.departure_date)}<br/>@<br/> {formatAMPM(flight.departure_time)}<br/></p>
-                <p className="col-4 center text-white inline table-cell">{dateByName(flight.arrival_date)}<br/>@<br/> {formatAMPM(flight.arrival_time)}<br/></p>
-              </div>
+          <h3 className="flight-head blue-hover">Flight {flightNum}</h3>
+            <div className="showme flight-show">
+                <h2 className="center text-white table-cell vert ">{flight.departing_airport} -> {flight.arriving_airport}<br/></h2><br/>
+                <p className="center text-white table-cell ">DEPARTS {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+                <p className="center text-white table-cell ">RETURNS {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
+
             </div>
           </div>
         </div>
@@ -308,7 +307,7 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
-            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white center vert table">{userFlightList}</h5></div>
+            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white center vert table blue-hover">{userFlightList}</h5></div>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>

@@ -567,6 +567,26 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   font-family: 'Francois One', sans-serif;
 }
 
+.flight-head{
+  color: white;
+  font-family: 'Francois One', sans-serif;
+}
+
+.blue-hover:hover{
+  border-bottom: 3px solid #1BB0CE;
+}
+
+.flight-head:hover{
+  color: #1BB0CE;
+  border-bottom: 3px solid #1BB0CE;
+  border-bottom: 3px solid #1BB0CE;
+}
+
+.flight-show:hover{
+  border-bottom: 3px solid #1BB0CE;
+  border-bottom: 3px solid #1BB0CE;
+}
+
 .center {
   text-align: center;
   align-items: center;
