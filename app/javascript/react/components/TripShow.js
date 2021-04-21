@@ -271,12 +271,11 @@ const TripShow = props =>{
       return(
         <div key={flight.id}>
           <div className="showhim">
-          <h3 className="flight-head blue-hover">Flight {flightNum}</h3>
-            <div className="showme flight-show">
+          <h3 className="flight-head">Flight {flightNum}</h3>
+            <div className="showme blue-hover">
                 <h2 className="center text-white table-cell vert ">{flight.departing_airport} -> {flight.arriving_airport}<br/></h2><br/>
                 <p className="center text-white table-cell ">DEPARTS {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
-                <p className="center text-white table-cell ">RETURNS {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
-
+                <p className="center text-white table-cell ">ARRIVES {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
             </div>
           </div>
         </div>
@@ -307,7 +306,7 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
-            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white center vert table blue-hover">{userFlightList}</h5></div>
+            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white center vert table">{userFlightList}</h5></div>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>

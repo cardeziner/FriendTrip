@@ -15,7 +15,8 @@ const NewFlightForm = props =>{
     departing_airport:"",
     arriving_airport: "",
   })
-
+  // ebugger
+  // let handleInputChange
   if (props.currentUser){
     const handleInputChange = event =>{
       setNewFormPayload({
@@ -42,6 +43,11 @@ const NewFlightForm = props =>{
     const handleSubmit = event => {
       event.preventDefault()
       if (validForSubmission()) {
+        // setNewFormPayload({
+        //   ...newFormPayload,
+        //   user_id: props.currentUser.id,
+        //   user_name: props.currentUser.first_name
+        // })
         newFormPayload["user_id"] = props.currentUser.id
         newFormPayload["user_name"] = props.currentUser.first_name
         props.addNewFlight({ flight: newFormPayload })
