@@ -849,6 +849,12 @@ padding: 5px 10px 5px 5px;
   height: auto;
 }
 
+.fl-logo{
+  width: 45px;
+  height: auto;
+  vertical-align: middle;
+}
+
 .new-trip-bg{
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url("new-trip.jpg");
   background-attachment: fixed;

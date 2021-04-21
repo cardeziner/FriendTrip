@@ -15,6 +15,7 @@ import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
 import flight_logo from '../../../assets/images/Flight-logo.png'
+import flight_to from '../../../assets/images/flight_to.png'
 
 require('dotenv').config()
 
@@ -271,11 +272,12 @@ const TripShow = props =>{
       return(
         <div key={flight.id}>
           <div className="showhim">
-          <h3 className="flight-head">Flight {flightNum}</h3>
-            <div className="showme blue-hover">
-                <h2 className="center text-white table-cell vert ">{flight.departing_airport} -> {flight.arriving_airport}<br/></h2><br/>
-                <p className="center text-white table-cell ">DEPARTS {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
-                <p className="center text-white table-cell ">ARRIVES {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
+          <h3 className="text-blue">Flight {flightNum}</h3>
+            <div className="showme blue-hover no-top no-bot center">
+                <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
+                <h4 className="center text-white vert">{flight.airline}</h4>
+                <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+                <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
             </div>
           </div>
         </div>
@@ -289,7 +291,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
         <div key={props.trip.id} className="col-xs-9 col-md-5 font">
-          <h1 className="text-white vert left-red pad left"><p className="">TRIP INFO</p></h1>
+          <h1 className="text-white vert left-red pad left"><p className="">YOUR TRIP INFO</p></h1>
           <BackdropFilter
           className="bord vert"
           filter={"blur(20px)"}
@@ -306,7 +308,7 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
-            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white center vert table">{userFlightList}</h5></div>
+            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white left vert table">{userFlightList}</h5></div>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>

@@ -12,11 +12,14 @@ protect_from_forgery unless: -> { request.format.json? }
     events = trip.events
     user = current_user
     users = trip.users
+    user_flights = user.flights
     render json: {
       trip: trip,
       events: events,
       users: users,
-      flights: flights
+      user: user,
+      flights: flights,
+      user_flights: user_flights
     }
   end
 
