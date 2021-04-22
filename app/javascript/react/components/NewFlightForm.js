@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
+import { Redirect } from 'react-router-dom'
 
 const NewFlightForm = props =>{
   const [errors, setErrors] = useState({})
+  const [redirect, setRedirect] = useState(false)
   const [newFormPayload, setNewFormPayload] = useState({
     airline: "",
     on_time_status: "N/A",
@@ -65,7 +67,14 @@ const NewFlightForm = props =>{
           arriving_airport: "",
         })
         setErrors({})
+        setRedirect(true)
       }
+    }
+
+    if(redirect){
+      return(
+        <Redirect to={`/trips/${props.tripId}`}/>
+      )
     }
 
     return(
@@ -87,7 +96,8 @@ const NewFlightForm = props =>{
             <input
               name="on_time_status"
               id="on_time_status"
-              type="on_time_status"
+              type="checkbox"
+              checked="yes"
               onChange={handleInputChange}
               value={newFormPayload.on_time_status}
             />

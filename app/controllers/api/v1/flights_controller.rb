@@ -14,7 +14,7 @@ end
 
 def flight_data
   params = {
-    :access_key => ENV(AVIATION_KEY)
+    :access_key => ENV["AVIATION_KEY"]
     }
     uri = URI('https://api.aviationstack.com/v1/flights')
     uri.query = URI.encode_www_form(params)
@@ -32,6 +32,7 @@ def flight_data
           flight['arrival']['iata']
             )
     end
+    binding.pry
   end
 end
 
