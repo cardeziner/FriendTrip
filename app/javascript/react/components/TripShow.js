@@ -270,18 +270,33 @@ const TripShow = props =>{
   const userFlightList = sortedFlightList.map(flight =>{
     let flightNum = sortedFlightList.indexOf(flight) + 1
       return(
-        <div key={flight.id}>
-          <div className="showhim">
+        <div key={flight.id} className="showhim no-top">
           <h3 className="text-blue">Flight {flightNum}</h3>
-            <div className="showme blue-hover no-top no-bot center">
-                <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
-                <h4 className="center text-white vert">{flight.airline}</h4>
-                <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
-                <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
-            </div>
+          <div className="showme blue-hover no-top no-bot center">
+              <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
+              <h4 className="center text-white vert">{flight.airline}</h4>
+              <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+              <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
           </div>
         </div>
       )
+  })
+
+  const sortedTripFlightList = _.sortBy(flightData, 'user_name')
+
+  const tripUserFlightList = sortedTripFlightList.map(flight =>{
+
+    return(
+      <div key={flight.id} className="showhim row left">
+        <h3 className="col-3 text-blue left vert">{flight.user_name}</h3>
+        <div className="col-9 showme blue-hover no-top no-bot center">
+            <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
+            <h4 className="center text-white vert">{flight.airline}</h4>
+            <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+            <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
+        </div>
+      </div>
+    )
   })
 
 
@@ -308,7 +323,8 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
-            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h5 className="text-white left vert table">{userFlightList}</h5></div>
+            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h3 className="text-white vert">YOUR FLIGHTS</h3></div>
+            <h5 className="center">{userFlightList}</h5><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>
@@ -342,7 +358,7 @@ const TripShow = props =>{
                   >
                   <img src={flight_logo} className="icon inline vert"/><h2 className="inline text-blue vert center"> Group Flights</h2>
                   <h3 className="text-white center">({flightData.length}) flights added</h3>
-                  {tripFlightList}
+                  {tripUserFlightList}
                   <FlightTile
                   tripId={props.trip.id}
                   flightData={flightData}
