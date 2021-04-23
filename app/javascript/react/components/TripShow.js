@@ -360,7 +360,7 @@ const TripShow = props =>{
                 filter={"blur(20px)"}
                 >
                 <div className="no-top">
-                  <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert "> Scheduled Events </h2>
+                  <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}
