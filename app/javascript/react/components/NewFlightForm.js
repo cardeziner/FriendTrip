@@ -92,12 +92,11 @@ const NewFlightForm = props =>{
             />
           </label><br/>
           <label className="on_time_status text-white">
-            On-time status<br/>
+            Check if flights status is on-time<br/>
             <input
               name="on_time_status"
               id="on_time_status"
               type="checkbox"
-              checked="yes"
               onChange={handleInputChange}
               value={newFormPayload.on_time_status}
             />
