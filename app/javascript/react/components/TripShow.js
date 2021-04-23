@@ -191,7 +191,7 @@ const TripShow = props =>{
   const noEvents = () =>{
     if ((eventList.length === 0) || props.events.length < 1 ){
       return(
-        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW ADD ONE!<br/></h4>
+        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW ADD ONE!<br/><br/></h4>
       )
     }
   }
@@ -257,18 +257,10 @@ const TripShow = props =>{
     }
   )
 
-  const tripFlightList = flightData.map(flight =>{
-    return(
-      <div key={flight.id}>
-        <p className="text-white">{flight.airline}, {flight.departure_date}</p>
-      </div>
-    )
-  })
+  const sortedUserFlightList = _.sortBy(currentUserFlights, 'departure_date')
 
-  const sortedFlightList = _.sortBy(currentUserFlights, 'departure_date')
-
-  const userFlightList = sortedFlightList.map(flight =>{
-    let flightNum = sortedFlightList.indexOf(flight) + 1
+  const userFlightList = sortedUserFlightList.map(flight =>{
+    let flightNum = sortedUserFlightList.indexOf(flight) + 1
       return(
         <div key={flight.id} className="showhim no-top">
           <h3 className="text-blue">Flight {flightNum}</h3>
@@ -287,9 +279,9 @@ const TripShow = props =>{
   const tripUserFlightList = sortedTripFlightList.map(flight =>{
 
     return(
-      <div key={flight.id} className="showhim row left">
-        <h3 className="col-3 text-blue left vert">{flight.user_name}</h3>
-        <div className="col-9 showme blue-hover no-top no-bot center">
+      <div key={flight.id} className="showhim row flex">
+        <h3 className="col-3 text-blue left align-self-center left">{flight.user_name}</h3>
+        <div className="col-9 showme blue-hover no-top no-bot">
             <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
             <h4 className="center text-white vert">{flight.airline}</h4>
             <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
@@ -324,7 +316,8 @@ const TripShow = props =>{
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
             <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h3 className="text-white vert">YOUR FLIGHTS</h3></div>
-            <h5 className="center">{userFlightList}</h5><br/>
+            <h5 className="no-top center text-white">YOU CURRENTLY HAVE ({userFlightList.length}) FLIGHTS</h5>
+            <h5 className="center">{userFlightList}</h5><br/><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>
@@ -357,14 +350,8 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={flight_logo} className="icon inline vert"/><h2 className="inline text-blue vert center"> Group Flights</h2>
-                  <h3 className="text-white center">({flightData.length}) flights added</h3>
+                  <h5 className="text-white center">TRIPMEMBERS HAVE ADDED ({flightData.length}) FLIGHTS</h5>
                   {tripUserFlightList}
-                  <FlightTile
-                  tripId={props.trip.id}
-                  flightData={flightData}
-                  currentUser={currentUser}
-                  currentUserFlights={currentUserFlights}
-                  />
                   <div>
                   <h5 className="font center white-blue" onClick={change2}> + ADD A FLIGHT</h5>
                   <br/>
