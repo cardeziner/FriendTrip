@@ -263,7 +263,7 @@ const TripShow = props =>{
     let flightNum = sortedUserFlightList.indexOf(flight) + 1
       return(
         <div key={flight.id} className="showhim no-top">
-          <h3 className="text-blue">Flight {flightNum}</h3>
+          <h3 className="text-blue">- Flight {flightNum} -</h3>
           <div className="showme blue-hover no-top no-bot center">
               <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
               <h4 className="center text-white vert">{flight.airline}</h4>
@@ -274,13 +274,13 @@ const TripShow = props =>{
       )
   })
 
+
   const sortedTripFlightList = _.sortBy(flightData, 'user_name')
 
   const tripUserFlightList = sortedTripFlightList.map(flight =>{
-
     return(
-      <div key={flight.id} className="showhim row flex">
-        <h3 className="col-3 text-blue left align-self-center left">{flight.user_name}</h3>
+      <div key={flight.id} className="showhim row flex inline">
+        <h3 className="col-3 text-blue left align-self-center left inline center">{flight.user_name}</h3>
         <div className="col-9 showme blue-hover no-top no-bot">
             <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
             <h4 className="center text-white vert">{flight.airline}</h4>
@@ -290,6 +290,30 @@ const TripShow = props =>{
       </div>
     )
   })
+
+  const tripsNotice = () =>{
+    if (tripUserFlightList.length < 1){
+      return(
+        <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET! CLICK BELOW TO ADD ONE.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center">TRIPMEMBERS HAVE ADDED (<h5 className="text-yellow inline">{flightData.length}</h5>) FLIGHTS</h5>
+      )
+    }
+  }
+
+  const userTripsNotice = () =>{
+    if (userFlightList.length < 1){
+      return(
+        <h5 className="text-white center">YOU HAVE NOT ADDED ANY FLIGHTS YET. CLICK "+ADD A FLIGHT" BELOW GROUP FLIGHTS SECTION TO BEGIN.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center">YOU CURRENTLY HAVE (<h5 className="text-yellow inline">{userFlightList.length}</h5>) FLIGHTS SCHEDULED</h5>
+      )
+    }
+  }
 
 
 
@@ -316,7 +340,7 @@ const TripShow = props =>{
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
             <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h3 className="text-white vert">YOUR FLIGHTS</h3></div>
-            <h5 className="no-top center text-white">YOU CURRENTLY HAVE ({userFlightList.length}) FLIGHTS</h5>
+            {userTripsNotice()}
             <h5 className="center">{userFlightList}</h5><br/><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
@@ -350,7 +374,7 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={flight_logo} className="icon inline vert"/><h2 className="inline text-blue vert center"> Group Flights</h2>
-                  <h5 className="text-white center">TRIPMEMBERS HAVE ADDED ({flightData.length}) FLIGHTS</h5>
+                  {tripsNotice()}
                   {tripUserFlightList}
                   <div>
                   <h5 className="font center white-blue" onClick={change2}> + ADD A FLIGHT</h5>
