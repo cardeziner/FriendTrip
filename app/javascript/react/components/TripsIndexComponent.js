@@ -107,7 +107,7 @@ const TripsIndexComponent = (props) =>{
         <div className="">
           <div className="row bot-pad">
             <div className="col-xs-8 col-md-5 bord">
-            <img className="icon no-wrap" src={trips_logo}/><h5 className="yellow-title vert resize-font no-wrap">MY FRIENDTRIPS</h5>
+            <img className="icon no-wrap" src={trips_logo}/><h2 className="inline vert text-yellow">MY FRIENDTRIPS</h2>
               <BackdropFilter
               className="bord"
               filter={"blur(15px)"}
@@ -129,7 +129,7 @@ const TripsIndexComponent = (props) =>{
                   <Link to='trips/new' className="no-dec">
                   <h1 className="inline sides-pad text-yellow big">+</h1>
                   <h1 className="inline no-dec text-yellow center">NEW FRIENDTRIP</h1>
-                  </Link>
+                  </Link><br/>
                 </div>
                 <br/>
                 </BackdropFilter>

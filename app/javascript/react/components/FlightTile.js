@@ -2,35 +2,8 @@ import React, { useState, useEffect } from 'react'
 import NewFlightForm from './NewFlightForm'
 
 const FlightTile = props =>{
+  const [userFlights, setUserFlights] = useState([])
 
-  const [flightInfo, setFlightInfo] = useState({})
-  const flights = props.flightData
-
-  useEffect(() =>{
-    fetch(`/api/v1/flights`, {
-      credentials: "same-origin",
-        })
-    .then(response => {
-      if(response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`
-        error = new Error(errorMessage)
-        throw(error)
-      }
-    })
-    .then(response => response.json())
-    .then(parsedFlightData =>{
-      setFlightInfo(parsedFlightData.group_flights)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
-
-  const flightList = flights.map(flight =>{
-    return(
-      <h1>{flight.airline}</h1>
-    )
-  })
 //   useEffect(() =>{
 //     fetch("https://priceline-com.p.rapidapi.com/cars/SEA?pickup_date=2021-01-31T12%3A00&return_date=2021-02-10T12%3A00", {
 // 	"method": "GET",
@@ -58,9 +31,7 @@ const FlightTile = props =>{
 
   return(
     <div>
-    {flightList}
-    <NewFlightForm
-    />
+    <h1 className="text-white">{props.currentUser.first_name}</h1>
     </div>
   )
 }

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BackdropFilter from "react-backdrop-filter";
 import GoogleMapTile from './GoogleMapTile'
+import NewFlightForm from './NewFlightForm'
 import NewTripmemberForm from './NewTripmemberForm'
+import FlightTile from './FlightTile'
 import Unsplash from 'unsplash-js'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
@@ -12,8 +14,8 @@ import friends from '../../../assets/images/friends.png'
 import schedule from '../../../assets/images/schedule.png'
 import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
-import FlightTile from './FlightTile'
 import flight_logo from '../../../assets/images/Flight-logo.png'
+import flight_to from '../../../assets/images/flight_to.png'
 
 require('dotenv').config()
 
@@ -21,8 +23,11 @@ const TripShow = props =>{
   const [imageUrl, setImageUrl] = useState("")
   const [tripCity, setTripCity] = useState({})
   const [click, setClick] = useState(true)
-  const [toggle, setToggle] = useState("hide")
+  const [toggle1, setToggle1] = useState("hide")
+  const [toggle2, setToggle2] = useState("hide")
   const [flightData, setFlightData] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
+  const [currentUserFlights, setCurrentUserFlights] = useState([])
 
   const iD = (props.id - 1)
 
@@ -43,6 +48,28 @@ const TripShow = props =>{
     .then(parsedTripsData =>{
       setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }, [])
+
+  useEffect(() =>{
+    fetch(`/api/v1/users`, {
+      credentials: "same-origin",
+        })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedUsersData =>{
+      setCurrentUser(parsedUsersData.user)
+      setCurrentUserFlights(parsedUsersData.user_flights)
+
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -68,6 +95,33 @@ const TripShow = props =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`)),[]
   }
 
+  const addNewFlight = (formPayload) => {
+    fetch('/api/v1/flights', {
+        credentials: "same-origin",
+        method: 'POST',
+        body: JSON.stringify(formPayload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(parsedNewFlight => {
+        setFlight(parsedNewFlight)
+        setRedirect(true)
+      })
+      .catch(error => console.error(`Error in fetch: ${errorMessage}`))
+    }
+
   const url = imageUrl
 
   const dateByName = (date) =>{
@@ -76,20 +130,36 @@ const TripShow = props =>{
     let index = parseInt(splitDate[1]) + 1;
     if(date){
       return(
-        months[index] + ", " + date.split("-")[2] + " " + splitDate[0]
+        months[index] + " " + date.split("-")[2] + ", " + splitDate[0]
         )
       }else{
         console.log("ERROR")
       }
     }
 
-    function date(date) {
-      if (date) {
-        return(dateByName(date))
+  const formatAMPM = (unparsedDate) =>{
+    const parseddate = new Date(unparsedDate)
+    var hours = parseddate.getHours();
+    var minutes = parseddate.getMinutes();
+    if(hours >= 12){
+      return(`${(hours - 12)}:${minutes} PM`)
+    }
+    if(hours < 12){
+      if(hours === 0){
+        return(`12:${minutes} AM`)
+      }else{
+        return(`${hours}:${minutes} AM`)
       }
     }
+  }
 
-    const count = 0
+  function date(date) {
+    if (date) {
+      return(dateByName(date))
+    }
+  }
+
+  const count = 0
 
   const eventArray = []
 
@@ -121,7 +191,7 @@ const TripShow = props =>{
   const noEvents = () =>{
     if ((eventList.length === 0) || props.events.length < 1 ){
       return(
-        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW ADD ONE!<br/></h4>
+        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW ADD ONE!<br/><br/></h4>
       )
     }
   }
@@ -162,12 +232,21 @@ const TripShow = props =>{
   }
 
 
-  function change(){
+  function change1(){
     const v = document.getElementById("form-info")
-    if (toggle === "hide"){
-      setToggle("display")
+    if (toggle1 === "hide"){
+      setToggle1("display")
    }else{
-     setToggle("hide")
+     setToggle1("hide")
+    }
+  }
+
+  function change2(){
+    const v = document.getElementById("form-info")
+    if (toggle2 === "hide"){
+      setToggle2("display")
+   }else{
+     setToggle2("hide")
     }
   }
 
@@ -178,14 +257,74 @@ const TripShow = props =>{
     }
   )
 
+  const sortedUserFlightList = _.sortBy(currentUserFlights, 'departure_date')
+
+  const userFlightList = sortedUserFlightList.map(flight =>{
+    let flightNum = sortedUserFlightList.indexOf(flight) + 1
+      return(
+        <div key={flight.id} className="showhim no-top">
+          <h3 className="text-blue">- Flight {flightNum} -</h3>
+          <div className="showme blue-hover no-top no-bot center">
+              <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
+              <h4 className="center text-white vert">{flight.airline}</h4>
+              <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+              <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
+          </div>
+        </div>
+      )
+  })
+
+
+  const sortedTripFlightList = _.sortBy(flightData, 'user_name')
+
+  const tripUserFlightList = sortedTripFlightList.map(flight =>{
+    return(
+      <div key={flight.id} className="showhim row flex inline">
+        <h3 className="col-3 text-blue left align-self-center left inline center">{flight.user_name}</h3>
+        <div className="col-9 showme blue-hover no-top no-bot">
+            <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
+            <h4 className="center text-white vert">{flight.airline}</h4>
+            <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+            <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
+        </div>
+      </div>
+    )
+  })
+
+  const tripsNotice = () =>{
+    if (tripUserFlightList.length < 1){
+      return(
+        <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET! CLICK BELOW TO ADD ONE.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center">TRIPMEMBERS HAVE ADDED (<h5 className="text-yellow inline">{flightData.length}</h5>) FLIGHTS</h5>
+      )
+    }
+  }
+
+  const userTripsNotice = () =>{
+    if (userFlightList.length < 1){
+      return(
+        <h5 className="text-white center">YOU HAVE NOT ADDED ANY FLIGHTS YET. CLICK "+ADD A FLIGHT" BELOW GROUP FLIGHTS SECTION TO BEGIN.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center">YOU CURRENTLY HAVE (<h5 className="text-yellow inline">{userFlightList.length}</h5>) FLIGHTS SCHEDULED</h5>
+      )
+    }
+  }
+
+
+
   return(
     <div className="bg" style={sectionStyle}>
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
-        <div key={props.trip.id} className="col-xs-9 col-md-5 font grid">
-          <h1 className="text-white vert left-red pad left"><p className="">TRIP INFO</p></h1>
+        <div key={props.trip.id} className="col-xs-9 col-md-5 font">
+          <h1 className="text-white vert left-red pad left"><p className="">YOUR TRIP INFO</p></h1>
           <BackdropFilter
-          className="bord"
+          className="bord vert"
           filter={"blur(20px)"}
           >
             <GoogleMapTile
@@ -200,11 +339,13 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
+            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h3 className="text-white vert">YOUR FLIGHTS</h3></div>
+            {userTripsNotice()}
+            <h5 className="center">{userFlightList}</h5><br/><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
-            <div className="vert">FLIGHT INFO</div>
               <div>
-              <h5 className="font center accent-white" onClick={change}> + INVITE A FRIEND</h5>
-                <div id="form-info" className={toggle}>
+              <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>
+                <div id="form-info" className={toggle1}>
                   <NewTripmemberForm
                    trip_id={props.trip.id}
                   />
@@ -219,7 +360,7 @@ const TripShow = props =>{
                 filter={"blur(20px)"}
                 >
                 <div className="no-top">
-                  <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
+                  <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert "> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}
@@ -232,11 +373,20 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h1 className="inline text-blue vert">Group Flights</h1>
-                  <FlightTile
-                  tripId={props.trip.id}
-                  flightData={flightData}
-                  />
+                  <img src={flight_logo} className="icon inline vert"/><h2 className="inline text-blue vert center"> Group Flights</h2>
+                  {tripsNotice()}
+                  {tripUserFlightList}
+                  <div>
+                  <h5 className="font center white-blue" onClick={change2}> + ADD A FLIGHT</h5>
+                  <br/>
+                    <div id="form-info" className={toggle2}>
+                    <NewFlightForm
+                    currentUser={currentUser}
+                    tripId={props.id}
+                    addNewFlight={addNewFlight}
+                    />
+                    </div>
+                  </div>
                   </BackdropFilter>
                 </div>
             </div>

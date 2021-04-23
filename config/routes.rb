@@ -23,12 +23,10 @@ Rails.application.routes.draw do
         resources :events, only: [:index,:show, :create, :update]
       end
       resources :users, only: [:index, :new, :create]
-      resources :invites, only: [:index, :new, :create]
       resources :flights, only: [:index, :new, :create]
+      resources :invites, only: [:index, :new, :create]
     end
   end
-
-
 
   resources :users, only: [:index, :new, :create]
 

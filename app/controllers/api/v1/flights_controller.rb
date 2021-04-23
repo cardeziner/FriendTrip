@@ -4,10 +4,8 @@ require 'json'
 require 'pry'
 
 def index
-  render json: {
-    group_flights: Flight.find(params[:trip_id]),
-    user_flights: Flight.find(params[:current_user])
-  }
+  flights = Flight.all
+  render json: flights
 end
 
 def show
@@ -16,7 +14,7 @@ end
 
 def flight_data
   params = {
-    :access_key => ENV(AVIATION_KEY)
+    :access_key => ENV["AVIATION_KEY"]
     }
     uri = URI('https://api.aviationstack.com/v1/flights')
     uri.query = URI.encode_www_form(params)
@@ -34,18 +32,33 @@ def flight_data
           flight['arrival']['iata']
             )
     end
+    binding.pry
   end
 end
 
-def new
-
+def create
+  flight = Flight.create(strong_params)
+  tripflight = Tripflight.create(trip_id: trip_params["trip_id"], flight_id: flight.id)
+  userflight = Userflight.create(user_id: user_params["user_id"], flight_id: flight.id)
+  if flight.save && tripflight.save && userflight.save
+    render json: { flight: flight, tripflight: tripflight, userflight: userflight }
+  else
+    render json: { error: tripflight.errors.full_messages }, status: :unprocessable_entity
+  end
 end
 
-protected
+private
 
-def id_params
-  params.require(:trip).permit(:id)
+def user_params
+  params.require(:flight).permit(:user_id)
 end
 
+def trip_params
+  params.require(:flight).permit(:trip_id)
+end
+
+def strong_params
+  params.require(:flight).permit(:airline, :on_time_status, :departure_date, :departure_time, :arrival_date, :arrival_time, :user_name, :departing_airport, :arriving_airport)
+end
 
 end

@@ -321,6 +321,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   width: 100%;
 }
 
+.separate{
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
 .top-margin {
   margin-top: 50px;
 }
@@ -562,6 +567,27 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   font-family: 'Francois One', sans-serif;
 }
 
+.flight-head{
+  color: white;
+  font-family: 'Francois One', sans-serif;
+}
+
+.blue-hover:hover{
+  border-top: 3px solid #1BB0CE;
+  border-bottom: 3px solid #1BB0CE;
+}
+
+.flight-head:hover{
+  color: #1BB0CE;
+  border-bottom: 3px solid #1BB0CE;
+  border-bottom: 3px solid #1BB0CE;
+}
+
+.flight-show:hover{
+  border-bottom: 3px solid #1BB0CE;
+  border-bottom: 3px solid #1BB0CE;
+}
+
 .center {
   text-align: center;
   align-items: center;
@@ -641,6 +667,27 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 
 .no-pad{
   padding: 0;
+}
+
+.white-blue{
+  font-family: 'Francois One', sans-serif;
+  color: white;
+  font-weight: bold;
+}
+
+.bold-blue{
+  font-family: 'Francois One', sans-serif;
+  color: #1BB0CE;
+  font-weight: bold;
+}
+
+.white-blue:hover {
+  font-family: 'Francois One', sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  transform: scale(1.25);
+  color: #1BB0CE;
+  text-decoration: none;
 }
 
 .accent-white:hover {
@@ -800,6 +847,12 @@ padding: 5px 10px 5px 5px;
 .logo{
   width: 200px;
   height: auto;
+}
+
+.fl-logo{
+  width: 45px;
+  height: auto;
+  vertical-align: middle;
 }
 
 .new-trip-bg{
