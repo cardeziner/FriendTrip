@@ -13,8 +13,7 @@ def show
 end
 
 def flight_data
-
-  url = URI("https://airport-on-time-performance.p.rapidapi.com/airport/predictions/on-time?airportCode=BOS&date=2021-04-29")
+  url = URI("https://flight-data4.p.rapidapi.com/get_flight_info?flight=F9402")
 
   http = Net::HTTP.new(url.host, url.port)
   http.use_ssl = true
@@ -22,15 +21,15 @@ def flight_data
 
   request = Net::HTTP::Get.new(url)
   request["x-rapidapi-key"] = '26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07'
-  request["x-rapidapi-host"] = 'airport-on-time-performance.p.rapidapi.com'
+  request["x-rapidapi-host"] = 'flight-data4.p.rapidapi.com'
 
   response = http.request(request)
-  
+  binding.pry
   puts response.read_body
 end
 
 def create
-
+  flight_data
   flight = Flight.create(strong_params)
   tripflight = Tripflight.create(trip_id: trip_params["trip_id"], flight_id: flight.id)
   userflight = Userflight.create(user_id: user_params["user_id"], flight_id: flight.id)

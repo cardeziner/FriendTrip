@@ -17,6 +17,8 @@ const NewFlightForm = props =>{
     departing_airport:"",
     arriving_airport: "",
   })
+
+
   // ebugger
   // let handleInputChange
   if (props.currentUser){
