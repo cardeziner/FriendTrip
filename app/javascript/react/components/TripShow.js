@@ -26,6 +26,7 @@ const TripShow = props =>{
   const [toggle1, setToggle1] = useState("hide")
   const [toggle2, setToggle2] = useState("hide")
   const [toggle3, setToggle3] = useState("hide")
+  const [toggle4, setToggle4] = useState("hide")
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
@@ -260,8 +261,34 @@ const TripShow = props =>{
     }
   }
 
+  function change3(){
+    const v = document.getElementById("flight-list")
+    if (toggle3 === "hide"){
+      setToggle3("display")
+   }else{
+     setToggle3("hide")
+    }
+  }
+
+  function change4(){
+    const v = document.getElementById("flight-list")
+    if (toggle4 === "hide"){
+      setToggle4("display")
+   }else{
+     setToggle4("hide")
+    }
+  }
+
   function arrow(){
     if (toggle3 === "hide"){
+      return(<h1 className="inline"> +</h1>)
+    }else{
+      return(<h1 className="inline"> -</h1>)
+    }
+  }
+
+  function arrow1(){
+    if (toggle4 === "hide"){
       return(<h1 className="inline"> +</h1>)
     }else{
       return(<h1 className="inline"> -</h1>)
@@ -357,7 +384,7 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
-            <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h2 className="vert blue-click pad inline">Your Flights{arrow()}</h2></h3>
+            <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h2 className="vert blue-click inline">Your Flights{arrow()}</h2></h3>
             {userTripsNotice()}
             <div className="center"><h5 id="flight-list" className={toggle3}>{userFlightList}</h5><br/><br/></div>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
@@ -391,9 +418,11 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h2 className="inline text-blue vert center"> Group Flights</h2>
+                  <img src={flight_logo} className="icon inline vert"/><h2 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h2>
+                  <div id="flight-list" className={toggle4}>
                   {tripsNotice()}
                   {tripUserFlightList}
+                  </div>
                   <div>
                   <h5 className="font center white-blue" onClick={change2}> + ADD A FLIGHT</h5>
                   <br/>
