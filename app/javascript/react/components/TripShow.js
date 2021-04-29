@@ -25,6 +25,7 @@ const TripShow = props =>{
   const [click, setClick] = useState(true)
   const [toggle1, setToggle1] = useState("hide")
   const [toggle2, setToggle2] = useState("hide")
+  const [toggle3, setToggle3] = useState("hide")
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
@@ -250,6 +251,23 @@ const TripShow = props =>{
     }
   }
 
+  function change3(){
+    const v = document.getElementById("flight-list")
+    if (toggle3 === "hide"){
+      setToggle3("display")
+   }else{
+     setToggle3("hide")
+    }
+  }
+
+  function arrow(){
+    if (toggle3 === "hide"){
+      return(<h1 className="inline"> +</h1>)
+    }else{
+      return(<h1 className="inline"> -</h1>)
+    }
+  }
+
   let tally = 0
 
   const amountOwed = eventArray.map(cost =>{
@@ -263,7 +281,7 @@ const TripShow = props =>{
     let flightNum = sortedUserFlightList.indexOf(flight) + 1
       return(
         <div key={flight.id} className="showhim no-top">
-          <h3 className="text-blue">- Flight {flightNum} -</h3>
+          <h3 className="text-blue"> Flight {flightNum} </h3>
           <div className="showme blue-hover no-top no-bot center">
               <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
               <h4 className="center text-white vert">{flight.airline}</h4>
@@ -339,9 +357,9 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
-            <div className="flex"><img src={flight_logo} className="inline icon fifty"/><h3 className="text-white vert">YOUR FLIGHTS</h3></div>
+            <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h2 className="vert blue-click pad inline">Your Flights{arrow()}</h2></h3>
             {userTripsNotice()}
-            <h5 className="center">{userFlightList}</h5><br/><br/>
+            <div className="center"><h5 id="flight-list" className={toggle3}>{userFlightList}</h5><br/><br/></div>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>
