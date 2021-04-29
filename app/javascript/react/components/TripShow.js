@@ -419,12 +419,13 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={flight_logo} className="icon inline vert"/><h2 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h2>
+                  {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
-                  {tripsNotice()}
+
                   {tripUserFlightList}
                   </div>
                   <div>
-                  <h5 className="font center white-blue" onClick={change2}> + ADD A FLIGHT</h5>
+                  <h5 className="font center white-blue" onClick={change2}>+ ADD A FLIGHT</h5>
                   <br/>
                     <div id="form-info" className={toggle2}>
                     <NewFlightForm
