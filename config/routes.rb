@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "/trips", to: 'static_pages#index'
   get "/aboutus", to: 'static_pages#index'
+  get "/hotels", to: 'static_pages#index'
   get "/tripflights", to: 'static_pages#index'
   get "/trips/new", to: 'static_pages#index'
   get "/trips/:id", to: 'static_pages#index'
@@ -23,10 +24,12 @@ Rails.application.routes.draw do
         resources :events, only: [:index,:show, :create, :update]
       end
       resources :users, only: [:index, :new, :create]
+      resources :hotels, only: [:index, :new, :create]
       resources :flights, only: [:index, :new, :create]
       resources :invites, only: [:index, :new, :create]
     end
   end
+
 
   resources :users, only: [:index, :new, :create]
 
