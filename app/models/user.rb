@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_many :trips, through: :tripmembers
   has_many :userflights
   has_many :flights, through: :userflights
-  has_many :hotels
+  has_many :userhotels
+  has_many :hotels, through: :userhotels
 
   # # Include default devise modules. Others available are:
   # # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
