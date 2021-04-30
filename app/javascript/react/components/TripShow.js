@@ -422,7 +422,7 @@ const TripShow = props =>{
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
 
-                  {tripUserFlightList}
+                  {tripUserFlightList}<br/>
                   </div>
                   <div>
                   <h5 className="font center white-blue" onClick={change2}>+ ADD A FLIGHT</h5>
