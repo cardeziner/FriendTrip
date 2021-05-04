@@ -1,6 +1,5 @@
 class Hotel < ApplicationRecord
   belongs_to :trip
   belongs_to :user
-  has_many :userflights
-  
+  has_many :userhotels
 end
