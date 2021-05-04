@@ -10,8 +10,6 @@ class Scraper
     doc = Nokogiri::HTML(html)
 
     # airbnb_info = doc.xpath("//h1")[0]
-
-    binding.pry
   end
 
   scrape = Scraper.new

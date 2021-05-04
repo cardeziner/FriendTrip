@@ -308,7 +308,7 @@ const TripShow = props =>{
     let flightNum = sortedUserFlightList.indexOf(flight) + 1
       return(
         <div key={flight.id} className="showhim no-top">
-          <h3 className="text-blue"> Flight {flightNum} </h3>
+          <h3 className="text-blue"> {flight.departing_airport} to {flight.arriving_airport}</h3>
           <div className="showme blue-hover no-top no-bot center">
               <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
               <h4 className="center text-white vert">{flight.airline}</h4>
