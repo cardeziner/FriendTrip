@@ -1,7 +1,7 @@
 class Api::V1::FlightsController < ApplicationController
+require 'uri'
 require 'net/http'
-require 'json'
-require 'pry'
+require 'openssl'
 
 def index
   flights = Flight.all
@@ -13,27 +13,19 @@ def show
 end
 
 def flight_data
-  params = {
-    :access_key => ENV["AVIATION_KEY"]
-    }
-    uri = URI('https://api.aviationstack.com/v1/flights')
-    uri.query = URI.encode_www_form(params)
-    json = Net::HTTP.get(uri)
-    api_response = JSON.parse(json)
-
-    for flight in api_response['results']
-      unless flight['live']['is_ground']
-        puts sprintf("%s flight %s from %s (%s) to %s (%s) is in the air.",
-          flight['airline']['name'],
-          flight['flight']['iata'],
-          flight['departure']['airport'],
-          flight['departure']['iata'],
-          flight['arrival']['airport'],
-          flight['arrival']['iata']
-            )
-    end
-    binding.pry
-  end
+  # url = URI("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2021-09-01?inboundpartialdate=2021-12-01")
+  #
+  # http = Net::HTTP.new(url.host, url.port)
+  # http.use_ssl = true
+  # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  #
+  # request = Net::HTTP::Get.new(url)
+  # request["x-rapidapi-key"] = '26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07'
+  # request["x-rapidapi-host"] = 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
+  #
+  # response = http.request(request)
+  #
+  # puts response.read_body
 end
 
 def create

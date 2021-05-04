@@ -10,7 +10,7 @@ class CreateHotels < ActiveRecord::Migration[5.2]
       t.time :check_in_time
       t.time :check_out_time
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

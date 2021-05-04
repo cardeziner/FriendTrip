@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_003638) do
+ActiveRecord::Schema.define(version: 2021_05_04_044538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_003638) do
     t.time "check_out_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
   end
 
   create_table "invites", force: :cascade do |t|
@@ -102,6 +103,15 @@ ActiveRecord::Schema.define(version: 2021_04_11_003638) do
     t.datetime "updated_at", null: false
     t.index ["flight_id"], name: "index_userflights_on_flight_id"
     t.index ["user_id"], name: "index_userflights_on_user_id"
+  end
+
+  create_table "userhotels", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "hotel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hotel_id"], name: "index_userhotels_on_hotel_id"
+    t.index ["user_id"], name: "index_userhotels_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
