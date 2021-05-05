@@ -28,4 +28,4 @@
 #
 # tripflight2 = Tripflight.create(trip_id: 2, flight_id: 3)
 
-hotel1 = Hotel.create(address: "2400 Wazee Street", city: "Denver", state: "CO", check_in_day: "2021/4/29", check_in_time: "10:00:00", check_out_day: "2021/5/03", check_out_time: "12:00:00", name: "Crawford Hotel")
+hotel1 = Hotel.create(name: "Crawford Hotel", address: "2400 Wazee Street", city: "Denver", state: "CO", check_in: "2021-05-04 21:45:23", check_out: "2021-05-04 21:45:24")
