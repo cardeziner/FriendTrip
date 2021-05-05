@@ -16,6 +16,7 @@ import cashbag from '../../../assets/images/cashbag.png'
 import cost from '../../../assets/images/cost.png'
 import flight_logo from '../../../assets/images/Flight-logo.png'
 import flight_to from '../../../assets/images/flight_to.png'
+import hotel from '../../../assets/images/hotel.png'
 
 require('dotenv').config()
 
@@ -437,6 +438,16 @@ const TripShow = props =>{
                   </div>
                   </BackdropFilter>
                 </div>
+                <h1 className="text-white vert right-purp pad right-head inline"><p>Hotels</p></h1>
+                <div className=" col-xs-12 col-md-12 ">
+                  <BackdropFilter
+                  className="bord"
+                  filter={"blur(20px)"}
+                  >
+                  <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotels</h1>
+                  <h1>hello</h1>
+                  </BackdropFilter>
+                  </div>
             </div>
 
           </div>
