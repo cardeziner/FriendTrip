@@ -384,10 +384,11 @@ const TripShow = props =>{
           </div>
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
-            <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3><br/>
+            <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
             <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h2 className="vert blue-click inline">Your Flights{arrow()}</h2></h3>
             {userTripsNotice()}
-            <div className="center"><h5 id="flight-list" className={toggle3}>{userFlightList}</h5><br/><br/></div>
+            <div className="center"><h5 id="flight-list" className={toggle3}>{userFlightList}</h5></div>
+            <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 className="center font inline">Hotel Bookings</h3></h5><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>
@@ -406,7 +407,7 @@ const TripShow = props =>{
                 filter={"blur(20px)"}
                 >
                 <div className="no-top">
-                  <img src={schedule} className="corners vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
+                  <img src={schedule} className="icon inline vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}
@@ -419,7 +420,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h2 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h2>
+                  <img src={flight_logo} className="icon inline vert"/><h1 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h1>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
 
@@ -444,8 +445,8 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotels</h1>
-                  <h1>hello</h1>
+                  <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
+                  <h5 className="text-white center">HERE ARE THE GROUP BOOKINGS</h5><br/>
                   </BackdropFilter>
                   </div>
             </div>
