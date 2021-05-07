@@ -446,7 +446,7 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
-                  <h5 className="text-white center">HERE ARE THE GROUP BOOKINGS</h5><br/>
+                  <h5 className="text-white center">COMING SOON!</h5><br/>
                   </BackdropFilter>
                   </div>
             </div>
