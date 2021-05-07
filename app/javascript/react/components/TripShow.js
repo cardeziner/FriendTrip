@@ -387,7 +387,7 @@ const TripShow = props =>{
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
             <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h2 className="vert blue-click inline">Your Flights{arrow()}</h2></h3>
             {userTripsNotice()}
-            <div className="center"><h5 id="flight-list" className={toggle3}>{userFlightList}</h5></div>
+            <div className="center"><h5 id="flight-list" className={toggle3}><br/>{userFlightList}</h5></div>
             <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 className="center font inline">Hotel Bookings</h3></h5><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>

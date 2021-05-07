@@ -29,14 +29,23 @@ def flight_data
 end
 
 def create
-  flight = Flight.create(strong_params)
-  tripflight = Tripflight.create(trip_id: trip_params["trip_id"], flight_id: flight.id)
-  userflight = Userflight.create(user_id: user_params["user_id"], flight_id: flight.id)
-  if flight.save && tripflight.save && userflight.save
-    render json: { flight: flight, tripflight: tripflight, userflight: userflight }
+  flight = Flight.new(strong_params)
+  if flight.save
+    tripflight = Tripflight.new(trip_id: trip_params["trip_id"], flight_id: flight.id)
+    userflight = Userflight.new(user_id: current_user.id, flight_id: flight.id)
+    userflight = Userflight.new(user: current_user, flight: flight)
+
+    if tripflight.save && userflight.save
+      render json: { flight: flight, tripflight: tripflight, userflight: userflight }
+    else
+      render json: { error: [tripflight.errors.full_messages, userflight.errors.full_messages] }, status: :unprocessable_entity
+      # look at how error is being received and handle potential array
+    end
   else
-    render json: { error: tripflight.errors.full_messages }, status: :unprocessable_entity
+    render json: { error: flight.errors.full_messages }, status: :unprocessable_entity
   end
+
+
 end
 
 private
