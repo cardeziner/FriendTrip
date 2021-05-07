@@ -32,7 +32,6 @@ def create
   flight = Flight.new(strong_params)
   if flight.save
     tripflight = Tripflight.new(trip_id: trip_params["trip_id"], flight_id: flight.id)
-    userflight = Userflight.new(user_id: current_user.id, flight_id: flight.id)
     userflight = Userflight.new(user: current_user, flight: flight)
 
     if tripflight.save && userflight.save
