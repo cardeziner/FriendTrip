@@ -5,6 +5,7 @@ import GoogleMapTile from './GoogleMapTile'
 import NewFlightForm from './NewFlightForm'
 import NewTripmemberForm from './NewTripmemberForm'
 import FlightTile from './FlightTile'
+import GooglePlaceComponent from './GooglePlaceComponent'
 import Unsplash from 'unsplash-js'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
@@ -17,6 +18,7 @@ import cost from '../../../assets/images/cost.png'
 import flight_logo from '../../../assets/images/Flight-logo.png'
 import flight_to from '../../../assets/images/flight_to.png'
 import hotel from '../../../assets/images/hotel.png'
+
 
 require('dotenv').config()
 
@@ -446,7 +448,8 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
-                  <h5 className="text-white center">COMING SOON!</h5><br/>
+                  <GooglePlaceComponent
+                  />
                   </BackdropFilter>
                   </div>
             </div>
