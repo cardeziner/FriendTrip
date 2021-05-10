@@ -1,29 +1,72 @@
-import React, { useState, useEffect } from 'react'
+import React, { Component } from 'react'
 import SearchBar from 'material-ui-search-bar'
 import Script from 'react-load-script'
 
-const GooglePlaceComponent = (props) =>{
-  const [parameters, setParameters] = useState({
-    city: 'Denver',
-    query: 'Crawford Hotel'
-  })
+class GooglePlaceComponent extends Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      city: '',
+      query: ''
+    };
+  }
 
+  handleScriptLoad = () => {
+    // Declare Options For Autocomplete
+    const options = {
+      types: ['establishment'],
+    };
 
+    // Initialize Google Autocomplete
+    /*global google*/ // To disable any eslint 'google not defined' errors
+    this.autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete'),
+      options,
+    );
 
-  return(
-    <div>
-      <Script url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfko-fZFYDu55aKlWlZUVAAL0sXsbrbqo&libraries=places"
-        onLoad={this.handleScriptLoad}
-      />   
-      <SearchBar
-      id="autocomplete"
-      placeholder=""
-      hinttext={parameters.city}
-      value=""
-      className="search"
-      />
-    </div>
-  )
+    // Avoid paying for data that you don't need by restricting the set of
+    // place fields that are returned to just the address components and formatted
+    // address.
+    this.autocomplete.setFields(['address_components', 'formatted_address']);
+
+    // Fire Event when a suggested name is selected
+    this.autocomplete.addListener('place_changed', this.handlePlaceSelect);
+  }
+
+  handlePlaceSelect = () => {
+
+    // Extract City From Address Object
+    const addressObject = this.autocomplete.getPlace();
+    const address = addressObject.address_components;
+
+    // Check if address is valid
+    if (address) {
+      // Set State
+      this.setState(
+        {
+          city: address[0].long_name,
+          query: addressObject.formatted_address,
+        }
+      );
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Script
+          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfko-fZFYDu55aKlWlZUVAAL0sXsbrbqo&libraries=places"
+          onLoad={this.handleScriptLoad}
+        />
+        <SearchBar id="autocomplete" placeholder="" hintText="Search Establishment" value={this.state.query}
+          style={{
+            margin: '0 auto',
+            maxWidth: 800,
+          }}
+        />
+      </div>
+    );
+  }
 }
 
 export default GooglePlaceComponent
