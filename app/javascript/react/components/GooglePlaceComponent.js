@@ -3,10 +3,10 @@ import SearchBar from 'material-ui-search-bar'
 import Script from 'react-load-script'
 
 const GooglePlaceComponent = (props) =>{
-  const [parameters, setParameters] = {
+  const [parameters, setParameters] = useState({
     city: 'Denver',
     query: 'Crawford Hotel'
-  }
+  })
 
 
 
@@ -16,7 +16,7 @@ const GooglePlaceComponent = (props) =>{
       id="autocomplete"
       placeholder=""
       hintText={parameters.city}
-      value={parameters.query}
+      value=""
       className="search"
       />
     </div>
