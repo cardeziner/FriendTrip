@@ -12,10 +12,13 @@ const GooglePlaceComponent = (props) =>{
 
   return(
     <div>
+      <Script url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfko-fZFYDu55aKlWlZUVAAL0sXsbrbqo&libraries=places"
+        onLoad={this.handleScriptLoad}
+      />   
       <SearchBar
       id="autocomplete"
       placeholder=""
-      hintText={parameters.city}
+      hinttext={parameters.city}
       value=""
       className="search"
       />
