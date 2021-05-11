@@ -6,6 +6,7 @@ class GooglePlaceComponent extends Component{
   constructor(props){
     super(props)
     this.state = {
+      name: '',
       city: '',
       query: ''
     };
@@ -38,13 +39,13 @@ class GooglePlaceComponent extends Component{
     // Extract City From Address Object
     const addressObject = this.autocomplete.getPlace();
     const address = addressObject.address_components;
-    debugger
-    const hotelName = this.gm_accessors_.place.We.formattedPrediction.split(",")[0]
+
     // Check if address is valid
     if (address) {
       // Set State
       this.setState(
         {
+          name: this.gm_accessors_.place.We.formattedPrediction.split(",")[0],
           city: address[0].long_name,
           query: addressObject.formatted_address,
         }
@@ -65,6 +66,7 @@ class GooglePlaceComponent extends Component{
             maxWidth: 800,
           }}
         />
+        <h1>{this.state.name}</h1>
       </div>
     );
   }
