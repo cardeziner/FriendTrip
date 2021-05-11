@@ -34,11 +34,12 @@ class GooglePlaceComponent extends Component{
   }
 
   handlePlaceSelect = () => {
-
+//this.gm_accessors_.place.We.formattedPrediction
     // Extract City From Address Object
     const addressObject = this.autocomplete.getPlace();
     const address = addressObject.address_components;
-
+    debugger
+    const hotelName = this.gm_accessors_.place.We.formattedPrediction.split(",")[0]
     // Check if address is valid
     if (address) {
       // Set State
