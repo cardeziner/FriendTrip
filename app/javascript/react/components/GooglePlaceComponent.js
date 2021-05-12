@@ -1,75 +1,78 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import SearchBar from 'material-ui-search-bar'
 import Script from 'react-load-script'
 
-class GooglePlaceComponent extends Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      name: '',
-      city: '',
-      query: ''
-    };
-  }
 
-  handleScriptLoad = () => {
+const GooglePlaceComponent = (props) =>{
+  const [results, setResults] = useState({
+    name: '',
+    city: '',
+    query: ''
+  })
+
+  function handleScriptLoad(){
     // Declare Options For Autocomplete
+
+    // Initialize Google Autocomplete
+    /*global google*/ // To disable any eslint 'google not defined' errors
     const options = {
       types: ['establishment'],
     };
 
-    // Initialize Google Autocomplete
-    /*global google*/ // To disable any eslint 'google not defined' errors
-    this.autocomplete = new google.maps.places.Autocomplete(
+    const autocomplete = new google.maps.places.Autocomplete(
       document.getElementById('autocomplete'),
       options,
     );
-
     // Avoid paying for data that you don't need by restricting the set of
     // place fields that are returned to just the address components and formatted
     // address.
-    this.autocomplete.setFields(['address_components', 'formatted_address']);
-
+    autocomplete.setFields(['address_components', 'formatted_address']);
     // Fire Event when a suggested name is selected
-    this.autocomplete.addListener('place_changed', this.handlePlaceSelect);
+    autocomplete.addListener('place_changed', handlePlaceSelect());
   }
 
-  handlePlaceSelect = () => {
+  function handlePlaceSelect(){
 //this.gm_accessors_.place.We.formattedPrediction
     // Extract City From Address Object
-    const addressObject = this.autocomplete.getPlace();
+    const options = {
+      types: ['establishment'],
+    };
+
+    const autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete'),
+      options,
+    );
+    const addressObject = autocomplete.getPlace();
     const address = addressObject.address_components;
 
     // Check if address is valid
     if (address) {
       // Set State
-      this.setState(
+      setResults(
         {
-          name: this.gm_accessors_.place.We.formattedPrediction.split(",")[0],
-          city: address[0].long_name,
-          query: addressObject.formatted_address,
+          name: address.gm_accessors_.place.We.formattedPrediction.split(",")[0],
+          city: address.address[0].long_name,
+          query: address.formatted_address,
         }
       );
     }
   }
 
-  render() {
     return (
       <div>
         <Script
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfko-fZFYDu55aKlWlZUVAAL0sXsbrbqo&libraries=places"
-          onLoad={this.handleScriptLoad}
+          onLoad={handleScriptLoad}
         />
-        <SearchBar id="autocomplete" placeholder="" hintText="Search Establishment" value={this.state.query}
+        <SearchBar id="autocomplete" placeholder="" hintText="Search Establishment" value={results.query}
           style={{
             margin: '0 auto',
             maxWidth: 800,
           }}
         />
-        <h1>{this.state.name}</h1>
+        <h1></h1>
       </div>
     );
-  }
 }
 
 export default GooglePlaceComponent
