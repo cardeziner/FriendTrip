@@ -4,57 +4,41 @@ import Script from 'react-load-script'
 
 
 const GooglePlaceComponent = (props) =>{
-  const [results, setResults] = useState({
-    name: '',
-    city: '',
-    query: ''
+  const [results, setResults] = useState({})
+  const [place, setPlace] = useState({
+      name: '',
+      city: '',
+      query: ''
   })
 
-  function handleScriptLoad(){
-    // Declare Options For Autocomplete
 
-    // Initialize Google Autocomplete
-    /*global google*/ // To disable any eslint 'google not defined' errors
+  const handleScriptLoad = () =>{
     const options = {
       types: ['establishment'],
-    };
+    }
 
     const autocomplete = new google.maps.places.Autocomplete(
       document.getElementById('autocomplete'),
       options,
-    );
-    // Avoid paying for data that you don't need by restricting the set of
-    // place fields that are returned to just the address components and formatted
-    // address.
-    autocomplete.setFields(['address_components', 'formatted_address']);
-    // Fire Event when a suggested name is selected
-    autocomplete.addListener('place_changed', handlePlaceSelect());
+    )
+
+    autocomplete.setFields(['address_components', 'formatted_address'])
+    autocomplete.addListener('place_changed', handlePlaceSelect())
+
   }
 
-  function handlePlaceSelect(){
-//this.gm_accessors_.place.We.formattedPrediction
-    // Extract City From Address Object
-    const options = {
-      types: ['establishment'],
-    };
-
-    const autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete'),
-      options,
-    );
+  const handlePlaceSelect = () =>{
     const addressObject = autocomplete.getPlace();
     const address = addressObject.address_components;
-
-    // Check if address is valid
     if (address) {
-      // Set State
-      setResults(
+      setResults(address)
+      setPlace(
         {
           name: address.gm_accessors_.place.We.formattedPrediction.split(",")[0],
           city: address.address[0].long_name,
           query: address.formatted_address,
         }
-      );
+      )
     }
   }
 
@@ -64,13 +48,17 @@ const GooglePlaceComponent = (props) =>{
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfko-fZFYDu55aKlWlZUVAAL0sXsbrbqo&libraries=places"
           onLoad={handleScriptLoad}
         />
-        <SearchBar id="autocomplete" placeholder="" hintText="Search Establishment" value={results.query}
+        <SearchBar
+          id="autocomplete"
+          placeholder=""
+          hintText="Search Establishment"
+          onClick={handleScriptLoad}
           style={{
             margin: '0 auto',
             maxWidth: 800,
           }}
         />
-        <h1></h1>
+        <h1>hello{place.name}</h1>
       </div>
     );
 }
