@@ -30,15 +30,14 @@ end
 
 def create
   flight = Flight.new(strong_params)
-  # create new flight
+  trip = Trip.find(trip_params["trip_id"])
   flight.trip = Trip.find(trip_params["trip_id"])
   flight.user << current_user
+  usertripflights = trip.users(user_params["user_id"])
   if flight.save
-     if tripflight.save && userflight.save
-      # render json: { flight: flight, tripflight: tripflight, userflight: userflight }
       render json: { flight: flight }
     else
-      render json: { error: [tripflight.errors.full_messages, userflight.errors.full_messages] }, status: :unprocessable_entity
+      render json: { error: [flight.errors.full_messages }, status: :unprocessable_entity
       # look at how error is being received and handle potential array
     end
   else
