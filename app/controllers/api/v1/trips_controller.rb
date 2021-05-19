@@ -3,7 +3,10 @@ protect_from_forgery unless: -> { request.format.json? }
 
   def index
     user = current_user
-    render json: user.trips
+    render json: {
+      trips: user.trips,
+      user: user
+    }
   end
 
   def show

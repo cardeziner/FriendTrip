@@ -54,29 +54,30 @@ const TripShow = props =>{
       setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
       setCurrentUserFlights(parsedTripsData.user_flights)
+      setCurrentUser(parsedTripsData.user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  useEffect(() =>{
-    fetch(`/api/v1/users`, {
-      credentials: "same-origin",
-        })
-    .then(response => {
-      if(response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`
-        error = new Error(errorMessage)
-        throw(error)
-      }
-    })
-    .then(response => response.json())
-    .then(parsedUsersData =>{
-      setCurrentUser(parsedUsersData.user)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
+  // useEffect(() =>{
+  //   fetch(`/api/v1/users`, {
+  //     credentials: "same-origin",
+  //       })
+  //   .then(response => {
+  //     if(response.ok) {
+  //       return response
+  //     } else {
+  //       let errorMessage = `${response.status} (${response.statusText})`
+  //       error = new Error(errorMessage)
+  //       throw(error)
+  //     }
+  //   })
+  //   .then(response => response.json())
+  //   .then(parsedUsersData =>{
+  //
+  //   })
+  //   .catch(error => console.error(`Error in fetch: ${error.message}`))
+  // }, [])
 
     if(props.trip.city && click){
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
@@ -134,7 +135,7 @@ const TripShow = props =>{
     let index = parseInt(splitDate[1]) + 1;
     if(date){
       return(
-        months[index] + " " + date.split("-")[2] + ", " + splitDate[0]
+        months[index] + " " + splitDate[2] + ", " + splitDate[0]
         )
       }else{
         console.log("ERROR")
@@ -251,15 +252,6 @@ const TripShow = props =>{
       setToggle2("display")
    }else{
      setToggle2("hide")
-    }
-  }
-
-  function change3(){
-    const v = document.getElementById("flight-list")
-    if (toggle3 === "hide"){
-      setToggle3("display")
-   }else{
-     setToggle3("hide")
     }
   }
 
