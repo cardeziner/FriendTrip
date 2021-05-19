@@ -34,9 +34,13 @@ ActiveRecord::Schema.define(version: 2021_05_07_044620) do
     t.time "departure_time", null: false
     t.date "arrival_date", null: false
     t.time "arrival_time", null: false
+    t.bigint "trip_id", null: false
+    t.bigint "user_id", null: false
     t.string "user_name"
     t.string "departing_airport"
     t.string "arriving_airport"
+    t.index ["trip_id"], name: "index_flights_on_trip_id"
+    t.index ["user_id"], name: "index_flights_on_user_id"
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -64,15 +68,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_044620) do
     t.index ["recipient_id"], name: "index_invites_on_recipient_id"
     t.index ["sender_id"], name: "index_invites_on_sender_id"
     t.index ["token"], name: "index_invites_on_token"
-  end
-
-  create_table "tripflights", force: :cascade do |t|
-    t.bigint "trip_id"
-    t.bigint "flight_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["flight_id"], name: "index_tripflights_on_flight_id"
-    t.index ["trip_id"], name: "index_tripflights_on_trip_id"
   end
 
   create_table "tripmembers", force: :cascade do |t|
