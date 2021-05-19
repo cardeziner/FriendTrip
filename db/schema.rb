@@ -94,15 +94,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_044620) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "userflights", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "flight_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["flight_id"], name: "index_userflights_on_flight_id"
-    t.index ["user_id"], name: "index_userflights_on_user_id"
-  end
-
   create_table "userhotels", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "hotel_id"
