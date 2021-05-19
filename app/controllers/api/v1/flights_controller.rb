@@ -31,10 +31,9 @@ end
 def create
   flight = Flight.new(strong_params)
   trip = Trip.find(trip_params["trip_id"])
+  user = current_user
   flight.trip = trip
-  flight.users << current_user
-  binding.pry
-  usertripflights = trip.users(user_params["user_id"])
+  flight.user = user
   if flight.save
       render json: { flight: flight }
     else
