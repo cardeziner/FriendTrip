@@ -53,6 +53,7 @@ const TripShow = props =>{
     .then(parsedTripsData =>{
       setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
+      setCurrentUserFlights(parsedTripsData.user_flights)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -73,8 +74,6 @@ const TripShow = props =>{
     .then(response => response.json())
     .then(parsedUsersData =>{
       setCurrentUser(parsedUsersData.user)
-      setCurrentUserFlights(parsedUsersData.user_flights)
-
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])

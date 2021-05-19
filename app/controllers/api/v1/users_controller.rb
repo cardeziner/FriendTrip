@@ -8,7 +8,9 @@ after_action :process_invite_token, only: [:create]
     users = User.all
     user = current_user
     flights = Flight.all
-    user_flights = user.flights
+    trip = Trip.find(params[:id])
+    user_flights = user.flights.where(trip_id: trip.id)
+    binding.pry
     render json: {
     user: user,
     users: users,
