@@ -26,31 +26,11 @@ const TripsIndexComponent = (props) =>{
     })
     .then(response => response.json())
     .then(parsedTripData =>{
-      setTrips(parsedTripData)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
-
-  useEffect(() =>{
-    fetch('/api/v1/users', {
-      credentials: "same-origin"
-    })
-    .then(response => {
-      if(response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`
-        error = new Error(errorMessage)
-        throw(error)
-      }
-    })
-    .then(response => response.json())
-    .then(parsedTripData =>{
+      setTrips(parsedTripData.trips)
       setUser(parsedTripData.user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
-
 //unsplash api
   useEffect(() =>{
     fetch('https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=trip', {

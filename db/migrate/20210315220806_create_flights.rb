@@ -7,6 +7,8 @@ class CreateFlights < ActiveRecord::Migration[5.2]
       t.time :departure_time, null: false
       t.date :arrival_date, null: false
       t.time :arrival_time, null: false
+      t.belongs_to :trip, null: false
+      t.belongs_to :user, null: false
     end
   end
 end

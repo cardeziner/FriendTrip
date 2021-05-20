@@ -3,7 +3,10 @@ protect_from_forgery unless: -> { request.format.json? }
 
   def index
     user = current_user
-    render json: user.trips
+    render json: {
+      trips: user.trips,
+      user: user
+    }
   end
 
   def show
@@ -12,7 +15,7 @@ protect_from_forgery unless: -> { request.format.json? }
     events = trip.events
     user = current_user
     users = trip.users
-    user_flights = user.flights
+    user_flights = user.flights.where(trip_id: trip.id)
     render json: {
       trip: trip,
       events: events,
