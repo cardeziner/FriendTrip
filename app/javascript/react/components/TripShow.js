@@ -376,7 +376,7 @@ const TripShow = props =>{
             <div className="vert-line vert"></div><h5 className=" inline text-white resize-font">{(props.trip.city)}, {props.trip.state}</h5><div className="right">
           </div>
           </h3>
-          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{date(props.trip.start_date)} - {date(props.trip.end_date)}</h5></h3>
+          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
             <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h2 className="vert blue-click inline">Your Flights{arrow()}</h2></h3>
             {userTripsNotice()}
