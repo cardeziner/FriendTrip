@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import SearchBar from 'material-ui-search-bar'
 import Script from 'react-load-script'
 
-
 const GooglePlaceComponent = (props) =>{
+  debugger
   const [results, setResults] = useState({})
   const [place, setPlace] = useState({
       name: '',
@@ -23,7 +23,7 @@ const GooglePlaceComponent = (props) =>{
     )
 
     autocomplete.setFields(['address_components', 'formatted_address'])
-    autocomplete.addListener('place_changed', handlePlaceSelect())
+    autocomplete.addListener('select', handlePlaceSelect())
 
   }
 
@@ -52,7 +52,6 @@ const GooglePlaceComponent = (props) =>{
           id="autocomplete"
           placeholder=""
           hintText="Search Establishment"
-          onClick={handleScriptLoad}
           style={{
             margin: '0 auto',
             maxWidth: 800,
