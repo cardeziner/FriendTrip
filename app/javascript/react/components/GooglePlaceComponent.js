@@ -3,7 +3,6 @@ import SearchBar from 'material-ui-search-bar'
 import Script from 'react-load-script'
 
 const GooglePlaceComponent = (props) =>{
-  debugger
   const [results, setResults] = useState({})
   const [place, setPlace] = useState({
       name: '',
@@ -52,6 +51,7 @@ const GooglePlaceComponent = (props) =>{
           id="autocomplete"
           placeholder=""
           hintText="Search Establishment"
+          onClick={handleScriptLoad}
           style={{
             margin: '0 auto',
             maxWidth: 800,
