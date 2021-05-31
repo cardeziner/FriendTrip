@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import BackdropFilter from "react-backdrop-filter"
+import NewReviewForm from './NewReviewForm'
 
 const AboutUsPage = props =>{
   return(
@@ -28,7 +29,8 @@ const AboutUsPage = props =>{
           filter={"blur(20px)"}
           >
           <h1 className="bodytext center accent-red">Write a Review!</h1>
-          <h1 className="center bodytext text-yellow">COMING SOON...</h1>
+          <NewReviewForm
+          />
           </BackdropFilter>
         </div>
       </div>
