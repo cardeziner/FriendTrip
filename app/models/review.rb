@@ -1,4 +1,4 @@
-class Review < ActiveRecord
-  t.belongs_to :user
-  
+class Review < ApplicationRecord
+  belongs_to :user
+
 end

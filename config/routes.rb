@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       resources :hotels, only: [:index, :new, :create]
       resources :flights, only: [:index, :new, :create]
       resources :invites, only: [:index, :new, :create]
-      resourees :reviews, only: [:index]
+      resources :reviews, only: [:index, :new, :create]
     end
   end
 
