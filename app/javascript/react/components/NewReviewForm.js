@@ -56,10 +56,47 @@ const NewReviewForm = props =>{
       .catch(error => console.error(`Error in fetch: ${errorMessage}`))
     }
 
+    const handleSubmit = event =>{
+      event.preventDefault()
+        if (validForSubmission()) {
+          addNewReview({review: newFormPayload})
+          setNewFormPayload({
+            rating: 0,
+            review: ""
+          })
+          setErrors({})
+        }
+    }
+
+
+
 
 
   return(
-    <div>hello world</div>
+    <div>{errors.full_messages}
+      <form onSubmit={handleSubmit}>
+        <label>
+        Rating
+        <input
+          name="rating"
+          id="rating"
+          type="text"
+          onChange={handleInputChange}
+          value={newFormPayload.rating}
+        />
+        </label>
+        <label>
+        Please write your review below
+        <input
+          name="review"
+          id="review"
+          type="text"
+          onChange={handleInputChange}
+          value={newFormPayload.review}
+        />
+        </label>
+      </form>
+    </div>
   )
 }
 

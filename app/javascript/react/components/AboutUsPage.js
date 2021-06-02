@@ -4,6 +4,11 @@ import BackdropFilter from "react-backdrop-filter"
 import NewReviewForm from './NewReviewForm'
 
 const AboutUsPage = props =>{
+
+  const reviewList = () =>{
+    
+  }
+
   return(
     <div className="bg-gray">
       <h1 className="center title text-yellow">About Us</h1>
