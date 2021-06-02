@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import _ from lodash
 
 const NewReviewForm = props =>{
   const [review, setReview] = useState({})
@@ -71,18 +72,16 @@ const NewReviewForm = props =>{
   return(
     <div>{errors.full_messages}
       <form onSubmit={handleSubmit}>
-        <label>
-        Rating
-        <input
-          name="rating"
-          id="rating"
-          type="text"
-          onChange={handleInputChange}
-          value={newFormPayload.rating}
-        />
-        </label>
+        <select className="center" name="rating" id="rating">
+          <option value="1">☆</option>
+          <option value="1">☆☆</option>
+          <option value="1">☆☆☆</option>
+          <option value="1">☆☆☆☆</option>
+          <option value="1">☆☆☆☆☆</option>
+        </select>
         <label>
         Please write your review below
+        <textarea className="wide-text">
         <input
           name="review"
           id="review"
@@ -90,7 +89,8 @@ const NewReviewForm = props =>{
           onChange={handleInputChange}
           value={newFormPayload.review}
         />
-        </label>
+        </textarea>
+        </label><br/>
         <input className="btn btn-primary" type="submit" value="Submit"/><br/><br/>
       </form>
     </div>
