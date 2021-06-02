@@ -27,7 +27,16 @@ const AboutUsPage = props =>{
     }, [])
 
   const reviewList = () =>{
-
+    reviews.map(review =>{
+      let rating = (review.rating * "☆")
+      return(
+        <div>
+        <h1 className="center">{rating}</h1><br/>
+        <p>{review.user.first_name}</p>
+        <h4>{review.review}</h4>
+        </div>
+      )
+    })
   }
 
   return(
