@@ -2,10 +2,33 @@ import React, { useState, useEffect } from 'react'
 
 const NewReviewForm = props =>{
   const [review, setReview] = useState({})
+  const [errors, setErrors] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
     rating: 0,
     review: "",
   })
+
+  const handleInputChange = event =>{
+    setNewFormPayload({
+      ...newFormPayload,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  const validForSubmission = () =>{
+    let submitErrors = {}
+    const requiredFields = ["rating", "review"]
+    requiredFields.forEach(field =>{
+      if (newFormPayload[field].trim() === ""){
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
 
   const addNewReview = (formPayload) => {
     fetch('/api/v1/reviews', {
