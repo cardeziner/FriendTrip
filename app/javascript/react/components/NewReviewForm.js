@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import _ from lodash
 
 const NewReviewForm = props =>{
   const [review, setReview] = useState({})
