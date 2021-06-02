@@ -68,10 +68,6 @@ const NewReviewForm = props =>{
         }
     }
 
-
-
-
-
   return(
     <div>{errors.full_messages}
       <form onSubmit={handleSubmit}>
@@ -95,6 +91,7 @@ const NewReviewForm = props =>{
           value={newFormPayload.review}
         />
         </label>
+        <input className="btn btn-primary" type="submit" value="Submit"/><br/><br/>
       </form>
     </div>
   )

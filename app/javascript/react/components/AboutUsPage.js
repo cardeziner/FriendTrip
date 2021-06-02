@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import BackdropFilter from "react-backdrop-filter"
 import NewReviewForm from './NewReviewForm'
 
 const AboutUsPage = props =>{
+  const [reviews, setReviews] = useState([])
+
+  useEffect(() =>{
+    fetch(`/api/v1/reviews`, {
+      credentials: "same-origin"
+    })
+    .then(response =>{
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`
+            error = new Error(errorMessage)
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(parsedReviews => {
+        setReviews(parsedReviews)
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }, [])
 
   const reviewList = () =>{
-    
+
   }
 
   return(
