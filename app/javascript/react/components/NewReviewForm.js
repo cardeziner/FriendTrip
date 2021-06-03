@@ -19,6 +19,7 @@ const NewReviewForm = props =>{
     let submitErrors = {}
     const requiredFields = ["rating", "review"]
     requiredFields.forEach(field =>{
+      debugger
       if (newFormPayload[field].trim() === ""){
         submitErrors = {
           ...submitErrors,
@@ -68,19 +69,23 @@ const NewReviewForm = props =>{
         }
     }
 
+  const setValue = (value) =>{
+    newFormPayload["rating"] = value
+  }
+
   return(
     <div>{errors.full_messages}
       <form onSubmit={handleSubmit}>
         <select className="center" name="rating" id="rating">
-          <option value="1">☆</option>
-          <option value="1">☆☆</option>
-          <option value="1">☆☆☆</option>
-          <option value="1">☆☆☆☆</option>
-          <option value="1">☆☆☆☆☆</option>
+          <option className="center" onClick={setValue("1")}>☆</option>
+          <option className="center" onClick={setValue("2")}>☆☆</option>
+          <option className="center" onClick={setValue("3")}>☆☆☆</option>
+          <option className="center" onClick={setValue("4")}>☆☆☆☆</option>
+          <option className="center" onClick={setValue("5")}>☆☆☆☆☆</option>
         </select>
         <label>
         Please write your review below
-        <textarea className="wide-text">
+        <div className="wide-text">
         <input
           name="review"
           id="review"
@@ -88,8 +93,9 @@ const NewReviewForm = props =>{
           onChange={handleInputChange}
           value={newFormPayload.review}
         />
-        </textarea>
+        </div>
         </label><br/>
+        {errors.full_messages}
         <input className="btn btn-primary" type="submit" value="Submit"/><br/><br/>
       </form>
     </div>
