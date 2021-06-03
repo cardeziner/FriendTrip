@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 const NewReviewForm = props =>{
   const [review, setReview] = useState({})
   const [errors, setErrors] = useState({})
+  const [redirect, setRedirect] = useState(false)
   const [newFormPayload, setNewFormPayload] = useState({
     rating: 0,
     review: "",
@@ -19,7 +20,6 @@ const NewReviewForm = props =>{
     let submitErrors = {}
     const requiredFields = ["rating", "review"]
     requiredFields.forEach(field =>{
-      debugger
       if (newFormPayload[field].trim() === ""){
         submitErrors = {
           ...submitErrors,
@@ -30,6 +30,8 @@ const NewReviewForm = props =>{
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
   }
+
+  let value = "0"
 
   const addNewReview = (formPayload) => {
     fetch('/api/v1/reviews', {
@@ -58,50 +60,62 @@ const NewReviewForm = props =>{
     }
 
     const handleSubmit = event =>{
+
       event.preventDefault()
         if (validForSubmission()) {
+          newFormPayload["rating"] = value
           addNewReview({review: newFormPayload})
           setNewFormPayload({
             rating: 0,
             review: ""
           })
           setErrors({})
+          setRedirect(true)
         }
     }
 
-  const setValue = (value) =>{
-    newFormPayload["rating"] = value
+
+
+  const setVal = (val) =>{
+    let value = (val)
+  }
+
+  if(redirect){
+    return(
+      <Redirect to={`/trips/${props.tripId}`}/>
+    )
   }
 
   return(
     <div>{errors.full_messages}
       <form onSubmit={handleSubmit}>
       <label className="font">
-      Rating
-        <select className="center" name="rating" id="rating">
-          <option className="center" onClick={setValue("0")}>RATE US NOW!</option>
-          <option className="center" onClick={setValue("1")}>☆</option>
-          <option className="center" onClick={setValue("2")}>☆☆</option>
-          <option className="center" onClick={setValue("3")}>☆☆☆</option>
-          <option className="center" onClick={setValue("4")}>☆☆☆☆</option>
-          <option className="center" onClick={setValue("5")}>☆☆☆☆☆</option>
+      Select Rating
+        <select className="center form-field" name="rating" id="rating">
+          <option className="center" onClick={setVal("0")}>Click Here</option>
+          <option className="center" onClick={setVal("1")}>☆</option>
+          <option className="center" onClick={setVal("2")}>☆☆</option>
+          <option className="center" onClick={setVal("3")}>☆☆☆</option>
+          <option className="center" onClick={setVal("4")}>☆☆☆☆</option>
+          <option className="center" onClick={setVal("5")}>☆☆☆☆☆</option>
         </select>
         </label><br/>
         <label className="font">
-        Please write your review below
+        Enter Review Here
         <div>
         <input
           name="review"
           id="review"
           type="text"
-          width="1000px"
+          className="form-field"
           onChange={handleInputChange}
           value={newFormPayload.review}
         />
         </div>
         </label><br/>
         {errors.full_messages}
-        <input className="btn btn-primary" type="submit" value="Submit"/><br/><br/>
+        {props.reviewList}
+        <input className="btn btn-primary font" type="submit" value="Submit"/><br/><br/>
       </form>
     </div>
   )

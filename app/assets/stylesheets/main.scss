@@ -646,6 +646,15 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   color: white;
 }
 
+.form-field{
+  padding-left: 1px;
+  text-align: center;
+  padding-right: 1px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  border: 0 solid white;
+  border-radius: 7px;
+}
+
 .yellow-title{
   font-family: 'Francois One', sans-serif;
   color: #FABE28;

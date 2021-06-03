@@ -27,11 +27,10 @@ const AboutUsPage = props =>{
     }, [])
 
   const reviewList = reviews.map(review =>{
-
       return(
-        <div className="row vert inline">
-        <h4 className="col-3 center vert inline text-yellow">{review.rating}</h4><br/>
-        <h4 className="col-9 left vert inline">{review.review}</h4>
+        <div key={review.id} className="row table center">
+        <h4 className="col-4 center vert text-yellow inline-block">Rating:<br/>{review.rating}</h4><br/>
+        <h4 className="col-8 center vert text-white inline-block table-cell">{review.review}</h4>
         </div>
       )
     })
@@ -62,8 +61,9 @@ const AboutUsPage = props =>{
           >
           <h1 className="bodytext center accent-red">Write a Review!</h1>
           <NewReviewForm
+          reviewList={reviewList}
           />
-          {reviewList}
+
           </BackdropFilter>
         </div>
       </div>
