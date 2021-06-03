@@ -6,7 +6,8 @@ class Api::V1::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.user = current_user
+    user = current_user
+    @review.user = user
     if @review.save
       render json: {review: @review}
     else

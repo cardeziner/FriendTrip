@@ -26,18 +26,15 @@ const AboutUsPage = props =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
-  const reviewList = () =>{
-    reviews.map(review =>{
-      let rating = (review.rating * "☆")
+  const reviewList = reviews.map(review =>{
+
       return(
-        <div>
-        <h1 className="center">{rating}</h1><br/>
-        <p>{review.user.first_name}</p>
-        <h4>{review.review}</h4>
+        <div className="row vert inline">
+        <h4 className="col-3 center vert inline text-yellow">{review.rating}</h4><br/>
+        <h4 className="col-9 left vert inline">{review.review}</h4>
         </div>
       )
     })
-  }
 
   return(
     <div className="bg-gray">
@@ -66,6 +63,7 @@ const AboutUsPage = props =>{
           <h1 className="bodytext center accent-red">Write a Review!</h1>
           <NewReviewForm
           />
+          {reviewList}
           </BackdropFilter>
         </div>
       </div>

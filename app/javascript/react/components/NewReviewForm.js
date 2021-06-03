@@ -76,20 +76,25 @@ const NewReviewForm = props =>{
   return(
     <div>{errors.full_messages}
       <form onSubmit={handleSubmit}>
+      <label className="font">
+      Rating
         <select className="center" name="rating" id="rating">
+          <option className="center" onClick={setValue("0")}>RATE US NOW!</option>
           <option className="center" onClick={setValue("1")}>☆</option>
           <option className="center" onClick={setValue("2")}>☆☆</option>
           <option className="center" onClick={setValue("3")}>☆☆☆</option>
           <option className="center" onClick={setValue("4")}>☆☆☆☆</option>
           <option className="center" onClick={setValue("5")}>☆☆☆☆☆</option>
         </select>
-        <label>
+        </label><br/>
+        <label className="font">
         Please write your review below
-        <div className="wide-text">
+        <div>
         <input
           name="review"
           id="review"
           type="text"
+          width="1000px"
           onChange={handleInputChange}
           value={newFormPayload.review}
         />
