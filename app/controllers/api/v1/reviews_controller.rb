@@ -1,7 +1,12 @@
 class Api::V1::ReviewsController < ApplicationController
 
   def index
-    render json: Review.all
+    users = User.all
+    reviews = Review.all
+    render json: {
+      users: users,
+      reviews: reviews
+    }
   end
 
   def create

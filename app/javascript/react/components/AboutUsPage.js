@@ -5,6 +5,7 @@ import NewReviewForm from './NewReviewForm'
 
 const AboutUsPage = props =>{
   const [reviews, setReviews] = useState([])
+  const [users, setUsers] = useState([])
 
   useEffect(() =>{
     fetch(`/api/v1/reviews`, {
@@ -21,19 +22,15 @@ const AboutUsPage = props =>{
       })
       .then(response => response.json())
       .then(parsedReviews => {
-        setReviews(parsedReviews)
+        setReviews(parsedReviews.reviews)
+        setUsers(parsedReviews.users)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
-  const reviewList = reviews.map(review =>{
-      return(
-        <div key={review.id} className="row table center">
-        <h4 className="col-4 center vert text-yellow inline-block">Rating:<br/>{review.rating}</h4><br/>
-        <h4 className="col-8 center vert text-white inline-block table-cell">{review.review}</h4>
-        </div>
-      )
-    })
+
+
+
 
   return(
     <div className="bg-gray">
@@ -61,9 +58,9 @@ const AboutUsPage = props =>{
           >
           <h1 className="bodytext center accent-red">Write a Review!</h1>
           <NewReviewForm
-          reviewList={reviewList}
+          reviews={reviews}
+          users={users}
           />
-
           </BackdropFilter>
         </div>
       </div>

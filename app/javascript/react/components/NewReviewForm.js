@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 const NewReviewForm = props =>{
+
+
   const [review, setReview] = useState({})
   const [errors, setErrors] = useState({})
   const [redirect, setRedirect] = useState(false)
@@ -9,6 +11,8 @@ const NewReviewForm = props =>{
     review: "",
   })
 
+
+  if (props.users.length > 0){
   const handleInputChange = event =>{
     setNewFormPayload({
       ...newFormPayload,
@@ -86,6 +90,19 @@ const NewReviewForm = props =>{
     )
   }
 
+  const users = props.users
+
+  const reviewList = props.reviews.map(review =>{
+      let index = (review.user_id - 1)
+      return(
+        <div key={review.id} className="row center review-box">
+        <p>reviewer: {users[index].first_name}</p>
+        <h4 className="col-4 center vert text-yellow inline-block">Rating:<br/>{review.rating}</h4><br/>
+        <h4 className="col-8 center vert text-white inline-block table-cell">{review.review}</h4>
+        </div>
+      )
+    })
+
   return(
     <div>{errors.full_messages}
       <form onSubmit={handleSubmit}>
@@ -114,11 +131,15 @@ const NewReviewForm = props =>{
         </div>
         </label><br/>
         {errors.full_messages}
-        {props.reviewList}
+        {reviewList}
         <input className="btn btn-primary font" type="submit" value="Submit"/><br/><br/>
       </form>
     </div>
   )
+}else{
+  return(<div>please wait</div>)
 }
+}
+
 
 export default NewReviewForm
