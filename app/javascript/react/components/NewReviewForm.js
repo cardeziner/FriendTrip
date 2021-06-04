@@ -96,8 +96,8 @@ const NewReviewForm = props =>{
       let index = (review.user_id - 1)
       return(
         <div key={review.id} className="row center review-box">
-        <p>reviewer: {users[index].first_name}</p>
-        <h4 className="col-4 center vert text-yellow inline-block">Rating:<br/>{review.rating}</h4><br/>
+        <p className="text-white">reviewer: {users[index].first_name}</p>
+        <h4 className="col-4 center vert text-yellow inline-block"><br/>{review.rating}/5</h4><br/>
         <h4 className="col-8 center vert text-white inline-block table-cell">{review.review}</h4>
         </div>
       )
@@ -115,12 +115,12 @@ const NewReviewForm = props =>{
       <label className="font">
       Select Rating
         <select className="center form-field" name="rating" id="rating">
-          <option className="center" onClick={setVal("0")}>Click Here</option>
-          <option className="center" onClick={setVal("1")}>☆</option>
-          <option className="center" onClick={setVal("2")}>☆☆</option>
-          <option className="center" onClick={setVal("3")}>☆☆☆</option>
-          <option className="center" onClick={setVal("4")}>☆☆☆☆</option>
-          <option className="center" onClick={setVal("5")}>☆☆☆☆☆</option>
+          <option className="center" value="0">Click Here</option>
+          <option className="center" value="1">☆</option>
+          <option className="center" value="2">☆☆</option>
+          <option className="center" value="3">☆☆☆</option>
+          <option className="center" value="4">☆☆☆☆</option>
+          <option className="center" value="5">☆☆☆☆☆</option>
         </select>
         </label><br/>
         <label className="font">
