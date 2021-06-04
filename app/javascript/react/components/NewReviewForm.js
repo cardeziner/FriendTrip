@@ -103,9 +103,15 @@ const NewReviewForm = props =>{
       )
     })
 
+    // const avRating =
+    //
+    // const avRate = props.reviews.map(review =>{
+    //   avRating += review.rating
+    // })
+
   return(
     <div>{errors.full_messages}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="center">
       <label className="font">
       Select Rating
         <select className="center form-field" name="rating" id="rating">
@@ -131,9 +137,13 @@ const NewReviewForm = props =>{
         </div>
         </label><br/>
         {errors.full_messages}
-        {reviewList}
+
         <input className="btn btn-primary font" type="submit" value="Submit"/><br/><br/>
       </form>
+      <div className="review-box">
+      <h2 className="font left">Reviews</h2>
+      {reviewList}
+      </div>
     </div>
   )
 }else{

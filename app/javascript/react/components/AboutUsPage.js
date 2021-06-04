@@ -35,7 +35,7 @@ const AboutUsPage = props =>{
   return(
     <div className="bg-gray">
       <h1 className="center title text-yellow">About Us</h1>
-      <div className="row center">
+      <div className="row ">
         <div className="col-xs-9 col-md-5">
         <BackdropFilter
         className="bord pad"
