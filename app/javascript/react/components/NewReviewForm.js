@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import userphoto from '../../../assets/images/user_photo.png'
 
 const NewReviewForm = props =>{
 
@@ -95,10 +96,13 @@ const NewReviewForm = props =>{
   const reviewList = props.reviews.map(review =>{
       let index = (review.user_id - 1)
       return(
-        <div key={review.id} className="center review-box">
-        <p className="text-white">reviewer: {users[index].first_name}</p>
-        <h4 className=" center vert text-yellow inline-block"><br/>{review.rating}/5</h4><br/>
-        <h4 className=" center vert text-white inline-block table-cell">{review.review}</h4>
+        <div key={review.id} className="review-box">
+          <img src={userphoto} className="left-pad user-photo"/>
+          <div className="inline split">
+            <h3 className="text-white inline left vert">   {users[index].first_name} {users[index].last_name}</h3><h4 className=" vert text-yellow inline right">   {review.rating}/5</h4>
+          </div>
+
+          <h5 className=" center vert text-white inline-block table-cell pad">{review.review}</h5>
         </div>
       )
     })
@@ -142,7 +146,7 @@ const NewReviewForm = props =>{
       </form>
       <div className="review-box">
       <h2 className="font">Reviews</h2>
-      {reviewList}
+      <div className="inline-block">{reviewList}</div>
       </div>
     </div>
   )
