@@ -95,10 +95,10 @@ const NewReviewForm = props =>{
   const reviewList = props.reviews.map(review =>{
       let index = (review.user_id - 1)
       return(
-        <div key={review.id} className="row center review-box">
+        <div key={review.id} className="center review-box">
         <p className="text-white">reviewer: {users[index].first_name}</p>
-        <h4 className="col-4 center vert text-yellow inline-block"><br/>{review.rating}/5</h4><br/>
-        <h4 className="col-8 center vert text-white inline-block table-cell">{review.review}</h4>
+        <h4 className=" center vert text-yellow inline-block"><br/>{review.rating}/5</h4><br/>
+        <h4 className=" center vert text-white inline-block table-cell">{review.review}</h4>
         </div>
       )
     })
@@ -141,7 +141,7 @@ const NewReviewForm = props =>{
         <input className="btn btn-primary font" type="submit" value="Submit"/><br/><br/>
       </form>
       <div className="review-box">
-      <h2 className="font left">Reviews</h2>
+      <h2 className="font">Reviews</h2>
       {reviewList}
       </div>
     </div>
