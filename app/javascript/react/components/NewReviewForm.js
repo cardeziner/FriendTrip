@@ -93,15 +93,18 @@ const NewReviewForm = props =>{
 
   const users = props.users
 
+  const starify = (count) =>{
+    let star = "☆"
+    let result = star.repeat(count)
+    return(result)
+  }
+
   const reviewList = props.reviews.map(review =>{
       let index = (review.user_id - 1)
       return(
         <div key={review.id} className="review-box">
           <img src={userphoto} className="left-pad user-photo"/>
-          <div className="inline split">
-            <h3 className="text-white inline left vert">   {users[index].first_name} {users[index].last_name}</h3><h4 className=" vert text-yellow inline right">   {review.rating}/5</h4>
-          </div>
-
+            <h3 className="text-white inline left vert">{users[index].first_name} {users[index].last_name}</h3><h4 className=" vert accent-red inline right">{starify(review.rating)}</h4>
           <h5 className=" center vert text-white inline-block table-cell pad">{review.review}</h5>
         </div>
       )
