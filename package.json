@@ -26,6 +26,7 @@
     "google-map-react": "^1.1.7",
     "lodash": "^4.17.15",
     "material-ui-search-bar": "^1.0.0",
+    "node-sass": "^6.0.0",
     "opencage-api-client": "^0.7.1",
     "prop-types": "~15.6.0",
     "react": "~16.8.0",
@@ -45,8 +46,7 @@
     "recompose": "^0.30.0",
     "redbox-react": "1.6.0",
     "universal-config": "^0.3.0",
-    "unsplash-js": "^6.3.0",
-    "node-sass": "^6.0.0"
+    "unsplash-js": "^6.3.0"
   },
   "devDependencies": {
     "babel-jest": "^24.9.0",
