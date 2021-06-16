@@ -106,8 +106,6 @@ const NewReviewForm = props =>{
           <img src={userphoto} className="left-pad user-photo"/>
             <h3 className="text-white left vert">{users[index].first_name} {users[index].last_name}<span className="inline vert accent-red right">{starify(review.rating)}</span></h3>
           <h5 className=" center vert text-white inline-block table-cell pad">{review.review}</h5>
-</p>
-
         </div>
       )
     })

@@ -26,7 +26,7 @@ const GooglePlaceComponent = (props) =>{
     )
 
     autocomplete.setFields(['address_components', 'formatted_address'])
-    autocomplete.addListener('select', handlePlaceSelect())
+    autocomplete.addListener('place_changed', handlePlaceSelect())
     // this might work but try the
   }
 
@@ -46,10 +46,14 @@ const GooglePlaceComponent = (props) =>{
     }
   }
 
+  const googleAPI = process.env.REACT_APP_GOOGLE_API_KEY
+
+  const scriptURL = (`https://maps.googleapis.com/maps/api/js?key=${googleAPI}&libraries=places`).to_s
+
     return (
       <div>
         <Script
-          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfko-fZFYDu55aKlWlZUVAAL0sXsbrbqo&libraries=places"
+          url={scriptURL}
           onLoad={handleScriptLoad}
         />
         <SearchBar
