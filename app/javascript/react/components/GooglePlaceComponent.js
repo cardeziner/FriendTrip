@@ -10,24 +10,29 @@ const GooglePlaceComponent = (props) =>{
       query: ''
   })
 
+  // see if you can define `autocomplete` outside of handleScriptLoad
+
+  let autocomplete
+
 
   const handleScriptLoad = () =>{
     const options = {
       types: ['establishment'],
     }
 
-    const autocomplete = new google.maps.places.Autocomplete(
+    autocomplete = new google.maps.places.Autocomplete(
       document.getElementById('autocomplete'),
       options,
     )
 
     autocomplete.setFields(['address_components', 'formatted_address'])
     autocomplete.addListener('select', handlePlaceSelect())
-
+    // this might work but try the
   }
 
   const handlePlaceSelect = () =>{
     const addressObject = autocomplete.getPlace();
+    debugger
     const address = addressObject.address_components;
     if (address) {
       setResults(address)

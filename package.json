@@ -45,7 +45,8 @@
     "recompose": "^0.30.0",
     "redbox-react": "1.6.0",
     "universal-config": "^0.3.0",
-    "unsplash-js": "^6.3.0"
+    "unsplash-js": "^6.3.0",
+    "node-sass": "^6.0.0"
   },
   "devDependencies": {
     "babel-jest": "^24.9.0",
