@@ -7,10 +7,13 @@ const NewReviewForm = props =>{
   const [review, setReview] = useState({})
   const [errors, setErrors] = useState({})
   const [redirect, setRedirect] = useState(false)
+  const [val, setVal] = useState(0)
   const [newFormPayload, setNewFormPayload] = useState({
     rating: 0,
     review: "",
   })
+
+
 
 
   if (props.users.length > 0){
@@ -35,8 +38,6 @@ const NewReviewForm = props =>{
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
   }
-
-  let value = "0"
 
   const addNewReview = (formPayload) => {
     fetch('/api/v1/reviews', {
@@ -68,7 +69,7 @@ const NewReviewForm = props =>{
 
       event.preventDefault()
         if (validForSubmission()) {
-          newFormPayload["rating"] = value
+          newFormPayload["rating"] = val
           addNewReview({review: newFormPayload})
           setNewFormPayload({
             rating: 0,
@@ -81,8 +82,8 @@ const NewReviewForm = props =>{
 
 
 
-  const setVal = (val) =>{
-    let value = (val)
+  const setValue = (num) =>{
+    setVal(num)
   }
 
   if(redirect){
@@ -99,7 +100,7 @@ const NewReviewForm = props =>{
     return(result)
   }
 
-  const reviewList = props.reviews.map(review =>{
+  const reviewList = props.reviews.slice(0, 3).map(review =>{
       let index = (review.user_id - 1)
       return(
         <div key={review.id} className="review-box">
@@ -113,11 +114,11 @@ const NewReviewForm = props =>{
       )
     })
 
-    // const avRating =
-    //
-    // const avRate = props.reviews.map(review =>{
-    //   avRating += review.rating
-    // })
+    let val
+
+    function setVal(num){
+
+    }
 
   return(
     <div>{errors.full_messages}
@@ -125,7 +126,7 @@ const NewReviewForm = props =>{
       <label className="font">
         <select className="center form-field" name="rating" id="rating">
           <option className="center" value="0">Select Rating</option>
-          <option className="center" value="1">☆</option>
+          <option className="center" value="1" onClick={setValue(1)}>☆</option>
           <option className="center" value="2">☆☆</option>
           <option className="center" value="3">☆☆☆</option>
           <option className="center" value="4">☆☆☆☆</option>
@@ -146,12 +147,12 @@ const NewReviewForm = props =>{
         </div>
         </label><br/>
         {errors.full_messages}
-
         <input className="btn btn-primary font" type="submit" value="Submit"/><br/><br/>
       </form>
       <div className="review-box">
       <h1 className="font pad accent-red">Reviews</h1>
       <div className="inline-block">{reviewList}</div>
+      <a href="/reviews"><p className="center text-yellow yell-hov">SEE MORE...</p></a>
       </div>
     </div>
   )

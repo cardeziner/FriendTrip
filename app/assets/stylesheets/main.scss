@@ -143,6 +143,15 @@ hr {
   color: white;
 }
 
+.yell-hov{
+  text-color: #FABE28;
+}
+
+.yell-hov:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
 .between {
   display: flex;
   justify-content: space-between;

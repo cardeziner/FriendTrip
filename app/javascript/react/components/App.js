@@ -12,6 +12,7 @@ import NewTripmemberForm from './NewTripmemberForm'
 import FlightTile from './FlightTile'
 import EventEditContainer from './EventEditContainer'
 import NewFlightForm from './NewFlightForm'
+import ReviewListComponent from './ReviewListComponent'
 
 
 export const App = (props) => {
@@ -27,6 +28,7 @@ export const App = (props) => {
         <Route exact path='/aboutus' component={AboutUsPage}></Route>
         <Route exact path='/trips/:id/flights' component={FlightTile}></Route>
         <Route exact path='/invites/new' component={NewTripmemberForm}></Route>
+        <Route exact path='/reviews' component={ReviewListComponent}></Route>
       </Switch>
     </BrowserRouter>
   )
