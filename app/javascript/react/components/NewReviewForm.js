@@ -104,8 +104,8 @@ const NewReviewForm = props =>{
       return(
         <div key={review.id} className="review-box">
           <h1 className="between pad">
-            <h5 className="font left ">{users[index].first_name} {users[index].last_name}</h5>
-            <h5 className="font right">{starify(review.rating)}</h5>
+            <h4 className="font left text-yellow">{users[index].first_name} {users[index].last_name[0]}.</h4>
+            <h4 className="font right">{starify(review.rating)}</h4>
           </h1>
           <p className=" center vert text-white inline-block table-cell pad">{review.review}</p>
           <hr></hr>
@@ -123,9 +123,8 @@ const NewReviewForm = props =>{
     <div>{errors.full_messages}
       <form onSubmit={handleSubmit} className="center">
       <label className="font">
-      Select Rating
         <select className="center form-field" name="rating" id="rating">
-          <option className="center" value="0">Click Here</option>
+          <option className="center" value="0">Select Rating</option>
           <option className="center" value="1">☆</option>
           <option className="center" value="2">☆☆</option>
           <option className="center" value="3">☆☆☆</option>
@@ -151,7 +150,7 @@ const NewReviewForm = props =>{
         <input className="btn btn-primary font" type="submit" value="Submit"/><br/><br/>
       </form>
       <div className="review-box">
-      <h2 className="font">Reviews</h2>
+      <h1 className="font pad accent-red">Reviews</h1>
       <div className="inline-block">{reviewList}</div>
       </div>
     </div>
