@@ -103,9 +103,12 @@ const NewReviewForm = props =>{
       let index = (review.user_id - 1)
       return(
         <div key={review.id} className="review-box">
-          <img src={userphoto} className="left-pad user-photo"/>
-            <h3 className="text-white left vert">{users[index].first_name} {users[index].last_name}<span className="inline vert accent-red right">{starify(review.rating)}</span></h3>
-          <h5 className=" center vert text-white inline-block table-cell pad">{review.review}</h5>
+          <h1 className="between pad">
+            <h5 className="font left ">{users[index].first_name} {users[index].last_name}</h5>
+            <h5 className="font right">{starify(review.rating)}</h5>
+          </h1>
+          <p className=" center vert text-white inline-block table-cell pad">{review.review}</p>
+          <hr></hr>
         </div>
       )
     })
