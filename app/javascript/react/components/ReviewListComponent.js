@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 const ReviewListComponent = props =>{
+  const [users, setUserList] = useState([])
   const [reviews, setReviews] = useState([])
-  const [users, setUsers] = useState([])
+
   useEffect(() =>{
     fetch(`/api/v1/reviews`, {
       credentials: "same-origin",
@@ -19,14 +20,13 @@ const ReviewListComponent = props =>{
     .then(response => response.json())
     .then(parsedReviewsData =>{
       setReviews(parsedReviewsData.reviews)
-      setUsers(parsedReviewsData.users)
+      setUserList(parsedReviewsData.users)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
   const reviewList = reviews.map(review =>{
       let index = (review.user_id - 1)
-      debugger
       return(
         <div key={review.id} className="review-box">
           <h1 className="between pad">
@@ -39,8 +39,9 @@ const ReviewListComponent = props =>{
       )
     })
 
+
   return(
-    <div>hello from review list</div>
+    <div>{}</div>
   )
 }
 
