@@ -28,16 +28,14 @@ const NewReviewForm = props =>{
 
   const validForSubmission = () =>{
     let submitErrors = {}
-    const requiredFields = ["rating", "review"]
+    const requiredFields = ["review"]
     requiredFields.forEach(field =>{
-      if (newFormPayload[field].isNaN){
-      if (newFormPayload[field].trim() === ""){
+      if (newFormPayload[field].trim() === "" || newFormPayload === ""){
         submitErrors = {
           ...submitErrors,
           [field]: "is blank"
         }
       }
-    }
   })
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
@@ -102,8 +100,9 @@ const NewReviewForm = props =>{
     let result = colorStar.repeat(count) + remainder
     return(result)
   }
+  const sortedReviews = props.reviews.sort((a, b) => b.created_at - a.created_at)
 
-  const reviewList = props.reviews.slice(0, 3).map(review =>{
+  const reviewList = sortedReviews.slice(0, 3).map(review =>{
     let index = (review.user_id - 1)
     return(
       <div key={review.id} className="review-box">
@@ -117,12 +116,18 @@ const NewReviewForm = props =>{
     )
   })
 
+  const errorList = Object.keys(errors).map(error =>{
+    return(
+      error + " is blank!"
+    )
+  })
+
   return(
-    <div>{errors.full_messages}
+    <div>
       <form onSubmit={handleSubmit} className="center">
       <label className="font">
         <select id="rating" className="center form-field" name="rating" id="rating">
-          <option className="center">Select Rating</option>
+          <option className="center" value="">Select Rating</option>
           <option className="center" value={1}>☆</option>
           <option className="center" value={2}>☆☆</option>
           <option className="center" value={3}>☆☆☆</option>
@@ -143,12 +148,13 @@ const NewReviewForm = props =>{
         />
         </div>
         </label><br/>
-        {errors.full_messages}
+        <p className="accent-red center">{errorList}</p>
         <input className="btn btn-primary font" type="submit" value="Submit"/><br/><br/>
       </form>
       <div className="review-box">
       <h1 className="font pad accent-red">Reviews</h1>
       <div className="inline-block">{reviewList}</div>
+
       <a href="/reviews"><p className="center text-yellow yell-hov">SEE MORE...</p></a>
       </div>
     </div>
