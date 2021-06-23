@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_many :reviews
   has_many :flights
   has_many :tripmembers
   has_many :trips, through: :tripmembers
