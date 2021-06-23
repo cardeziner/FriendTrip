@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router'
 import userphoto from '../../../assets/images/user_photo.png'
 
 const NewReviewForm = props =>{
@@ -7,13 +8,16 @@ const NewReviewForm = props =>{
   const [review, setReview] = useState({})
   const [errors, setErrors] = useState({})
   const [redirect, setRedirect] = useState(false)
+  const [rating, setRating] = useState()
   const [val, setVal] = useState(0)
   const [newFormPayload, setNewFormPayload] = useState({
     rating: 0,
     review: "",
   })
 
-
+  function getVal(){
+   return document.getElementById("rating").value
+  }
 
 
   if (props.users.length > 0){
@@ -28,13 +32,15 @@ const NewReviewForm = props =>{
     let submitErrors = {}
     const requiredFields = ["rating", "review"]
     requiredFields.forEach(field =>{
+      if (newFormPayload[field].isNaN){
       if (newFormPayload[field].trim() === ""){
         submitErrors = {
           ...submitErrors,
           [field]: "is blank"
         }
       }
-    })
+    }
+  })
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
   }
@@ -69,7 +75,7 @@ const NewReviewForm = props =>{
 
       event.preventDefault()
         if (validForSubmission()) {
-          newFormPayload["rating"] = val
+          newFormPayload["rating"] = getVal()
           addNewReview({review: newFormPayload})
           setNewFormPayload({
             rating: 0,
@@ -86,11 +92,11 @@ const NewReviewForm = props =>{
     setVal(num)
   }
 
-  if(redirect){
-    return(
-      <Redirect to={`/trips/${props.tripId}`}/>
-    )
-  }
+  // if(redirect){
+  //   return(
+  //     <Redirect to={`/aboutus`}/>
+  //   )
+  // }
 
   const users = props.users
 
@@ -114,23 +120,17 @@ const NewReviewForm = props =>{
       )
     })
 
-    let val
-
-    function setVal(num){
-
-    }
-
   return(
     <div>{errors.full_messages}
       <form onSubmit={handleSubmit} className="center">
       <label className="font">
-        <select className="center form-field" name="rating" id="rating">
-          <option className="center" value="0">Select Rating</option>
-          <option className="center" value="1" onClick={setValue(1)}>☆</option>
-          <option className="center" value="2">☆☆</option>
-          <option className="center" value="3">☆☆☆</option>
-          <option className="center" value="4">☆☆☆☆</option>
-          <option className="center" value="5">☆☆☆☆☆</option>
+        <select id="rating" className="center form-field" name="rating" id="rating">
+          <option className="center">Select Rating</option>
+          <option className="center" value={1}>☆</option>
+          <option className="center" value={2}>☆☆</option>
+          <option className="center" value={3}>☆☆☆</option>
+          <option className="center" value={4}>☆☆☆☆</option>
+          <option className="center" value={5}>☆☆☆☆☆</option>
         </select>
         </label><br/>
         <label className="font">
