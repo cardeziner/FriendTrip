@@ -25,7 +25,7 @@ const ReviewListComponent = props =>{
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  debugger
+  
   // const reviewList = reviews.map(review =>{
   //     let index = (review.user_id - 1)
   //     return(

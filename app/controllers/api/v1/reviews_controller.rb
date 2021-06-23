@@ -2,6 +2,7 @@ class Api::V1::ReviewsController < ApplicationController
 
   def index
     users = User.all
+
     reviews = Review.all
     render json: {
       users: users,
