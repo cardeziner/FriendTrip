@@ -3,8 +3,6 @@ import { Redirect } from 'react-router'
 import userphoto from '../../../assets/images/user_photo.png'
 
 const NewReviewForm = props =>{
-
-
   const [review, setReview] = useState({})
   const [errors, setErrors] = useState({})
   const [redirect, setRedirect] = useState(false)
@@ -71,22 +69,19 @@ const NewReviewForm = props =>{
       .catch(error => console.error(`Error in fetch: ${errorMessage}`))
     }
 
-    const handleSubmit = event =>{
-
-      event.preventDefault()
-        if (validForSubmission()) {
-          newFormPayload["rating"] = getVal()
-          addNewReview({review: newFormPayload})
-          setNewFormPayload({
-            rating: 0,
-            review: ""
-          })
-          setErrors({})
-          setRedirect(true)
-        }
+  const handleSubmit = event =>{
+    event.preventDefault()
+      if (validForSubmission()) {
+        newFormPayload["rating"] = getVal()
+        addNewReview({review: newFormPayload})
+        setNewFormPayload({
+          rating: 0,
+          review: ""
+        })
+        setErrors({})
+        setRedirect(true)
     }
-
-
+  }
 
   const setValue = (num) =>{
     setVal(num)
@@ -101,24 +96,26 @@ const NewReviewForm = props =>{
   const users = props.users
 
   const starify = (count) =>{
-    let star = "☆"
-    let result = star.repeat(count)
+    let colorStar = "★"
+    let shadeStar = "☆"
+    let remainder = (shadeStar.repeat(5-count))
+    let result = colorStar.repeat(count) + remainder
     return(result)
   }
 
   const reviewList = props.reviews.slice(0, 3).map(review =>{
-      let index = (review.user_id - 1)
-      return(
-        <div key={review.id} className="review-box">
-          <h1 className="between pad">
-            <h4 className="font left text-yellow">{users[index].first_name} {users[index].last_name[0]}.</h4>
-            <h4 className="font right">{starify(review.rating)}</h4>
-          </h1>
-          <p className=" center vert text-white inline-block table-cell pad">{review.review}</p>
-          <hr></hr>
-        </div>
-      )
-    })
+    let index = (review.user_id - 1)
+    return(
+      <div key={review.id} className="review-box">
+        <h1 className="between pad">
+          <h4 className="font left text-yellow">{users[index].first_name} {users[index].last_name[0]}.</h4>
+          <h4 className="font right">{starify(review.rating)}</h4>
+        </h1>
+        <p className=" center vert text-white inline-block table-cell pad">{review.review}</p>
+        <hr></hr>
+      </div>
+    )
+  })
 
   return(
     <div>{errors.full_messages}
@@ -157,7 +154,7 @@ const NewReviewForm = props =>{
     </div>
   )
 }else{
-  return(<div>please wait</div>)
+  return(<div>PLEASE WAIT!</div>)
 }
 }
 

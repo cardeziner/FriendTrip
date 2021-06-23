@@ -4,7 +4,7 @@ class Api::V1::ReviewsController < ApplicationController
     users = User.all
     reviews = Review.all
     render json: {
-      users: users,
+      users: User.all,
       reviews: reviews
     }
   end
