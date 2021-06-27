@@ -5,3 +5,4 @@ require 'dotenv'
 Rails.application.initialize!
 
 Dotenv.load
+require('dotenv').config()
