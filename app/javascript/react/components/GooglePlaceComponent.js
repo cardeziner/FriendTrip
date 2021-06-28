@@ -32,7 +32,6 @@ const GooglePlaceComponent = (props) =>{
 
   const handlePlaceSelect = () =>{
     const addressObject = autocomplete.getPlace();
-    debugger
     const address = addressObject.address_components;
     if (address) {
       setResults(address)
@@ -53,6 +52,7 @@ const GooglePlaceComponent = (props) =>{
     return (
       <div>
         <Script
+          type="text/javascript"
           url={scriptURL}
           onLoad={handleScriptLoad}
         />
@@ -66,6 +66,7 @@ const GooglePlaceComponent = (props) =>{
             maxWidth: 800,
           }}
         />
+        <input className="btn btn-primary font" type="submit" value="Submit" onClick={handleScriptLoad}/>
         <h1>hello{place.name}</h1>
       </div>
     );
