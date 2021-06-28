@@ -13,7 +13,6 @@
 !/log/.keep
 !/tmp/.keep
 
-
 /node_modules
 /yarn-error.log
 
@@ -22,9 +21,14 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/local_env.yml
 .env
 /public/packs
 /public/packs-test
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore application configuration
+/config/application.yml
+/config/env.yml

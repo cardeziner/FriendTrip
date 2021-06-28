@@ -78,7 +78,6 @@ const TripShow = props =>{
   //   })
   //   .catch(error => console.error(`Error in fetch: ${error.message}`))
   // }, [])
-
     if(props.trip.city && click){
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",

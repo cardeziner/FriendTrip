@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import SearchBar from 'material-ui-search-bar'
 import Script from 'react-load-script'
 
-
 const GooglePlaceComponent = (props) =>{
   const [results, setResults] = useState({})
   const [place, setPlace] = useState({
@@ -11,24 +10,29 @@ const GooglePlaceComponent = (props) =>{
       query: ''
   })
 
+  // see if you can define `autocomplete` outside of handleScriptLoad
+
+  let autocomplete
+
 
   const handleScriptLoad = () =>{
     const options = {
       types: ['establishment'],
     }
 
-    const autocomplete = new google.maps.places.Autocomplete(
+    autocomplete = new google.maps.places.Autocomplete(
       document.getElementById('autocomplete'),
       options,
     )
 
     autocomplete.setFields(['address_components', 'formatted_address'])
     autocomplete.addListener('place_changed', handlePlaceSelect())
-
+    // this might work but try the
   }
 
   const handlePlaceSelect = () =>{
     const addressObject = autocomplete.getPlace();
+    debugger
     const address = addressObject.address_components;
     if (address) {
       setResults(address)
@@ -42,10 +46,14 @@ const GooglePlaceComponent = (props) =>{
     }
   }
 
+  const googleAPI = process.env.REACT_APP_GOOGLE_API_KEY
+
+  const scriptURL = (`https://maps.googleapis.com/maps/api/js?key=${googleAPI}&libraries=places`).to_s
+
     return (
       <div>
         <Script
-          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfko-fZFYDu55aKlWlZUVAAL0sXsbrbqo&libraries=places"
+          url={scriptURL}
           onLoad={handleScriptLoad}
         />
         <SearchBar

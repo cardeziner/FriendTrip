@@ -19,6 +19,10 @@ html, body {
   opacity: .95;
 }
 
+.clear{
+    clear:both;
+}
+
 .opac-black-tile{
   background-color: black;
   opacity: .75;
@@ -133,6 +137,24 @@ label{
   box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
   react-backdrop-filter: blur(10px);
   z-index: 1;
+}
+
+hr {
+  color: white;
+}
+
+.yell-hov{
+  text-color: #FABE28;
+}
+
+.yell-hov:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
 }
 
 .no-dec{
@@ -646,6 +668,20 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   color: white;
 }
 
+.form-field{
+  padding-left: 1px;
+  text-align: center;
+  padding-right: 1px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  border: 0 solid white;
+  border-radius: 7px;
+}
+
+.review-box{
+  border-radius: 7px;
+  background-color: #2B2B2B;
+}
+
 .yellow-title{
   font-family: 'Francois One', sans-serif;
   color: #FABE28;
@@ -910,6 +946,11 @@ padding: 5px 10px 5px 5px;
   opacity: .5;
 }
 
+.split{
+  display: flex;
+  justify-content: space-between;
+}
+
 .add-link:hover {
   text-decoration: none;
   transform: scale(1.5);
@@ -980,6 +1021,15 @@ padding: 5px 10px 5px 5px;
   box-shadow: 0 0 30px gray;
   spacing: 5%;
   position:relative;
+}
+
+.user-photo{
+  border-radius: 360;
+  display: inline;
+  width: 50px;
+  height: 50px;
+  spacing: 5%;
+  position: relative;
 }
 
 .fixed{
