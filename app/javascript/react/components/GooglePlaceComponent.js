@@ -31,10 +31,11 @@ const GooglePlaceComponent = (props) =>{
   }
 
   const handlePlaceSelect = () =>{
-    const addressObject = autocomplete.getPlace();
     debugger
+    const addressObject = autocomplete.getPlace();
     const address = addressObject.address_components;
     if (address) {
+      debugger
       setResults(address)
       setPlace(
         {
@@ -45,6 +46,8 @@ const GooglePlaceComponent = (props) =>{
       )
     }
   }
+
+
 
   const googleAPI = process.env.REACT_APP_GOOGLE_API_KEY
 
@@ -60,7 +63,7 @@ const GooglePlaceComponent = (props) =>{
           id="autocomplete"
           placeholder=""
           hintText="Search Establishment"
-          onClick={handleScriptLoad}
+          onChange={handleScriptLoad}
           style={{
             margin: '0 auto',
             maxWidth: 800,
