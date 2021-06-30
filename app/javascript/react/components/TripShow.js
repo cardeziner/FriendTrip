@@ -7,6 +7,7 @@ import NewTripmemberForm from './NewTripmemberForm'
 import FlightTile from './FlightTile'
 import GooglePlaceComponent from './GooglePlaceComponent'
 import Unsplash from 'unsplash-js'
+import NewHotelForm from './NewHotelForm'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -438,6 +439,8 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
+                  <NewHotelForm
+                  />
                   <GooglePlaceComponent
                   city={tripCity}
                   />
