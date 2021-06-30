@@ -37,19 +37,14 @@ const NewHotelForm = props =>{
   const handleSubmit = event => {
     event.preventDefault()
     if (validForSubmission()) {
-      props.addNewFlight({ flight: newFormPayload })
+      props.addNewHotel({ hotel: newFormPayload })
       setNewFormPayload({
-        airline: "",
-        on_time_status: "",
-        departure_date: "",
-        departure_time: "",
-        arrival_date: "",
-        arrival_time: "",
-        user_id: "",
-        trip_id: "",
-        user_name: "",
-        departing_airport: "",
-        arriving_airport: "",
+        name: "",
+        address: "",
+        city: "",
+        state: "",
+        check_in: "",
+        check_out: "",
       })
       setErrors({})
       setRedirect(true)
@@ -57,7 +52,73 @@ const NewHotelForm = props =>{
   }
 
   return(
-    <div>hello from New Hotel Form</div>
+    <div>
+      <h1 className="bold-blue center">ENTER HOTEL INFO </h1>
+        <form onSubmit={handleSubmit} className="wide-field center">
+          <label className="airline text-white">
+            NAME<br/>
+            <input
+              name="name"
+              id="name"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.name}
+            />
+          </label><br/>
+          <label className="name text-white">
+            ADDRESS<br/>
+            <input
+              name="address"
+              id="address"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.address}
+            />
+          </label><br/>
+          <label className="name text-white">
+            CITY<br/>
+            <input
+              name="city"
+              id="city"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.city}
+            />
+          </label><br/>
+          <label className="on_time_status text-white">
+            STATE<br/>
+            <input
+              name="state"
+              id="state"
+              type="text"
+              onChange={handleInputChange}
+              value={newFormPayload.state}
+            />
+          </label><br/>
+          <label className="name text-white">
+            CHECK-IN<br/>
+            <input
+              name="check_in"
+              id="check_in"
+              type="date"
+              onChange={handleInputChange}
+              value={newFormPayload.check_in}
+            />
+          </label><br/>
+          <label className="name text-white">
+            CHECK-OUT<br/>
+            <input
+              name="check_out"
+              id="check_out"
+              type="date"
+              onChange={handleInputChange}
+              value={newFormPayload.check_out}
+            />
+          </label><br/>
+          <br/><br/>
+          <input className="btn btn-primary text center" type="submit" value="Add Flight" />
+        </form><br/>
+    </div>
   )
 }
 

@@ -34,6 +34,7 @@ const TripShow = props =>{
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
+  const [hotels, setHotels] = useState([])
 
   const iD = (props.id - 1)
 
@@ -60,25 +61,6 @@ const TripShow = props =>{
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  // useEffect(() =>{
-  //   fetch(`/api/v1/users`, {
-  //     credentials: "same-origin",
-  //       })
-  //   .then(response => {
-  //     if(response.ok) {
-  //       return response
-  //     } else {
-  //       let errorMessage = `${response.status} (${response.statusText})`
-  //       error = new Error(errorMessage)
-  //       throw(error)
-  //     }
-  //   })
-  //   .then(response => response.json())
-  //   .then(parsedUsersData =>{
-  //
-  //   })
-  //   .catch(error => console.error(`Error in fetch: ${error.message}`))
-  // }, [])
     if(props.trip.city && click){
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",
@@ -122,6 +104,33 @@ const TripShow = props =>{
       .then(response => response.json())
       .then(parsedNewFlight => {
         setFlight(parsedNewFlight)
+        setRedirect(true)
+      })
+      .catch(error => console.error(`Error in fetch: ${errorMessage}`))
+    }
+
+  const addNewHotel = (formPayload) => {
+    fetch('/api/v1/hotels', {
+        credentials: "same-origin",
+        method: 'POST',
+        body: JSON.stringify(formPayload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(parsedNewHotel => {
+        setHotels(parsedNewHotel)
         setRedirect(true)
       })
       .catch(error => console.error(`Error in fetch: ${errorMessage}`))
@@ -440,6 +449,7 @@ const TripShow = props =>{
                   >
                   <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
                   <NewHotelForm
+                  addNewHotel={addNewHotel}
                   />
                   <GooglePlaceComponent
                   city={tripCity}
