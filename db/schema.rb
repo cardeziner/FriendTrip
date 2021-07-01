@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 2021_05_25_230751) do
     t.string "state", null: false
     t.datetime "check_in", null: false
     t.datetime "check_out", null: false
+    t.bigint "trip_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_hotels_on_trip_id"
   end
 
   create_table "invites", force: :cascade do |t|
