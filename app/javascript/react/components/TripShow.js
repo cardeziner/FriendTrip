@@ -352,6 +352,21 @@ const TripShow = props =>{
     )
   })
 
+
+  const tripHotelsList = tripHotels.map(hotel =>{
+    return(
+      <div key={hotel.id} className="showhim row flex inline">
+        <h3 className="col-3 text-blue left align-self-center left inline center">{hotel.user_id}</h3>
+        <div className="col-9 showme blue-hover no-top no-bot">
+            <h2 className="center text-white vert inline">{hotel.address}, {hotel.city} {hotel.state} </h2>
+            <h4 className="center text-white vert"></h4>
+            <p className="center text-white table-cell resize-text">Check In   {dateByName(hotel.check_in)}<br/></p>
+            <p className="center text-white table-cell ">Check Out   {dateByName(hotel.check_out)}<br/></p>
+        </div>
+      </div>
+    )
+  })
+
   const tripsNotice = () =>{
     if (tripUserFlightList.length < 1){
       return(
@@ -462,8 +477,10 @@ const TripShow = props =>{
                   >
                   <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
                   <h5 className="font center text-purp" onClick={change5}>+ ADD A HOTEL</h5>
+                  {tripHotelsList}
                   <div id="hotel-list" className={toggle5}>
                     <NewHotelForm
+                    hotels={tripHotels}
                     addNewHotel={addNewHotel}
                     tripId={props.id}
                     />
