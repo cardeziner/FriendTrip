@@ -3,6 +3,7 @@ class Api::V1::HotelsController < ApplicationController
   def index
     hotels = Hotel.all
     render json: hotels
+
   end
 
   def create
@@ -11,7 +12,6 @@ class Api::V1::HotelsController < ApplicationController
     @hotel = Hotel.new(hotel_params)
     @hotel.user_id = @user.id
     @hotel.trip_id = @trip
-    binding.pry
     if @hotel.save
       render json: { hotel: @hotel }
     else

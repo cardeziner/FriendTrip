@@ -31,6 +31,7 @@ const TripShow = props =>{
   const [toggle2, setToggle2] = useState("hide")
   const [toggle3, setToggle3] = useState("hide")
   const [toggle4, setToggle4] = useState("hide")
+  const [toggle5, setToggle5] = useState("hide")
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
@@ -282,6 +283,16 @@ const TripShow = props =>{
     }
   }
 
+  function change5(){
+    const v = document.getElementById("hotel-list")
+    if (toggle5 === "hide"){
+      setToggle5("display")
+   }else{
+     setToggle5("hide")
+    }
+  }
+
+
   function arrow(){
     if (toggle3 === "hide"){
       return(<h1 className="inline"> +</h1>)
@@ -448,10 +459,13 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
-                  <NewHotelForm
-                  addNewHotel={addNewHotel}
-                  tripId={props.id}
-                  />
+                  <h5 className="font center text-purp" onClick={change5}>+ ADD A HOTEL</h5>
+                  <div id="hotel-list" className={toggle5}>
+                    <NewHotelForm
+                    addNewHotel={addNewHotel}
+                    tripId={props.id}
+                    />
+                  </div>
                   <GooglePlaceComponent
                   city={tripCity}
                   />
