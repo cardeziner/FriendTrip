@@ -1,7 +1,6 @@
 class Api::V1::HotelsController < ApplicationController
 
   def index
-    binding.pry
     hotels = Hotel.all
     render json: hotels
   end
@@ -9,11 +8,13 @@ class Api::V1::HotelsController < ApplicationController
   def create
     @user = current_user
     @trip = Trip.where(id: trip_params)
-    @hotel = Hotel.new(hotel_params, user: @user, trip: @trip)
+    @hotel = Hotel.new(hotel_params)
+    @hotel.user_id = @user.id
+    @hotel.trip_id = @trip
     if @hotel.save
-      render json: hotel.errors.full_messages, status: :unprocessable_entity
+      render json: { hotel: @hotel }
     else
-      render json: @review.errors.full_messages, status: :unprocessable_entity
+      render json: @hotel.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -24,7 +25,7 @@ private
   end
 
   def trip_params
-    params.require(:hotel.permit(:trip_id))
+    params.permit(:trip_id)
   end
-  a
+
 end

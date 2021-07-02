@@ -24,8 +24,8 @@ Rails.application.routes.draw do
       resources :trips, only: [:index, :show, :create, :update] do
         resources :events, only: [:index,:show, :create, :update]
       end
+      resources :hotels, only: [:index, :new, :create, :update]
       resources :users, only: [:index, :new, :create]
-      resources :hotels, only: [:index, :new, :create]
       resources :flights, only: [:index, :new, :create]
       resources :invites, only: [:index, :new, :create]
       resources :reviews, only: [:index, :new, :create]

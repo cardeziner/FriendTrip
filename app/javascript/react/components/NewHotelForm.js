@@ -55,7 +55,7 @@ const NewHotelForm = props =>{
 
   return(
     <div>
-      <h1 className="bold-blue center">ENTER HOTEL INFO </h1>
+      <h1 className="text-purp center">ENTER HOTEL INFO </h1>
         <form onSubmit={handleSubmit} className="wide-field center">
           <label className="airline text-white">
             NAME<br/>
