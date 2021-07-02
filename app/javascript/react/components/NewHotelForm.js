@@ -10,6 +10,7 @@ const NewHotelForm = props =>{
     state: "",
     check_in: "",
     check_out: "",
+    trip_id: null,
   })
 
   const handleInputChange = event =>{
@@ -36,6 +37,7 @@ const NewHotelForm = props =>{
 
   const handleSubmit = event => {
     event.preventDefault()
+    newFormPayload["trip_id"] = props.tripId
     if (validForSubmission()) {
       props.addNewHotel({ hotel: newFormPayload })
       setNewFormPayload({

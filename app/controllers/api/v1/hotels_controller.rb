@@ -8,7 +8,8 @@ class Api::V1::HotelsController < ApplicationController
 
   def create
     @user = current_user
-    @hotel = Hotel.new(hotel_params, user: @user)
+    @trip = Trip.where(id: trip_params)
+    @hotel = Hotel.new(hotel_params, user: @user, trip: @trip)
     if @hotel.save
       render json: hotel.errors.full_messages, status: :unprocessable_entity
     else
@@ -25,5 +26,5 @@ private
   def trip_params
     params.require(:hotel.permit(:trip_id))
   end
-  
+  a
 end

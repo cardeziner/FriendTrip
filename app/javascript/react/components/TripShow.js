@@ -450,6 +450,7 @@ const TripShow = props =>{
                   <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
                   <NewHotelForm
                   addNewHotel={addNewHotel}
+                  tripId={props.id}
                   />
                   <GooglePlaceComponent
                   city={tripCity}
