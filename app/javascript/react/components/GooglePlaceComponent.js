@@ -5,8 +5,6 @@ import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 const GooglePlaceComponent = (props) =>{
   const [value, setValue] = useState(null);
-
-
   // const [results, setResults] = useState({})
   // const [place, setPlace] = useState({
   //     name: '',
@@ -49,16 +47,14 @@ const GooglePlaceComponent = (props) =>{
   //     )
   //   }
   // }
-
   //
-
   const googleAPI = process.env.REACT_APP_GOOGLE_API_KEY
 
     return (
       <div>
         <GooglePlacesAutocomplete
-
           onLoadFailed={(error) => (console.error("Could not inject Google script", error))}
+          hintText="hello"
           selectProps={{
             value,
             onChange: setValue,

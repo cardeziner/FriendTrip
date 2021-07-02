@@ -36,6 +36,7 @@ const TripShow = props =>{
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
   const [hotels, setHotels] = useState([])
+  const [tripHotels, setTripHotels] = useState([])
 
   const iD = (props.id - 1)
 
@@ -58,6 +59,7 @@ const TripShow = props =>{
       setTripCity(parsedTripsData.trip.city)
       setCurrentUserFlights(parsedTripsData.user_flights)
       setCurrentUser(parsedTripsData.user)
+      setTripHotels(parsedTripsData.hotels)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])

@@ -118,7 +118,7 @@ const NewHotelForm = props =>{
             />
           </label><br/>
           <br/><br/>
-          <input className="btn btn-primary text center" type="submit" value="Add Flight" />
+          <input className="btn btn-primary text center" type="submit" value="Add Hotel" />
         </form><br/>
     </div>
   )
