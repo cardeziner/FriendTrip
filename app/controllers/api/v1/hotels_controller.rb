@@ -7,10 +7,11 @@ class Api::V1::HotelsController < ApplicationController
 
   def create
     @user = current_user
-    @trip = Trip.where(id: trip_params)
+    @trip = trip_params["trip_id"]
     @hotel = Hotel.new(hotel_params)
     @hotel.user_id = @user.id
     @hotel.trip_id = @trip
+    binding.pry
     if @hotel.save
       render json: { hotel: @hotel }
     else
@@ -25,7 +26,7 @@ private
   end
 
   def trip_params
-    params.permit(:trip_id)
+    params.require(:hotel).permit(:trip_id)
   end
 
 end
