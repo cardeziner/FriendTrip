@@ -391,6 +391,19 @@ const TripShow = props =>{
     }
   }
 
+  const tripHotelsNotice = () =>{
+    if (tripHotels.length < 1){
+      return(
+        <h5 className="text-white center">YOU HAVE NOT ADDED ANY HOTELS YET. CLICK "+ADD A HOTEL" BELOW TO BEGIN.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center">THIS GROUP CURRENTLY HAS (<h5 className="text-yellow inline">{tripHotels.length}</h5>) HOTELS BOOKED</h5>
+      )
+    }
+  }
+
+
 
 
   return(
@@ -476,8 +489,9 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
-                  <h5 className="font center text-purp" onClick={change5}>+ ADD A HOTEL</h5>
+                  {tripHotelsNotice}
                   {tripHotelsList}
+                  <h5 className="font center text-purp" onClick={change5}>+ ADD A HOTEL</h5>
                   <div id="hotel-list" className={toggle5}>
                     <NewHotelForm
                     hotels={tripHotels}
