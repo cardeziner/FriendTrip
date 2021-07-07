@@ -506,11 +506,11 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={hotel} className="icon inline vert"/><h2 onClick={change6} className="inline text-purp vert center">Hotel Bookings{arrow2()}</h2>
-                  {tripHotelsNotice()}
+                    {tripHotelsNotice()}
                   <div id="hotel-bookings" className={toggle6}>
-                  {tripHotelsList}
+                    {tripHotelsList}
                   </div>
-                  <h5 className="font center text-purp" onClick={change5}>+ ADD A HOTEL</h5>
+                  <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5>
                   <div id="hotel-list" className={toggle5}>
                     <NewHotelForm
                     hotels={tripHotels}
@@ -522,10 +522,9 @@ const TripShow = props =>{
                   city={tripCity}
                   />
                   </BackdropFilter>
-                  </div>
+                </div>
+              </div>
             </div>
-
-          </div>
           <br></br>
           <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </div>
