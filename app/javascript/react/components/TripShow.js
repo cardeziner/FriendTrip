@@ -363,7 +363,7 @@ const TripShow = props =>{
         <div className="col-9 showme blue-hover no-top no-bot">
             <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
             <h4 className="center text-white vert">{flight.airline}</h4>
-            <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+            <p className="center text-white table-cell resize-text">DEPARTS {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
             <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
         </div>
       </div>
@@ -372,14 +372,19 @@ const TripShow = props =>{
 
 
   const tripHotelsList = tripHotels.map(hotel =>{
+    let timestampIn = hotel.check_in
+    const checkIn = new Date(timestampIn)
+    let timestampOut = hotel.check_out
+    const checkOut = new Date(timestampOut)
     return(
       <div key={hotel.id} className="showhim row flex inline">
-        <h3 className="col-3 text-blue left align-self-center left inline center">{hotel.user_id}</h3>
+        <h3 className="col-3 text-blue left align-self-center left inline center">{hotel.user_name}</h3>
         <div className="col-9 showme blue-hover no-top no-bot">
-            <h2 className="center text-white vert inline">{hotel.address}, {hotel.city} {hotel.state} </h2>
+            <h3 className=" center text-white">{hotel.name}</h3>
+            <h4 className="center text-white vert inline">{hotel.address}, {hotel.city} {hotel.state} </h4>
             <h4 className="center text-white vert"></h4>
-            <p className="center text-white table-cell resize-text">Check In   {dateByName(hotel.check_in)}<br/></p>
-            <p className="center text-white table-cell ">Check Out   {dateByName(hotel.check_out)}<br/></p>
+            <p className="center text-white table-cell resize-text">Check In   {(checkIn.getMonth() + 1) + "/" + checkIn.getDate() + "/" + checkIn.getFullYear() }<br/></p>
+            <p className="center text-white table-cell ">Check Out   {(checkOut.getMonth() + 1) + "/" + checkOut.getDate() + "/" + checkOut.getFullYear() }<br/></p>
         </div>
       </div>
     )

@@ -11,6 +11,7 @@ class Api::V1::HotelsController < ApplicationController
     @trip = trip_params["trip_id"]
     @hotel = Hotel.new(hotel_params)
     @hotel.user_id = @user.id
+    @hotel.user_name = (@user.first_name + " " +  @user.last_name[0] + ".")
     @hotel.trip_id = @trip
     if @hotel.save
       render json: { hotel: @hotel }
