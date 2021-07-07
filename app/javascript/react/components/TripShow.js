@@ -32,6 +32,7 @@ const TripShow = props =>{
   const [toggle3, setToggle3] = useState("hide")
   const [toggle4, setToggle4] = useState("hide")
   const [toggle5, setToggle5] = useState("hide")
+  const [toggle6, setToggle6] = useState("hide")
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
@@ -294,6 +295,15 @@ const TripShow = props =>{
     }
   }
 
+  function change6(){
+    const v = document.getElementById("hotel-bookings")
+    if (toggle6 === "hide"){
+      setToggle6("display")
+   }else{
+     setToggle6("hide")
+    }
+  }
+
 
   function arrow(){
     if (toggle3 === "hide"){
@@ -305,6 +315,14 @@ const TripShow = props =>{
 
   function arrow1(){
     if (toggle4 === "hide"){
+      return(<h1 className="inline"> +</h1>)
+    }else{
+      return(<h1 className="inline"> -</h1>)
+    }
+  }
+
+  function arrow2(){
+    if (toggle6 === "hide"){
       return(<h1 className="inline"> +</h1>)
     }else{
       return(<h1 className="inline"> -</h1>)
@@ -466,7 +484,6 @@ const TripShow = props =>{
                   <img src={flight_logo} className="icon inline vert"/><h1 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h1>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
-
                   {tripUserFlightList}<br/>
                   </div>
                   <div>
@@ -488,9 +505,11 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
-                  {tripHotelsNotice}
+                  <img src={hotel} className="icon inline vert"/><h2 onClick={change6} className="inline text-purp vert center">Hotel Bookings{arrow2()}</h2>
+                  {tripHotelsNotice()}
+                  <div id="hotel-bookings" className={toggle6}>
                   {tripHotelsList}
+                  </div>
                   <h5 className="font center text-purp" onClick={change5}>+ ADD A HOTEL</h5>
                   <div id="hotel-list" className={toggle5}>
                     <NewHotelForm
