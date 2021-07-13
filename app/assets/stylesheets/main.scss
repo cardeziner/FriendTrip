@@ -575,6 +575,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   justify-content: center;
 }
 
+.white-box{
+  background-color: white;
+  border-radius: 10px;
+}
+
 .line{
     width: auto;
     height: 0px;
@@ -700,6 +705,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   border-right: 8px solid #1BB0CE;
 }
 
+.scroll{
+  overflow-x: hidden;
+  overflow-y:auto;
+}
+
 .text-purp{
   color: #9C27B0;
   font-family: 'Francois One', sans-serif;
@@ -711,6 +721,10 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 
 .left-red{
   border-left: 8px solid #FF003C;
+}
+
+.left-green{
+    border-left: 8px solid #00C176;
 }
 
 

@@ -464,7 +464,11 @@ const TripShow = props =>{
                   />
                 </div>
               </div>
-            </BackdropFilter>
+            </BackdropFilter><br/>
+            <h1 className="text-white vert left-green pad left"><p>GROUP CHAT</p></h1>
+            <div className="white-box">
+              <h1>hello world</h1>
+            </div>
           </div>
             <div className="col-xs-12 col-md-5 grid tall">
               <h1 className="text-white vert right-yellow pad right-head"><p className="">GROUP ITINERARY</p></h1>

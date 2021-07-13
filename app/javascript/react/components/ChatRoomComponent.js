@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 
 const ChatRoomComponent = (props)  =>{
   const [chats, setChats] = useState([])
-  
+
   const addNewChat = (formPayload) => {
     fetch('/api/v1/chats', {
         credentials: "same-origin",
