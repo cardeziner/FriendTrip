@@ -11,6 +11,7 @@ protect_from_forgery unless: -> { request.format.json? }
 
   def show
     trip = Trip.find(params[:id])
+    hotels = trip.hotels
     flights = trip.flights
     events = trip.events
     user = current_user
@@ -22,7 +23,8 @@ protect_from_forgery unless: -> { request.format.json? }
       users: users,
       user: user,
       flights: flights,
-      user_flights: user_flights
+      user_flights: user_flights,
+      hotels: hotels
     }
   end
 

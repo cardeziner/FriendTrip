@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SearchBar from 'material-ui-search-bar'
 import Script from 'react-load-script'
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 const GooglePlaceComponent = (props) =>{
   const [results, setResults] = useState({})
@@ -44,30 +45,18 @@ const GooglePlaceComponent = (props) =>{
       )
     }
   }
-
   const googleAPI = process.env.REACT_APP_GOOGLE_API_KEY
-
-  const scriptURL = (`https://maps.googleapis.com/maps/api/js?key=${googleAPI}&libraries=places`).to_s
 
     return (
       <div>
-        <Script
-          type="text/javascript"
-          url={scriptURL}
-          onLoad={handleScriptLoad}
-        />
-        <SearchBar
-          id="autocomplete"
-          placeholder=""
-          hintText="Search Establishment"
-          onClick={handleScriptLoad}
-          style={{
-            margin: '0 auto',
-            maxWidth: 800,
+        <GooglePlacesAutocomplete
+          onLoadFailed={(error) => (console.error("Could not inject Google script", error))}
+          hintText="hello"
+          selectProps={{
+            value,
+            onChange: setValue,
           }}
         />
-        <input className="btn btn-primary font" type="submit" value="Submit" onClick={handleScriptLoad}/>
-        <h1>hello{place.name}</h1>
       </div>
     );
 }

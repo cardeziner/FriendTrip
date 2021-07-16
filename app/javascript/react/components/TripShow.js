@@ -7,6 +7,7 @@ import NewTripmemberForm from './NewTripmemberForm'
 import FlightTile from './FlightTile'
 import GooglePlaceComponent from './GooglePlaceComponent'
 import Unsplash from 'unsplash-js'
+import NewHotelForm from './NewHotelForm'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -30,9 +31,13 @@ const TripShow = props =>{
   const [toggle2, setToggle2] = useState("hide")
   const [toggle3, setToggle3] = useState("hide")
   const [toggle4, setToggle4] = useState("hide")
+  const [toggle5, setToggle5] = useState("hide")
+  const [toggle6, setToggle6] = useState("hide")
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
+  const [hotels, setHotels] = useState([])
+  const [tripHotels, setTripHotels] = useState([])
 
   const iD = (props.id - 1)
 
@@ -55,29 +60,11 @@ const TripShow = props =>{
       setTripCity(parsedTripsData.trip.city)
       setCurrentUserFlights(parsedTripsData.user_flights)
       setCurrentUser(parsedTripsData.user)
+      setTripHotels(parsedTripsData.hotels)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  // useEffect(() =>{
-  //   fetch(`/api/v1/users`, {
-  //     credentials: "same-origin",
-  //       })
-  //   .then(response => {
-  //     if(response.ok) {
-  //       return response
-  //     } else {
-  //       let errorMessage = `${response.status} (${response.statusText})`
-  //       error = new Error(errorMessage)
-  //       throw(error)
-  //     }
-  //   })
-  //   .then(response => response.json())
-  //   .then(parsedUsersData =>{
-  //
-  //   })
-  //   .catch(error => console.error(`Error in fetch: ${error.message}`))
-  // }, [])
     if(props.trip.city && click){
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",
@@ -121,6 +108,33 @@ const TripShow = props =>{
       .then(response => response.json())
       .then(parsedNewFlight => {
         setFlight(parsedNewFlight)
+        setRedirect(true)
+      })
+      .catch(error => console.error(`Error in fetch: ${errorMessage}`))
+    }
+
+  const addNewHotel = (formPayload) => {
+    fetch('/api/v1/hotels', {
+        credentials: "same-origin",
+        method: 'POST',
+        body: JSON.stringify(formPayload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(parsedNewHotel => {
+        setHotels(parsedNewHotel)
         setRedirect(true)
       })
       .catch(error => console.error(`Error in fetch: ${errorMessage}`))
@@ -272,6 +286,25 @@ const TripShow = props =>{
     }
   }
 
+  function change5(){
+    const v = document.getElementById("hotel-list")
+    if (toggle5 === "hide"){
+      setToggle5("display")
+   }else{
+     setToggle5("hide")
+    }
+  }
+
+  function change6(){
+    const v = document.getElementById("hotel-bookings")
+    if (toggle6 === "hide"){
+      setToggle6("display")
+   }else{
+     setToggle6("hide")
+    }
+  }
+
+
   function arrow(){
     if (toggle3 === "hide"){
       return(<h1 className="inline"> +</h1>)
@@ -282,6 +315,14 @@ const TripShow = props =>{
 
   function arrow1(){
     if (toggle4 === "hide"){
+      return(<h1 className="inline"> +</h1>)
+    }else{
+      return(<h1 className="inline"> -</h1>)
+    }
+  }
+
+  function arrow2(){
+    if (toggle6 === "hide"){
       return(<h1 className="inline"> +</h1>)
     }else{
       return(<h1 className="inline"> -</h1>)
@@ -322,8 +363,28 @@ const TripShow = props =>{
         <div className="col-9 showme blue-hover no-top no-bot">
             <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
             <h4 className="center text-white vert">{flight.airline}</h4>
-            <p className="center text-white table-cell resize-text">DEPARTS   {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+            <p className="center text-white table-cell resize-text">DEPARTS {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
             <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
+        </div>
+      </div>
+    )
+  })
+
+
+  const tripHotelsList = tripHotels.map(hotel =>{
+    let timestampIn = hotel.check_in
+    const checkIn = new Date(timestampIn)
+    let timestampOut = hotel.check_out
+    const checkOut = new Date(timestampOut)
+    return(
+      <div key={hotel.id} className="showhim row flex inline">
+        <h3 className="col-3 text-blue left align-self-center left inline center">{hotel.user_name}</h3>
+        <div className="col-9 showme blue-hover no-top no-bot">
+            <h3 className=" center text-white">{hotel.name}</h3>
+            <h4 className="center text-white vert inline">{hotel.address}, {hotel.city} {hotel.state} </h4>
+            <h4 className="center text-white vert"></h4>
+            <p className="center text-white table-cell resize-text">Check In   {(checkIn.getMonth() + 1) + "/" + checkIn.getDate() + "/" + checkIn.getFullYear() }<br/></p>
+            <p className="center text-white table-cell ">Check Out   {(checkOut.getMonth() + 1) + "/" + checkOut.getDate() + "/" + checkOut.getFullYear() }<br/></p>
         </div>
       </div>
     )
@@ -352,6 +413,19 @@ const TripShow = props =>{
       )
     }
   }
+
+  const tripHotelsNotice = () =>{
+    if (tripHotels.length < 1){
+      return(
+        <h5 className="text-white center">YOU HAVE NOT ADDED ANY HOTELS YET. CLICK "+ADD A HOTEL" BELOW TO BEGIN.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center">THIS GROUP CURRENTLY HAS (<h5 className="text-yellow inline">{tripHotels.length}</h5>) HOTELS BOOKED</h5>
+      )
+    }
+  }
+
 
 
 
@@ -390,7 +464,11 @@ const TripShow = props =>{
                   />
                 </div>
               </div>
-            </BackdropFilter>
+            </BackdropFilter><br/>
+            <h1 className="text-white vert left-green pad left"><p>GROUP CHAT</p></h1>
+            <div className="white-box">
+              <h1>hello world</h1>
+            </div>
           </div>
             <div className="col-xs-12 col-md-5 grid tall">
               <h1 className="text-white vert right-yellow pad right-head"><p className="">GROUP ITINERARY</p></h1>
@@ -415,7 +493,6 @@ const TripShow = props =>{
                   <img src={flight_logo} className="icon inline vert"/><h1 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h1>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
-
                   {tripUserFlightList}<br/>
                   </div>
                   <div>
@@ -437,15 +514,26 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={hotel} className="icon inline vert"/><h1 className="inline text-purp vert center">Hotel Bookings</h1>
+                  <img src={hotel} className="icon inline vert"/><h2 onClick={change6} className="inline text-purp vert center">Hotel Bookings{arrow2()}</h2>
+                    {tripHotelsNotice()}
+                  <div id="hotel-bookings" className={toggle6}>
+                    {tripHotelsList}
+                  </div>
+                  <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5>
+                  <div id="hotel-list" className={toggle5}>
+                    <NewHotelForm
+                    hotels={tripHotels}
+                    addNewHotel={addNewHotel}
+                    tripId={props.id}
+                    />
+                  </div>
                   <GooglePlaceComponent
                   city={tripCity}
                   />
                   </BackdropFilter>
-                  </div>
+                </div>
+              </div>
             </div>
-
-          </div>
           <br></br>
           <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </div>
