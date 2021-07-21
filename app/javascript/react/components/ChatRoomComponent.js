@@ -5,8 +5,10 @@ import TextField from '@material-ui/core/TextField'
 const ChatRoomComponent = (props)  =>{
   const [chats, setChats] = useState([])
   const [errors, setErrors] = useState({})
+  const [chatList, setChatList] = useState([])
   const [newFormPayload, setNewFormPayload] = useState({
-    chat_text: ""
+    chat_text: "",
+    trip_id: "",
   })
 
   const addNewChat = (formPayload) => {
@@ -38,6 +40,27 @@ const ChatRoomComponent = (props)  =>{
       .catch(error => console.error(`Error in fetch: ${errorMessage}`))
     }
 
+    useEffect(() =>{
+      fetch(`/api/v1/chats`, {
+        credentials: "same-origin",
+          })
+      .then(response => {
+        if(response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`
+          error = new Error(errorMessage)
+          throw(error)
+        }
+      })
+      .then(response => response.json())
+      .then(parsedChatData =>{
+        debugger
+        setChatList(parsedChatData)
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }, [])
+
   const handleInputChange = event =>{
     setNewFormPayload({
       ...newFormPayload,
@@ -48,7 +71,6 @@ const ChatRoomComponent = (props)  =>{
   const validForSubmission = () =>{
     let submitErrors = {}
     const requiredField = ["chat_text"]
-    debugger
       if (newFormPayload[requiredField].trim() === ""){
         submitErrors = {
           ...submitErrors,
@@ -61,6 +83,7 @@ const ChatRoomComponent = (props)  =>{
 
   const handleSubmit = event => {
     event.preventDefault()
+      // newFormPayload["trip_id"] =
     if (validForSubmission()) {
       addNewChat({ event: newFormPayload })
       setNewFormPayload({
