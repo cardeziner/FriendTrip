@@ -10,13 +10,24 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    zoom: 90%;
+    zoom: 85%;
     overflow: scroll;
 }
 
 .opac-black{
   background-color: black;
   opacity: .95;
+}
+
+.scroll {
+    margin:4px, 4px;
+    padding:4px;
+    background-color: white;
+    width: auto;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
 }
 
 .clear{

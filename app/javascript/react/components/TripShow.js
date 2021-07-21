@@ -19,6 +19,7 @@ import cost from '../../../assets/images/cost.png'
 import flight_logo from '../../../assets/images/Flight-logo.png'
 import flight_to from '../../../assets/images/flight_to.png'
 import hotel from '../../../assets/images/hotel.png'
+import ChatRoomComponent from './ChatRoomComponent'
 
 
 require('dotenv').config()
@@ -466,9 +467,8 @@ const TripShow = props =>{
               </div>
             </BackdropFilter><br/>
             <h1 className="text-white vert left-green pad left"><p>GROUP CHAT</p></h1>
-            <div className="white-box">
-              <h1>hello world</h1>
-            </div>
+            <ChatRoomComponent
+            />
           </div>
             <div className="col-xs-12 col-md-5 grid tall">
               <h1 className="text-white vert right-yellow pad right-head"><p className="">GROUP ITINERARY</p></h1>

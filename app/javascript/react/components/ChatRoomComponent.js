@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
+import TextField from '@material-ui/core/TextField'
 
 const ChatRoomComponent = (props)  =>{
   const [chats, setChats] = useState([])
@@ -37,8 +38,11 @@ const ChatRoomComponent = (props)  =>{
     //   // return <Redirect to={`/trips/${trip.id}`} />
     // }
 
+
   return(
-    <div>Hello World</div>
+    <div>
+      <TextField id="time" type="text" label="standard"/>
+    </div>
   )
 }
 
