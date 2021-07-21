@@ -11763,14 +11763,14 @@ react-google-maps@^9.4.5:
     scriptjs "^2.5.8"
     warning "^3.0.0"
 
-react-google-places-autocomplete@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/react-google-places-autocomplete/-/react-google-places-autocomplete-3.3.1.tgz#65b34717fd2d506bb23f75ebd382cefec00a5d90"
-  integrity sha512-0xT9p+QgDQIHxuJaNKqNDP/I/k6CYSnJmMzuTf5uu7f5m5oAS5wUUDfZGN71/2xWiDdwZy7kOJ8zUs0G3vj/gw==
+react-google-places-autocomplete@^3.3.2-alpha.0:
+  version "3.3.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/react-google-places-autocomplete/-/react-google-places-autocomplete-3.3.2-alpha.0.tgz#2618082762b4c1444ee92a951cb47399cbcc95f4"
+  integrity sha512-O/qoThCqEgGMtFBrg/citNa40dPotEo8c27JuKcFNp9Su6zibJzLvo5D4TgDg6dU5AT1R/Gp6MxBt3jKHt+ueQ==
   dependencies:
     "@googlemaps/js-api-loader" "^1.11.1"
     "@types/google.maps" "^3.44.1"
-    react-select "^4.1.0"
+    react-select "^4.3.1"
     typescript "^3.9.7"
     use-debounce "^3.4.3"
 
@@ -11879,7 +11879,7 @@ react-router@5.0.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-select@^4.1.0:
+react-select@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-4.3.1.tgz#389fc07c9bc7cf7d3c377b7a05ea18cd7399cb81"
   integrity sha512-HBBd0dYwkF5aZk1zP81Wx5UsLIIT2lSvAY2JiJo199LjoLHoivjn9//KsmvQMEFGNhe58xyuOITjfxKCcGc62Q==

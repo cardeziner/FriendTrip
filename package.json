@@ -35,7 +35,7 @@
     "react-dom": "^16.13.1",
     "react-geocode": "^0.2.1",
     "react-google-maps": "^9.4.5",
-    "react-google-places-autocomplete": "^3.3.1",
+    "react-google-places-autocomplete": "^3.3.2-alpha.0",
     "react-load-script": "^0.0.6",
     "react-map-gl": "^5.2.5",
     "react-map-gl-geocoder": "^2.0.11",
