@@ -4,6 +4,9 @@ import TextField from '@material-ui/core/TextField'
 
 const ChatRoomComponent = (props)  =>{
   const [chats, setChats] = useState([])
+  const [newFormPayload, setNewFormPayload] = useState({
+    chat_text: ""
+  })
 
   const addNewChat = (formPayload) => {
     fetch('/api/v1/chats', {
@@ -34,14 +37,43 @@ const ChatRoomComponent = (props)  =>{
       .catch(error => console.error(`Error in fetch: ${errorMessage}`))
     }
 
-    // if (redirect) {
-    //   // return <Redirect to={`/trips/${trip.id}`} />
-    // }
+  const handleInputChange = event =>{
+    setNewFormPayload({
+      ...newFormPayload,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
 
+  const validForSubmission = () =>{
+    let submitErrors = {}
+    const requiredField = ["chat_text"]
+    debugger
+      if (newFormPayload[requiredField].trim() === ""){
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    if (validForSubmission()) {
+      addNewChat({ event: newFormPayload })
+      setNewFormPayload({
+        chat_text: ""
+      })
+      setErrors({})
+    }
+  }
 
   return(
-    <div>
-      <TextField id="time" type="text" label="standard"/>
+    <div className="scroll">
+      <form>
+
+      </form>
     </div>
   )
 }
