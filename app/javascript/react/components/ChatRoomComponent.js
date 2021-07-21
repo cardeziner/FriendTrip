@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField'
 
 const ChatRoomComponent = (props)  =>{
   const [chats, setChats] = useState([])
+  const [errors, setErrors] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
     chat_text: ""
   })
@@ -71,8 +72,16 @@ const ChatRoomComponent = (props)  =>{
 
   return(
     <div className="scroll">
-      <form>
-
+      <form onSubmit={handleSubmit}>
+      <input
+        name="chat_text"
+        id="chat_text"
+        type="text"
+        className="form-field inline bottom"
+        onChange={handleInputChange}
+        value={newFormPayload.chat_text}
+      />
+        <input className="inline bottom button" type="submit" value="Send"/>
       </form>
     </div>
   )
