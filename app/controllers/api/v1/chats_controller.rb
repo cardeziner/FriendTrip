@@ -1,14 +1,19 @@
 class Api::V1::ChatsController < ApplicationController
 
   def index
-    binding.pry
-    trip = Trip.find(params[:id])
+    url = request.original_url
+    uri = URI::parse(url)
+    id = uri.path.split('/')[2]
+    trip = Trip.where(id: id)
     render json: trip.chats
   end
 
   def create
+    url = request.original_url
+    uri = URI::parse(url)
+    id = uri.path.split('/')[2]
+    trip = Trip.where(id: id)
     user = current_user
-    trip = Trip.find(params[:id])
     chat = Chat.new(chat_text: chat_params)
     chat.trip_id = trip.id
     chat.user_name = user.first_name + " " + user.last_name[1]
