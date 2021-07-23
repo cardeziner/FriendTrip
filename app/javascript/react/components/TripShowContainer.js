@@ -25,6 +25,7 @@ const TripShowContainer = (props) =>{
       })
       .then(response => response.json())
       .then(parsedTrip => {
+        debugger
         setTrip(parsedTrip.trip)
         setTripEvents(parsedTrip.events)
         setUsers(parsedTrip.users)

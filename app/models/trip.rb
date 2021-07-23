@@ -5,6 +5,7 @@ class Trip < ApplicationRecord
   has_many :tripmembers
   has_many :users, through: :tripmembers
   has_many :hotels
+  has_many :chats
 
 
   validates :name, presence: true
