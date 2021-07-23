@@ -1,17 +1,17 @@
 class Api::V1::ChatsController < ApplicationController
 
   def index
-    trip = Trip.find(params[:id])
+    trip = Trip.where(id: params["event"]["trip_id"])
     render json: trip.chats
   end
 
   def create
-    trip = Trip.find(params[:id])
-    binding.pry
+    trip_id = params["event"]["trip_id"]
     user = current_user
-    chat = Chat.new(chat_params)
-    chat.trip_id = trip.id
-    chat.user_name = user.first_name + " " + user.last_name[1]
+    chat = Chat.new(chat_text: params["event"]["chat_text"])
+      binding.pry
+    chat.trip_id = trip_id
+    chat.user_name = user.first_name + " " + user.last_name[0]
     if chat.save
       render json: { chat: chat }
     else
