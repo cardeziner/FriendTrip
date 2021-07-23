@@ -468,6 +468,7 @@ const TripShow = props =>{
             </BackdropFilter><br/>
             <h1 className="text-white vert left-green pad left"><p>GROUP CHAT</p></h1>
             <ChatRoomComponent
+              tripId={props.trip.id}
             />
           </div>
             <div className="col-xs-12 col-md-5 grid tall">

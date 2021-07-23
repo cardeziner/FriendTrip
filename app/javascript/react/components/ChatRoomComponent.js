@@ -11,6 +11,8 @@ const ChatRoomComponent = (props)  =>{
     trip_id: "",
   })
 
+  if(props.tripId){
+
   const addNewChat = (formPayload) => {
     fetch('/api/v1/chats', {
         credentials: "same-origin",
@@ -32,7 +34,6 @@ const ChatRoomComponent = (props)  =>{
       })
       .then(response => response.json())
       .then(parsedChatData => {
-        debugger
         let chats = parsedChatData
         setChats(chats)
         setRedirect(true)
@@ -55,7 +56,6 @@ const ChatRoomComponent = (props)  =>{
       })
       .then(response => response.json())
       .then(parsedChatData =>{
-        debugger
         setChatList(parsedChatData)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -83,7 +83,7 @@ const ChatRoomComponent = (props)  =>{
 
   const handleSubmit = event => {
     event.preventDefault()
-      // newFormPayload["trip_id"] =
+    newFormPayload["trip_id"] = props.tripId
     if (validForSubmission()) {
       addNewChat({ event: newFormPayload })
       setNewFormPayload({
@@ -108,6 +108,9 @@ const ChatRoomComponent = (props)  =>{
       </form>
     </div>
   )
+}else{
+  return(<div>WAITING FOR PROPS!</div>)
+}
 }
 
 export default ChatRoomComponent
