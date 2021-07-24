@@ -72,7 +72,9 @@ const ChatRoomComponent = (props)  =>{
 
   const tripChatList = chatList.map(chat =>{
     return(
-      <div className="text-green" key={chat.id}>{chat.chat_text}</div>
+      <div key={chat.id}>
+      <h4><span className="chat-blue font">{chat.chat_text}</span></h4>
+      </div>
     )
   })
 
@@ -99,6 +101,7 @@ const ChatRoomComponent = (props)  =>{
       })
       setErrors({})
     }
+    window.location.reload()
   }
 
   return(
