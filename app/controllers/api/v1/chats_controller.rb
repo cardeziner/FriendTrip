@@ -1,8 +1,12 @@
 class Api::V1::ChatsController < ApplicationController
 
   def index
-    trip = Trip.where(id: params["event"]["trip_id"])
-    render json: trip.chats
+    chats = Chat.all
+    user = current_user
+    render json: {
+      chats: chats,
+      current_user: user
+      }
   end
 
   def create

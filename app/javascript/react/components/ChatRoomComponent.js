@@ -6,6 +6,7 @@ const ChatRoomComponent = (props)  =>{
   const [chats, setChats] = useState([])
   const [errors, setErrors] = useState({})
   const [chatList, setChatList] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
   const [newFormPayload, setNewFormPayload] = useState({
     chat_text: "",
     trip_id: "",
@@ -56,7 +57,8 @@ const ChatRoomComponent = (props)  =>{
       })
       .then(response => response.json())
       .then(parsedChatData =>{
-        setChatList(parsedChatData)
+        setCurrentUser(parsedChatData.current_user)
+        setChatList(parsedChatData.chats)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
@@ -67,6 +69,12 @@ const ChatRoomComponent = (props)  =>{
       [event.currentTarget.name]: event.currentTarget.value
     })
   }
+
+  const tripChatList = chatList.map(chat =>{
+    return(
+      <div className="text-green" key={chat.id}>{chat.chat_text}</div>
+    )
+  })
 
   const validForSubmission = () =>{
     let submitErrors = {}
@@ -95,6 +103,7 @@ const ChatRoomComponent = (props)  =>{
 
   return(
     <div className="scroll">
+      {tripChatList}
       <form onSubmit={handleSubmit}>
       <input
         name="chat_text"
