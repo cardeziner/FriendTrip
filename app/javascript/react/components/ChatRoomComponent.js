@@ -7,6 +7,7 @@ const ChatRoomComponent = (props)  =>{
   const [errors, setErrors] = useState({})
   const [chatList, setChatList] = useState([])
   const [currentUser, setCurrentUser] = useState({})
+  const [userStatus, setUserStatus] = useState("current")
   const [newFormPayload, setNewFormPayload] = useState({
     chat_text: "",
     trip_id: "",
@@ -71,11 +72,19 @@ const ChatRoomComponent = (props)  =>{
   }
 
   const tripChatList = chatList.map(chat =>{
-    return(
-      <div key={chat.id}>
-      <h4><span className="chat-blue font">{chat.chat_text}</span></h4>
-      </div>
-    )
+    if(chat.user_name === currentUser.first_name + " " + currentUser.last_name[0]){
+      return(
+        <div key={chat.id}>
+        <h4><span className="current-blue">{chat.chat_text}</span></h4><br/>
+        </div>
+      )
+    }else{
+      return(
+        <div key={chat.id}>
+        <h4><span className="other-green">{chat.chat_text}</span></h4><br/>
+        </div>
+      )
+    }
   })
 
   const validForSubmission = () =>{
@@ -116,8 +125,8 @@ const ChatRoomComponent = (props)  =>{
         onChange={handleInputChange}
         value={newFormPayload.chat_text}
       />
-        <input className="inline bottom button" type="submit" value="Send"/>
       </form>
+      <input className="inline bottom button inline" type="submit" value="Send"/>
     </div>
   )
 }else{

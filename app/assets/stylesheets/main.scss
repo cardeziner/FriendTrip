@@ -29,13 +29,22 @@ html, body {
   right: 0;
 }
 
-.chat-blue{
+.other-green{
   border-radius: 5px;
-  background-color: #00AAFF;
+  background-color: #36802D;
   color: white;
   padding-left: 8px;
   padding-right: 8px;
+  float: left;
+}
 
+.current-blue{
+    border-radius: 5px;
+    background-color: #00AAFF;
+    color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    float: right;
 }
 
 .scroll {
