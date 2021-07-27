@@ -53,8 +53,7 @@ html, body {
     background-color: white;
     width: auto;
     height: 300px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: auto;
     text-align:justify;
 }
 
@@ -339,6 +338,10 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 .vote{
   border-radius: 360px;
   width: 50px;
+}
+
+.chat-bord{
+  border-radius: 360px;
 }
 
 .light-bord{

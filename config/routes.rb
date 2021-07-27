@@ -24,16 +24,16 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :trips, only: [:index, :show, :create, :update] do
         resources :events, only: [:index,:show, :create, :update]
+        resources :chats, only: [:index, :new, :create]
       end
+      resources :chats, only: [:index,:new,:create]
       resources :hotels, only: [:index, :new, :create, :update]
       resources :users, only: [:index, :new, :create]
       resources :flights, only: [:index, :new, :create]
       resources :invites, only: [:index, :new, :create]
       resources :reviews, only: [:index, :new, :create]
-      resources :chats, only: [:index, :new, :create]
     end
   end
-
 
   resources :users, only: [:index, :new, :create]
 
