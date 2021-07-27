@@ -75,13 +75,13 @@ const ChatRoomComponent = (props)  =>{
     if(chat.user_name === currentUser.first_name + " " + currentUser.last_name[0]){
       return(
         <div key={chat.id}>
-        <h4><span className="current-blue">{chat.chat_text}</span></h4><br/>
+        <h4><span className="current-blue font">{chat.chat_text}</span></h4><br/>
         </div>
       )
     }else{
       return(
         <div key={chat.id}>
-        <h4><span className="other-green">{chat.chat_text}</span></h4><br/>
+        <h4><span className="other-green font">{chat.chat_text}</span></h4><br/>
         </div>
       )
     }
