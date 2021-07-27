@@ -115,18 +115,20 @@ const ChatRoomComponent = (props)  =>{
 
   return(
     <div className="scroll bord">
+      <div className="chat-bord">
       {tripChatList}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="bord">
       <input
         name="chat_text"
         id="chat_text"
         type="text"
-        className="form-field inline bottom"
+        className="form-field inline chat-field"
         onChange={handleInputChange}
         value={newFormPayload.chat_text}
       />
+      <input className="chat-button inline" type="submit" value="Send"/>
       </form>
-      <input className="bottom button" type="submit" value="Send"/>
+      </div>
     </div>
   )
 }else{
