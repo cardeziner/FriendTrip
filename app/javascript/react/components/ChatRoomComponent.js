@@ -75,13 +75,14 @@ const ChatRoomComponent = (props)  =>{
     if(chat.user_name === currentUser.first_name + " " + currentUser.last_name[0]){
       return(
         <div key={chat.id}>
-        <h4><span className="current-blue font">{chat.chat_text}</span></h4><br/>
+          <h4><span className="current-blue font">{chat.chat_text}</span></h4><br/>
         </div>
       )
     }else{
       return(
         <div key={chat.id}>
-        <h4><span className="other-green font">{chat.chat_text}</span></h4><br/>
+          <p className="mini-text-left">{chat.user_name}</p>
+          <h4><span className="other-green font">{chat.chat_text}</span></h4><br/>
         </div>
       )
     }
@@ -115,8 +116,10 @@ const ChatRoomComponent = (props)  =>{
 
   return(
     <div id="chats" className="scroll bord">
-      <div className="chat-bord">
-      {tripChatList}
+      <div className="">
+        <div className="chat-bord">
+        {tripChatList}
+        </div>
       <form onSubmit={handleSubmit} className="bord">
       <input
         name="chat_text"

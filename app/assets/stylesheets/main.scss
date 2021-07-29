@@ -320,10 +320,13 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   display: flex-wrap;
 }
 
-.mini-text{
+.mini-text-left{
   color: gray;
-  font-size: 5px;
+  font-size: 12px;
+  padding-left: 12px;
+  margin-bottom: 0;
 }
+
 .resize-font1{
   font-size: 3.5vw;
   overflow: auto;
@@ -353,8 +356,7 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .chat-bord{
-  margin-bottom: 75px;
-  padding-bottom: 75px;
+  padding-bottom: 30em;
 }
 
 .inner-shade{
