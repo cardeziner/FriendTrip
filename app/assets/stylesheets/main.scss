@@ -39,6 +39,7 @@ html, body {
   padding-right: 8px;
   float: left;
   spacing: 5px;
+  margin-right: 100px;
 }
 
 .current-blue{
@@ -51,6 +52,7 @@ html, body {
     padding-right: 8px;
     float: right;
     spacing: 5px;
+    margin-left: 100px;
 }
 
 .scroll {
@@ -318,6 +320,10 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   display: flex-wrap;
 }
 
+.mini-text{
+  color: gray;
+  font-size: 5px;
+}
 .resize-font1{
   font-size: 3.5vw;
   overflow: auto;

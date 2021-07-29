@@ -435,7 +435,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
         <div key={props.trip.id} className="col-xs-9 col-md-5 font">
-          <h1 className="text-white vert left-red pad left"><p className="">YOUR TRIP INFO</p></h1>
+          <h1 className="text-white vert left-red pad left"><p className="">Your Trip Info</p></h1>
           <BackdropFilter
           className="bord vert"
           filter={"blur(20px)"}
@@ -452,7 +452,7 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
-            <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h2 className="vert blue-click inline">Your Flights{arrow()}</h2></h3>
+            <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h3 className="vert blue-click inline">Your Flights{arrow()}</h3></h3>
             {userTripsNotice()}
             <div className="center"><h5 id="flight-list" className={toggle3}><br/>{userFlightList}</h5></div>
             <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 className="center font inline">Hotel Bookings</h3></h5><br/>
@@ -466,7 +466,7 @@ const TripShow = props =>{
                 </div>
               </div>
             </BackdropFilter><br/>
-            <h1 className="text-white vert left-green pad left"><p>GROUP CHAT</p></h1>
+            <h1 className="text-white vert left-green pad left"><p>Group Chat</p></h1>
             <div className="bord">
             <ChatRoomComponent
               tripId={props.trip.id}
@@ -474,7 +474,7 @@ const TripShow = props =>{
             </div>
           </div>
             <div className="col-xs-12 col-md-5 grid tall">
-              <h1 className="text-white vert right-yellow pad right-head"><p className="">GROUP ITINERARY</p></h1>
+              <h1 className="text-white vert right-yellow pad right-head"><p className="">Group Itinerary</p></h1>
                 <BackdropFilter
                 className="bord"
                 filter={"blur(20px)"}
@@ -493,7 +493,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h1 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h1>
+                  <img src={flight_logo} className="icon inline vert"/><h2 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h2>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
                   {tripUserFlightList}<br/>
@@ -521,7 +521,7 @@ const TripShow = props =>{
                     {tripHotelsNotice()}
                   <div id="hotel-bookings" className={toggle6}>
                     {tripHotelsList}
-                  </div>
+                  </div><br/>
                   <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5>
                   <div id="hotel-list" className={toggle5}>
                     <NewHotelForm
@@ -530,9 +530,7 @@ const TripShow = props =>{
                     tripId={props.id}
                     />
                   </div>
-                  <GooglePlaceComponent
-                  city={tripCity}
-                  />
+
                   </BackdropFilter>
                 </div>
               </div>
