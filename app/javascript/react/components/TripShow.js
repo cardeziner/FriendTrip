@@ -189,7 +189,7 @@ const TripShow = props =>{
         <div key={singleEvent.id}>
           <div className="showhim click-block white-yell bot-pad vert" ><br/>
             <h2 className="just-font">{singleEvent.name}</h2>
-            <h5 className="text-white">{date(singleEvent.date)} </h5>
+            <h5 className="text-white">{dateByName(singleEvent.date)} </h5>
               <div className="showme">
                 <div className="row inline-block">
                   <div className="col-6 inline-block text-white left">
@@ -210,7 +210,7 @@ const TripShow = props =>{
   const noEvents = () =>{
     if ((eventList.length === 0) || props.events.length < 1 ){
       return(
-        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW ADD ONE!<br/><br/></h4>
+        <h5 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW TO ADD ONE!<br/><br/></h5>
       )
     }
   }
@@ -394,7 +394,7 @@ const TripShow = props =>{
   const tripsNotice = () =>{
     if (tripUserFlightList.length < 1){
       return(
-        <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET! CLICK BELOW TO ADD ONE.</h5>
+        <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET!<br/> CLICK BELOW TO ADD ONE.</h5>
       )
     }else{
       return(
@@ -406,7 +406,7 @@ const TripShow = props =>{
   const userTripsNotice = () =>{
     if (userFlightList.length < 1){
       return(
-        <h5 className="text-white center">YOU HAVE NOT ADDED ANY FLIGHTS YET. CLICK "+ADD A FLIGHT" BELOW GROUP FLIGHTS SECTION TO BEGIN.</h5>
+        <h5 className="text-white center">YOU HAVE NOT ADDED ANY FLIGHTS YET.<br/> CLICK "+ADD A FLIGHT" BELOW GROUP FLIGHTS SECTION TO BEGIN.</h5>
       )
     }else{
       return(
@@ -522,7 +522,7 @@ const TripShow = props =>{
                   <div id="hotel-bookings" className={toggle6}>
                     {tripHotelsList}
                   </div><br/>
-                  <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5>
+                  <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5><br/>
                   <div id="hotel-list" className={toggle5}>
                     <NewHotelForm
                     hotels={tripHotels}

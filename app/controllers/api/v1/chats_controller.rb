@@ -5,7 +5,7 @@ class Api::V1::ChatsController < ApplicationController
     user = current_user
     render json: {
       chats: chats,
-      current_user: user
+      current_user: user,
       }
   end
 
