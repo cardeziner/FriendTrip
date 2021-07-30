@@ -373,6 +373,8 @@ const TripShow = props =>{
     )
   })
 
+  const sortedUserHotelsList = _.sortBy(flightData, 'user_name')
+
   const tripHotelsList = tripHotels.map(hotel =>{
     let timestampIn = hotel.check_in
     let checkIn = new Date(timestampIn)
@@ -397,6 +399,18 @@ const TripShow = props =>{
   })
 
   const tripsNotice = () =>{
+    if (tripUserFlightList.length < 1){
+      return(
+        <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET!<br/> CLICK BELOW TO ADD ONE.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center">TRIPMEMBERS HAVE ADDED (<h5 className="text-yellow inline">{flightData.length}</h5>) FLIGHTS</h5>
+      )
+    }
+  }
+
+  const hotelNotice = () =>{
     if (tripUserFlightList.length < 1){
       return(
         <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET!<br/> CLICK BELOW TO ADD ONE.</h5>
@@ -485,7 +499,7 @@ const TripShow = props =>{
                 filter={"blur(20px)"}
                 >
                 <div className="no-top">
-                  <img src={schedule} className="icon inline vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
+                  <img src={schedule} className="icon inline vert"/><h2 className="text-yellow text inline vert resize-font1"> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}
