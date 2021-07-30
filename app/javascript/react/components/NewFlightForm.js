@@ -69,7 +69,7 @@ const NewFlightForm = props =>{
           arriving_airport: "",
         })
         setErrors({})
-        setRedirect(true)
+        window.location.reload()
       }
     }
 

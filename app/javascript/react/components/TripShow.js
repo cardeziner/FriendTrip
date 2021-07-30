@@ -362,7 +362,7 @@ const TripShow = props =>{
   const tripUserFlightList = sortedTripFlightList.map(flight =>{
     return(
       <div key={flight.id} className="showhim row flex inline">
-        <h3 className="col-3 text-blue left align-self-center left inline center">{flight.user_name}</h3>
+        <h3 className="col-3 text-blue align-self-center inline center">{flight.user_name}</h3>
         <div className="col-9 showme blue-hover no-top no-bot">
             <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
             <h4 className="center text-white vert">{flight.airline}</h4>
@@ -384,8 +384,8 @@ const TripShow = props =>{
     const fullCheckOut = (checkOut[0] + ", " + checkOut[1] + " " + checkOut[2] + " " +  checkOut[3])
     return(
       <div key={hotel.id} className="showhim row flex inline">
-        <h3 className="col-3 text-blue left align-self-center left inline center">{hotel.user_name}</h3>
-        <div className="col-9 showme blue-hover no-top no-bot">
+        <h3 className="col-3 text-purp align-self-center inline center">{hotel.user_name.split(" ")[0]}</h3>
+        <div className="col-9 showme purp-hover no-top no-bot">
             <h3 className=" center text-white">{hotel.name}</h3>
             <h4 className="center text-white vert inline">{hotel.address}, {hotel.city} {hotel.state} </h4>
             <h4 className="center text-white vert"></h4>
@@ -524,7 +524,7 @@ const TripShow = props =>{
                   >
                   <img src={hotel} className="icon inline vert"/><h2 onClick={change6} className="inline text-purp vert center">Hotel Bookings{arrow2()}</h2>
                     {tripHotelsNotice()}
-                  <div id="hotel-bookings" className={toggle6}>
+                  <div id="hotel-bookings" className={toggle6}><br/>
                     {tripHotelsList}
                   </div><br/>
                   <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5><br/>
