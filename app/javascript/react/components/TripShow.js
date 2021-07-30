@@ -39,6 +39,8 @@ const TripShow = props =>{
   const [currentUserFlights, setCurrentUserFlights] = useState([])
   const [hotels, setHotels] = useState([])
   const [tripHotels, setTripHotels] = useState([])
+  const [checkInDate, setCheckInDate] = useState("")
+  const [checkOutDate, setCheckOutDate] = useState("")
 
   const iD = (props.id - 1)
 
@@ -371,12 +373,15 @@ const TripShow = props =>{
     )
   })
 
-
   const tripHotelsList = tripHotels.map(hotel =>{
     let timestampIn = hotel.check_in
-    const checkIn = new Date(timestampIn)
+    let checkIn = new Date(timestampIn)
+    checkIn = checkIn.toString().split(" ")
+    const fullCheckIn = checkIn[0] + ", " + checkIn[1] + " " + checkIn[2] + " " + checkIn[3]
     let timestampOut = hotel.check_out
-    const checkOut = new Date(timestampOut)
+    let checkOut = new Date(timestampOut)
+    checkOut = checkOut.toString().split(" ")
+    const fullCheckOut = (checkOut[0] + ", " + checkOut[1] + " " + checkOut[2] + " " +  checkOut[3])
     return(
       <div key={hotel.id} className="showhim row flex inline">
         <h3 className="col-3 text-blue left align-self-center left inline center">{hotel.user_name}</h3>
@@ -384,8 +389,8 @@ const TripShow = props =>{
             <h3 className=" center text-white">{hotel.name}</h3>
             <h4 className="center text-white vert inline">{hotel.address}, {hotel.city} {hotel.state} </h4>
             <h4 className="center text-white vert"></h4>
-            <p className="center text-white table-cell resize-text">Check In   {(checkIn.getMonth() + 1) + "/" + checkIn.getDate() + "/" + checkIn.getFullYear() }<br/></p>
-            <p className="center text-white table-cell ">Check Out   {(checkOut.getMonth() + 1) + "/" + checkOut.getDate() + "/" + checkOut.getFullYear() }<br/></p>
+            <p className="center text-white table-cell resize-text">Check In {fullCheckIn}<br/></p>
+            <p className="center text-white table-cell ">Check Out {fullCheckOut}<br/></p>
         </div>
       </div>
     )
