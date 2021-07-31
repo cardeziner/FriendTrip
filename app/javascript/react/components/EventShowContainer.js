@@ -94,7 +94,7 @@ const EventShowContainer = (props) =>{
 
   return(
     <div className="bg darken" style={sectionStyle}>
-      <h1 className="accent-red center">EVENTS & VOTES</h1>
+      <h1 className="accent-red center">EVENTS</h1>
       <div className="row pad center"><br/><br/>
         <div className="col-xs-8 col-md-5">
           <BackdropFilter
