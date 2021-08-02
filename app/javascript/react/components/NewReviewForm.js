@@ -77,7 +77,7 @@ const NewReviewForm = props =>{
           review: ""
         })
         setErrors({})
-        setRedirect(true)
+        window.location.reload()
     }
   }
 

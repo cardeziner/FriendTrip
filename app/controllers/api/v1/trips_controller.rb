@@ -14,6 +14,7 @@ protect_from_forgery unless: -> { request.format.json? }
     hotels = trip.hotels
     flights = trip.flights
     events = trip.events
+    chats = trip.chats
     user = current_user
     users = trip.users
     user_flights = user.flights.where(trip_id: trip.id)
@@ -24,7 +25,8 @@ protect_from_forgery unless: -> { request.format.json? }
       user: user,
       flights: flights,
       user_flights: user_flights,
-      hotels: hotels
+      hotels: hotels,
+      chats: chats
     }
   end
 

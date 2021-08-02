@@ -5,6 +5,7 @@ import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 const GooglePlaceComponent = (props) =>{
   const [results, setResults] = useState({})
+  const [value, setValue] = useState({})
   const [place, setPlace] = useState({
       name: '',
       city: '',

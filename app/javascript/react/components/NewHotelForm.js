@@ -49,7 +49,7 @@ const NewHotelForm = props =>{
         check_out: "",
       })
       setErrors({})
-      setRedirect(true)
+      window.location.reload()
     }
   }
 

@@ -19,6 +19,7 @@ import cost from '../../../assets/images/cost.png'
 import flight_logo from '../../../assets/images/Flight-logo.png'
 import flight_to from '../../../assets/images/flight_to.png'
 import hotel from '../../../assets/images/hotel.png'
+import ChatRoomComponent from './ChatRoomComponent'
 
 
 require('dotenv').config()
@@ -38,6 +39,8 @@ const TripShow = props =>{
   const [currentUserFlights, setCurrentUserFlights] = useState([])
   const [hotels, setHotels] = useState([])
   const [tripHotels, setTripHotels] = useState([])
+  const [checkInDate, setCheckInDate] = useState("")
+  const [checkOutDate, setCheckOutDate] = useState("")
 
   const iD = (props.id - 1)
 
@@ -188,7 +191,7 @@ const TripShow = props =>{
         <div key={singleEvent.id}>
           <div className="showhim click-block white-yell bot-pad vert" ><br/>
             <h2 className="just-font">{singleEvent.name}</h2>
-            <h5 className="text-white">{date(singleEvent.date)} </h5>
+            <h5 className="text-white">{dateByName(singleEvent.date)} </h5>
               <div className="showme">
                 <div className="row inline-block">
                   <div className="col-6 inline-block text-white left">
@@ -209,7 +212,7 @@ const TripShow = props =>{
   const noEvents = () =>{
     if ((eventList.length === 0) || props.events.length < 1 ){
       return(
-        <h4 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW ADD ONE!<br/><br/></h4>
+        <h5 className="text-white font side-pad"><br/> NO EVENTS HAVE BEEN MADE YET!<br/> CLICK BELOW TO ADD ONE!<br/><br/></h5>
       )
     }
   }
@@ -359,7 +362,7 @@ const TripShow = props =>{
   const tripUserFlightList = sortedTripFlightList.map(flight =>{
     return(
       <div key={flight.id} className="showhim row flex inline">
-        <h3 className="col-3 text-blue left align-self-center left inline center">{flight.user_name}</h3>
+        <h3 className="col-3 text-blue align-self-center inline center">{flight.user_name}</h3>
         <div className="col-9 showme blue-hover no-top no-bot">
             <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
             <h4 className="center text-white vert">{flight.airline}</h4>
@@ -370,21 +373,26 @@ const TripShow = props =>{
     )
   })
 
+  const sortedUserHotelsList = _.sortBy(flightData, 'user_name')
 
   const tripHotelsList = tripHotels.map(hotel =>{
     let timestampIn = hotel.check_in
-    const checkIn = new Date(timestampIn)
+    let checkIn = new Date(timestampIn)
+    checkIn = checkIn.toString().split(" ")
+    const fullCheckIn = checkIn[0] + ", " + checkIn[1] + " " + checkIn[2] + " " + checkIn[3]
     let timestampOut = hotel.check_out
-    const checkOut = new Date(timestampOut)
+    let checkOut = new Date(timestampOut)
+    checkOut = checkOut.toString().split(" ")
+    const fullCheckOut = (checkOut[0] + ", " + checkOut[1] + " " + checkOut[2] + " " +  checkOut[3])
     return(
       <div key={hotel.id} className="showhim row flex inline">
-        <h3 className="col-3 text-blue left align-self-center left inline center">{hotel.user_name}</h3>
-        <div className="col-9 showme blue-hover no-top no-bot">
+        <h3 className="col-3 text-purp align-self-center inline center">{hotel.user_name.split(" ")[0]}</h3>
+        <div className="col-9 showme purp-hover no-top no-bot">
             <h3 className=" center text-white">{hotel.name}</h3>
             <h4 className="center text-white vert inline">{hotel.address}, {hotel.city} {hotel.state} </h4>
             <h4 className="center text-white vert"></h4>
-            <p className="center text-white table-cell resize-text">Check In   {(checkIn.getMonth() + 1) + "/" + checkIn.getDate() + "/" + checkIn.getFullYear() }<br/></p>
-            <p className="center text-white table-cell ">Check Out   {(checkOut.getMonth() + 1) + "/" + checkOut.getDate() + "/" + checkOut.getFullYear() }<br/></p>
+            <p className="center text-white table-cell resize-text">Check In {fullCheckIn}<br/></p>
+            <p className="center text-white table-cell ">Check Out {fullCheckOut}<br/></p>
         </div>
       </div>
     )
@@ -393,7 +401,19 @@ const TripShow = props =>{
   const tripsNotice = () =>{
     if (tripUserFlightList.length < 1){
       return(
-        <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET! CLICK BELOW TO ADD ONE.</h5>
+        <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET!<br/> CLICK BELOW TO ADD ONE.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center">TRIPMEMBERS HAVE ADDED (<h5 className="text-yellow inline">{flightData.length}</h5>) FLIGHTS</h5>
+      )
+    }
+  }
+
+  const hotelNotice = () =>{
+    if (tripUserFlightList.length < 1){
+      return(
+        <h5 className="text-white center">NO FLIGHTS HAVE BEEN ADDED YET!<br/> CLICK BELOW TO ADD ONE.</h5>
       )
     }else{
       return(
@@ -405,7 +425,7 @@ const TripShow = props =>{
   const userTripsNotice = () =>{
     if (userFlightList.length < 1){
       return(
-        <h5 className="text-white center">YOU HAVE NOT ADDED ANY FLIGHTS YET. CLICK "+ADD A FLIGHT" BELOW GROUP FLIGHTS SECTION TO BEGIN.</h5>
+        <h5 className="text-white center">YOU HAVE NOT ADDED ANY FLIGHTS YET.<br/> CLICK "+ADD A FLIGHT" BELOW GROUP FLIGHTS SECTION TO BEGIN.</h5>
       )
     }else{
       return(
@@ -434,7 +454,7 @@ const TripShow = props =>{
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
       <div className="row pad">
         <div key={props.trip.id} className="col-xs-9 col-md-5 font">
-          <h1 className="text-white vert left-red pad left"><p className="">YOUR TRIP INFO</p></h1>
+          <h1 className="text-white vert left-red pad left"><p className="">Your Trip Info</p></h1>
           <BackdropFilter
           className="bord vert"
           filter={"blur(20px)"}
@@ -451,7 +471,7 @@ const TripShow = props =>{
           </h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
-            <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h2 className="vert blue-click inline">Your Flights{arrow()}</h2></h3>
+            <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h3 className="vert blue-click inline">Your Flights{arrow()}</h3></h3>
             {userTripsNotice()}
             <div className="center"><h5 id="flight-list" className={toggle3}><br/>{userFlightList}</h5></div>
             <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 className="center font inline">Hotel Bookings</h3></h5><br/>
@@ -465,19 +485,21 @@ const TripShow = props =>{
                 </div>
               </div>
             </BackdropFilter><br/>
-            <h1 className="text-white vert left-green pad left"><p>GROUP CHAT</p></h1>
-            <div className="white-box">
-              <h1>hello world</h1>
+            <h1 className="text-white vert left-green pad left"><p>Group Chat</p></h1>
+            <div className="bord">
+            <ChatRoomComponent
+              tripId={props.trip.id}
+            />
             </div>
           </div>
             <div className="col-xs-12 col-md-5 grid tall">
-              <h1 className="text-white vert right-yellow pad right-head"><p className="">GROUP ITINERARY</p></h1>
+              <h1 className="text-white vert right-yellow pad right-head"><p className="">Group Itinerary</p></h1>
                 <BackdropFilter
                 className="bord"
                 filter={"blur(20px)"}
                 >
                 <div className="no-top">
-                  <img src={schedule} className="icon inline vert"/><h2 className="text-green text inline vert resize-font1"> Scheduled Events </h2>
+                  <img src={schedule} className="icon inline vert"/><h2 className="text-yellow text inline vert resize-font1"> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}
@@ -490,7 +512,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h1 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h1>
+                  <img src={flight_logo} className="icon inline vert"/><h2 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h2>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
                   {tripUserFlightList}<br/>
@@ -516,10 +538,10 @@ const TripShow = props =>{
                   >
                   <img src={hotel} className="icon inline vert"/><h2 onClick={change6} className="inline text-purp vert center">Hotel Bookings{arrow2()}</h2>
                     {tripHotelsNotice()}
-                  <div id="hotel-bookings" className={toggle6}>
+                  <div id="hotel-bookings" className={toggle6}><br/>
                     {tripHotelsList}
-                  </div>
-                  <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5>
+                  </div><br/>
+                  <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5><br/>
                   <div id="hotel-list" className={toggle5}>
                     <NewHotelForm
                     hotels={tripHotels}
@@ -527,9 +549,7 @@ const TripShow = props =>{
                     tripId={props.id}
                     />
                   </div>
-                  <GooglePlaceComponent
-                  city={tripCity}
-                  />
+
                   </BackdropFilter>
                 </div>
               </div>
