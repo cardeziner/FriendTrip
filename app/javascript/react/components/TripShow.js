@@ -167,7 +167,11 @@ const TripShow = props =>{
     var hours = parseddate.getHours();
     var minutes = parseddate.getMinutes();
     if(hours >= 12){
-      return(`${(hours - 12)}:${minutes} PM`)
+      if(hours === 0){
+      return(`12:${minutes} PM`)
+    }else{
+      return(`${hours}:${minutes} PM`)
+    }
     }
     if(hours < 12){
       if(hours === 0){
