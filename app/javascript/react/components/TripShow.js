@@ -41,6 +41,8 @@ const TripShow = props =>{
   const [tripHotels, setTripHotels] = useState([])
   const [checkInDate, setCheckInDate] = useState("")
   const [checkOutDate, setCheckOutDate] = useState("")
+  const [userTripHotels, setUserTripHotels] = useState([])
+  const [tripChats, setTripChats] = useState([])
 
   const iD = (props.id - 1)
 
@@ -59,6 +61,8 @@ const TripShow = props =>{
     })
     .then(response => response.json())
     .then(parsedTripsData =>{
+      setTripChats(parsedTripsData.chats)
+      setUserTripHotels(parsedTripsData.user_trip_hotels)
       setFlightData(parsedTripsData.flights)
       setTripCity(parsedTripsData.trip.city)
       setCurrentUserFlights(parsedTripsData.user_flights)
@@ -398,6 +402,20 @@ const TripShow = props =>{
     )
   })
 
+  const userHotelList = sortedTripFlightList.map(flight =>{
+    return(
+      <div key={flight.id} className="showhim row flex inline">
+        <h3 className="col-3 text-blue align-self-center inline center">{flight.user_name}</h3>
+        <div className="col-9 showme blue-hover no-top no-bot">
+            <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
+            <h4 className="center text-white vert">{flight.airline}</h4>
+            <p className="center text-white table-cell resize-text">DEPARTS {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
+            <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
+        </div>
+      </div>
+    )
+  })
+
   const tripsNotice = () =>{
     if (tripUserFlightList.length < 1){
       return(
@@ -488,6 +506,9 @@ const TripShow = props =>{
             <h1 className="text-white vert left-green pad left"><p>Group Chat</p></h1>
             <div className="bord">
             <ChatRoomComponent
+              currentUser={currentUser}
+              tripChats={tripChats}
+              userTripHotels={userTripHotels}
               tripId={props.trip.id}
             />
             </div>

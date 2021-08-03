@@ -44,25 +44,31 @@ const ChatRoomComponent = (props)  =>{
     }
 
     useEffect(() =>{
-      fetch(`/api/v1/chats`, {
-        credentials: "same-origin",
-          })
-      .then(response => {
-        if(response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`
-          error = new Error(errorMessage)
-          throw(error)
-        }
-      })
-      .then(response => response.json())
-      .then(parsedChatData =>{
-        setCurrentUser(parsedChatData.current_user)
-        setChatList(parsedChatData.chats)
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
-    }, [])
+      setChatList(props.tripChats)
+      setCurrentUser(props.currentUser)
+    })
+
+
+    // useEffect(() =>{
+    //   fetch(`/api/v1/chats`, {
+    //     credentials: "same-origin",
+    //       })
+    //   .then(response => {
+    //     if(response.ok) {
+    //       return response
+    //     } else {
+    //       let errorMessage = `${response.status} (${response.statusText})`
+    //       error = new Error(errorMessage)
+    //       throw(error)
+    //     }
+    //   })
+    //   .then(response => response.json())
+    //   .then(parsedChatData =>{
+    //     setCurrentUser(parsedChatData.current_user)
+    //     setChatList(parsedChatData.chats)
+    //   })
+    //   .catch(error => console.error(`Error in fetch: ${error.message}`))
+    // }, [])
 
   const handleInputChange = event =>{
     setNewFormPayload({
