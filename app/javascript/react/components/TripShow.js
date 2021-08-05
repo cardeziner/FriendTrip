@@ -34,6 +34,7 @@ const TripShow = props =>{
   const [toggle4, setToggle4] = useState("hide")
   const [toggle5, setToggle5] = useState("hide")
   const [toggle6, setToggle6] = useState("hide")
+  const [toggle7, setToggle7] = useState("hide")
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
@@ -315,6 +316,15 @@ const TripShow = props =>{
     }
   }
 
+  function change7(){
+    const v = document.getElementById("user-hotels")
+    if (toggle7 === "hide"){
+      setToggle7("display")
+   }else{
+     setToggle7("hide")
+    }
+  }
+
 
   function arrow(){
     if (toggle3 === "hide"){
@@ -334,6 +344,14 @@ const TripShow = props =>{
 
   function arrow2(){
     if (toggle6 === "hide"){
+      return(<h1 className="inline"> +</h1>)
+    }else{
+      return(<h1 className="inline"> -</h1>)
+    }
+  }
+
+  function arrow3(){
+    if (toggle7 === "hide"){
       return(<h1 className="inline"> +</h1>)
     }else{
       return(<h1 className="inline"> -</h1>)
@@ -406,15 +424,24 @@ const TripShow = props =>{
     )
   })
 
-  const userHotelList = sortedTripFlightList.map(flight =>{
+  const userHotelList = userTripHotels.map(hotel =>{
+    let timestampIn = hotel.check_in
+    let checkIn = new Date(timestampIn)
+    checkIn = checkIn.toString().split(" ")
+    const fullCheckIn = checkIn[0] + ", " + checkIn[1] + " " + checkIn[2] + " " + checkIn[3]
+    let timestampOut = hotel.check_out
+    let checkOut = new Date(timestampOut)
+    checkOut = checkOut.toString().split(" ")
+    const fullCheckOut = (checkOut[0] + ", " + checkOut[1] + " " + checkOut[2] + " " +  checkOut[3])
     return(
-      <div key={flight.id} className="showhim row flex inline">
-        <h3 className="col-3 text-blue align-self-center inline center">{flight.user_name}</h3>
-        <div className="col-9 showme blue-hover no-top no-bot">
-            <h2 className="center text-white vert inline">{flight.departing_airport} <img src={flight_to} className="fl-logo inline"/> {flight.arriving_airport}<br/></h2>
-            <h4 className="center text-white vert">{flight.airline}</h4>
-            <p className="center text-white table-cell resize-text">DEPARTS {dateByName(flight.departure_date)} @ {formatAMPM(flight.departure_time)}<br/></p>
-            <p className="center text-white table-cell ">ARRIVES   {dateByName(flight.arrival_date)} @ {formatAMPM(flight.arrival_time)}<br/></p>
+      <div key={hotel.id} className="showhim row flex inline">
+        <h3 className=" text-purp align-self-center inline center">{fullCheckIn}</h3>
+        <div className="col-9 showme purp-hover no-top no-bot">
+            <h3 className=" center text-white">{hotel.name}</h3>
+            <h4 className="center text-white vert inline">{hotel.address}, {hotel.city} {hotel.state} </h4>
+            <h4 className="center text-white vert"></h4>
+            <p className="center text-white table-cell resize-text">Check In {fullCheckIn}</p>
+            <p className="center text-white table-cell ">Check Out {fullCheckOut}<br/></p>
         </div>
       </div>
     )
@@ -468,6 +495,18 @@ const TripShow = props =>{
     }
   }
 
+  const userHotelsNotice = () =>{
+    if (userHotelList.length < 1){
+      return(
+        <h5 className="text-white center vert">YOU HAVE NOT ADDED ANY HOTELS YET. CLICK "+ADD A HOTEL" TO BEGIN.</h5>
+      )
+    }else{
+      return(
+        <h5 className="text-white center vert">YOU CURRENTLY HAVE (<h5 className="text-yellow inline">{userHotelList.length}</h5>) HOTELS BOOKED</h5>
+      )
+    }
+  }
+
 
 
 
@@ -496,7 +535,9 @@ const TripShow = props =>{
             <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h3 className="vert blue-click inline">Your Flights{arrow()}</h3></h3>
             {userTripsNotice()}
             <div className="center"><h5 id="flight-list" className={toggle3}><br/>{userFlightList}</h5></div>
-            <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 className="center font inline">Your Hotel</h3></h5><br/>
+            <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 onClick={change7} className="center font inline">Your Hotel {arrow3()}</h3></h5>
+            {userHotelsNotice()}
+            <div className="center"><h5 id="user-hotels" className={toggle7}>{userHotelList}</h5></div><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
               <h5 className="font center accent-white" onClick={change1}> + INVITE A FRIEND</h5>
