@@ -79,8 +79,10 @@ const ChatRoomComponent = (props)  =>{
   const tripChatList = chatList.map(chat =>{
     if(chat.user_name === currentUser.first_name + " " + currentUser.last_name[0]){
       return(
-        <div key={chat.id}><br/>
-          <h4><span className="current-blue font">{chat.chat_text}</span></h4><br/>
+        <div key={chat.id}>
+          <div>
+          <h4><span className="current-blue font">{chat.chat_text}</span></h4><br/><br/>
+          </div>
         </div>
       )
     }else{

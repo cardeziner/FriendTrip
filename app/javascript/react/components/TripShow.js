@@ -20,7 +20,7 @@ import flight_logo from '../../../assets/images/Flight-logo.png'
 import flight_to from '../../../assets/images/flight_to.png'
 import hotel from '../../../assets/images/hotel.png'
 import ChatRoomComponent from './ChatRoomComponent'
-
+import WeatherComponent from './WeatherComponent'
 
 require('dotenv').config()
 
@@ -616,7 +616,13 @@ const TripShow = props =>{
                     tripId={props.id}
                     />
                   </div>
-
+                  </BackdropFilter><br/>
+                  <BackdropFilter
+                  className="bord"
+                  filter={"blur(20px)"}
+                  >
+                  <WeatherComponent
+                  />
                   </BackdropFilter>
                 </div>
               </div>

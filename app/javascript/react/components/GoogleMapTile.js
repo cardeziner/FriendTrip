@@ -4,7 +4,9 @@ const GoogleMapTile = (props) => {
 
   useEffect(() => {
     const geocoder = new google.maps.Geocoder();
+    // ^^ grabs the current geo location
     const address = `${props.location}`
+    // ^^ string int
     geocoder.geocode( { 'address': address}, function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         let latitude = results[0].geometry.location.lat()
