@@ -6,6 +6,7 @@ protect_from_forgery unless: -> { request.format.json? }
     render json: {
       trips: user.trips,
       user: user
+
     }
   end
 
@@ -18,6 +19,7 @@ protect_from_forgery unless: -> { request.format.json? }
     user = current_user
     users = trip.users
     user_flights = user.flights.where(trip_id: trip.id)
+    user_trip_hotels = hotels.where(user_id: current_user.id)
     render json: {
       trip: trip,
       events: events,
@@ -26,7 +28,8 @@ protect_from_forgery unless: -> { request.format.json? }
       flights: flights,
       user_flights: user_flights,
       hotels: hotels,
-      chats: chats
+      chats: chats,
+      user_trip_hotels: user_trip_hotels
     }
   end
 

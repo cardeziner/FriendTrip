@@ -2,8 +2,9 @@ class Api::V1::HotelsController < ApplicationController
 
   def index
     hotels = Hotel.all
-    render json: hotels
-
+    render json: {
+      hotels: hotels,
+     }
   end
 
   def create

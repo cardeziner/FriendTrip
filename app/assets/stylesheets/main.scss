@@ -75,6 +75,7 @@ html, body {
 }
 
 
+
 .opac-black-tile{
   background-color: black;
   opacity: .75;
@@ -296,6 +297,12 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   text-transform: capitalize;
 }
 
+.text-gray{
+  font-family: 'Francois One', sans-serif;
+  color: black;
+  align-items: center;
+}
+
 .bodytext{
   padding:4%;
   font-family: 'Anton', sans-serif;
@@ -334,7 +341,6 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .scroll{
-
    animation: linear 10s;
 }
 
@@ -357,7 +363,9 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .chat-bord{
-  padding-bottom: 20em;
+  padding-bottom: 10em;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .inner-shade{
@@ -778,6 +786,7 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   overflow-x:hidden;
   overflow-y:auto;
   height: 100vw;
+  width: 100;
 }
 
 
@@ -831,6 +840,7 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 .scroll{
   overflow-x: hidden;
   overflow-y:auto;
+  scroll-snap-type: y proximity;
 }
 
 .text-purp{
@@ -1166,6 +1176,13 @@ padding: 5px 10px 5px 5px;
   position:relative;
 }
 
+.heading{
+}
+
+.heading:hover {
+  color: white;
+}
+
 .user-photo{
   border-radius: 360;
   display: inline;
@@ -1186,6 +1203,11 @@ padding: 5px 10px 5px 5px;
   width: 40px;
   height: 40px;
   position:relative;
+}
+
+.small-font{
+  font-size: 5;
+  text-align: center;
 }
 
 .nav-white{
