@@ -48,7 +48,6 @@ const ChatRoomComponent = (props)  =>{
       setCurrentUser(props.currentUser)
     })
 
-
     // useEffect(() =>{
     //   fetch(`/api/v1/chats`, {
     //     credentials: "same-origin",

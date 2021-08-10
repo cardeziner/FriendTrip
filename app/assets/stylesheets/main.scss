@@ -75,6 +75,7 @@ html, body {
 }
 
 
+
 .opac-black-tile{
   background-color: black;
   opacity: .75;
@@ -357,7 +358,9 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .chat-bord{
-  padding-bottom: 20em;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 10em;
 }
 
 .inner-shade{
@@ -831,6 +834,7 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 .scroll{
   overflow-x: hidden;
   overflow-y:auto;
+  scroll-snap-type: y proximity;
 }
 
 .text-purp{
@@ -1164,6 +1168,14 @@ padding: 5px 10px 5px 5px;
   box-shadow: 0 0 30px gray;
   spacing: 5%;
   position:relative;
+}
+
+.heading{
+  color: 9C27B0;
+}
+
+.heading:hover {
+  text-shadow: 30px white;
 }
 
 .user-photo{

@@ -535,7 +535,7 @@ const TripShow = props =>{
             <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h3 className="vert blue-click inline">Your Flights{arrow()}</h3></h3>
             {userTripsNotice()}
             <div className="center"><h5 id="flight-list" className={toggle3}><br/>{userFlightList}</h5></div>
-            <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 onClick={change7} className="center font inline">Your Hotel {arrow3()}</h3></h5>
+            <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 onClick={change7} className="center font inline click-purp">Your Hotels {arrow3()}</h3></h5>
             {userHotelsNotice()}
             <div className="center"><h5 id="user-hotels" className={toggle7}>{userHotelList}</h5></div><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
@@ -578,7 +578,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h2 onClick={change4} className="inline text-blue vert center">Group Flights{arrow1()}</h2>
+                  <img src={flight_logo} className="icon inline vert"/><h2 onClick={change4} className="inline text-blue vert center heading">Group Flights{arrow1()}</h2>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
                   {tripUserFlightList}<br/>
