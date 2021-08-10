@@ -297,6 +297,12 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   text-transform: capitalize;
 }
 
+.text-gray{
+  font-family: 'Francois One', sans-serif;
+  color: black;
+  align-items: center;
+}
+
 .bodytext{
   padding:4%;
   font-family: 'Anton', sans-serif;
@@ -335,7 +341,6 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .scroll{
-
    animation: linear 10s;
 }
 
@@ -358,9 +363,9 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .chat-bord{
-  display: flex;
-  flex-direction: column-reverse;
   padding-bottom: 10em;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .inner-shade{
@@ -781,6 +786,7 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   overflow-x:hidden;
   overflow-y:auto;
   height: 100vw;
+  width: 100;
 }
 
 
@@ -1171,11 +1177,10 @@ padding: 5px 10px 5px 5px;
 }
 
 .heading{
-  color: 9C27B0;
 }
 
 .heading:hover {
-  text-shadow: 30px white;
+  color: white;
 }
 
 .user-photo{
@@ -1198,6 +1203,11 @@ padding: 5px 10px 5px 5px;
   width: 40px;
   height: 40px;
   position:relative;
+}
+
+.small-font{
+  font-size: 5;
+  text-align: center;
 }
 
 .nav-white{

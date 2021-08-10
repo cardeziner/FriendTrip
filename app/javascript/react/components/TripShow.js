@@ -550,6 +550,7 @@ const TripShow = props =>{
             </BackdropFilter><br/>
             <h1 className="text-white vert left-green pad left"><p>Group Chat</p></h1>
             <div className="bord">
+            <p clkasName="small-font">SCROLL TO BOTTOM TO SEE MOST RECENT CHATS</p>
             <ChatRoomComponent
               currentUser={currentUser}
               tripChats={tripChats}

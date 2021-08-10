@@ -123,7 +123,6 @@ const ChatRoomComponent = (props)  =>{
 
   return(
     <div id="chats" className="scroll bord">
-      <div className="">
         <div className="chat-bord">
         {tripChatList}
         </div>
@@ -138,7 +137,6 @@ const ChatRoomComponent = (props)  =>{
       />
       <input className="chat-submit" type="submit" value="Send"/>
       </form>
-      </div>
     </div>
   )
 }else{
