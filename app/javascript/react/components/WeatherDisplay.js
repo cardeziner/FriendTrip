@@ -4,7 +4,7 @@ const WeatherDisplay = (props) =>{
 
   if( 0 > props.longitude > 0){
       useEffect(() =>{
-        fetch(`https://dark-sky.p.rapidapi.com/${props.longitude},${props.latitude}?lang=en&units=auto`, {
+        fetch(`https://dark-sky.p.rapidapi.com/${props.latitude},${props.longitude}?lang=en&units=auto`, {
   	"method": "GET",
   	"headers": {
   		"x-rapidapi-key": "26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07",
@@ -22,7 +22,7 @@ const WeatherDisplay = (props) =>{
         })
         .then(response => response.json())
         .then(parsedWeatherData =>{
-
+          debugger
         })
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])

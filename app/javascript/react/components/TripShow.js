@@ -624,7 +624,7 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <WeatherComponent
-                  location={props.trip.city}
+                  city={tripCity}
                   />
                   </BackdropFilter>
                 </div>
