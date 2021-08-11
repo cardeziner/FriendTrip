@@ -6,7 +6,10 @@ const WeatherComponent = (props) =>{
   const [longitude, setLongitude] = useState(0)
   const [weatherData, setWeatherData] = useState({})
 
+
+  if(typeof props.location !== undefined){
   useEffect(() => {
+
     const geocoder = new google.maps.Geocoder()
     const address = `${props.location}`
     geocoder.geocode( { 'address': address}, function (results, status) {
@@ -52,7 +55,9 @@ const WeatherComponent = (props) =>{
         />
     </div>
   )
-
+}else{
+  return(<div>error</div>)
+}
 }
 
 export default WeatherComponent
