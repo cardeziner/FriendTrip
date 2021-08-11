@@ -44,6 +44,10 @@ const TripShow = props =>{
   const [checkOutDate, setCheckOutDate] = useState("")
   const [userTripHotels, setUserTripHotels] = useState([])
   const [tripChats, setTripChats] = useState([])
+  const [tripStart, setTripStart] = useState("")
+
+
+  if(props.trip){
 
   const iD = (props.id - 1)
 
@@ -508,8 +512,6 @@ const TripShow = props =>{
   }
 
 
-
-
   return(
     <div className="bg" style={sectionStyle}>
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
@@ -622,7 +624,7 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <WeatherComponent
-                  location={props.trip.location}
+                  location={props.trip.city}
                   />
                   </BackdropFilter>
                 </div>
@@ -632,6 +634,11 @@ const TripShow = props =>{
           <p className="center"><Link to="/trips" className="font">Back to Trips</Link></p>
         </div>
       )
+    }else{
+      return(
+        <div> please wait!</div>
+      )
+    }
     }
 
 export default TripShow
