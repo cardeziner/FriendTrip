@@ -30,9 +30,17 @@ const WeatherDisplay = (props) =>{
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
 
+      // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
+
 
     return(
-      <div> {weather.summary}</div>
+      <div><br/>
+        <h5 className="text-white center">CURRENT TEMP</h5>
+        <h1 className="text-white center">
+          {weather.apparentTemperature}° F
+        </h1>
+        <h5 className="text-white center">Todays forecast in {props.city} is {weather.summary}</h5>
+      </div>
     )
   }else{
     return(

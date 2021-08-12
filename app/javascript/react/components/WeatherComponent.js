@@ -20,10 +20,10 @@ const WeatherComponent = (props) =>{
 
   return(
     <div className="text-white">
-      Hello World from Weather Component
       <WeatherDisplay
         longitude={longitude}
         latitude={latitude}
+        city={props.city}
         />
     </div>
   )
