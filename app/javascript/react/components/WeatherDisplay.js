@@ -31,7 +31,7 @@ const WeatherDisplay = (props) =>{
       }, [])
 
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
-
+// clear-day, rain, partly-cloudy day, sleet, snow
 
     return(
       <div><br/>
