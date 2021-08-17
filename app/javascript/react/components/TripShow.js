@@ -8,6 +8,8 @@ import FlightTile from './FlightTile'
 import GooglePlaceComponent from './GooglePlaceComponent'
 import Unsplash from 'unsplash-js'
 import NewHotelForm from './NewHotelForm'
+import ChatRoomComponent from './ChatRoomComponent'
+import WeatherComponent from './WeatherComponent'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -19,8 +21,8 @@ import cost from '../../../assets/images/cost.png'
 import flight_logo from '../../../assets/images/Flight-logo.png'
 import flight_to from '../../../assets/images/flight_to.png'
 import hotel from '../../../assets/images/hotel.png'
-import ChatRoomComponent from './ChatRoomComponent'
-import WeatherComponent from './WeatherComponent'
+import weather from '../../../assets/images/weather.png'
+
 
 require('dotenv').config()
 
@@ -532,6 +534,7 @@ const TripShow = props =>{
             <div className="vert-line vert"></div><h5 className=" inline text-white resize-font">{(props.trip.city)}, {props.trip.state}</h5><div className="right">
           </div>
           </h3>
+          <h3 className="text-white vert"><img src={weather} className="icon inline center"/></h3>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
             <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h3 className="vert blue-click inline">Your Flights{arrow()}</h3></h3>
@@ -612,6 +615,7 @@ const TripShow = props =>{
                   </div><br/>
                   <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5><br/>
                   <div id="hotel-list" className={toggle5}>
+
                     <NewHotelForm
                     hotels={tripHotels}
                     addNewHotel={addNewHotel}
@@ -624,7 +628,7 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <WeatherComponent
-                  city={tripCity}
+                  city={tripCity }
                   />
                   </BackdropFilter>
                 </div>

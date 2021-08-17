@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import WeatherDisplay from './WeatherDisplay'
+import WeatherDisplayTile from './WeatherDisplayTile'
 
 const WeatherComponent = (props) =>{
   const [latitude, setLatitude] = useState(0)

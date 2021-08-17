@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-const WeatherDisplay = (props) =>{
+const WeatherDisplayTile = (props) =>{
 
   if( 0 > props.longitude > 0){
     const [weather, setWeather] = useState({})
@@ -30,16 +30,14 @@ const WeatherDisplay = (props) =>{
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
 
+
+
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
 // clear-day, rain, partly-cloudy day, sleet, snow, cloudy
 
     return(
-      <div><br/>
-        <h5 className="text-white center">CURRENT TEMP</h5>
-        <h1 className="text-white center">
-          {weather.apparentTemperature}° F
-        </h1>
-        <h5 className="text-white center">Todays forecast in {props.city} is {weather.summary}</h5>
+      <div className="inline vert">
+        <h5 className="text-white center inline vert">Currently {weather.summary} </h5>
       </div>
     )
   }else{
@@ -49,4 +47,4 @@ const WeatherDisplay = (props) =>{
   }
 }
 
-export default WeatherDisplay
+export default WeatherDisplayTile
