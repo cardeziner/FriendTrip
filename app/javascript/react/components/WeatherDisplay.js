@@ -30,11 +30,13 @@ const WeatherDisplay = (props) =>{
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
 
+
+
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
 // clear-day, rain, partly-cloudy day, sleet, snow, cloudy
 
     return(
-      <div><br/>
+      <div>
         <h5 className="text-white center">CURRENT TEMP</h5>
         <h1 className="text-white center">
           {weather.apparentTemperature}° F

@@ -615,7 +615,6 @@ const TripShow = props =>{
                   </div><br/>
                   <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5><br/>
                   <div id="hotel-list" className={toggle5}>
-
                     <NewHotelForm
                     hotels={tripHotels}
                     addNewHotel={addNewHotel}
@@ -623,10 +622,12 @@ const TripShow = props =>{
                     />
                   </div>
                   </BackdropFilter><br/>
+                    <h1 className="text-white vert right-orange pad right-head"><p>Weather</p></h1>
                   <BackdropFilter
-                  className="bord"
+                  className="bord col-12"
                   filter={"blur(20px)"}
                   >
+                  <img src={weather} className="icon inline vert"/><h2 className="inline text-white vert center">Todays Weather</h2>
                   <WeatherComponent
                   city={tripCity }
                   />
