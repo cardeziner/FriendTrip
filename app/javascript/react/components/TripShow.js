@@ -554,8 +554,8 @@ const TripShow = props =>{
               </div>
             </BackdropFilter><br/>
             <h1 className="text-white vert left-green pad left"><p>Group Chat</p></h1>
-            <div className="bord">
             <p clkasName="small-font center">SCROLL TO BOTTOM TO SEE MOST RECENT CHATS</p>
+            <div className="bord">
             <ChatRoomComponent
               currentUser={currentUser}
               tripChats={tripChats}
@@ -571,7 +571,7 @@ const TripShow = props =>{
                 filter={"blur(20px)"}
                 >
                 <div className="no-top">
-                  <img src={schedule} className="icon inline vert"/><h2 className="text-yellow text inline vert resize-font1"> Scheduled Events </h2>
+                  <img src={schedule} className="icon inline vert"/><h2 className="text-yellow text inline vert"> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">
                       {eventList}{noEvents()}
@@ -591,7 +591,7 @@ const TripShow = props =>{
                   </div>
                   <div>
                   <h5 className="font center white-blue" onClick={change2}>+ ADD A FLIGHT</h5>
-                  <br/>
+
                     <div id="form-info" className={toggle2}>
                     <NewFlightForm
                     currentUser={currentUser}
@@ -613,7 +613,7 @@ const TripShow = props =>{
                   <div id="hotel-bookings" className={toggle6}><br/>
                     {tripHotelsList}
                   </div><br/>
-                  <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5><br/>
+                  <h5 className="font center click-purp" onClick={change5}>+ ADD A HOTEL</h5>
                   <div id="hotel-list" className={toggle5}>
                     <NewHotelForm
                     hotels={tripHotels}
@@ -622,15 +622,15 @@ const TripShow = props =>{
                     />
                   </div>
                   </BackdropFilter><br/>
-                    <h1 className="text-white vert right-orange pad right-head"><p>Weather</p></h1>
+                  <h1 className="text-white vert right-orange pad right-head"><p>Weather</p></h1>
                   <BackdropFilter
                   className="bord col-12"
                   filter={"blur(20px)"}
                   >
-                  <img src={weather} className="icon inline vert"/><h2 className="inline text-white vert center">Todays Weather</h2>
+                  <img src={weather} className="icon inline vert"/><h2 className="inline text-white vert">Todays Weather</h2>
                   <WeatherComponent
                   city={tripCity }
-                  />
+                  /><br/>
                   </BackdropFilter>
                 </div>
               </div>
