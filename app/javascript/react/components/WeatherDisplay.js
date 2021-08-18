@@ -3,7 +3,8 @@ import React, {useState, useEffect} from 'react'
 const WeatherDisplay = (props) =>{
 
   if( 0 > props.longitude > 0){
-    const [weather, setWeather] = useState({})
+    const [currentWeather, setCurrentWeather] = useState({})
+    const [dailyWeather, setDailyWeather] = useState({})
 
       useEffect(() =>{
         fetch(`https://dark-sky.p.rapidapi.com/${props.latitude},${props.longitude}?lang=en&units=auto`, {
@@ -24,8 +25,9 @@ const WeatherDisplay = (props) =>{
         })
         .then(response => response.json())
         .then(parsedWeatherData =>{
-          setWeather(parsedWeatherData.currently)
-
+          setCurrentWeather(parsedWeatherData.currently)
+          setDailyWeather(parsedWeatherData.daily)
+          debugger
         })
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
@@ -39,9 +41,18 @@ const WeatherDisplay = (props) =>{
       <div>
         <h5 className="text-white center">CURRENT TEMP</h5>
         <h1 className="text-white center">
-          {weather.apparentTemperature}° F
+          {currentWeather.apparentTemperature}° F
         </h1>
-        <h5 className="text-white center">Todays forecast in {props.city} is {weather.summary}</h5>
+        <h5 className="text-white center">Current weather in {props.city} is {currentWeather.summary}</h5>
+        <p className="text-yellow center">"{dailyWeather.summary}"</p>
+        <div className="inline-block row">
+          <div className="col-6 center">
+
+          </div>
+          <div className="col-6 center">
+
+          </div>
+        </div>
       </div>
     )
   }else{
