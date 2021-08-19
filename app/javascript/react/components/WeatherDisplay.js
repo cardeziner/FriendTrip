@@ -32,7 +32,13 @@ const WeatherDisplay = (props) =>{
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
 
-
+      // const weeklyForecast = dailyWeather.data.map(day =>{
+      //   date = new Date(day.time)
+      //   month = date.month
+      //   return(
+      //     <div>{month}</div>
+      //   )
+      // })
 
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
 // clear-day, rain, partly-cloudy day, sleet, snow, cloudy
@@ -41,6 +47,7 @@ const WeatherDisplay = (props) =>{
       <div>
         <h5 className="text-white center">CURRENT TEMP</h5>
         <h1 className="text-white center">
+
           {currentWeather.apparentTemperature}° F
         </h1>
         <h5 className="text-white center">Current weather in {props.city} is {currentWeather.summary}</h5>
