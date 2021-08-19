@@ -5,14 +5,15 @@ const WeatherDisplay = (props) =>{
   if( 0 > props.longitude > 0){
     const [currentWeather, setCurrentWeather] = useState({})
     const [dailyWeather, setDailyWeather] = useState({})
+    const [forecastData, setForecastData] = useState([])
 
       useEffect(() =>{
         fetch(`https://dark-sky.p.rapidapi.com/${props.latitude},${props.longitude}?lang=en&units=auto`, {
-  	       "method": "GET",
-  	       "headers": {
-  		         "x-rapidapi-key": "26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07",
-  		         "x-rapidapi-host": "dark-sky.p.rapidapi.com"
-  	          }
+	         "method": "GET",
+	         "headers": {
+		           "x-rapidapi-host": "dark-sky.p.rapidapi.com",
+		           "x-rapidapi-key": "26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07"
+	            }
             })
         .then(response => {
           if(response.ok) {
@@ -27,18 +28,26 @@ const WeatherDisplay = (props) =>{
         .then(parsedWeatherData =>{
           setCurrentWeather(parsedWeatherData.currently)
           setDailyWeather(parsedWeatherData.daily)
-          debugger
+          setForecastData(parsedWeatherData.daily.data)
         })
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
 
-      // const weeklyForecast = dailyWeather.data.map(day =>{
-      //   date = new Date(day.time)
-      //   month = date.month
-      //   return(
-      //     <div>{month}</div>
-      //   )
-      // })
+      const weeklyForecast = forecastData.map(day =>{
+        let date = new Date(day.time)
+        date = date.toString().split(" ")
+        let dateString = date[1] + " " + date[2] + " " + date[3]
+        return(
+          <div className="row">
+            <div className="col-4 center">
+              {dateString}
+            </div>
+            <div className="col-8 center">
+              {day.summary}
+            </div>
+          </div>
+        )
+      })
 
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
 // clear-day, rain, partly-cloudy day, sleet, snow, cloudy
@@ -52,6 +61,7 @@ const WeatherDisplay = (props) =>{
         </h1>
         <h5 className="text-white center">Current weather in {props.city} is {currentWeather.summary}</h5>
         <p className="text-yellow center">"{dailyWeather.summary}"</p>
+        {weeklyForecast}
         <div className="inline-block row">
           <div className="col-6 center">
 
