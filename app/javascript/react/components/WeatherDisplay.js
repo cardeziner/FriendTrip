@@ -38,7 +38,7 @@ const WeatherDisplay = (props) =>{
         date = date.toString().split(" ")
         let dateString = date[1] + " " + date[2] + " " + date[3]
         return(
-          <div className="row">
+          <div key={day.time} className="row">
             <div className="col-4 center">
               {dateString}
             </div>

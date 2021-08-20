@@ -358,6 +358,8 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   transform: scale(1.1);
 }
 
+
+
 .vote{
   border-radius: 360px;
   width: 50px;
@@ -390,6 +392,15 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   position: absolute;
   right: 80%;
   top: 0;
+}
+
+.relative{
+  position: relative;
+}
+
+.absolute{
+  position: absolute;
+  bottom: 0;
 }
 
 .chat-field{
@@ -430,6 +441,11 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   height: 45px;
   width: 100px;
   font-size: 150%;
+}
+
+.text-bar{
+  border: 0 solid white;
+  background-color: white;
 }
 
 .chat-submit:hover {
