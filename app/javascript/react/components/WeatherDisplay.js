@@ -61,7 +61,6 @@ const WeatherDisplay = (props) =>{
         </h1>
         <h5 className="text-white center">Current weather in {props.city} is {currentWeather.summary}</h5>
         <p className="text-yellow center">"{dailyWeather.summary}"</p>
-        {weeklyForecast}
         <div className="inline-block row">
           <div className="col-6 center">
 

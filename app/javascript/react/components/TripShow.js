@@ -10,6 +10,7 @@ import Unsplash from 'unsplash-js'
 import NewHotelForm from './NewHotelForm'
 import ChatRoomComponent from './ChatRoomComponent'
 import WeatherComponent from './WeatherComponent'
+import WeatherTileComponent from './WeatherTileComponent'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -534,7 +535,9 @@ const TripShow = props =>{
             <div className="vert-line vert"></div><h5 className=" inline text-white resize-font">{(props.trip.city)}, {props.trip.state}</h5><div className="right">
           </div>
           </h3>
-          <h3 className="text-white vert"><img src={weather} className="icon inline center"/></h3>
+          <div className="inline">
+          <img src={weather} className="icon inline center"/>
+          </div>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
             <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h3 className="vert blue-click inline">Your Flights{arrow()}</h3></h3>
@@ -554,7 +557,7 @@ const TripShow = props =>{
               </div>
             </BackdropFilter><br/>
             <h1 className="text-white vert left-green pad left"><p>Group Chat</p></h1>
-            <p clkasName="small-font center">SCROLL TO BOTTOM TO SEE MOST RECENT CHATS</p>
+            <p className="center">SCROLL TO BOTTOM TO SEE MOST RECENT CHATS</p>
             <div className="bord">
             <ChatRoomComponent
               currentUser={currentUser}
@@ -629,7 +632,7 @@ const TripShow = props =>{
                   >
                   <img src={weather} className="icon inline vert"/><h2 className="inline text-white vert">Todays Weather</h2>
                   <WeatherComponent
-                  city={tripCity }
+                  city={tripCity}
                   /><br/>
                   </BackdropFilter>
                 </div>

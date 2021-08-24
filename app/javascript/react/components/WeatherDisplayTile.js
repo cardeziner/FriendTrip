@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 const WeatherDisplayTile = (props) =>{
 
-  if( 0 > props.longitude > 0){
+  if(0 > props.longitude > 0){
     const [weather, setWeather] = useState({})
 
       useEffect(() =>{
@@ -30,19 +30,17 @@ const WeatherDisplayTile = (props) =>{
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
 
-
-
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
 // clear-day, rain, partly-cloudy day, sleet, snow, cloudy
 
     return(
-      <div className="inline vert">
+      <h5 className="inline vert">
         <h5 className="text-white center inline vert">Currently {weather.summary} </h5>
-      </div>
+      </h5>
     )
   }else{
     return(
-      <div className="text-white center">LOADING...PLEASE WAIT</div>
+      <div className="text-white center inline">LOADING...PLEASE WAIT</div>
     )
   }
 }
