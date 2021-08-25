@@ -25,7 +25,6 @@ const WeatherDisplayTile = (props) =>{
         .then(response => response.json())
         .then(parsedWeatherData =>{
           setWeather(parsedWeatherData.currently)
-
         })
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
@@ -34,9 +33,9 @@ const WeatherDisplayTile = (props) =>{
 // clear-day, rain, partly-cloudy day, sleet, snow, cloudy
 
     return(
-      <h5 className="inline vert">
-        <h5 className="text-white center inline vert">Currently {weather.summary} </h5>
-      </h5>
+      <div className="inline vert">
+        <h5 className="text-white center inline vert">Currently {weather.apparentTemperature} and {weather.summary} </h5>
+      </div>
     )
   }else{
     return(

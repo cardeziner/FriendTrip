@@ -10,7 +10,6 @@ import Unsplash from 'unsplash-js'
 import NewHotelForm from './NewHotelForm'
 import ChatRoomComponent from './ChatRoomComponent'
 import WeatherComponent from './WeatherComponent'
-import WeatherTileComponent from './WeatherTileComponent'
 import WeatherDisplayTile from './WeatherDisplayTile'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
@@ -338,9 +337,9 @@ const TripShow = props =>{
 
   function arrow(){
     if (toggle3 === "hide"){
-      return(<h1 className="inline"> +</h1>)
+      return(<h3 className="inline"> +</h3>)
     }else{
-      return(<h1 className="inline"> -</h1>)
+      return(<h3 className="inline"> -</h3>)
     }
   }
 
@@ -464,7 +463,7 @@ const TripShow = props =>{
       )
     }else{
       return(
-        <h5 className="text-white center">TRIPMEMBERS HAVE ADDED (<h5 className="text-yellow inline">{flightData.length}</h5>) FLIGHTS</h5>
+        <div className="text-white center">TRIPMEMBERS HAVE ADDED (<h5 className="text-yellow inline">{flightData.length}</h5>) FLIGHTS</div>
       )
     }
   }
@@ -488,7 +487,7 @@ const TripShow = props =>{
       )
     }else{
       return(
-        <h5 className="text-white center">YOU CURRENTLY HAVE (<h5 className="text-yellow inline">{userFlightList.length}</h5>) FLIGHTS SCHEDULED</h5>
+        <div className="text-white center">YOU CURRENTLY HAVE (<h5 className="text-yellow inline">{userFlightList.length}</h5>) FLIGHTS SCHEDULED</div>
       )
     }
   }
@@ -500,7 +499,7 @@ const TripShow = props =>{
       )
     }else{
       return(
-        <h5 className="text-white center">THIS GROUP CURRENTLY HAS (<h5 className="text-yellow inline">{tripHotels.length}</h5>) HOTELS BOOKED</h5>
+        <div className="text-white center">THIS GROUP CURRENTLY HAS (<h5 className="text-yellow inline">{tripHotels.length}</h5>) HOTELS BOOKED</div>
       )
     }
   }
@@ -512,7 +511,7 @@ const TripShow = props =>{
       )
     }else{
       return(
-        <h5 className="text-white center vert">YOU CURRENTLY HAVE (<h5 className="text-yellow inline">{userHotelList.length}</h5>) HOTELS BOOKED</h5>
+        <div className="text-white center vert">YOU CURRENTLY HAVE (<h5 className="text-yellow inline">{userHotelList.length}</h5>) HOTELS BOOKED</div>
       )
     }
   }
@@ -548,11 +547,12 @@ const TripShow = props =>{
             location={tripCity}
             trip={props.trip}
             />
-            <h3 className="text-white inset vert">
+            <div className="text-white inset vert">
             <img src={location} className="inline icon"/>
-            <div className="vert-line vert"></div><h5 className=" inline text-white resize-font">{(props.trip.city)}, {props.trip.state}</h5><div className="right">
+            <h5 className=" inline text-white resize-font">{(props.trip.city)}, {props.trip.state}</h5>
+            <div className="right">
           </div>
-          </h3>
+          </div>
           <div className="inline">
           <img src={weather} className="icon inline center"/>
           <WeatherDisplayTile
@@ -560,12 +560,12 @@ const TripShow = props =>{
           longitude={longitude}
           />
           </div>
-          <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></h3>
-            <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
-            <h3 onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><h3 className="vert blue-click inline">Your Flights{arrow()}</h3></h3>
+          <div className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></div>
+            <div className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></div>
+            <div onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><div className="vert blue-click inline">Your Flights{arrow()}</div></div>
             {userTripsNotice()}
             <div className="center"><h5 id="flight-list" className={toggle3}><br/>{userFlightList}</h5></div>
-            <h5 className="text-white vert"><img src={hotel} className="icon inline center"/><h3 onClick={change7} className="center font inline click-purp">Your Hotels {arrow3()}</h3></h5>
+            <div className="text-white vert"><img src={hotel} className="icon inline center"/><div onClick={change7} className="center font inline click-purp">Your Hotels {arrow3()}</div></div>
             {userHotelsNotice()}
             <div className="center"><h5 id="user-hotels" className={toggle7}>{userHotelList}</h5></div><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
@@ -609,7 +609,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><h2 onClick={change4} className="inline text-blue vert center heading">Group Flights{arrow1()}</h2>
+                  <img src={flight_logo} className="icon inline vert"/><div onClick={change4} className="inline text-blue vert center heading">Group Flights{arrow1()}</div>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
                   {tripUserFlightList}<br/>
@@ -633,7 +633,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={hotel} className="icon inline vert"/><h2 onClick={change6} className="inline text-purp vert center">Hotel Bookings{arrow2()}</h2>
+                  <img src={hotel} className="icon inline vert"/><div onClick={change6} className="inline text-purp vert center">Hotel Bookings{arrow2()}</div>
                     {tripHotelsNotice()}
                   <div id="hotel-bookings" className={toggle6}><br/>
                     {tripHotelsList}
