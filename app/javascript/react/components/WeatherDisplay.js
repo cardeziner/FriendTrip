@@ -57,10 +57,11 @@ const WeatherDisplay = (props) =>{
         )
       })
 
-      let imageURL = ''
+      let imageURL = ""
 
 
       if(dailyWeather.icon){
+
         if(status.includes("clear")){
           imageURL = '../../../assets/images/clear.png'
         }
@@ -79,9 +80,9 @@ const WeatherDisplay = (props) =>{
         if(status.includes("cloudy")){
           imageURL = '../../../assets/images/cloudy.png'
         }
-        debugger
+
       }else{
-        imageURL = sleet
+        imageURL = '../../../assets/images/sleet.png'
       }
 
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
