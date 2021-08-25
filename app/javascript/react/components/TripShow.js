@@ -11,6 +11,7 @@ import NewHotelForm from './NewHotelForm'
 import ChatRoomComponent from './ChatRoomComponent'
 import WeatherComponent from './WeatherComponent'
 import WeatherTileComponent from './WeatherTileComponent'
+import WeatherDisplayTile from './WeatherDisplayTile'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -38,6 +39,8 @@ const TripShow = props =>{
   const [toggle5, setToggle5] = useState("hide")
   const [toggle6, setToggle6] = useState("hide")
   const [toggle7, setToggle7] = useState("hide")
+  const [latitude, setLatitude] = useState(0)
+  const [longitude, setLongitude] = useState(0)
   const [flightData, setFlightData] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserFlights, setCurrentUserFlights] = useState([])
@@ -514,6 +517,21 @@ const TripShow = props =>{
     }
   }
 
+  if(tripCity){
+    useEffect(() => {
+      const geocoder = new google.maps.Geocoder()
+      const address = `${props.city}`
+      geocoder.geocode( { 'address': address}, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          setLatitude(results[0].geometry.location.lat())
+          setLongitude(results[0].geometry.location.lng())
+         }
+       })
+      })
+  }else{
+    console.log("error in geocoding line 517")
+  }
+
 
   return(
     <div className="bg" style={sectionStyle}>
@@ -537,6 +555,10 @@ const TripShow = props =>{
           </h3>
           <div className="inline">
           <img src={weather} className="icon inline center"/>
+          <WeatherDisplayTile
+          latitude={latitude}
+          longitude={longitude}
+          />
           </div>
           <h3 className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></h3>
             <h3 className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></h3>
