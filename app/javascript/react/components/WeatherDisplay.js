@@ -1,18 +1,21 @@
 import React, {useState, useEffect} from 'react'
-import cloudy from '../images/cloudy.png'
-import clear from '../images/clear.png'
-import partly from '../images/partly-cloudy.png'
-import rain from '../images/rain.png'
-import sleet from '../images/sleet.png'
-import snow from '../images/snow.png'
+
 
 const WeatherDisplay = (props) =>{
+  const cloudy = require('../../../assets/images/cloudy.png')
+  const clear = require('../../../assets/images/clear.png')
+  const partlyCloudy = require('../../../assets/images/partly-cloudy.png')
+  const rain = require('../../../assets/images/rain.png')
+  const sleet = require('../../../assets/images/sleet.png')
+  const snow = require('../../../assets/images/snow.png')
+  const weather = require('../../../assets/images/weather.png')
 
   if( 0 > props.longitude > 0){
     const [icon, setIcon] = useState("")
     const [currentWeather, setCurrentWeather] = useState({})
     const [dailyWeather, setDailyWeather] = useState({})
     const [forecastData, setForecastData] = useState([])
+    const [status, setStatus] = useState("")
 
       useEffect(() =>{
         fetch(`https://dark-sky.p.rapidapi.com/${props.latitude},${props.longitude}?lang=en&units=auto`, {
@@ -36,7 +39,7 @@ const WeatherDisplay = (props) =>{
           setCurrentWeather(parsedWeatherData.currently)
           setDailyWeather(parsedWeatherData.daily)
           setForecastData(parsedWeatherData.daily.data)
-
+          setStatus(parsedWeatherData.daily.icon)
         })
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
@@ -57,8 +60,7 @@ const WeatherDisplay = (props) =>{
         )
       })
 
-      let imageURL = ""
-
+      let imageURL = ''
 
       if(dailyWeather.icon){
 
@@ -69,7 +71,7 @@ const WeatherDisplay = (props) =>{
           imageURL = rain
         }
         if(status.includes("partly")){
-          imageURL = partly
+          imageURL = partlyCloudy
         }
         if(status.includes("sleet")){
           imageURL = sleet
@@ -82,7 +84,7 @@ const WeatherDisplay = (props) =>{
         }
 
       }else{
-        imageURL = sleet
+        imageURL = weather
       }
 
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
@@ -90,13 +92,12 @@ const WeatherDisplay = (props) =>{
 
     return(
       <div>
-        <img src={imageURL}/>
+        <img src={imageURL}/><br/><br/>
         <h5 className="text-white center">CURRENT TEMP</h5>
         <h1 className="text-white center">
-
           {currentWeather.apparentTemperature}° F
         </h1>
-        <h5 className="text-white center">Current weather in {props.city} is {currentWeather.summary}</h5>
+        <h5 className="text-white center">Current Weather in {props.city}  {currentWeather.summary}</h5>
         <p className="text-yellow center">"{dailyWeather.summary}"</p>
         <div className="inline-block row">
           <div className="col-6 center">
