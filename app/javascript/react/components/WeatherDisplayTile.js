@@ -34,7 +34,7 @@ const WeatherDisplayTile = (props) =>{
 
     return(
       <div className="inline vert">
-        <h5 className="text-white center inline vert">Currently {weather.apparentTemperature} and {weather.summary} </h5>
+        <h5 className="text-white center inline vert">High of {Math.round(weather.apparentTemperature)}° F and {weather.summary} </h5>
       </div>
     )
   }else{

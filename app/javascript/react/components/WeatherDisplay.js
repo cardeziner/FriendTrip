@@ -87,6 +87,8 @@ const WeatherDisplay = (props) =>{
         imageURL = weather
       }
 
+
+
       // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
 // clear-day, rain, partly-cloudy day, sleet, snow, cloudy
 
@@ -95,9 +97,9 @@ const WeatherDisplay = (props) =>{
         <img src={imageURL}/><br/><br/>
         <h5 className="text-white center">CURRENT TEMP</h5>
         <h1 className="text-white center">
-          {currentWeather.apparentTemperature}° F
+          {Math.round(currentWeather.apparentTemperature)}° F
         </h1>
-        <h5 className="text-white center">Current Weather in {props.city}  {currentWeather.summary}</h5>
+        <h5 className="text-white center">Forecast in {props.city} is {currentWeather.summary}</h5>
         <p className="text-yellow center">"{dailyWeather.summary}"</p>
         <div className="inline-block row">
           <div className="col-6 center">

@@ -609,7 +609,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><div onClick={change4} className="inline text-blue vert center heading">Group Flights{arrow1()}</div>
+                  <img src={flight_logo} className="icon inline vert"/><div onClick={change4} className="inline vert center heading"><h2 className="text-blue inline">Group Flights{arrow1()}</h2></div>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
                   {tripUserFlightList}<br/>
@@ -633,7 +633,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={hotel} className="icon inline vert"/><div onClick={change6} className="inline text-purp vert center">Hotel Bookings{arrow2()}</div>
+                  <img src={hotel} className="icon inline vert"/><div onClick={change6} className="inline vert center"><h2 className="inline text-purp">Hotel Bookings{arrow2()}</h2></div>
                     {tripHotelsNotice()}
                   <div id="hotel-bookings" className={toggle6}><br/>
                     {tripHotelsList}
