@@ -366,6 +366,8 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 }
 
 .chat-bord{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   padding-bottom: 10em;
   padding-left: 0;
   padding-right: 0;
@@ -403,6 +405,10 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   bottom: 0;
 }
 
+.med-icon{
+  height: 250px;
+}
+
 .chat-field{
   align-self: center;
   width: 90%;
@@ -410,6 +416,8 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   bottom: 0;
   left: 0;
   border-top-left-radius: 15;
+  border: none !important;
+  border-width: 0;
 }
 
 .chat-form-field{
@@ -444,9 +452,13 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 // }
 
 .chat-submit{
+  border: 1px white;
+  background-color: #1BB0CE;
+  color: white;
   height: 50px;
   display: inline;
   width: 20%;
+  border-bottom-right-radius: 15px
 }
 
 .text-bar{
@@ -457,6 +469,7 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 .chat-box{
   height: 50px;
   width: 80%;
+  border-bottom-left-radius: 15px
 }
 
 .chat-submit:hover {
