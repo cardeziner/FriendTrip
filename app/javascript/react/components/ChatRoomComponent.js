@@ -133,11 +133,11 @@ const ChatRoomComponent = (props)  =>{
             name="chat_text"
             id="chat_text"
             role="text-box"
-            className=""
+            className="chat-box"
             onChange={handleInputChange}
             value={newFormPayload.chat_text}
           />
-          <input className="inline text-bar" type="submit" value="Send"/>
+          <input className="inline chat-submit" type="submit" value="Send"/>
         </div>
       <form onSubmit={handleSubmit} className="bord">
 
