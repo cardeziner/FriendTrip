@@ -562,10 +562,10 @@ const TripShow = props =>{
           </div>
           <div className="text-white vert"><img src={dates} className="icon inline center"/><h5 className="center font inline">{props.trip.start_date} - {props.trip.end_date}</h5></div>
             <div className="text-white vert"><img src={cost} className="icon inline center"/><h5 className="center  font inline">Your Costs: ${tally} </h5></div>
-            <div onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><div className="vert blue-click inline"><h3 className="inline">Your Flights{arrow()}</h3></div></div>
+            <div onClick={change3} className="vert inline"><img src={flight_logo} className="inline icon center"/><div className="vert blue-click inline"><h3 className="inline text-white-head">Your Flights{arrow()}</h3></div></div>
             {userTripsNotice()}
             <div className="center"><h5 id="flight-list" className={toggle3}><br/>{userFlightList}</h5></div>
-            <div className="text-white vert"><img src={hotel} className="icon inline center"/><div onClick={change7} className="center font inline click-purp">Your Hotels {arrow3()}</div></div>
+            <div className="text-white vert"><img src={hotel} className="icon inline center"/><div onClick={change7} className="center font inline click-purp"><h3 className="inline text-white-head">Your Hotels {arrow3()}</h3></div></div>
             {userHotelsNotice()}
             <div className="center"><h5 id="user-hotels" className={toggle7}>{userHotelList}</h5></div><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>

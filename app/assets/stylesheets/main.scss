@@ -298,6 +298,16 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   text-transform: capitalize;
 }
 
+.text-white-head{
+  font-family: 'Francois One', sans-serif;
+  color: gray;
+  text-transform: capitalize;
+}
+
+.text-white-head:hover{
+  color: white
+}
+
 .text-gray{
   font-family: 'Francois One', sans-serif;
   color: black;
@@ -469,7 +479,8 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
 .chat-box{
   height: 50px;
   width: 80%;
-  border-bottom-left-radius: 15px
+  border-bottom-left-radius: 15px;
+  border: 1px solid #1BB0CE;
 }
 
 .chat-submit:hover {
