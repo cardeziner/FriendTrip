@@ -2,15 +2,17 @@ import React, { useEffect } from 'react'
 
 const GoogleMapTile = (props) => {
 
+if(props.id){
   useEffect(() => {
     const geocoder = new google.maps.Geocoder();
     // ^^ grabs the current geo location
     const address = `${props.location}`
     // ^^ string int
     geocoder.geocode( { 'address': address}, function (results, status) {
+
       if (status == google.maps.GeocoderStatus.OK) {
         let latitude = results[0].geometry.location.lat()
-        let longitude = results[0].geometry.location.lng()
+        let longitude = results[0].geometry.location.lng
         const map = new google.maps.Map(document.getElementById(`map${props.id}`), {
              center: results[0].geometry.location,
              zoom: 12
@@ -27,6 +29,11 @@ const GoogleMapTile = (props) => {
   return (
     <div id={`map${props.id}`}></div>
   )
+}else{
+  return(
+    <div>status</div>
+  )
+}
 }
 
 export default GoogleMapTile
