@@ -566,7 +566,7 @@ const TripShow = props =>{
             {userTripsNotice()}
             <div className="center"><h5 id="flight-list" className={toggle3}><br/>{userFlightList}</h5></div>
             <div className="text-white vert"><img src={hotel} className="icon inline center"/><div onClick={change7} className="center font inline click-purp"><h3 className="inline text-white-head">Your Hotels {arrow3()}</h3></div></div>
-            {userHotelsNotice()}
+            {userHotelsNotice()}<br/>
             <div className="center"><h5 id="user-hotels" className={toggle7}>{userHotelList}</h5></div><br/>
             <div className="flex vert"><img src={friends} className="inline icon fifty"/><div className="inline">{blankUser()}</div></div>
               <div>
