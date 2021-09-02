@@ -517,40 +517,32 @@ const TripShow = props =>{
   }
 
   if(tripCity){
-    // useEffect(() => {
-    //   const geocoder = new google.maps.Geocoder()
-    //   const address = `${props.tripCity}`
-    //   geocoder.geocode( { 'address': address}, function (results, status) {
-    //     if (status == google.maps.GeocoderStatus.OK) {
-    //       setLatitude(results[0].geometry.location.lat())
-    //       setLongitude(results[0].geometry.location.lng())
-    //      }
-    //    })
-    //   })
 
-      useEffect(() =>{
-        fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=oFb44f4KnLyBTFo8vVTt2cshmxLC0W9L&location=${props.tripCity}`, {
-          credentials: "same-origin"
+    useEffect(() =>{
+      
+      fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=oFb44f4KnLyBTFo8vVTt2cshmxLC0W9L&location=${tripCity}`, {
+        credentials: "same-origin"
+      })
+      .then(response =>{
+          if(response.ok) {
+            return response
+          } else {
+            let errorMessage = `${response.status} (${response.statusText})`
+              error = new Error(errorMessage)
+            throw(error)
+          }
         })
-        .then(response =>{
-            if(response.ok) {
-              return response
-            } else {
-              let errorMessage = `${response.status} (${response.statusText})`
-                error = new Error(errorMessage)
-              throw(error)
-            }
-          })
-          .then(response => response.json())
-          .then(parsedGeoData => {
-            setLatitude(parsedGeoData.results[0].locations[0].latLng.lat)
-            setLongitude(parsedGeoData.results[0].locations[0].latLng.lng)
-          })
-          .catch(error => console.error(`Error in fetch: ${error.message}`))
-        }, [])
-  }else{
-    console.log("error in geocoding line 517")
-  }
+        .then(response => response.json())
+        .then(parsedGeoData => {
+
+          setLatitude(parsedGeoData.results[0].locations[0].latLng.lat)
+          setLongitude(parsedGeoData.results[0].locations[0].latLng.lng)
+        })
+        .catch(error => console.error(`Error in fetch: ${error.message}`))
+      }, [])
+    }else{
+      console.log("error in geocoding line 517")
+    }
 
 
   return(
@@ -564,6 +556,8 @@ const TripShow = props =>{
           filter={"blur(20px)"}
           >
             <GoogleMapTile
+            longitude={longitude}
+            latitude={latitude}
             id={props.trip.id}
             location={tripCity}
             trip={props.trip}
