@@ -93,8 +93,8 @@ const WeatherDisplay = (props) =>{
 // clear-day, rain, partly-cloudy day, sleet, snow, cloudy
 
     return(
-      <div>
-        <img src={imageURL}/><br/><br/>
+      <div className="center">
+        <img src={imageURL} className="med-icon center"/><br/><br/>
         <h5 className="text-white center">CURRENT TEMP</h5>
         <h1 className="text-white center">
           {Math.round(currentWeather.apparentTemperature)}° F

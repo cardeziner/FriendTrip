@@ -129,19 +129,19 @@ const ChatRoomComponent = (props)  =>{
         {tripChatList}
         </div>
         <div>
+        <form onSubmit={handleSubmit}>
           <input
             name="chat_text"
             id="chat_text"
             role="text-box"
-            className=""
+            className="chat-box"
             onChange={handleInputChange}
+            onSubmit={handleSubmit}
             value={newFormPayload.chat_text}
           />
-          <input className="inline text-bar" type="submit" value="Send"/>
+          <input className="inline chat-submit" type="submit" value="Send"/>
+          </form>
         </div>
-      <form onSubmit={handleSubmit} className="bord">
-
-      </form>
     </div>
   )
 }else{
