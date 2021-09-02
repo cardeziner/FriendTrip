@@ -8,7 +8,7 @@ if(props.id){
     // ^^ grabs the current geo location
     const address = `${props.location}`
     // ^^ string int
-    debugger
+
     geocoder.geocode( { 'address': address}, function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         var delay = 100
