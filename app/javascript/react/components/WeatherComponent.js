@@ -9,6 +9,7 @@ const WeatherComponent = (props) =>{
 
   if(props.city){
   useEffect(() => {
+
     const geocoder = new google.maps.Geocoder()
     const address = `${props.city}`
     geocoder.geocode( { 'address': address}, function (results, status) {

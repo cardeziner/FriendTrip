@@ -3,7 +3,22 @@ import React, { useEffect } from 'react'
 const GoogleMapTile = (props) => {
 
 if(props.id){
+
   useEffect(() => {
+
+    const axios = require('axios');
+    const params = {
+        access_key: '2cfdc801d7ace9435a1650bb6ba4b3df',
+        query: `${props.location}`
+    }
+
+    axios.get('https://api.positionstack.com/v1/forward', {params})
+      .then(response => {
+        console.log(response.data);
+      }).catch(error => {
+        console.log(error);
+      });
+
     const geocoder = new google.maps.Geocoder();
     // ^^ grabs the current geo location
     const address = `${props.location}`
