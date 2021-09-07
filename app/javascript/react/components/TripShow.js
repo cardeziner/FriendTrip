@@ -118,8 +118,9 @@ const TripShow = props =>{
         })
         .then(response => response.json())
         .then(parsedGeoData => {
-          setLatitude(parsedGeoData.results[0].locations[0].latLng.lat)
-          setLongitude(parsedGeoData.results[0].locations[0].latLng.lng)
+          
+          setLatitude(parsedGeoData.results[0].locations[5].latLng.lat)
+          setLongitude(parsedGeoData.results[0].locations[5].latLng.lng)
         })
         .catch(error => console.error(`Error in fetch: ${error.message}`))
       }, [])
