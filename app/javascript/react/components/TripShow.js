@@ -53,7 +53,6 @@ const TripShow = props =>{
 
 
   if(props.trip){
-
   const iD = (props.id - 1)
 
   useEffect(() =>{
@@ -101,6 +100,29 @@ const TripShow = props =>{
         setClick(false)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`)),[]
+  }
+
+  if(props.trip){
+    useEffect(() =>{
+      fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=oFb44f4KnLyBTFo8vVTt2cshmxLC0W9L&location=${props.trip.city}`, {
+        credentials: "same-origin"
+      })
+      .then(response =>{
+          if(response.ok) {
+            return response
+          } else {
+            let errorMessage = `${response.status} (${response.statusText})`
+              error = new Error(errorMessage)
+            throw(error)
+          }
+        })
+        .then(response => response.json())
+        .then(parsedGeoData => {
+          setLatitude(parsedGeoData.results[0].locations[0].latLng.lat)
+          setLongitude(parsedGeoData.results[0].locations[0].latLng.lng)
+        })
+        .catch(error => console.error(`Error in fetch: ${error.message}`))
+      }, [])
   }
 
   const addNewFlight = (formPayload) => {
@@ -515,35 +537,6 @@ const TripShow = props =>{
       )
     }
   }
-
-  if(tripCity){
-
-    useEffect(() =>{
-      
-      fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=oFb44f4KnLyBTFo8vVTt2cshmxLC0W9L&location=${tripCity}`, {
-        credentials: "same-origin"
-      })
-      .then(response =>{
-          if(response.ok) {
-            return response
-          } else {
-            let errorMessage = `${response.status} (${response.statusText})`
-              error = new Error(errorMessage)
-            throw(error)
-          }
-        })
-        .then(response => response.json())
-        .then(parsedGeoData => {
-
-          setLatitude(parsedGeoData.results[0].locations[0].latLng.lat)
-          setLongitude(parsedGeoData.results[0].locations[0].latLng.lng)
-        })
-        .catch(error => console.error(`Error in fetch: ${error.message}`))
-      }, [])
-    }else{
-      console.log("error in geocoding line 517")
-    }
-
 
   return(
     <div className="bg" style={sectionStyle}>

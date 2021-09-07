@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 const GoogleMapTile = (props) => {
 
 if(props.longitude){
-
   useEffect(() => {
 
     var map = new mqgl.Map(`map${props.id}`, 'PMGV4KC3xOKAyYU6yc0GLua1GQHjrmVW', {
@@ -15,8 +14,8 @@ if(props.longitude){
 
     map.load(function() {
       setTimeout(function() {
-        map.map.flyTo({speed: 0.5, zoom: 15, pitch: 60, bearing: 180, center: [props.latitude, props.longitude]})
-      }, 2000);
+        map.map.flyTo({speed: 0.5, zoom: 15, pitch: 60, bearing: 0, center: [props.latitude, props.longitude]})
+      }, 1000);
     });
   },[])
 

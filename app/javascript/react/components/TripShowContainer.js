@@ -8,9 +8,11 @@ const TripShowContainer = (props) =>{
   const [tripEvents, setTripEvents] = useState([])
   const [users, setUsers] = useState([])
   const [tripChats, setTripChats] = useState([])
+  const [latitude, setLatitude] = useState({})
+  const [longitude, setLongitude] = useState({})
 
   const tripId = props.match.params.id
-
+  
   useEffect(() =>{
     fetch(`/api/v1/trips/${tripId}`, {
       credentials: "same-origin"
@@ -34,10 +36,36 @@ const TripShowContainer = (props) =>{
       .catch(error => console.error(`Error in fetch: ${error.message}`))
     }, [])
 
+    if(trip){
+    useEffect(() =>{
+      fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=oFb44f4KnLyBTFo8vVTt2cshmxLC0W9L&location=${trip.city}`, {
+        credentials: "same-origin"
+      })
+      .then(response =>{
+          if(response.ok) {
+            return response
+          } else {
+            let errorMessage = `${response.status} (${response.statusText})`
+              error = new Error(errorMessage)
+            throw(error)
+          }
+        })
+        .then(response => response.json())
+        .then(parsedGeoData => {
+
+          setLatitude(parsedGeoData.results[0].locations[0].latLng.lat)
+          setLongitude(parsedGeoData.results[0].locations[0].latLng.lng)
+        })
+        .catch(error => console.error(`Error in fetch: ${error.message}`))
+      }, [])
+    }
+
   return(
     <div className="row">
       <h1 className="font center accent-red">{trip.name}</h1>
         <TripShow
+        latitude={latitude}
+        longitude={longitude}
         id={tripId}
         chats={tripChats}
         trip={trip}

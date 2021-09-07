@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react'
 
 const WeatherDisplayTile = (props) =>{
 
-  if(0 > props.longitude > 0){
+  if(props.longitude){
     const [weather, setWeather] = useState({})
-
       useEffect(() =>{
         fetch(`https://dark-sky.p.rapidapi.com/${props.latitude},${props.longitude}?lang=en&units=auto`, {
   	       "method": "GET",
