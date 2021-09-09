@@ -10,7 +10,7 @@ const WeatherDisplay = (props) =>{
   const snow = require('../../../assets/images/snow.png')
   const weather = require('../../../assets/images/weather.png')
 
-  if( 0 > props.longitude > 0){
+  if(0 > props.longitude > 0){
     const [icon, setIcon] = useState("")
     const [currentWeather, setCurrentWeather] = useState({})
     const [dailyWeather, setDailyWeather] = useState({})
@@ -86,11 +86,6 @@ const WeatherDisplay = (props) =>{
       }else{
         imageURL = weather
       }
-
-
-
-      // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
-// clear-day, rain, partly-cloudy day, sleet, snow, cloudy
 
     return(
       <div className="center">

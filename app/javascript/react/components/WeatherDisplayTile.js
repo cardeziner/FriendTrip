@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 
 const WeatherDisplayTile = (props) =>{
 
-  if(0 > props.longitude > 0){
-    const [weather, setWeather] = useState({})
+    if(0 > props.longitude > 0){
+      const [weather, setWeather] = useState({})
 
       useEffect(() =>{
         fetch(`https://dark-sky.p.rapidapi.com/${props.latitude},${props.longitude}?lang=en&units=auto`, {
@@ -29,9 +29,6 @@ const WeatherDisplayTile = (props) =>{
         .catch(error => console.error(`Error in fetch ${errorMessage}`))
       }, [])
 
-      // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
-// clear-day, rain, partly-cloudy day, sleet, snow, cloudy
-
     return(
       <div className="inline vert">
         <h5 className="font center inline vert">High of {Math.round(weather.apparentTemperature)}° & {weather.summary} </h5>
@@ -39,7 +36,7 @@ const WeatherDisplayTile = (props) =>{
     )
   }else{
     return(
-      <div className="text-white center inline">LOADING...PLEASE WAIT</div>
+      <div>LOADING...</div>
     )
   }
 }

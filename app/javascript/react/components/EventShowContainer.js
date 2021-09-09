@@ -12,6 +12,7 @@ const EventShowContainer = (props) =>{
     const [tripEvents, setTripEvents] = useState([])
     const [users, setUsers] = useState([])
     const [redirect, setRedirect] = useState(false)
+    const [unvotedEventStatus, setUnvotedEventStatus] = useState(true)
 
     const tripId = props.match.params.id
 
@@ -67,8 +68,11 @@ const EventShowContainer = (props) =>{
     }
 
     const eventsList = tripEvents.map(singleEvent => {
+      if(singleEvent.votes < (users.length / 2 )){
+
+
       return (
-        <div key={props.match.params.id} className="all-sides">
+        <div key={singleEvent.id} className="all-sides">
         <EventsTile
         id={singleEvent.id}
         users={users}
@@ -77,8 +81,10 @@ const EventShowContainer = (props) =>{
         />
         </div>
       )
-    }
-  )
+      }
+    })
+
+
 
     var sectionStyle = {
       backgroundImage: `url(${vote_bg})`,
@@ -102,12 +108,12 @@ const EventShowContainer = (props) =>{
           filter={"blur(20px)"}
           >
           <div className="no-pad">
-            <h4 className="text-white font center">VOTE ON EVENTS FOR</h4>
-            <h1 className="font accent-red center large ">{trip.name}</h1><br/>
+            <h4 className="text-yellow font center">VOTE ON EVENTS FOR</h4>
+            <h1 className="font accent-red center large ">{trip.name}</h1>
           </div>
             <BackdropFilter
             className="bord vert"
-            filter={"blur(20px)"}
+            filter={"blur(30px)"}
             >
             {eventsList}
             </BackdropFilter>

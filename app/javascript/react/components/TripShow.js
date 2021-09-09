@@ -9,8 +9,9 @@ import GooglePlaceComponent from './GooglePlaceComponent'
 import Unsplash from 'unsplash-js'
 import NewHotelForm from './NewHotelForm'
 import ChatRoomComponent from './ChatRoomComponent'
-import WeatherComponent from './WeatherComponent'
 import WeatherDisplayTile from './WeatherDisplayTile'
+import WeatherDisplay from './WeatherDisplay'
+import GoogleMap from './GoogleMap'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -53,7 +54,6 @@ const TripShow = props =>{
 
 
   if(props.trip){
-
   const iD = (props.id - 1)
 
   useEffect(() =>{
@@ -101,6 +101,33 @@ const TripShow = props =>{
         setClick(false)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`)),[]
+  }
+
+  if(props.trip){
+    useEffect(() =>{
+      fetch("https://trueway-geocoding.p.rapidapi.com/Geocode?address=San%20Diego%20CA&language=en", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "trueway-geocoding.p.rapidapi.com",
+		"x-rapidapi-key": "26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07"
+	}
+      })
+      .then(response =>{
+          if(response.ok) {
+            return response
+          } else {
+            let errorMessage = `${response.status} (${response.statusText})`
+              error = new Error(errorMessage)
+            throw(error)
+          }
+        })
+        .then(response => response.json())
+        .then(parsedGeoData => {
+          setLatitude(parsedGeoData.results[0].location.lat)
+          setLongitude(parsedGeoData.results[0].location.lng)
+        })
+        .catch(error => console.error(`Error in fetch: ${error.message}`))
+      }, [])
   }
 
   const addNewFlight = (formPayload) => {
@@ -516,22 +543,6 @@ const TripShow = props =>{
     }
   }
 
-  if(tripCity){
-    useEffect(() => {
-      const geocoder = new google.maps.Geocoder()
-      const address = `${props.city}`
-      geocoder.geocode( { 'address': address}, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          setLatitude(results[0].geometry.location.lat())
-          setLongitude(results[0].geometry.location.lng())
-         }
-       })
-      })
-  }else{
-    console.log("error in geocoding line 517")
-  }
-
-
   return(
     <div className="bg" style={sectionStyle}>
       <h1 className="font center accent-red head-shade">{props.trip.name}</h1>
@@ -544,8 +555,9 @@ const TripShow = props =>{
           >
             <GoogleMapTile
             id={props.trip.id}
-            location={tripCity}
-            trip={props.trip}
+            city={tripCity}
+            latitude={latitude}
+            longitude={longitude}
             />
             <div className="text-white inset vert">
             <img src={location} className="inline icon"/>
@@ -609,7 +621,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={flight_logo} className="icon inline vert"/><div onClick={change4} className="inline vert center heading"><h2 className="text-blue inline">Group Flights{arrow1()}</h2></div>
+                  <img src={flight_logo} className="icon inline vert"/><div onClick={change4} className="inline vert center heading"><h2 className="text-blue inline">Group Flights</h2>{arrow1()}</div>
                   {tripsNotice()}<br/>
                   <div id="flight-list" className={toggle4}>
                   {tripUserFlightList}<br/>
@@ -633,7 +645,7 @@ const TripShow = props =>{
                   className="bord"
                   filter={"blur(20px)"}
                   >
-                  <img src={hotel} className="icon inline vert"/><div onClick={change6} className="inline vert center"><h2 className="inline text-purp">Hotel Bookings{arrow2()}</h2></div>
+                  <img src={hotel} className="icon inline vert"/><div onClick={change6} className="inline vert center"><h2 className="inline text-purp">Hotel Bookings</h2>{arrow2()}</div>
                     {tripHotelsNotice()}
                   <div id="hotel-bookings" className={toggle6}><br/>
                     {tripHotelsList}
@@ -653,8 +665,10 @@ const TripShow = props =>{
                   filter={"blur(20px)"}
                   >
                   <img src={weather} className="icon inline vert"/><h2 className="inline text-white vert">Todays Weather</h2>
-                  <WeatherComponent
+                  <WeatherDisplay
                   city={tripCity}
+                  latitude={latitude}
+                  longitude={longitude}
                   /><br/>
                   </BackdropFilter>
                 </div>

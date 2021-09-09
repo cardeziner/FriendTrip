@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-
+import GoogleMap from './GoogleMap'
 import GoogleMapTile from './GoogleMapTile'
 import BackdropFilter from "react-backdrop-filter";
 import price from '../../../assets/images/price.png'
@@ -37,7 +37,7 @@ const EventsTile = (props) => {
 
   return(
     <div className="all-sides top-bord">
-    <GoogleMapTile
+    <GoogleMap
     id={props.event.id}
     location={props.event.location}
     />
