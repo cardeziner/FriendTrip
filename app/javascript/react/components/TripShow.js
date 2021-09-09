@@ -11,6 +11,7 @@ import NewHotelForm from './NewHotelForm'
 import ChatRoomComponent from './ChatRoomComponent'
 import WeatherComponent from './WeatherComponent'
 import WeatherDisplayTile from './WeatherDisplayTile'
+import GoogleMap from './GoogleMap'
 import trip_info from '../../../assets/images/trip-info.png'
 import location from '../../../assets/images/location.png'
 import dates from '../../../assets/images/dates.png'
@@ -549,7 +550,7 @@ const TripShow = props =>{
           className="bord vert"
           filter={"blur(20px)"}
           >
-            <GoogleMapTile
+            <GoogleMap
             longitude={longitude}
             latitude={latitude}
             id={props.trip.id}
