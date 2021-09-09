@@ -551,11 +551,8 @@ const TripShow = props =>{
           filter={"blur(20px)"}
           >
             <GoogleMap
-            longitude={longitude}
-            latitude={latitude}
             id={props.trip.id}
-            location={tripCity}
-            trip={props.trip}
+            location={props.trip.location}
             />
             <div className="text-white inset vert">
             <img src={location} className="inline icon"/>

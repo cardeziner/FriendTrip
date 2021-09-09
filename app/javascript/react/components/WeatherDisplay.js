@@ -87,11 +87,6 @@ const WeatherDisplay = (props) =>{
         imageURL = weather
       }
 
-
-
-      // partly cloudy, mostly cloudy, clear, possible light rain, humid and overcast, clear, possible light rain and humid, overcast,
-// clear-day, rain, partly-cloudy day, sleet, snow, cloudy
-
     return(
       <div className="center">
         <img src={imageURL} className="med-icon center"/><br/><br/>

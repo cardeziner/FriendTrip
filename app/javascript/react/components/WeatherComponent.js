@@ -8,7 +8,7 @@ const WeatherComponent = (props) =>{
   const [weatherData, setWeatherData] = useState({})
 
   if(props.city){
-  useEffect(() => {
+
 
     const geocoder = new google.maps.Geocoder()
     const address = `${props.city}`
@@ -18,7 +18,7 @@ const WeatherComponent = (props) =>{
         setLongitude(results[0].geometry.location.lng())
        }
      })
-    })
+    
 
   return(
     <div className="text-white">
