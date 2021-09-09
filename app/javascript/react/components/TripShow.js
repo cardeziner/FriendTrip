@@ -105,8 +105,12 @@ const TripShow = props =>{
 
   if(props.trip){
     useEffect(() =>{
-      fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=oFb44f4KnLyBTFo8vVTt2cshmxLC0W9L&location=${props.trip.city}`, {
-        credentials: "same-origin"
+      fetch("https://trueway-geocoding.p.rapidapi.com/Geocode?address=San%20Diego%20CA&language=en", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "trueway-geocoding.p.rapidapi.com",
+		"x-rapidapi-key": "26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07"
+	}
       })
       .then(response =>{
           if(response.ok) {
@@ -119,9 +123,8 @@ const TripShow = props =>{
         })
         .then(response => response.json())
         .then(parsedGeoData => {
-
-          setLatitude(parsedGeoData.results[0].locations[5].latLng.lat)
-          setLongitude(parsedGeoData.results[0].locations[5].latLng.lng)
+          setLatitude(parsedGeoData.results[0].location.lat)
+          setLongitude(parsedGeoData.results[0].location.lng)
         })
         .catch(error => console.error(`Error in fetch: ${error.message}`))
       }, [])
@@ -550,9 +553,11 @@ const TripShow = props =>{
           className="bord vert"
           filter={"blur(20px)"}
           >
-            <GoogleMap
+            <GoogleMapTile
             id={props.trip.id}
             location={props.trip.location}
+            latitude={latitude}
+            longitude={longitude}
             />
             <div className="text-white inset vert">
             <img src={location} className="inline icon"/>

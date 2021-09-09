@@ -69,7 +69,8 @@ const EventShowContainer = (props) =>{
 
     const eventsList = tripEvents.map(singleEvent => {
       if(singleEvent.votes < (users.length / 2 )){
-      setUnvotedEventStatus(false)
+
+
       return (
         <div key={singleEvent.id} className="all-sides">
         <EventsTile
@@ -82,16 +83,6 @@ const EventShowContainer = (props) =>{
       )
       }
     })
-
-
-
-    const noEventsPrompt = (status) =>{
-      if(unvotedEventStatus == true){
-        return(
-          <h4 className="text-white">PLEASE POST AN EVENT TO CONTINUE  >></h4>
-        )
-      }
-    }
 
 
 
@@ -118,14 +109,13 @@ const EventShowContainer = (props) =>{
           >
           <div className="no-pad">
             <h4 className="text-yellow font center">VOTE ON EVENTS FOR</h4>
-            <h1 className="font accent-red center large ">{trip.name}</h1><br/>
+            <h1 className="font accent-red center large ">{trip.name}</h1>
           </div>
             <BackdropFilter
             className="bord vert"
             filter={"blur(30px)"}
             >
             {eventsList}
-            {noEventsPrompt(unvotedEventStatus)}
             </BackdropFilter>
           </BackdropFilter>
         </div>
