@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 
 const WeatherDisplayTile = (props) =>{
-    const [weather, setWeather] = useState({})
+
+    if(0 > props.longitude > 0){
+      const [weather, setWeather] = useState({})
 
       useEffect(() =>{
         fetch(`https://dark-sky.p.rapidapi.com/${props.latitude},${props.longitude}?lang=en&units=auto`, {
@@ -32,7 +34,11 @@ const WeatherDisplayTile = (props) =>{
         <h5 className="font center inline vert">High of {Math.round(weather.apparentTemperature)}° & {weather.summary} </h5>
       </div>
     )
-
+  }else{
+    return(
+      <div>LOADING...</div>
+    )
+  }
 }
 
 export default WeatherDisplayTile
