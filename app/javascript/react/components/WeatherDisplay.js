@@ -10,7 +10,7 @@ const WeatherDisplay = (props) =>{
   const snow = require('../../../assets/images/snow.png')
   const weather = require('../../../assets/images/weather.png')
 
-  if( 0 > props.longitude > 0){
+  if(0 > props.longitude > 0){
     const [icon, setIcon] = useState("")
     const [currentWeather, setCurrentWeather] = useState({})
     const [dailyWeather, setDailyWeather] = useState({})
