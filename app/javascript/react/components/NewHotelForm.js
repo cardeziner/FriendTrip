@@ -53,6 +53,14 @@ const NewHotelForm = props =>{
     }
   }
 
+  const errorList = Object.keys(errors).map(error =>{
+    let str = error + " is blank!"
+    let cleanedError = str.replace("_", " ")
+    return(
+      <p className="text-purp">{cleanedError.toUpperCase()}<br/></p>
+    )
+  })
+
   return(
     <div>
       <h1 className="text-purp center">ENTER HOTEL INFO </h1>
@@ -117,6 +125,7 @@ const NewHotelForm = props =>{
               value={newFormPayload.check_out}
             />
           </label><br/>
+          {errorList}
           <br/><br/>
           <input className="btn btn-primary text center" type="submit" value="Add Hotel" />
         </form><br/>

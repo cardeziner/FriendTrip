@@ -77,7 +77,7 @@ const NewFlightForm = props =>{
       let str = error + " is blank!"
       let cleanedError = str.replace("_", " ")
       return(
-        <p className="accent-red">{cleanedError.toUpperCase()}<br/></p>
+        <p className="text-blue">{cleanedError.toUpperCase()}<br/></p>
       )
     })
 
