@@ -73,11 +73,13 @@ const NewFlightForm = props =>{
       }
     }
 
-    if(redirect){
+    const errorList = Object.keys(errors).map(error =>{
+      let str = error + " is blank!"
+      let cleanedError = str.replace("_", " ")
       return(
-        <Redirect to={`/trips/${props.tripId}`}/>
+        <p className="text-blue">{cleanedError.toUpperCase()}<br/></p>
       )
-    }
+    })
 
     return(
       <div className="center">
@@ -163,7 +165,9 @@ const NewFlightForm = props =>{
               value={newFormPayload.arrival_time}
             />
           </label><br/>
+          <div className="inline-block">{errorList}</div>
           <br/><br/>
+
           <input className="btn btn-primary text center" type="submit" value="Add Flight" />
         </form><br/>
       </div>

@@ -89,6 +89,14 @@ const NewTripmemberForm = props =>{
     return false;
   }
 
+  const errorList = Object.keys(errors).map(error =>{
+    let str = error + " is blank!"
+    let cleanedError = str.replace("_", " ")
+    return(
+      <p className="accent-red">{cleanedError.toUpperCase()}<br/></p>
+    )
+  })
+
   return(
     <div>
       <h1 className="center font accent-red">
@@ -127,6 +135,7 @@ const NewTripmemberForm = props =>{
               value={newFormPayload.last_name}
             />
           </label><br/>
+          {errorList}
           <input className="btn btn-primary text center" type="submit" value="Send Invite"  />
         </form><br/>
     </div>
