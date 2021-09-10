@@ -63,7 +63,6 @@ const WeatherDisplay = (props) =>{
       let imageURL = ''
 
       if(dailyWeather.icon){
-
         if(status.includes("clear")){
           imageURL = clear
         }

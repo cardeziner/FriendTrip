@@ -104,31 +104,30 @@ const TripShow = props =>{
   }
 
   if(props.trip){
-    useEffect(() =>{
-      fetch("https://trueway-geocoding.p.rapidapi.com/Geocode?address=San%20Diego%20CA&language=en", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "trueway-geocoding.p.rapidapi.com",
-		"x-rapidapi-key": "26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07"
-	}
-      })
-      .then(response =>{
-          if(response.ok) {
-            return response
-          } else {
-            let errorMessage = `${response.status} (${response.statusText})`
-              error = new Error(errorMessage)
-            throw(error)
-          }
-        })
-        .then(response => response.json())
-        .then(parsedGeoData => {
-          setLatitude(parsedGeoData.results[0].location.lat)
-          setLongitude(parsedGeoData.results[0].location.lng)
-        })
-        .catch(error => console.error(`Error in fetch: ${error.message}`))
-      }, [])
-  }
+    fetch(`https://trueway-geocoding.p.rapidapi.com/Geocode?address=${props.trip.city}&language=en`, {
+	     "method": "GET",
+	      "headers": {
+		        "x-rapidapi-host": "trueway-geocoding.p.rapidapi.com",
+		          "x-rapidapi-key": "26169f8158msh2412dd030a7ba8ep1feac3jsn87364f9e3c07"
+	           }
+           })
+           .then(response =>{
+             if(response.ok) {
+               return response
+             }else{
+               let errorMessage = `${response.status} (${response.statusText})`
+               error = new Error(errorMessage)
+               debugger
+               throw(error)
+             }
+           })
+           .then(response => response.json())
+           .then(parsedGeoData => {
+             setLatitude(parsedGeoData.results[0].location.lat)
+             setLongitude(parsedGeoData.results[0].location.lng)
+           })
+           .catch(error => console.error(`Error in fetch: ${error.message}`)),[]
+         }
 
   const addNewFlight = (formPayload) => {
     fetch('/api/v1/flights', {
