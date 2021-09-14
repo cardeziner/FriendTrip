@@ -71,7 +71,6 @@ const TripShow = props =>{
     })
     .then(response => response.json())
     .then(parsedTripsData =>{
-      debugger
       setTripChats(parsedTripsData.chats)
       setUserTripHotels(parsedTripsData.user_trip_hotels)
       setFlightData(parsedTripsData.flights)
@@ -103,6 +102,28 @@ const TripShow = props =>{
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`)),[]
   }
+
+  if(props.trip.city){
+    fetch(`https://api.geoapify.com/v1/geocode/search?text=${props.trip.city}%20${props.trip.state}&apiKey=02a4a981d7c740b798880f686324c895`, {
+      credentials: "same-origin",
+      method: 'GET'
+        })
+    .then(response => {
+      if(response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(parsedData =>{
+      setLatitude(parsedData.features[0].geometry.coordinates[1])
+      setLongitude(parsedData.features[0].geometry.coordinates[0])
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`)),[]
+    }
 
 
 
@@ -529,7 +550,7 @@ const TripShow = props =>{
           className="bord vert"
           filter={"blur(20px)"}
           >
-            <GoogleMap
+            <GoogleMapTile
             id={props.trip.id}
             city={tripCity}
             latitude={latitude}
