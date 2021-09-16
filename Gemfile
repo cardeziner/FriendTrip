@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'invitation'
-gem 'nokogiri'
+gem "nokogiri", ">= 1.11.7"
 gem 'pry'
 gem 'figaro'
 # Use Redis adapter to run Action Cable in production
