@@ -3,33 +3,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Londrina+Solid:wght@900&display=swap');
-
 @import "bootstrap";
 
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    zoom: 85%;
-    overflow: scroll;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  zoom: 85%;
+  overflow: scroll;
 }
 
 .map-container {
-height: 300px;
+  height: 300px;
 }
 
 .sidebar {
-background-color: rgba(35, 55, 75, 0.9);
-color: #fff;
-padding: 6px 12px;
-font-family: monospace;
-z-index: 1;
-position:absolute;
-align-items: center;
-top: 0;
-left: 0;
-margin: 12px;
-border-radius: 4px;
+  background-color: rgba(35, 55, 75, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position:absolute;
+  align-items: center;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
 }
 
 
@@ -860,9 +859,6 @@ col-3, col-5, col-6, col-8, col-xs-12, col-md-5{
   height: 100vw;
   width: 100;
 }
-
-
-
 
 .accent-red {
   font-family: 'Francois One', sans-serif;

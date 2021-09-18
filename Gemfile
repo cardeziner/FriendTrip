@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'invitation'
-gem "nokogiri", ">= 1.11.7"
+gem 'nokogiri'
 gem 'pry'
 gem 'figaro'
 # Use Redis adapter to run Action Cable in production
@@ -53,7 +53,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails', group: [:development, :test]
 gem 'jquery-rails'
-gem 'dotenv-rails', group: [:production, :development, :test]
+gem 'dotenv-rails', group: [:development, :test]
 gem 'rspec-rails', '3.8.2', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'launchy', group: [:development, :test]
