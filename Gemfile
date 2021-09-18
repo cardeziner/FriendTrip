@@ -25,6 +25,7 @@ gem 'invitation'
 gem 'nokogiri'
 gem 'pry'
 gem 'figaro'
+gem 'dotenv'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
