@@ -14,7 +14,7 @@ import EventEditContainer from './EventEditContainer'
 import NewFlightForm from './NewFlightForm'
 import ReviewListComponent from './ReviewListComponent'
 import ChatRoomComponent from './ChatRoomComponent'
-
+import DirectionsComponent from './DirectionsComponent'
 
 export const App = (props) => {
   return (
@@ -30,7 +30,7 @@ export const App = (props) => {
         <Route exact path='/trips/:id/flights' component={FlightTile}></Route>
         <Route exact path='/invites/new' component={NewTripmemberForm}></Route>
         <Route exact path='/reviews' component={ReviewListComponent}></Route>
-        <Route exact path='/chatroom' component ={ChatRoomComponent}></Route>
+        <Route exact path='/directions' component ={DirectionsComponent}></Route>
       </Switch>
     </BrowserRouter>
   )

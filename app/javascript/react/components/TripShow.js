@@ -24,7 +24,7 @@ import flight_logo from '../../../assets/images/Flight-logo.png'
 import flight_to from '../../../assets/images/flight_to.png'
 import hotel from '../../../assets/images/hotel.png'
 import weather from '../../../assets/images/weather.png'
-
+import DirectionsComponent from './DirectionsComponent'
 
 require('dotenv').config()
 
@@ -245,6 +245,7 @@ const TripShow = props =>{
                   </div>
               </div>
           </div>
+          <p onClick={window.alert(<DirectionsComponent/>)}></p>
         </div>
         )
       }

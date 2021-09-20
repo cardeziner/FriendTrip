@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "invites/new", to: 'static_pages#index'
   get "reviews", to: 'static_pages#index'
   get "/chatroom", to: 'static_pages#index'
+  get "/directions", to: 'static_pages#index'
 
   namespace :api do
     namespace :v1 do
