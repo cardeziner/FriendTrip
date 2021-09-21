@@ -245,7 +245,6 @@ const TripShow = props =>{
                   </div>
               </div>
           </div>
-          <p onClick={window.alert(<DirectionsComponent/>)}></p>
         </div>
         )
       }
