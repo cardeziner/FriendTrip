@@ -507,7 +507,7 @@ const TripShow = props =>{
   const userTripsNotice = () =>{
     if (userFlightList.length < 1){
       return(
-        <h5 className="text-white center">YOU HAVE NOT ADDED ANY FLIGHTS YET.<br/> CLICK "+ADD A FLIGHT" BELOW GROUP FLIGHTS SECTION TO BEGIN.</h5>
+        <h5 className="text-white center">YOU HAVE NOT ADDED ANY FLIGHTS YET.<br/> CLICK "+ADD A FLIGHT" TO BEGIN.</h5>
       )
     }else{
       return(
@@ -519,7 +519,7 @@ const TripShow = props =>{
   const tripHotelsNotice = () =>{
     if (tripHotels.length < 1){
       return(
-        <h5 className="text-white center pad">YOUR FRIENDS HAVE NOT ADDED ANY HOTELS YET. CLICK "+ADD A HOTEL" BELOW TO BEGIN.</h5>
+        <h5 className="text-white center pad">YOUR FRIENDS HAVE NOT ADDED ANY HOTELS YET.<br/> CLICK "+ADD A HOTEL" BELOW TO BEGIN.</h5>
       )
     }else{
       return(
