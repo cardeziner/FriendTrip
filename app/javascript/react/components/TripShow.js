@@ -519,7 +519,7 @@ const TripShow = props =>{
   const tripHotelsNotice = () =>{
     if (tripHotels.length < 1){
       return(
-        <h5 className="text-white center pad">YOU HAVE NOT ADDED ANY HOTELS YET. CLICK "+ADD A HOTEL" BELOW TO BEGIN.</h5>
+        <h5 className="text-white center pad">YOUR FRIENDS HAVE NOT ADDED ANY HOTELS YET. CLICK "+ADD A HOTEL" BELOW TO BEGIN.</h5>
       )
     }else{
       return(
@@ -599,12 +599,25 @@ const TripShow = props =>{
             </div>
           </div>
             <div className="col-xs-12 col-md-5 grid tall">
+            <h1 className="text-white vert right-orange pad right-head"><p>Weather</p></h1>
+            <BackdropFilter
+            className="bord col-12"
+            filter={"blur(20px)"}
+            >
+            <img src={weather} className="icon inline vert"/><h2 className="inline text-white vert">Todays Weather</h2>
+            <WeatherDisplay
+            city={tripCity}
+            latitude={latitude}
+            longitude={longitude}
+            /><br/>
+            </BackdropFilter>
               <h1 className="text-white vert right-yellow pad right-head"><p className="">Group Itinerary</p></h1>
+
                 <BackdropFilter
                 className="bord"
                 filter={"blur(20px)"}
                 >
-                <div className="no-top">
+                <div >
                   <img src={schedule} className="icon inline vert"/><h2 className="text-yellow text inline vert"> Scheduled Events </h2>
                   </div>
                   <div className="text center vert">
@@ -656,18 +669,7 @@ const TripShow = props =>{
                     />
                   </div>
                   </BackdropFilter><br/>
-                  <h1 className="text-white vert right-orange pad right-head"><p>Weather</p></h1>
-                  <BackdropFilter
-                  className="bord col-12"
-                  filter={"blur(20px)"}
-                  >
-                  <img src={weather} className="icon inline vert"/><h2 className="inline text-white vert">Todays Weather</h2>
-                  <WeatherDisplay
-                  city={tripCity}
-                  latitude={latitude}
-                  longitude={longitude}
-                  /><br/>
-                  </BackdropFilter>
+
                 </div>
               </div>
             </div>
