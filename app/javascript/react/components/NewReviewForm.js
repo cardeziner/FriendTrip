@@ -152,11 +152,9 @@ const NewReviewForm = props =>{
         <input className="btn btn-primary font" type="submit" value="Submit"/><br/><br/>
       </form>
       <div className="review-box">
+      </div>
       <h1 className="font pad accent-red">Reviews</h1>
       <div className="inline-block">{reviewList}</div>
-
-      <a href="/reviews"><p className="center text-yellow yell-hov">SEE MORE...</p></a>
-      </div>
     </div>
   )
 }else{
