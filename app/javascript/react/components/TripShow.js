@@ -85,11 +85,16 @@ const TripShow = props =>{
     if(props.trip.city && click){
       fetch(`https://api.unsplash.com/search/photos/?client_id=_0SUzohG1CVcvSuRoQCWkvAZr0UAuFoP0UzND3O0i2g&query=${props.trip.city, props.trip.state}`, {
         credentials: "same-origin",
-          })
+        header: {
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Headers': '*'
+          }
+        })
       .then(response => {
         if(response.ok) {
           return response
         } else {
+
           let errorMessage = `${response.status} (${response.statusText})`
           error = new Error(errorMessage)
           throw(error)
