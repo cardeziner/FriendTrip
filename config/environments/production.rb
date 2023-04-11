@@ -10,13 +10,13 @@ Rails.application.configure do
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  config.eager_load = false
 
   # config/environments/production.rb
 
   config.action_mailer.delivery_method = :smtp
   host = 'friendtrip-bt.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = { host: 'friendtrip-bt.herokuapp.com' }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {

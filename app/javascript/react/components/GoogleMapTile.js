@@ -1,30 +1,51 @@
-import React, { useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react';
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2FyZGV6aW5lciIsImEiOiJja3QyOGZuZWQwbWxkMnFvM2xueDNvdmxtIn0._WjMDWL2Rl3138oFlaOQHg';
 
 const GoogleMapTile = (props) => {
 
+  if(0 > props.longitude > 0){
+    const mapContainer = useRef(null)
+    const map = useRef(null)
+    const [lng, setLng] = useState(props.longitude)
+    const [lat, setLat] = useState(props.latitude)
+    const [zoom, setZoom] = useState(9)
+
   useEffect(() => {
-    const geocoder = new google.maps.Geocoder();
-    const address = `${props.location}`
-    geocoder.geocode( { 'address': address}, function (results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        let latitude = results[0].geometry.location.lat()
-        let longitude = results[0].geometry.location.lng()
-        const map = new google.maps.Map(document.getElementById(`map${props.id}`), {
-             center: results[0].geometry.location,
-             zoom: 12
-        })
-        const marker = new google.maps.Marker({position: results[0].geometry.location, map: map})
-        google.maps.event.addListener(marker, 'click', function () {
-          window.open('https://www.google.com/maps?z=12&t=m&q=loc:latitude+longitude');
-       })
-        marker.setMap( map )
-      }
+    if (map.current) return// initialize map only once
+      map.current = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [lng, lat],
+        zoom: zoom
+      })
     })
-  },[])
+
+  useEffect(() => {
+  if (!map.current) return; // wait for map to initialize
+  map.current.on('move', () => {
+  setLng(map.current.getCenter().lng.toFixed(4));
+  setLat(map.current.getCenter().lat.toFixed(4));
+  setZoom(map.current.getZoom().toFixed(2));
+  });
+  });
 
   return (
-    <div id={`map${props.id}`}></div>
+  <div>
+  <div ref={mapContainer} className="map-container" />
+  <div className="sidebar center">
+  Your upcoming trip is in {props.city}
+  </div>
+  </div>
+  );
+}else{
+  return(
+    <div>LOADING MAP...PLEASE WAIT</div>
   )
 }
+}
+
+
 
 export default GoogleMapTile

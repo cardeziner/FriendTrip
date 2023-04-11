@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag asset_path('FTLOGO.png') %>
+  <script src="https://api.mqcdn.com/sdk/mapquest-gl-js/v0.4.0/mapquest-gl.js"></script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-gl-js/v0.4.0/mapquest-gl.css"/>
 </head>
 <body>
   <nav>
@@ -40,7 +43,7 @@
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
-
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_KEY"]}&libraries=places" %>
   <%- if Rails.env.development? || Rails.env.test? -%>
     <%= javascript_tag do %>
       window.railsEnv = '<%= Rails.env %>'
@@ -49,7 +52,5 @@
   <%= javascript_pack_tag 'application' %>
 
   <%= yield :extra_footer %>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6-s7yJ6sFvKg1iFz2RMBzkHC2rWm8ncY&callback"
-    async defer></script>
-</body>
+  </body>
 </html>

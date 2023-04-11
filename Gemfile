@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.8.1'
 # Use postgresql as the database for Active Record
 gem "bootstrap", "~> 4.5"
 
@@ -23,13 +23,19 @@ gem 'faraday'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '3543363026121ee28d98dfce4cb6366980c055ee'
 gem 'invitation'
+gem 'nokogiri'
+gem 'pry'
+gem 'figaro'
+gem 'dotenv'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 gem 'sqlite3', '~> 1.3', '>= 1.3.11'
+
 gem 'faker'
 gem 'racc', "~> 1.4.0"
 gem 'bcrypt', '~> 3.1.7'

@@ -52,7 +52,7 @@ const NewEventForm = props =>{
 
   return(
     <div><br/>
-      <p className="text-blue text-white center">FILL OUT REQUIRED FIELDS BELOW FOR THE EVENT YOU WOULD LIKE TO POST</p>
+      <p className="text-white center">FILL OUT REQUIRED FIELDS BELOW FOR THE EVENT YOU WOULD LIKE TO POST</p>
       <div className="text">
           <form onSubmit={handleSubmit}>
             <label className="name text-white">

@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-
+import GoogleMap from './GoogleMap'
 import GoogleMapTile from './GoogleMapTile'
 import BackdropFilter from "react-backdrop-filter";
 import price from '../../../assets/images/price.png'
@@ -9,6 +9,7 @@ import place from '../../../assets/images/place.png'
 import vote from '../../../assets/images/vote.png'
 
 const EventsTile = (props) => {
+
   const addEventVote = () =>{
     window.alert(`You have added a vote for ${props.event.name}`)
     fetch(`/api/v1/trips/${props.tripId}/events/${props.event.id}`, {
@@ -36,7 +37,7 @@ const EventsTile = (props) => {
 
   return(
     <div className="all-sides top-bord">
-    <GoogleMapTile
+    <GoogleMap
     id={props.event.id}
     location={props.event.location}
     />
