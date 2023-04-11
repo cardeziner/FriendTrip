@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_173123) do
+ActiveRecord::Schema.define(version: 2021_02_25_003748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "chats", force: :cascade do |t|
-    t.string "user_name", null: false
-    t.string "chat_text", null: false
-    t.bigint "trip_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["trip_id"], name: "index_chats_on_trip_id"
-  end
 
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
@@ -36,36 +27,16 @@ ActiveRecord::Schema.define(version: 2021_07_09_173123) do
     t.index ["trip_id"], name: "index_events_on_trip_id"
   end
 
-  create_table "flights", force: :cascade do |t|
-    t.string "airline", null: false
-    t.string "on_time_status"
-    t.date "departure_date", null: false
-    t.time "departure_time", null: false
-    t.date "arrival_date", null: false
-    t.time "arrival_time", null: false
-    t.bigint "trip_id", null: false
-    t.bigint "user_id", null: false
-    t.string "user_name"
-    t.string "departing_airport"
-    t.string "arriving_airport"
-    t.index ["trip_id"], name: "index_flights_on_trip_id"
-    t.index ["user_id"], name: "index_flights_on_user_id"
-  end
-
   create_table "hotels", force: :cascade do |t|
-    t.string "name", null: false
     t.string "address", null: false
     t.string "city", null: false
     t.string "state", null: false
-    t.datetime "check_in", null: false
-    t.datetime "check_out", null: false
-    t.bigint "trip_id", null: false
-    t.bigint "user_id", null: false
+    t.date "check_in_day"
+    t.date "check_out_day"
+    t.time "check_in_time"
+    t.time "check_out_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_name"
-    t.index ["trip_id"], name: "index_hotels_on_trip_id"
-    t.index ["user_id"], name: "index_hotels_on_user_id"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -82,15 +53,6 @@ ActiveRecord::Schema.define(version: 2021_07_09_173123) do
     t.index ["recipient_id"], name: "index_invites_on_recipient_id"
     t.index ["sender_id"], name: "index_invites_on_sender_id"
     t.index ["token"], name: "index_invites_on_token"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "rating", null: false
-    t.string "review", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "tripmembers", force: :cascade do |t|
@@ -112,15 +74,6 @@ ActiveRecord::Schema.define(version: 2021_07_09_173123) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "userhotels", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "hotel_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["hotel_id"], name: "index_userhotels_on_hotel_id"
-    t.index ["user_id"], name: "index_userhotels_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -131,7 +84,6 @@ ActiveRecord::Schema.define(version: 2021_07_09_173123) do
     t.datetime "updated_at", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "invitation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

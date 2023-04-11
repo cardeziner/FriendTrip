@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'devise_invitable', '~> 2.0.0'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '3543363026121ee28d98dfce4cb6366980c055ee'
 gem 'invitation'
 gem 'nokogiri'
 gem 'pry'
@@ -33,8 +34,11 @@ gem 'dotenv'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'faker'
+gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 
+gem 'faker'
+gem 'racc', "~> 1.4.0"
+gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
 
