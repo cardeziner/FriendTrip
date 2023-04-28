@@ -2,7 +2,7 @@
   "name": "FriendTrip",
   "private": true,
   "engines": {
-    "node": ">=14.18.0",
+    "node": ">=16.14.0",
     "yarn": ">=0.25.2"
   },
   "dependencies": {
