@@ -1,5 +1,6 @@
 {
   "name": "FriendTrip",
+  "proxy": "https://friendtrip-bt.herokuapp.com",
   "private": true,
   "engines": {
     "node": "^14.0.0",
