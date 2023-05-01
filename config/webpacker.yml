@@ -47,8 +47,11 @@ development:
     disable_host_check: true
     use_local_ip: false
     quiet: false
-    headers:
-      'Access-Control-Allow-Origin': '*'
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    }
     watch_options:
       ignored: '**/node_modules/**'
 
