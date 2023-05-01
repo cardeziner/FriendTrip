@@ -2,8 +2,8 @@
   "name": "FriendTrip",
   "private": true,
   "engines": {
-    "node": ">=18.0.1",
-    "yarn": ">=1.22.19"
+    "node": "^14.0.0",
+    "yarn": "^1.20.0"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
@@ -28,7 +28,7 @@
     "lodash": "^4.17.15",
     "material-ui-search-bar": "^1.0.0",
     "node-geocoder": "^3.27.0",
-    "node-sass": "^7.0.1",
+    "node-sass": "^6.0.0",
     "opencage-api-client": "^0.7.1",
     "prop-types": "~15.6.0",
     "react": "~16.8.0",
